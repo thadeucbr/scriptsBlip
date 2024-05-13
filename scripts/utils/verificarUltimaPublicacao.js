@@ -45,7 +45,6 @@ function verificarUltimaPublicacao(key, name) {
       const isPublishedToday = lastPublicationDate.getUTCFullYear() === currentDate.getUTCFullYear() &&
         lastPublicationDate.getUTCMonth() === currentDate.getUTCMonth() &&
         lastPublicationDate.getUTCDate() === currentDate.getUTCDate();
-
       if (isPublishedToday) {
         log('verde', `Fluxo publicado ${name}`)
       } else {
