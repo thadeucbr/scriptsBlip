@@ -53,9 +53,10 @@ async function getBotJson({ key, bot, env }) {
     .catch(error => console.log('error', error));
 }
 
-const bots = [...dev]
+const bots = [...dev, ...beta, ...prod, ...local]
 function backup(index) {
   if (index === 0 && !fs.existsSync(`${date}`)) {
+    fs.mkdirSync(`${date}/local`, { recursive: true })
     fs.mkdirSync(`${date}/dev`, { recursive: true })
     fs.mkdirSync(`${date}/beta`, { recursive: true })
     fs.mkdirSync(`${date}/prod`, { recursive: true })
@@ -68,7 +69,7 @@ function backup(index) {
   setTimeout(() => {
     getBotJson(bots[index]);
     backup(index + 1);
-  }, 1000);
+  }, 500);
 }
 
 backup(0);

@@ -20,7 +20,7 @@ function run(inputUsuario, dynamicContent) {
       const regexDictionary = {}
       const { rows } = JSON.parse(dynamicContent).interactive.action.sections[0]
       rows.forEach((button, index) => {
-            const key = `^(${index + 1}|${posicoes[index + 1]}|${escapeRegExp(button.reply.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase())})$`
+            const key = `^(${index + 1}|${posicoes[index + 1]}|${escapeRegExp(button.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase())})$`
           regexDictionary[key] = button.title
       })
       for (let regex in regexDictionary) {
@@ -33,45 +33,3 @@ function run(inputUsuario, dynamicContent) {
       return 'input inesperado'
   }
 }
-
-var obj = {
-    "recipient_type": "individual",
-    "type": "interactive",
-    "interactive": {
-        "type": "list",
-        "header": {
-            "type": "text",
-            "text": ""
-        },
-        "body": {
-            "text": "Agora, por gentileza, selecione no menu abaixo a opção desejada.👇"
-        },
-        "action": {
-            "button": "Assuntos",
-            "sections": [
-                {
-                    "title": "",
-                    "rows": [
-                        {
-                            "id": "1",
-                            "title": "Suporte",
-                            "description": "Ajuda com problemas na máquina"
-                        },
-                        {
-                            "id": "2",
-                            "title": "Configurações",
-                            "description": "Ajuda com as configurações básicas da máquina."
-                        },
-                        {
-                            "id": "3",
-                            "title": "Erros gerais",
-                            "description": "Mensagens de erro na máquina"
-                        }
-                    ]
-                }
-            ]
-        }
-    }
-}
-
-console.log(run('Configuração', JSON.stringify(obj))) // Suporte
