@@ -1,0 +1,23 @@
+"Bot","Bloco","Nome do Script","Endpoint","Metodo","Token","Variavel De Resposta","Variavel De Status","Variavel enviada no body","Descrição"
+"[DEV] SPD Solucoes","Vender com Link","Requisição HTTP","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/servicos-produtos/assistente-virtual/v1/clientes/{{doc}}/produtos/ECOM?view=habilitacoes&codigoEc={{ec}}&codigoSubproduto=LNKE&idUsuario={{shortname}}","GET","Bearer {{bodyToken@access_token}}","statusCorpo","statusLink","-",""
+"[DEV] SPD Solucoes","Vender com Link","Limite","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/servicos-produtos/assistente-virtual/v1/clientes/{{doc}}/produtos/ECOM?view=elegibilidade&codigoSubproduto=LNKE&idUsuario={{shortname}}&codigoEc={{ec}}","GET","Bearer {{bodyToken@access_token}}","statusCorpo","statusLink","-",""
+"[DEV] SPD Solucoes","Vender com Link - API","links-pagamento","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/servicos-produtos/assistente-virtual/v1/links-pagamento","POST","Bearer {{bodyToken@access_token}}","bodyLinkPagamento","statusLinkPagamento","{
+  ""comerciante"": {
+    ""codigoEc"": ""{{ec}}""
+  },
+  ""valor"": ""{{valor}}"",
+  ""descricao"": ""{{mensagem}}"",
+  ""parcelamento"": {
+    ""numeroParcelas"": ""{{parcelas}}"",
+    ""fixo"": true
+  }
+}",""
+"[DEV] SPD Solucoes","[S.4.0.0][HTTP] Gestão de links","gestão de links","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/servicos-produtos/assistente-virtual/v1/estabelecimentos/{{ec}}/links-pagamento?periodo.gte={{30dias}}&periodo.lte={{hoje}}","GET","Bearer {{bodyToken@access_token}}","bodyGestao","statusGestao","-",""
+"[DEV] SPD Solucoes","API Cancelar Link","cancelar link","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/servicos-produtos/assistente-virtual/v1/estabelecimentos/{{ec}}/links-pagamento/{{idLinkPagamento}}/cancelar","POST","Bearer {{bodyToken@access_token}}","bodyCancelamento","statusCancelamento","{
+    ""firstName"": ""John"",
+    ""lastName"": ""Doe""
+}",""
+"[DEV] SPD Solucoes","Gestão de links - Data especifica","gestão de links","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/servicos-produtos/assistente-virtual/v1/estabelecimentos/{{ec}}/links-pagamento?periodo.gte={{dataFormatada}}&periodo.lte={{dataFormatada}}","GET","Bearer {{bodyToken@access_token}}","bodyGestao","statusGestao","-",""
+"[DEV] SPD Solucoes","API gestão link","gestão de links","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/servicos-produtos/assistente-virtual/v1/estabelecimentos/{{ec}}/links-pagamento?periodo.gte={{30dias}}&periodo.lte={{hoje}}","GET","Bearer {{bodyToken@access_token}}","bodyGestao","statusGestao","-",""
+"[DEV] SPD Solucoes","[S.2.0.1] [HTTP] Api Consulta Status Protocolo","HTTP GET ""bodyConsultaProtocolo"" (Consultar Protocolo)","{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{numeroProtocolo}}","GET","Bearer {{bodyToken@access_token}}","bodyConsultaProtocolo","statusConsultaProtocolo","-",""
+"[DEV] SPD Solucoes","[S.2.1.4][HTTP] Atualizar Protocolo","HTTP POST ""bodyOcorrencia"" (Cria nova ocorrencia)","{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{numeroProtocolo}}/ocorrencias","POST","Bearer {{bodyToken@access_token}}","bodySolucoesOcorrencia","statusSolucoesOcorrencia","{{payloadOcorrenciaSolucao}}",""

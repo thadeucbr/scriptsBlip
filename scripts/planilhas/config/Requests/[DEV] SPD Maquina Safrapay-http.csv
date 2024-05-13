@@ -1,0 +1,10 @@
+"Bot","Bloco","Nome do Script","Endpoint","Metodo","Token","Variavel De Resposta","Variavel De Status","Variavel enviada no body","Descrição"
+"[DEV] SPD Maquina Safrapay","[MS.2.1.3] [HTTP] API Simular Vendas","HTTP POST ""bodySimulacao""","{{config.urlCHT}}/safrapay/vendas-servicos/vendas/planejamentos-vendas/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}/vendas/simular","POST","Bearer {{bodyToken@access_token}}","bodySimulacao","statusSimulacao","{
+  ""valorVenda"": ""{{salesValue}}"",
+  ""tipoSimulacao"": ""{{salesOrder}}"",
+  ""modalidade"": ""{{salesType}}"",
+  ""tipoPagamento"": ""{{salesPaymentType}}""
+}",""
+"[DEV] SPD Maquina Safrapay","[MS.7.3.0][HTTP] API Protocolo","HTTP POST ""bodyProtocoloBpm"" (Cria Protocolo no Front)","{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos","POST","Bearer {{bodyToken@access_token}}","bodyProtocoloBpm","statusProtocoloBpm","{{payloadProtocolo}}",""
+"[DEV] SPD Maquina Safrapay","[MS.7.3.0][HTTP] API Protocolo","HTTP POST ""bodyOcorrencia"" (Cria nova ocorrencia)","{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{idProtocoloBpm}}/ocorrencias","POST","Bearer {{bodyToken@access_token}}","bodyOcorrencia","statusOcorrencia","{{payloadOcorrencia}}",""
+"[DEV] SPD Maquina Safrapay","[MS.7.3.0][HTTP] API Protocolo","HTTP GET ""bodyConsultaProtocolo"" (Consultar Protocolo)","{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{idProtocoloBpm}}","GET","Bearer {{bodyToken@access_token}}","bodyConsultaProtocolo","statusConsultaProtocolo","-",""

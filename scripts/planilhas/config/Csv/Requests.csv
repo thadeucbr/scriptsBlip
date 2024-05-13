@@ -1,0 +1,71 @@
+"Bot","Bloco","Nome do Script","Endpoint","Metodo","Token","Variavel De Resposta","Variavel De Status","Variavel enviada no body","Descrição"
+"[DEV] SPD Taxas e Condicoes","[TC.3.0.0][HTTP] API Taxas de Antecipação","HTTP GET ""taxaBody""","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/antecipacoes-recebiveis/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}?view=taxas-antecipacao","GET","Bearer {{bodyToken@access_token}}","taxaBody","taxaStatus","-",""
+"[DEV] SPD Taxas e Condicoes","[TC.3.0.0][HTTP] API Taxas de Antecipação","HTTP GET ""taxaVendasBody""","{{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}}","GET","Bearer {{bodyToken@access_token}}","taxaVendasBody","taxaVendasStatus","-",""
+"[DEV] SPD Taxas e Condicoes","[TC.4.0.0][HTTP] API Consultar Máquinas","HTTP GET ""consultMaquina"" (Terminais)","{{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/terminais?codigoEstabelecimentoComercial={{selectedEc@codigoEc}}","GET","Bearer {{bodyToken@access_token}}","consultMaquina","consultMaquinaStatus","-",""
+"[DEV] SPD Taxas e Condicoes","[TC.4.5.0][HTTP][SET] Alugada","HTTP GET ""bodyAlugueis"" (alugueis)","{{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/alugueis?tipoFiltro=EC&valorFiltro={{selectedEc@codigoEc}}","GET","Bearer {{bodyToken@access_token}}","bodyAlugueis","statusAlugueis","-",""
+"[DEV] SPD Taxas e Condicoes","[TC.4.5.0][HTTP][SET] Alugada","HTTP GET ""bodyApolice"" (apolices)","{{config.urlCHT}}/vendas-servicos/vendas/seguros/assistente-virtual/v1/clientes/{{contaSelecionada@doc}}/apolices?codigoProduto=7105","GET","Bearer {{bodyToken@access_token}}","bodyApolice","statusApolice","-",""
+"[DEV] SPD Taxas e Condicoes","[TC.4.5.0][HTTP][SET] Alugada","HTTP GET ""bodyFaturamentoAnual"" (Faturamento Anual)","{{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/faturamentos?codigoEstabelecimentoComercial={{selectedEc@codigoEc}}&view=Anual","GET","Bearer {{bodyToken@access_token}}","bodyFaturamentoAnual","statusFaturamentoAnual","-",""
+"[DEV] SPD Taxas e Condicoes","[TC.4.5.0][HTTP][SET] Alugada","HTTP GET ""bodyFaturamentoMensal"" (Faturamento Mensal)","{{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/faturamentos?codigoEstabelecimentoComercial={{selectedEc@codigoEc}}&view=Mensal","GET","Bearer {{bodyToken@access_token}}","bodyFaturamentoMensal","statusFaturamentoMensal","-",""
+"[DEV] SPD Taxas e Condicoes","[TC.2.0.0][HTTP] API Taxas de Venda","HTTP GET ""taxaVendasBody""","{{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}}","GET","Bearer {{bodyToken@access_token}}","taxaVendasBody","taxaVendasStatus","-",""
+"[DEV] SPD Taxas e Condicoes","[TC.2.2.0][HTTP] API Taxas de Antecipação","HTTP GET ""taxaBody"" (taxa)","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/antecipacoes-recebiveis/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}?view=taxas-antecipacao","GET","Bearer {{bodyToken@access_token}}","taxaBody","taxaStatus","-",""
+"[DEV] SPD Taxas e Condicoes","[TC.2.2.0][HTTP] API Taxas de Antecipação","HTTP GET ""taxaVendasBody""","{{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}}","GET","Bearer {{bodyToken@access_token}}","taxaVendasBody","taxaVendasStatus","-",""
+"[DEV] SPD Taxas e Condicoes","[TC.5.0.0][HTTP] API Taxas Pix na SafraPay","HTTP GET ""taxaBody""","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/antecipacoes-recebiveis/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}?view=taxas-antecipacao","GET","Bearer {{bodyToken@access_token}}","taxaBody","taxaStatus","-",""
+"[DEV] SPD Taxas e Condicoes","[TC.5.0.0][HTTP] API Taxas Pix na SafraPay","HTTP GET ""taxaVendasBody""","{{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}}","GET","Bearer {{bodyToken@access_token}}","taxaVendasBody","taxaVendasStatus","-",""
+"[DEV] SPD Taxas e Condicoes","[TC.7.4.0][HTTP] API Protocolo","HTTP POST ""bodyProtocoloBpm"" (Cria Protocolo no Front)","{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos","POST","Bearer {{bodyToken@access_token}}","bodyProtocoloBpm","statusProtocoloBpm","{{payloadProtocolo}}",""
+"[DEV] SPD Taxas e Condicoes","[TC.7.4.0][HTTP] API Protocolo","HTTP POST ""bodyOcorrencia"" (Cria nova ocorrencia)","{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{idProtocoloBpm}}/ocorrencias","POST","Bearer {{bodyToken@access_token}}","bodyOcorrencia","statusOcorrencia","{{payloadOcorrencia}}",""
+"[DEV] SPD Taxas e Condicoes","[TC.6.0.0][HTTP] API Domicilio bancario","HTTP GET ""bodyDomicilio""","{{config.urlCHT}}/chat-assistente/safra-pay/v1/domicilios?idEstabelecimento={{selectedEc@codigoEc}}","GET","Bearer {{bodyToken@access_token}}","bodyDomicilio","statusDomicilio","-",""
+"[DEV] SPD Taxas e Condicoes","[TC.6.0.0][HTTP] API Domicilio bancario","HTTP GET ""bodyGeraldomicilio""","{{config.urlCHT}}/safrapay/vendas-servicos/vendas/prospeccoes-clientes/assistente-virtual/v1/domicilios-bancarios","GET","Bearer {{bodyToken@access_token}}","bodyGeraldomicilio","statusGeraldomicilio","-",""
+"[DEV] SPD Solucoes","Vender com Link","Requisição HTTP","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/servicos-produtos/assistente-virtual/v1/clientes/{{doc}}/produtos/ECOM?view=habilitacoes&codigoEc={{ec}}&codigoSubproduto=LNKE&idUsuario={{shortname}}","GET","Bearer {{bodyToken@access_token}}","statusCorpo","statusLink","-",""
+"[DEV] SPD Solucoes","Vender com Link","Limite","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/servicos-produtos/assistente-virtual/v1/clientes/{{doc}}/produtos/ECOM?view=elegibilidade&codigoSubproduto=LNKE&idUsuario={{shortname}}&codigoEc={{ec}}","GET","Bearer {{bodyToken@access_token}}","statusCorpo","statusLink","-",""
+"[DEV] SPD Solucoes","Vender com Link - API","links-pagamento","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/servicos-produtos/assistente-virtual/v1/links-pagamento","POST","Bearer {{bodyToken@access_token}}","bodyLinkPagamento","statusLinkPagamento","{
+  ""comerciante"": {
+    ""codigoEc"": ""{{ec}}""
+  },
+  ""valor"": ""{{valor}}"",
+  ""descricao"": ""{{mensagem}}"",
+  ""parcelamento"": {
+    ""numeroParcelas"": ""{{parcelas}}"",
+    ""fixo"": true
+  }
+}",""
+"[DEV] SPD Solucoes","[S.4.0.0][HTTP] Gestão de links","gestão de links","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/servicos-produtos/assistente-virtual/v1/estabelecimentos/{{ec}}/links-pagamento?periodo.gte={{30dias}}&periodo.lte={{hoje}}","GET","Bearer {{bodyToken@access_token}}","bodyGestao","statusGestao","-",""
+"[DEV] SPD Solucoes","API Cancelar Link","cancelar link","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/servicos-produtos/assistente-virtual/v1/estabelecimentos/{{ec}}/links-pagamento/{{idLinkPagamento}}/cancelar","POST","Bearer {{bodyToken@access_token}}","bodyCancelamento","statusCancelamento","{
+    ""firstName"": ""John"",
+    ""lastName"": ""Doe""
+}",""
+"[DEV] SPD Solucoes","Gestão de links - Data especifica","gestão de links","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/servicos-produtos/assistente-virtual/v1/estabelecimentos/{{ec}}/links-pagamento?periodo.gte={{dataFormatada}}&periodo.lte={{dataFormatada}}","GET","Bearer {{bodyToken@access_token}}","bodyGestao","statusGestao","-",""
+"[DEV] SPD Solucoes","API gestão link","gestão de links","{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/servicos-produtos/assistente-virtual/v1/estabelecimentos/{{ec}}/links-pagamento?periodo.gte={{30dias}}&periodo.lte={{hoje}}","GET","Bearer {{bodyToken@access_token}}","bodyGestao","statusGestao","-",""
+"[DEV] SPD Solucoes","[S.2.0.1] [HTTP] Api Consulta Status Protocolo","HTTP GET ""bodyConsultaProtocolo"" (Consultar Protocolo)","{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{numeroProtocolo}}","GET","Bearer {{bodyToken@access_token}}","bodyConsultaProtocolo","statusConsultaProtocolo","-",""
+"[DEV] SPD Maquina Safrapay","[MS.2.1.3] [HTTP] API Simular Vendas","HTTP POST ""bodySimulacao""","{{config.urlCHT}}/safrapay/vendas-servicos/vendas/planejamentos-vendas/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}/vendas/simular","POST","Bearer {{bodyToken@access_token}}","bodySimulacao","statusSimulacao","{
+  ""valorVenda"": ""{{salesValue}}"",
+  ""tipoSimulacao"": ""{{salesOrder}}"",
+  ""modalidade"": ""{{salesType}}"",
+  ""tipoPagamento"": ""{{salesPaymentType}}""
+}",""
+"[DEV] SPD Maquina Safrapay","[MS.7.3.0][HTTP] API Protocolo","HTTP POST ""bodyProtocoloBpm"" (Cria Protocolo no Front)","{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos","POST","Bearer {{bodyToken@access_token}}","bodyProtocoloBpm","statusProtocoloBpm","{{payloadProtocolo}}",""
+"[DEV] SPD Maquina Safrapay","[MS.7.3.0][HTTP] API Protocolo","HTTP POST ""bodyOcorrencia"" (Cria nova ocorrencia)","{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{idProtocoloBpm}}/ocorrencias","POST","Bearer {{bodyToken@access_token}}","bodyOcorrencia","statusOcorrencia","{{payloadOcorrencia}}",""
+"[DEV] SPD Intencoes","Autenticação","Token","{{config.urlToken}}/api/oauth/token","POST","","bodyToken","statusToken","{{encodingUrl}}",""
+"[DEV] SPD Intencoes","Autenticação","MFA","{{config.urlCHT}}/vendas-servicos/multicanal/autorizacoes-transacoes/assistente-virtual/v1/transacoes","POST","Bearer {{bodyToken@access_token}}","bodyVerificaMFA","statusVerificaMFA","{{requestBody}}",""
+"[DEV] SPD Intencoes","Resposta KBA","kba/validar","{{config.urlCHT}}/vendas-servicos/multicanal/autorizacoes-transacoes/assistente-virtual/v1/kba/validar","POST","Bearer {{bodyToken@access_token}}","bodyKbaValidar","statusKbaValidar","{{request}}",""
+"[DEV] SPD Intencoes","Valida respostas BigID","Process ""bigIdValidationBody""","https://app.bigdatacorp.com.br/bigid/kba/respostas","POST","Bearer {{bodyTokenBigID@token}}","bigIdValidationBody","bigIdStatus","{{validationBody}}",""
+"[DEV] SPD Intencoes","Autenticação BigID","Process ""bodyTokenBigID"" using ""POST""","https://accesstoken.bigdatacorp.com.br/Generate","POST","","bodyTokenBigID","statusTokenBigID","{
+    ""login"": ""SAFRABIGIDAPI_BANKING"",
+    ""password"": ""zvasdp3t"",
+    ""expires"": 8750
+}",""
+"[DEV] SPD Main","[M.1.0.0][MSG][HTTP] Boas vindas","Process ""bodyToken"" using ""POST""","{{config.urlToken}}/api/oauth/token","POST","","bodyToken","statusToken","{{encodingUrl}}",""
+"[DEV] SPD Main","[M.3.0.0][MSG][HTTP] Verifica contas","Process ""bodyContas"" using ""GET""","{{config.urlCHT}}/chat-assistente/contas-pessoa-juridica/v1/shortnames-vinculados?cpf={{contact.extras.cpf}}","GET","Bearer {{bodyToken@access_token}}","bodyContas","statusContas","-",""
+"[DEV] SPD Main","[M.4.0.0][MSG][HTTP] Obtem EC","Process ""bodyDadosConta"" using ""GET""","{{config.urlCHT}}/chat-assistente/contas-pessoa-juridica/v1/contas?agencia={{contaSelecionada@agencia}}&conta={{contaSelecionada@conta}}","GET","Bearer {{bodyToken@access_token}}","bodyDadosConta","statusDadosConta","-",""
+"[DEV] SPD Main","[M.4.0.0][MSG][HTTP] Obtem EC","Process ""bodyUsuarios"" using ""GET""","{{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/shortnames/{{contaSelecionada@shortname}}/usuarios","GET","Bearer {{bodyToken@access_token}}","bodyUsuarios","statusUsuarios","-",""
+"[DEV] OS","[OS.2.0.0] Consultar Ordens de Serviço","Process ""bodyOrdernsDeServicos"" using ""GET""","{{config.urlCHT}}/chat-assistente/vendas-servicos/vendas/tracking-credenciadoras/v1/ordens-servicos?documento={{contaSelecionada@doc}}","GET","Bearer {{bodyToken@access_token}}","bodyOrdensDeServicos","statusOrdensDeServicos","-",""
+"[DEV] SPD Taxas e Condicoes","[TC.8.0.0][HTTP] API Pacotes","HTTP GET ""bodyPacote""","{{config.urlCHT}}/chat-assistente/safra-pay/v1/pacotes?agencia={{contaSelecionada@agencia}}&conta={{contaSelecionada@conta}}","GET","Bearer {{bodyToken@access_token}}","bodyPacote","statusPacote","-",""
+"[DEV] SPD Solucoes","[S.2.1.4][HTTP] Atualizar Protocolo","HTTP POST ""bodyOcorrencia"" (Cria nova ocorrencia)","{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{numeroProtocolo}}/ocorrencias","POST","Bearer {{bodyToken@access_token}}","bodySolucoesOcorrencia","statusSolucoesOcorrencia","{{payloadOcorrenciaSolucao}}",""
+"[DEV] SPD Maquina Safrapay","[MS.7.3.0][HTTP] API Protocolo","HTTP GET ""bodyConsultaProtocolo"" (Consultar Protocolo)","{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{idProtocoloBpm}}","GET","Bearer {{bodyToken@access_token}}","bodyConsultaProtocolo","statusConsultaProtocolo","-",""
+"[DEV] SPD Intencoes","Autenticação BigID","Process ""bodyQuestion"" using ""POST""","https://bigid.bigdatacorp.com.br/Questions","POST","Bearer {{bodyTokenBigID@token}}","bodyQuestion","statusQuestion","{
+    ""Group"": ""WHATS_PJ"",
+    ""Parameters"": [
+        ""CPF={{cpf}}""
+    ]
+}",""
+"[DEV] SPD Main","[M.4.0.0][MSG][HTTP] Obtem EC","Process ""bodyEC"" using ""GET""","{{config.urlCHT}}/chat-assistente/safra-pay/v1/estabelecimentos?cpfCnpj={{contaSelecionada@doc}}","GET","Bearer {{bodyToken@access_token}}","bodyEC","statusEC","-",""
+"[DEV] OS","[OS.2.4.0] Consulta OS pelo número","Process ""bodyOrdernsDeServicos"" using ""GET""","{{config.urlCHT}}/chat-assistente/vendas-servicos/vendas/tracking-credenciadoras/v1/ordens-servicos/{{userInput}}","GET","Bearer {{bodyToken@access_token}}","bodyOrdensDeServicos","statusOrdensDeServicos","-",""
