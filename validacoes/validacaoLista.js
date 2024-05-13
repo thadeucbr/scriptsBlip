@@ -33,3 +33,45 @@ function run(inputUsuario, dynamicContent) {
       return 'input inesperado'
   }
 }
+
+var obj = {
+    "recipient_type": "individual",
+    "type": "interactive",
+    "interactive": {
+        "type": "list",
+        "header": {
+            "type": "text",
+            "text": ""
+        },
+        "body": {
+            "text": "Agora, por gentileza, selecione no menu abaixo a opção desejada.👇"
+        },
+        "action": {
+            "button": "Assuntos",
+            "sections": [
+                {
+                    "title": "",
+                    "rows": [
+                        {
+                            "id": "1",
+                            "title": "Suporte",
+                            "description": "Ajuda com problemas na máquina"
+                        },
+                        {
+                            "id": "2",
+                            "title": "Configurações",
+                            "description": "Ajuda com as configurações básicas da máquina."
+                        },
+                        {
+                            "id": "3",
+                            "title": "Erros gerais",
+                            "description": "Mensagens de erro na máquina"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
+
+console.log(run('Configuração', JSON.stringify(obj))) // Suporte
