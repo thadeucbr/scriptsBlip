@@ -1,4 +1,4 @@
-const { dev, beta, prod } = require('./vars')
+const { dev, beta, prod, local } = require('./vars')
 const fs = require('fs');
 const date = Intl.DateTimeFormat('pt-BR').format(new Date()).replaceAll('/', '-')
 

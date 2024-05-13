@@ -1,4 +1,5 @@
 const vars = require('./vars')
+const verificaPublicacao = require('./utils/verificarUltimaPublicacao')
 function log(cor, msg) {
   const cores = {
     reset: "\x1b[0m",
@@ -85,4 +86,12 @@ function updateEnv(origin, destination) {
   })
 }
 
-updateEnv('local', 'dev')
+function checkPublished(env) {
+  const key = vars[env].map(({key, name}) => ({key, name}))
+  key.forEach(({key, name}) => {
+    verificaPublicacao(key, name)
+  })
+}
+
+// updateEnv('local', 'beta')
+// checkPublished('beta')
