@@ -1,3 +1,7 @@
+function escapeRegExp(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+  }
+
 function run(inputUsuario, dynamicContent) {
   const posicoes = {
       "1": "primeir[oa]|u[mn]",
@@ -16,7 +20,7 @@ function run(inputUsuario, dynamicContent) {
       const regexDictionary = {}
       const { rows } = JSON.parse(dynamicContent).interactive.action.sections[0]
       rows.forEach((button, index) => {
-          const key = `^(${index + 1}|${posicoes[index + 1]}|${button.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()})$`
+            const key = `^(${index + 1}|${posicoes[index + 1]}|${escapeRegExp(button.reply.title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase())})$`
           regexDictionary[key] = button.title
       })
       for (let regex in regexDictionary) {
