@@ -1,5 +1,7 @@
-const { dev, beta, prod, local } = require('./vars')
-const fs = require('fs');
+import vars from '../shared/vars.js';
+const { dev, beta, prod, local } = vars;
+import { writeFileSync, existsSync, mkdirSync } from 'fs';
+
 const date = Intl.DateTimeFormat('pt-BR').format(new Date()).replaceAll('/', '-')
 
 async function getBotJson({ key, bot, env }) {
@@ -47,7 +49,7 @@ async function getBotJson({ key, bot, env }) {
     .then(response => response.text())
     .then(result => {
       const { resource } = JSON.parse(result)
-      fs.writeFileSync(`./${date}/${env}/${bot}.json`, JSON.stringify(resource))
+      writeFileSync(`./backup/${date}/${env}/${bot}.json`, JSON.stringify(resource))
     }
     )
     .catch(error => console.log('error', error));
@@ -55,11 +57,11 @@ async function getBotJson({ key, bot, env }) {
 
 const bots = [...dev, ...beta, ...prod, ...local]
 function backup(index) {
-  if (index === 0 && !fs.existsSync(`${date}`)) {
-    fs.mkdirSync(`${date}/local`, { recursive: true })
-    fs.mkdirSync(`${date}/dev`, { recursive: true })
-    fs.mkdirSync(`${date}/beta`, { recursive: true })
-    fs.mkdirSync(`${date}/prod`, { recursive: true })
+  if (index === 0 && !existsSync(`./backup/${date}`)) {
+    mkdirSync(`./backup/${date}/local`, { recursive: true })
+    mkdirSync(`./backup/${date}/dev`, { recursive: true })
+    mkdirSync(`./backup/${date}/beta`, { recursive: true })
+    mkdirSync(`./backup/${date}/prod`, { recursive: true })
   }
   if (index >= bots.length) {
     console.log('Backup concluido.')

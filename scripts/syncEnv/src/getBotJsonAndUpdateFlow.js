@@ -1,4 +1,4 @@
-import log from './log.js'
+import log from '../../shared/log.js'
 import updateFlow from './updateFlow.js';
 
 async function getBotJsonAndUpdateFlow(keyOrigin, keyDestination) {

@@ -1,4 +1,4 @@
-import log from './log.js'
+import log from '../../shared/log.js'
 async function updateFlow(key, flow) {
   const headers = {
     'Authorization': key,

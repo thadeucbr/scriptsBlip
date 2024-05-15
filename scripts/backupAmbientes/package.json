@@ -1,0 +1,13 @@
+{
+  "name": "backupambientes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "backupAmbientes.js",
+  "scripts": {
+    "start": "node backupAmbientes.js"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

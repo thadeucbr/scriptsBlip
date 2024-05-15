@@ -1,5 +1,5 @@
 import inquirer from 'inquirer';
-import vars from './vars.js';
+import vars from '../shared/vars.js';
 import decodeName from './src/decodeName.js';
 import getBotJsonAndUpdateFlow from './src/getBotJsonAndUpdateFlow.js';
 import updateEnv from './src/updateEnv.js';
