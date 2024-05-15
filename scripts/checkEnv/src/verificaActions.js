@@ -2,6 +2,9 @@ import log from '../../shared/log.js'
 import configs from '../configs.json' assert { type: "json" }
 
 function verificaActions(key, name, env) {
+  if (env !== 'prod') {
+    env = 'dev'
+  }
   const myHeaders = new Headers();
   myHeaders.append("Authorization", key);
   myHeaders.append("Content-Type", "application/json");
