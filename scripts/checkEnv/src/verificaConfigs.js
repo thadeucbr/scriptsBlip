@@ -29,9 +29,7 @@ async function verificaConfigs(key, name, env) {
     .then((result) => {
       const { resource } = JSON.parse(result);
       let text = ''
-      console.log(resource)
       for (const key in configs[env][name].config) { //  || resource[key] !== configs[env][name][key] (verifica valor da chave)
-        console.log(key)
         if (!resource.hasOwnProperty(key)) {
           text += `${key} não está configurado corretamente\n`
         }
