@@ -1,0 +1,722 @@
+{
+  "dev": {
+    "SPD Ordem de Servico": {
+      "config": {
+        "builder:minimumIntentScore": "0.5",
+        "builder:stateTrack": "true",
+        "builder:#localTimeZone": "E. South America Standard Time",
+        "TraceTargetType": "Http",
+        "TraceMode": "All",
+        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/spdordemdeservico",
+        "builder:useTunnelOwnerContext": "true",
+        "urlCHT": "https://api-hml.safra.com.br",
+        "serviceName": "Bot OS"
+      },
+      "$leavingCustomActions": [
+        {
+          "$id": "f5f8a3f4-e465-472c-815b-3f537f8f340a",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function ignoreBlock(stateName) {\n    try {\n        const match = stateName.match(/\\[(.*?)\\]/);\n        const stateNameOrigin = match ? match[1] : stateName;\n        const regex = /Redirect|Redirecionar/i;\n        const ignore = !regex.test(stateNameOrigin);\n        return ignore;\n    } catch (err) {\n        return false\n    }\n}\n\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState, previousStateName) {\n    const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlock(previousStateName)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState",
+              "state.previous.name"
+            ],
+            "outputVariable": "voltarState",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    },
+    "SPD Maquina Safrapay": {
+      "config": {
+        "builder:minimumIntentScore": "0.5",
+        "builder:stateTrack": "true",
+        "builder:#localTimeZone": "E. South America Standard Time",
+        "builder:useTunnelOwnerContext": "true",
+        "clientId": "BLIP",
+        "grantType": "client_credentials",
+        "urlToken": "https://sts-api-hml.safra.com.br",
+        "urlCHT": "https://api-hml.safra.com.br",
+        "cnpj": "084197016000126",
+        "clientSecret": "ee1f5004-2400-4ab1-9af7-d9168d517204",
+        "TraceTargetType": "Http",
+        "TraceMode": "All",
+        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/spdmaquinasafrapay",
+        "builder:stateExpiration": "0.00:15:00",
+        "serviceName": "Bot Máquina Safrapay"
+      },
+      "$leavingCustomActions": [
+        {
+          "$id": "b24d5539-b43a-4c11-9345-fb65af34ce8a",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "PROCESS \"currentDate\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function run() {\n    return getFormatDate();\n}\n\nfunction getFormatDate() {\n    const dataAtual = new Date();\n\n    const getDay = String(dataAtual.getDate()).padStart(2, '0');\n    const getMonth = String(dataAtual.getMonth() + 1).padStart(2, '0');\n    const getYear = dataAtual.getFullYear();\n    const getHour = String(dataAtual.getHours()).padStart(2, '0');\n    const getMinutes = String(dataAtual.getMinutes()).padStart(2, '0');\n    const getSeconds = String(dataAtual.getSeconds()).padStart(2, '0');\n\n    return `${getDay}/${getMonth}/${getYear}`;\n}",
+            "inputVariables": [],
+            "outputVariable": "currentDate",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        },
+        {
+          "$id": "86856720-7017-4b66-aa9a-09cffa5d5fdc",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function ignoreBlock(stateName) {\n    try {\n        const match = stateName.match(/\\[(.*?)\\]/);\n        const stateNameOrigin = match ? match[1] : stateName;\n        const regex = /Redirect|Redirecionar/i;\n        const ignore = regex.test(stateNameOrigin);\n        return ignore;\n    } catch (err) {\n        return false\n    }\n}\n\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState, previousStateName) {\n    const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlock(previousStateName)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState",
+              "state.previous.name"
+            ],
+            "outputVariable": "voltarState",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    },
+    "SPD Finalizacao": {
+      "config": {
+        "builder:minimumIntentScore": "0.5",
+        "builder:stateTrack": "true",
+        "builder:#localTimeZone": "E. South America Standard Time",
+        "builder:useTunnelOwnerContext": "true",
+        "serviceName": "finalizacao",
+        "TraceTargetType": "Http",
+        "TraceMode": "All",
+        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/betaspdfinalizacao",
+        "TraceCacheMode": 0
+      },
+      "$leavingCustomActions": [
+        {
+          "$id": "e798cf3b-45a0-4520-9230-c96a5b8aae82",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "PROCESS \"currentDate\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function run() {\n    return getFormatDate();\n}\n\nfunction getFormatDate() {\n    const dataAtual = new Date();\n\n    const getDay = String(dataAtual.getDate()).padStart(2, '0');\n    const getMonth = String(dataAtual.getMonth() + 1).padStart(2, '0');\n    const getYear = dataAtual.getFullYear();\n    const getHour = String(dataAtual.getHours()).padStart(2, '0');\n    const getMinutes = String(dataAtual.getMinutes()).padStart(2, '0');\n    const getSeconds = String(dataAtual.getSeconds()).padStart(2, '0');\n\n    return `${getDay}/${getMonth}/${getYear}`;\n}",
+            "inputVariables": [],
+            "outputVariable": "currentDate",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        },
+        {
+          "$id": "c5fa0eb5-8483-419e-a7d6-2d970fc82aee",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function ignoreBlock(stateName) {\n    try {\n        const match = stateName.match(/\\[(.*?)\\]/);\n        const stateNameOrigin = match ? match[1] : stateName;\n        const regex = /Redirect|Redirecionar/i;\n        const ignore = regex.test(stateNameOrigin);\n        return ignore;\n    } catch (err) {\n        return false\n    }\n}\n\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState, previousStateName) {\n    const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlock(previousStateName)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState",
+              "state.previous.name"
+            ],
+            "outputVariable": "voltarState",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    },
+    "SPD Taxas e Condicoes": {
+      "config": {
+        "builder:minimumIntentScore": "0.5",
+        "builder:stateTrack": "true",
+        "builder:#localTimeZone": "E. South America Standard Time",
+        "builder:useTunnelOwnerContext": "true",
+        "clientId": "BLIP",
+        "grantType": "client_credentials",
+        "urlToken": "https://sts-api-hml.safra.com.br",
+        "urlCHT": "https://api-hml.safra.com.br",
+        "cnpj": "084197016000126",
+        "clientSecret": "ee1f5004-2400-4ab1-9af7-d9168d517204",
+        "builder:stateExpiration": "0.00:15:00",
+        "TraceTargetType": "Http",
+        "TraceMode": "All",
+        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/spdtaxasecondicoes",
+        "serviceName": "Bot Taxas e Condições"
+      },
+      "$leavingCustomActions": [
+        {
+          "$id": "e01b93c2-ac1d-47b0-94f3-485deda9fd99",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "PROCESS \"currentDate\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function run() {\n    return getFormatDate();\n}\n\nfunction getFormatDate() {\n    const dataAtual = new Date();\n\n    const getDay = String(dataAtual.getDate()).padStart(2, '0');\n    const getMonth = String(dataAtual.getMonth() + 1).padStart(2, '0');\n    const getYear = dataAtual.getFullYear();\n    const getHour = String(dataAtual.getHours()).padStart(2, '0');\n    const getMinutes = String(dataAtual.getMinutes()).padStart(2, '0');\n    const getSeconds = String(dataAtual.getSeconds()).padStart(2, '0');\n\n    return `${getDay}/${getMonth}/${getYear}`;\n}",
+            "inputVariables": [],
+            "outputVariable": "currentDate",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        },
+        {
+          "$id": "ba21be30-5229-4583-b8d7-82eeda2ef228",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function ignoreBlock(stateName) {\n    try {\n        const match = stateName.match(/\\[(.*?)\\]/);\n        const stateNameOrigin = match ? match[1] : stateName;\n        const regex = /Redirect|Redirecionar/i;\n        const ignore = regex.test(stateNameOrigin);\n        return ignore;\n    } catch (err) {\n        return false\n    }\n}\n\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState, previousStateName) {\n    const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlock(previousStateName)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState",
+              "state.previous.name"
+            ],
+            "outputVariable": "voltarState",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    },
+    "Seguros": {
+      "config": {
+        "builder:minimumIntentScore": "0.5",
+        "builder:stateTrack": "true",
+        "builder:#localTimeZone": "E. South America Standard Time",
+        "builder:useTunnelOwnerContext": "true",
+        "serviceName": "seguros",
+        "TraceTargetType": "Http",
+        "TraceMode": "All",
+        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/betaspdseguros",
+        "TraceCacheMode": 0
+      },
+      "$leavingCustomActions": [
+        {
+          "$id": "121c3d2e-e28c-4f05-ac90-d395b7a09c95",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function ignoreBlock(stateName) {\n    try {\n        const match = stateName.match(/\\[(.*?)\\]/);\n        const stateNameOrigin = match ? match[1] : stateName;\n        const regex = /Redirect|Redirecionar/i;\n        const ignore = regex.test(stateNameOrigin);\n        return ignore;\n    } catch (err) {\n        return false\n    }\n}\n\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState, previousStateName) {\n    const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlock(previousStateName)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState",
+              "state.previous.name"
+            ],
+            "outputVariable": "voltarState",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    },
+    "SPD Solucoes": {
+      "config": {
+        "builder:minimumIntentScore": "0.5",
+        "builder:stateTrack": "true",
+        "builder:#localTimeZone": "E. South America Standard Time",
+        "TraceTargetType": "Http",
+        "TraceMode": "All",
+        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/spdsolucoes",
+        "builder:useTunnelOwnerContext": "true",
+        "clientId": "BLIP",
+        "grantType": "client_credentials",
+        "urlToken": "https://sts-api-hml.safra.com.br",
+        "urlCHT": "https://api-hml.safra.com.br",
+        "cnpj": "084197016000126",
+        "clientSecret": "ee1f5004-2400-4ab1-9af7-d9168d517204",
+        "builder:stateExpiration": "0.00:15:00",
+        "serviceName": "Bot Soluções"
+      },
+      "$leavingCustomActions": [
+        {
+          "$id": "9df84f7c-0761-42d1-aee7-7af76bcc7d7f",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function ignoreBlock(stateName) {\n    try {\n        const match = stateName.match(/\\[(.*?)\\]/);\n        const stateNameOrigin = match ? match[1] : stateName;\n        const regex = /Redirect|Redirecionar/i;\n        const ignore = regex.test(stateNameOrigin);\n        return ignore;\n    } catch (err) {\n        return false\n    }\n}\n\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState, previousStateName) {\n    const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlock(previousStateName)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState",
+              "state.previous.name"
+            ],
+            "outputVariable": "voltarState",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    },
+    "SPD Exception": {
+      "config": {
+        "builder:minimumIntentScore": "0.5",
+        "builder:stateTrack": "true",
+        "builder:#localTimeZone": "E. South America Standard Time",
+        "builder:useTunnelOwnerContext": "true",
+        "serviceName": "exception",
+        "TraceTargetType": "Http",
+        "TraceMode": "All",
+        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/betaspdexcecoes",
+        "TraceCacheMode": 0
+      },
+      "$leavingCustomActions": [],
+      "$enteringCustomActions": []
+    },
+    "SPD Cascata": {
+      "config": {
+        "builder:minimumIntentScore": "0.5",
+        "builder:stateTrack": "true",
+        "builder:#localTimeZone": "E. South America Standard Time",
+        "builder:useTunnelOwnerContext": "true",
+        "serviceName": "cascata",
+        "TraceTargetType": "Http",
+        "TraceMode": "All",
+        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/betaspdcascata",
+        "TraceCacheMode": 0
+      },
+      "$leavingCustomActions": [],
+      "$enteringCustomActions": []
+    },
+    "SPD Autenticacao": {
+      "config": {
+        "builder:minimumIntentScore": "0.5",
+        "builder:stateTrack": "true",
+        "builder:#localTimeZone": "E. South America Standard Time",
+        "builder:useTunnelOwnerContext": "true",
+        "serviceName": "autenticacao",
+        "clientId": "BLIP",
+        "grantType": "client_credentials",
+        "urlToken": "https://sts-api-hml.safra.com.br",
+        "urlCHT": "https://api-hml.safra.com.br",
+        "clientSecret": "ee1f5004-2400-4ab1-9af7-d9168d517204",
+        "skipKba": "false",
+        "TraceTargetType": "Http",
+        "TraceMode": "All",
+        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/betaspdautenticacao",
+        "TraceCacheMode": 0
+      },
+      "$leavingCustomActions": [
+        {
+          "$id": "4f281f7c-7b9a-4054-8e03-02856f2253c3",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "const ignoreBlocks = ['f13e7fbd-372e-45ce-a30f-de575a5cb830']\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState) {\n        const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlocks.some((ignoredId) => ignoredId == blockId)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState"
+            ],
+            "outputVariable": "voltarState"
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    },
+    "SPD Navegacao App EMP": {
+      "config": {
+        "builder:minimumIntentScore": "0.5",
+        "builder:stateTrack": "true",
+        "builder:#localTimeZone": "E. South America Standard Time",
+        "TraceTargetType": "Http",
+        "TraceMode": "All",
+        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/spdnavegacaoappemp",
+        "builder:useTunnelOwnerContext": "true",
+        "serviceName": "App",
+        "bot": "App"
+      },
+      "$leavingCustomActions": [
+        {
+          "$id": "53ee40fa-1fb5-44d8-a617-12b4b4d56b24",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "const ignoreBlocks = ['a8211b5e-fbc7-48ce-97fb-717c71dac9bd', 'ec26b44a-289c-4159-9de4-da515262ba8c', 'a3577a5b-6de7-410f-a81c-ff21d7c32896']\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState) {\n        const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlocks.some((ignoredId) => ignoredId == blockId)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState"
+            ],
+            "outputVariable": "voltarState"
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    },
+    "SPD Main": {
+      "config": {
+        "builder:minimumIntentScore": "0.5",
+        "builder:stateTrack": "true",
+        "builder:#localTimeZone": "E. South America Standard Time",
+        "builder:useTunnelOwnerContext": "true",
+        "clientId": "BLIP",
+        "grantType": "client_credentials",
+        "urlToken": "https://sts-api-hml.safra.com.br",
+        "urlCHT": "https://api-hml.safra.com.br",
+        "clientSecret": "ee1f5004-2400-4ab1-9af7-d9168d517204",
+        "TraceTargetType": "Http",
+        "TraceMode": "All",
+        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/spdmain",
+        "builder:stateExpiration": "0.00:15:00",
+        "serviceName": "Bot Main"
+      },
+      "$leavingCustomActions": [
+        {
+          "$id": "e936e5ea-adcf-4669-973c-073035ebeca3",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function ignoreBlock(stateName) {\n    try {\n        const match = stateName.match(/\\[(.*?)\\]/);\n        const stateNameOrigin = match ? match[1] : stateName;\n        const regex = /Redirect|Redirecionar/i;\n        const ignore = regex.test(stateNameOrigin);\n        return ignore;\n    } catch (err) {\n        return false\n    }\n}\n\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState, previousStateName) {\n    const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlock(previousStateName)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState",
+              "state.previous.name"
+            ],
+            "outputVariable": "voltarState",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    }
+  },
+  "prod": {
+    "SPD Main": {
+      "$leavingCustomActions": [
+        {
+          "$id": "e936e5ea-adcf-4669-973c-073035ebeca3",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function ignoreBlock(stateName) {\n    try {\n        const match = stateName.match(/\\[(.*?)\\]/);\n        const stateNameOrigin = match ? match[1] : stateName;\n        const regex = /Redirect|Redirecionar/i;\n        const ignore = regex.test(stateNameOrigin);\n        return ignore;\n    } catch (err) {\n        return false\n    }\n}\n\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState, previousStateName) {\n    const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlock(previousStateName)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState",
+              "state.previous.name"
+            ],
+            "outputVariable": "voltarState",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    },
+    "SPD Solucoes": {
+      "$leavingCustomActions": [
+        {
+          "$id": "9df84f7c-0761-42d1-aee7-7af76bcc7d7f",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function ignoreBlock(stateName) {\n    try {\n        const match = stateName.match(/\\[(.*?)\\]/);\n        const stateNameOrigin = match ? match[1] : stateName;\n        const regex = /Redirect|Redirecionar/i;\n        const ignore = regex.test(stateNameOrigin);\n        return ignore;\n    } catch (err) {\n        return false\n    }\n}\n\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState, previousStateName) {\n    const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlock(previousStateName)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState",
+              "state.previous.name"
+            ],
+            "outputVariable": "voltarState",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    },
+    "SPD Maquina Safrapay": {
+      "$leavingCustomActions": [
+        {
+          "$id": "b24d5539-b43a-4c11-9345-fb65af34ce8a",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "PROCESS \"currentDate\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function run() {\n    return getFormatDate();\n}\n\nfunction getFormatDate() {\n    const dataAtual = new Date();\n\n    const getDay = String(dataAtual.getDate()).padStart(2, '0');\n    const getMonth = String(dataAtual.getMonth() + 1).padStart(2, '0');\n    const getYear = dataAtual.getFullYear();\n    const getHour = String(dataAtual.getHours()).padStart(2, '0');\n    const getMinutes = String(dataAtual.getMinutes()).padStart(2, '0');\n    const getSeconds = String(dataAtual.getSeconds()).padStart(2, '0');\n\n    return `${getDay}/${getMonth}/${getYear}`;\n}",
+            "inputVariables": [],
+            "outputVariable": "currentDate",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        },
+        {
+          "$id": "86856720-7017-4b66-aa9a-09cffa5d5fdc",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function ignoreBlock(stateName) {\n    try {\n        const match = stateName.match(/\\[(.*?)\\]/);\n        const stateNameOrigin = match ? match[1] : stateName;\n        const regex = /Redirect|Redirecionar/i;\n        const ignore = regex.test(stateNameOrigin);\n        return ignore;\n    } catch (err) {\n        return false\n    }\n}\n\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState, previousStateName) {\n    const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlock(previousStateName)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState",
+              "state.previous.name"
+            ],
+            "outputVariable": "voltarState",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    },
+    "SPD Taxas e Condicoes": {
+      "$leavingCustomActions": [
+        {
+          "$id": "e01b93c2-ac1d-47b0-94f3-485deda9fd99",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "PROCESS \"currentDate\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function run() {\n    return getFormatDate();\n}\n\nfunction getFormatDate() {\n    const dataAtual = new Date();\n\n    const getDay = String(dataAtual.getDate()).padStart(2, '0');\n    const getMonth = String(dataAtual.getMonth() + 1).padStart(2, '0');\n    const getYear = dataAtual.getFullYear();\n    const getHour = String(dataAtual.getHours()).padStart(2, '0');\n    const getMinutes = String(dataAtual.getMinutes()).padStart(2, '0');\n    const getSeconds = String(dataAtual.getSeconds()).padStart(2, '0');\n\n    return `${getDay}/${getMonth}/${getYear}`;\n}",
+            "inputVariables": [],
+            "outputVariable": "currentDate",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        },
+        {
+          "$id": "ba21be30-5229-4583-b8d7-82eeda2ef228",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function ignoreBlock(stateName) {\n    try {\n        const match = stateName.match(/\\[(.*?)\\]/);\n        const stateNameOrigin = match ? match[1] : stateName;\n        const regex = /Redirect|Redirecionar/i;\n        const ignore = regex.test(stateNameOrigin);\n        return ignore;\n    } catch (err) {\n        return false\n    }\n}\n\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState, previousStateName) {\n    const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlock(previousStateName)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState",
+              "state.previous.name"
+            ],
+            "outputVariable": "voltarState",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    },
+    "SPD Cascata": {
+      "$leavingCustomActions": [],
+      "$enteringCustomActions": []
+    },
+    "SPD Exception": {
+      "$leavingCustomActions": [],
+      "$enteringCustomActions": []
+    },
+    "SPD Navegacao App EMP": {
+      "$leavingCustomActions": [
+        {
+          "$id": "53ee40fa-1fb5-44d8-a617-12b4b4d56b24",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "const ignoreBlocks = ['a8211b5e-fbc7-48ce-97fb-717c71dac9bd', 'ec26b44a-289c-4159-9de4-da515262ba8c', 'a3577a5b-6de7-410f-a81c-ff21d7c32896']\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState) {\n        const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlocks.some((ignoredId) => ignoredId == blockId)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState"
+            ],
+            "outputVariable": "voltarState"
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    },
+    "SPD Ordem de Servico": {
+      "$leavingCustomActions": [
+        {
+          "$id": "f5f8a3f4-e465-472c-815b-3f537f8f340a",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function ignoreBlock(stateName) {\n    try {\n        const match = stateName.match(/\\[(.*?)\\]/);\n        const stateNameOrigin = match ? match[1] : stateName;\n        const regex = /Redirect|Redirecionar/i;\n        const ignore = !regex.test(stateNameOrigin);\n        return ignore;\n    } catch (err) {\n        return false\n    }\n}\n\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState, previousStateName) {\n    const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlock(previousStateName)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState",
+              "state.previous.name"
+            ],
+            "outputVariable": "voltarState",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    },
+    "SPD Finalizacao": {
+      "$leavingCustomActions": [
+        {
+          "$id": "e798cf3b-45a0-4520-9230-c96a5b8aae82",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "PROCESS \"currentDate\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function run() {\n    return getFormatDate();\n}\n\nfunction getFormatDate() {\n    const dataAtual = new Date();\n\n    const getDay = String(dataAtual.getDate()).padStart(2, '0');\n    const getMonth = String(dataAtual.getMonth() + 1).padStart(2, '0');\n    const getYear = dataAtual.getFullYear();\n    const getHour = String(dataAtual.getHours()).padStart(2, '0');\n    const getMinutes = String(dataAtual.getMinutes()).padStart(2, '0');\n    const getSeconds = String(dataAtual.getSeconds()).padStart(2, '0');\n\n    return `${getDay}/${getMonth}/${getYear}`;\n}",
+            "inputVariables": [],
+            "outputVariable": "currentDate",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        },
+        {
+          "$id": "c5fa0eb5-8483-419e-a7d6-2d970fc82aee",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function ignoreBlock(stateName) {\n    try {\n        const match = stateName.match(/\\[(.*?)\\]/);\n        const stateNameOrigin = match ? match[1] : stateName;\n        const regex = /Redirect|Redirecionar/i;\n        const ignore = regex.test(stateNameOrigin);\n        return ignore;\n    } catch (err) {\n        return false\n    }\n}\n\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState, previousStateName) {\n    const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlock(previousStateName)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState",
+              "state.previous.name"
+            ],
+            "outputVariable": "voltarState",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    },
+    "Seguros": {
+      "$leavingCustomActions": [
+        {
+          "$id": "121c3d2e-e28c-4f05-ac90-d395b7a09c95",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "function ignoreBlock(stateName) {\n    try {\n        const match = stateName.match(/\\[(.*?)\\]/);\n        const stateNameOrigin = match ? match[1] : stateName;\n        const regex = /Redirect|Redirecionar/i;\n        const ignore = regex.test(stateNameOrigin);\n        return ignore;\n    } catch (err) {\n        return false\n    }\n}\n\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState, previousStateName) {\n    const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlock(previousStateName)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState",
+              "state.previous.name"
+            ],
+            "outputVariable": "voltarState",
+            "LocalTimeZoneEnabled": false
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    },
+    "SPD Autenticacao": {
+      "$leavingCustomActions": [
+        {
+          "$id": "4f281f7c-7b9a-4054-8e03-02856f2253c3",
+          "$typeOfContent": "",
+          "type": "ExecuteScript",
+          "$title": "Process \"voltarState\"",
+          "$invalid": false,
+          "settings": {
+            "function": "run",
+            "source": "const ignoreBlocks = ['f13e7fbd-372e-45ce-a30f-de575a5cb830']\n\nfunction run(voltarState, blockId, botOrigin, lastVoltarState) {\n        const state = JSON.parse(voltarState)\n    try {\n        if (!voltarState) {\n            const state = {}\n            state[botOrigin] = [blockId]\n            return state\n        }\n        const isIgnoredBlock = ignoreBlocks.some((ignoredId) => ignoredId == blockId)\n        if (state[botOrigin][state[botOrigin].length - 1] !== blockId && blockId !== 'onboarding' && !isIgnoredBlock && blockId !== lastVoltarState) {\n            state[botOrigin].push(blockId)\n        }\n        return state\n    } catch (err) {\n        state[botOrigin] = [blockId]\n        return state\n    }\n}",
+            "inputVariables": [
+              "voltarState",
+              "state.previous.id",
+              "config.serviceName",
+              "lastVoltarState"
+            ],
+            "outputVariable": "voltarState"
+          },
+          "conditions": []
+        }
+      ],
+      "$enteringCustomActions": []
+    }
+  }
+}

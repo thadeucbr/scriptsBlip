@@ -1,20 +1,4 @@
-function log(cor, msg) {
-  const cores = {
-    reset: "\x1b[0m",
-    vermelho: "\x1b[31m",
-    verde: "\x1b[32m",
-    amarelo: "\x1b[33m",
-    azul: "\x1b[34m",
-    magenta: "\x1b[35m",
-    ciano: "\x1b[36m",
-    branco: "\x1b[37m",
-    marrom: "\x1b[33m",
-    preto: "\x1b[30m",
-    default: "\x1b[39m"
-  }
-  console.log(cores[cor], msg, cores.reset)
-}
-
+import log from '../../shared/log.js';
 function verificarUltimaPublicacao(key, name) {
   const myHeaders = new Headers();
   myHeaders.append("Authorization", key);
@@ -45,13 +29,34 @@ function verificarUltimaPublicacao(key, name) {
       const isPublishedToday = lastPublicationDate.getUTCFullYear() === currentDate.getUTCFullYear() &&
         lastPublicationDate.getUTCMonth() === currentDate.getUTCMonth() &&
         lastPublicationDate.getUTCDate() === currentDate.getUTCDate();
-      if (isPublishedToday) {
+
+      const diffInMinutes = Math.abs(currentDate - lastPublicationDate) / 1000 / 60;
+
+      if (isPublishedToday && diffInMinutes <= 10) {
         log('verde', `Fluxo publicado ${name}`)
       } else {
-        log('vermelho', `Fluxo ${name} não publicado. Última publicação em ${lastPublicationDate}`)
+        const diffInHours = diffInMinutes / 60;
+        const diffInDays = diffInHours / 24;
+        const diffInWeeks = diffInDays / 7;
+        const diffInMonths = diffInDays / 30;
+
+        let timeAgo;
+        if (diffInMinutes < 60) {
+          timeAgo = `${Math.round(diffInMinutes)} minutos atrás`;
+        } else if (diffInHours < 24) {
+          timeAgo = `${Math.round(diffInHours)} horas atrás`;
+        } else if (diffInDays < 7) {
+          timeAgo = `${Math.round(diffInDays)} dias atrás`;
+        } else if (diffInWeeks < 4) {
+          timeAgo = `${Math.round(diffInWeeks)} semanas atrás`;
+        } else {
+          timeAgo = `${Math.round(diffInMonths)} meses atrás`;
+        }
+
+        log('vermelho', `Fluxo ${name} não publicado. Última publicação em ${lastPublicationDate} (${timeAgo})`)
       }
     })
     .catch((error) => console.error(error));
 }
 
-module.exports = verificarUltimaPublicacao;
+export default verificarUltimaPublicacao;
