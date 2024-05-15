@@ -37,18 +37,38 @@ async function main() {
 
   const keyOrigin = vars[origin].find(({ name }) => name === bot);
 
-  switch (functionToExecute) {
-    case 'verificarUltimaPublicacao':
-      verificarUltimaPublicacao(keyOrigin.key, bot);
-      break;
-    case 'verificaConfigs':
-      verificaConfigs(keyOrigin.key, bot, origin);
-      break;
-    case 'verificaActions':
-      verificaActions(keyOrigin.key, bot, origin);
-      break;
-    default:
-      console.log('Função não encontrada.');
+  if (bot === 'Todos') {
+    for (let bot of botNames) {
+      const keyOrigin = vars[origin].find(({ name }) => name === bot);
+      switch (functionToExecute) {
+        case 'verificarUltimaPublicacao':
+          verificarUltimaPublicacao(keyOrigin.key, bot);
+          break;
+        case 'verificaConfigs':
+          verificaConfigs(keyOrigin.key, bot, origin);
+          break;
+        case 'verificaActions':
+          verificaActions(keyOrigin.key, bot, origin);
+          break;
+        default:
+          console.log('Função não encontrada.');
+      }
+    }
+  } else {
+    const keyOrigin = vars[origin].find(({ name }) => name === bot);
+    switch (functionToExecute) {
+      case 'verificarUltimaPublicacao':
+        verificarUltimaPublicacao(keyOrigin.key, bot);
+        break;
+      case 'verificaConfigs':
+        verificaConfigs(keyOrigin.key, bot, origin);
+        break;
+      case 'verificaActions':
+        verificaActions(keyOrigin.key, bot, origin);
+        break;
+      default:
+        console.log('Função não encontrada.');
+    }
   }
 }
 
