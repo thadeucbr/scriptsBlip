@@ -30,8 +30,8 @@ async function main() {
     {
       type: 'list',
       name: 'bot',
-      message: 'Selecione o bot (opcional):',
-      choices: [...botNames, 'Todos'],
+      message: 'Selecione o bot:',
+      choices: ['Todos', ...botNames],
     },
   ]);
 
