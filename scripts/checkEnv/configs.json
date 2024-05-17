@@ -44,7 +44,6 @@
         "grantType": "client_credentials",
         "urlToken": "https://sts-api-hml.safra.com.br",
         "urlCHT": "https://api-hml.safra.com.br",
-        "cnpj": "084197016000126",
         "clientSecret": "ee1f5004-2400-4ab1-9af7-d9168d517204",
         "builder:stateExpiration": "0.00:15:00",
         "serviceName": "Bot Máquina Safrapay"
@@ -95,8 +94,7 @@
         "builder:stateTrack": "true",
         "builder:#localTimeZone": "E. South America Standard Time",
         "builder:useTunnelOwnerContext": "true",
-        "serviceName": "finalizacao",
-        "TraceCacheMode": 0
+        "serviceName": "finalizacao"
       },
       "$leavingCustomActions": [
         {
@@ -148,7 +146,6 @@
         "grantType": "client_credentials",
         "urlToken": "https://sts-api-hml.safra.com.br",
         "urlCHT": "https://api-hml.safra.com.br",
-        "cnpj": "084197016000126",
         "clientSecret": "ee1f5004-2400-4ab1-9af7-d9168d517204",
         "builder:stateExpiration": "0.00:15:00",
         "serviceName": "Bot Taxas e Condições"
@@ -199,8 +196,7 @@
         "builder:stateTrack": "true",
         "builder:#localTimeZone": "E. South America Standard Time",
         "builder:useTunnelOwnerContext": "true",
-        "serviceName": "seguros",
-        "TraceCacheMode": 0
+        "serviceName": "seguros"
       },
       "$leavingCustomActions": [
         {
@@ -237,7 +233,6 @@
         "grantType": "client_credentials",
         "urlToken": "https://sts-api-hml.safra.com.br",
         "urlCHT": "https://api-hml.safra.com.br",
-        "cnpj": "084197016000126",
         "clientSecret": "ee1f5004-2400-4ab1-9af7-d9168d517204",
         "builder:stateExpiration": "0.00:15:00",
         "serviceName": "Bot Soluções"
@@ -273,8 +268,7 @@
         "builder:stateTrack": "true",
         "builder:#localTimeZone": "E. South America Standard Time",
         "builder:useTunnelOwnerContext": "true",
-        "serviceName": "exception",
-        "TraceCacheMode": 0
+        "serviceName": "exception"
       },
       "$leavingCustomActions": [],
       "$enteringCustomActions": []
@@ -285,8 +279,7 @@
         "builder:stateTrack": "true",
         "builder:#localTimeZone": "E. South America Standard Time",
         "builder:useTunnelOwnerContext": "true",
-        "serviceName": "cascata",
-        "TraceCacheMode": 0
+        "serviceName": "cascata"
       },
       "$leavingCustomActions": [],
       "$enteringCustomActions": []
@@ -302,9 +295,7 @@
         "grantType": "client_credentials",
         "urlToken": "https://sts-api-hml.safra.com.br",
         "urlCHT": "https://api-hml.safra.com.br",
-        "clientSecret": "ee1f5004-2400-4ab1-9af7-d9168d517204",
-        "skipKba": "false",
-        "TraceCacheMode": 0
+        "clientSecret": "ee1f5004-2400-4ab1-9af7-d9168d517204"
       },
       "$leavingCustomActions": [
         {

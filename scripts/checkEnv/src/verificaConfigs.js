@@ -13,7 +13,7 @@ async function verificaConfigs(key, name, env) {
     "id": "27dfbb8a-78eb-4b14-8fb0-03164b70aad4",
     "to": "postmaster@msging.net",
     "method": "get",
-    "uri": "/buckets/blip_portal:builder_published_configuration"
+    "uri": "/buckets/blip_portal:builder_working_configuration"
   });
 
   const requestOptions = {

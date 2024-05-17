@@ -13,7 +13,7 @@ function verificaActions(key, name, env) {
     "id": "4de96993-08f9-40a4-928c-d3cce0ece63d",
     "to": "postmaster@msging.net",
     "method": "get",
-    "uri": "/buckets/blip_portal:builder_published_global_actions"
+    "uri": "/buckets/blip_portal:builder_working_global_actions"
   });
 
   const requestOptions = {
