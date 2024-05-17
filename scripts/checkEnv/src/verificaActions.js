@@ -2,7 +2,7 @@ import log from '../../shared/log.js'
 import configs from '../configs.json' assert { type: "json" }
 
 function verificaActions(key, name, env) {
-  if (env !== 'prod') {
+  if (env) {
     env = 'dev'
   }
   const myHeaders = new Headers();
