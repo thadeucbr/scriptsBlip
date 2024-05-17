@@ -5,9 +5,6 @@
         "builder:minimumIntentScore": "0.5",
         "builder:stateTrack": "true",
         "builder:#localTimeZone": "E. South America Standard Time",
-        "TraceTargetType": "Http",
-        "TraceMode": "All",
-        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/spdordemdeservico",
         "builder:useTunnelOwnerContext": "true",
         "urlCHT": "https://api-hml.safra.com.br",
         "serviceName": "Bot OS"
@@ -49,9 +46,6 @@
         "urlCHT": "https://api-hml.safra.com.br",
         "cnpj": "084197016000126",
         "clientSecret": "ee1f5004-2400-4ab1-9af7-d9168d517204",
-        "TraceTargetType": "Http",
-        "TraceMode": "All",
-        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/spdmaquinasafrapay",
         "builder:stateExpiration": "0.00:15:00",
         "serviceName": "Bot Máquina Safrapay"
       },
@@ -102,9 +96,6 @@
         "builder:#localTimeZone": "E. South America Standard Time",
         "builder:useTunnelOwnerContext": "true",
         "serviceName": "finalizacao",
-        "TraceTargetType": "Http",
-        "TraceMode": "All",
-        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/betaspdfinalizacao",
         "TraceCacheMode": 0
       },
       "$leavingCustomActions": [
@@ -160,9 +151,6 @@
         "cnpj": "084197016000126",
         "clientSecret": "ee1f5004-2400-4ab1-9af7-d9168d517204",
         "builder:stateExpiration": "0.00:15:00",
-        "TraceTargetType": "Http",
-        "TraceMode": "All",
-        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/spdtaxasecondicoes",
         "serviceName": "Bot Taxas e Condições"
       },
       "$leavingCustomActions": [
@@ -212,9 +200,6 @@
         "builder:#localTimeZone": "E. South America Standard Time",
         "builder:useTunnelOwnerContext": "true",
         "serviceName": "seguros",
-        "TraceTargetType": "Http",
-        "TraceMode": "All",
-        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/betaspdseguros",
         "TraceCacheMode": 0
       },
       "$leavingCustomActions": [
@@ -247,9 +232,6 @@
         "builder:minimumIntentScore": "0.5",
         "builder:stateTrack": "true",
         "builder:#localTimeZone": "E. South America Standard Time",
-        "TraceTargetType": "Http",
-        "TraceMode": "All",
-        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/spdsolucoes",
         "builder:useTunnelOwnerContext": "true",
         "clientId": "BLIP",
         "grantType": "client_credentials",
@@ -292,9 +274,6 @@
         "builder:#localTimeZone": "E. South America Standard Time",
         "builder:useTunnelOwnerContext": "true",
         "serviceName": "exception",
-        "TraceTargetType": "Http",
-        "TraceMode": "All",
-        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/betaspdexcecoes",
         "TraceCacheMode": 0
       },
       "$leavingCustomActions": [],
@@ -307,9 +286,6 @@
         "builder:#localTimeZone": "E. South America Standard Time",
         "builder:useTunnelOwnerContext": "true",
         "serviceName": "cascata",
-        "TraceTargetType": "Http",
-        "TraceMode": "All",
-        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/betaspdcascata",
         "TraceCacheMode": 0
       },
       "$leavingCustomActions": [],
@@ -328,9 +304,6 @@
         "urlCHT": "https://api-hml.safra.com.br",
         "clientSecret": "ee1f5004-2400-4ab1-9af7-d9168d517204",
         "skipKba": "false",
-        "TraceTargetType": "Http",
-        "TraceMode": "All",
-        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/betaspdautenticacao",
         "TraceCacheMode": 0
       },
       "$leavingCustomActions": [
@@ -361,9 +334,6 @@
         "builder:minimumIntentScore": "0.5",
         "builder:stateTrack": "true",
         "builder:#localTimeZone": "E. South America Standard Time",
-        "TraceTargetType": "Http",
-        "TraceMode": "All",
-        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/spdnavegacaoappemp",
         "builder:useTunnelOwnerContext": "true",
         "serviceName": "App",
         "bot": "App"
@@ -402,9 +372,6 @@
         "urlToken": "https://sts-api-hml.safra.com.br",
         "urlCHT": "https://api-hml.safra.com.br",
         "clientSecret": "ee1f5004-2400-4ab1-9af7-d9168d517204",
-        "TraceTargetType": "Http",
-        "TraceMode": "All",
-        "TraceTarget": "https://take-api-beholder.cs.blip.ai/api/traces/spdmain",
         "builder:stateExpiration": "0.00:15:00",
         "serviceName": "Bot Main"
       },
