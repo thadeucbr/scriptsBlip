@@ -5,7 +5,6 @@ async function verificaConfigs(key, name, env) {
   if (env) {
     env = 'dev'
   }
-  console.log(env)
   const myHeaders = new Headers();
   myHeaders.append("Authorization", key);
   myHeaders.append("Content-Type", "application/json");
