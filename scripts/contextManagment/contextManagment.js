@@ -134,6 +134,6 @@ export async function deleteAllContexts(users, authorize) {
 //     "5531975705748@wa.gw.msging.net",
 //     "5531975705749@wa.gw.msging.net"
 // ];
-//deleteAllContexts(users, "YOUR_AUTH");
+//deleteAllContexts(users, "YOUR_ROUTER_KEY");
 
 
