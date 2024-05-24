@@ -16,7 +16,7 @@ async function deleteContext(userId, varName, authorize) {
         body: raw,
         redirect: "follow"
     };
-    var obj = await fetch("https://msging.net/commands", requestOptions)
+    var obj = await fetch("https://safra.http.msging.net/commands", requestOptions)
         .then((response) => response.text())
         .then(async result => {
             if (!result) {
@@ -51,7 +51,7 @@ export async function getContext(userId, authorize) {
         redirect: "follow"
     };
 
-    var obj = await fetch("https://msging.net/commands", requestOptions)
+    var obj = await fetch("https://safra.http.msging.net/commands", requestOptions)
         .then((response) => response.text())
         .then(result => {
             const { resource, status } = JSON.parse(result)
@@ -91,7 +91,7 @@ export async function setContext(userId,contextVariable,contextVariableValue, au
         redirect: "follow"
     };
 
-    var obj = await fetch("https://msging.net/commands", requestOptions)
+    var obj = await fetch("https://safra.http.msging.net/commands", requestOptions)
         .then((response) => response.text())
         .then(result => {
             const {status } = JSON.parse(result)
