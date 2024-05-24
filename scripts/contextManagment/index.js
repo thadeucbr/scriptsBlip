@@ -192,7 +192,7 @@ app.delete('/Context/', async (req, res) => {
 
 
 
-app.listen(5000, () => { console.log('Server is running on port 5000'); });
+app.listen(5000, () => { console.log('Server is running on port 5000' + '\nLocalhost url: http://localhost:5000/swagger'); });
 //To run and open in browser, run 'npm start' and access http://localhost:5000/swagger
 
 
