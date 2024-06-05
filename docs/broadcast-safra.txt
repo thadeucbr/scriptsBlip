@@ -1,0 +1,15 @@
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+Urls:
+https://wpp-broadcast-safra.cs.blip.ai/gerdigemp1copia [Beta DigiEmp]
+https://wpp-broadcast-safra.cs.blip.ai/routerbetawhatsapppj [Beta]
+https://wpp-broadcast-safra.cs.blip.ai/routersafraprodwhatsapppj [Prod]
+
+***
+
+Tokens: 
+Empresasum (Beta DigiEmp)
+Teste (Beta)
+whatsapppj20 (Prod)
+ 
+ =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
