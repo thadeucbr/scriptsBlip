@@ -10,7 +10,7 @@ const dynamicContent = {
           "name": "cta_url",
           "parameters": {
             "display_text": "Abrir WhatsAp PJ",
-            "url": "https://novotestevalida-vglka.blip.ai/application/detail/exemplos4/templates/builder/"
+            "url": "https://novotestevalida-vglka.blip.ai/"
           }
         }
       }
