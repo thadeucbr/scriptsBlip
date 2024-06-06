@@ -129,7 +129,7 @@
   "arv_ev_deep_vl_disp_emp1ebus": {
     "Quero Receber": "SEM AÇÃO"
   },
-  "generico": "HUMANO",
+  "generico": "5ffd35a8-bdac-49e1-a44f-a8709c5fcffe",
   "emp1_capital_de_giro_gerente": "SEM AÇÃO",
   "giro_emp1_golden_friday": "SEM AÇÃO",
   "ger_digital_emp1_02": "SEM AÇÃO",
@@ -159,7 +159,7 @@
   "arv_ev_sazonal_autoss": {
     "Quero Receber": "SEM AÇÃO"
   },
-  "emp1_dia_das_maes_credito_pre_aprovado": "humano",
+  "emp1_dia_das_maes_credito_pre_aprovado": "5ffd35a8-bdac-49e1-a44f-a8709c5fcffe",
   "arv": "SEM AÇÃO (INICIO?)",
   "arv_aut_nvo_explic_valor_espec": {
     "Saber Mais": "5ffd35a8-bdac-49e1-a44f-a8709c5fcffe",
@@ -179,14 +179,14 @@
   "arv_aut_nvo_explic_valor_aut": {
     "Saber Mais": "SEM AÇÃO"
   },
-  "prospect_open_finance": "HUmano sem botão",
+  "prospect_open_finance": "5ffd35a8-bdac-49e1-a44f-a8709c5fcffe",
   "business_apresentacao_gerentes": {
     "Sim": "SEM AÇÃO",
     "Não": "430460cd-7e3d-4b0a-ba61-e2f6a2da38f7"
   },
-  "arvbau_cliente_possui_dquinze_dtrinta_autoser": "HUmano sem botão",
-  "arvbau_cliente_cancelou_automatica_autos": "HUmano sem botão",
-  "arvbau_cliente_com_avulsa_ano_autoser": "HUmano sem botão",
+  "arvbau_cliente_possui_dquinze_dtrinta_autoser": "5ffd35a8-bdac-49e1-a44f-a8709c5fcffe",
+  "arvbau_cliente_cancelou_automatica_autos": "5ffd35a8-bdac-49e1-a44f-a8709c5fcffe",
+  "arvbau_cliente_com_avulsa_ano_autoser": "5ffd35a8-bdac-49e1-a44f-a8709c5fcffe",
   "cessao_sem_taxa": "SEM AÇÃO",
   "inss_acaorefin_maio_10": {
     "Conferir oferta": "SEM AÇÃO",
