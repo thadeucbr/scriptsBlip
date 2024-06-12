@@ -1,0 +1,8 @@
+"Bot","Bloco","Tracking","Category","Action","Condição de Execução"
+"[BETA] GerenteEmp1","[E.0] Erro padrão","Registro de eventos - Last State","Erro padrão - origem","{{lastState}}","Sem condicionais para execução"
+"[BETA] GerenteEmp1","[E.0] Erro padrão","Registro de eventos - Exibicao","Erro padrão","Exibicao","Sem condicionais para execução"
+"[BETA] GerenteEmp1","Navegar NPS","Ticket Notificacao Ativa Novo","Ticket Notificacao Ativa Novo","#{{sequencialId}} - {{dataHoraBr}} - {{contact.identity}} - {{contact.extras.broadcastOrigem}} - {{respostaTemplate}} - {{contact.extras.ec}} - {{agentIdentity}}","context equals variable: recordBroadcast value: trueand context notEquals variable: contact.extras.broadcastOrigem value: -"
+"[BETA] GerenteEmp1","Navegar NPS","notificação ativa","notificação ativa v2","#{{sequencialId}} | {{dataHoraBr}} | {{contact.identity}} | {{contact.extras.broadcastOrigem}} | {{respostaTemplate}} | {{contact.extras.ec}} | {{responseTeam}} | {{emailOperador}} | {{responseTags}}","context equals variable: recordBroadcast value: trueand context notEquals variable: contact.extras.broadcastOrigem value: -"
+"[BETA] GerenteEmp1","Navegar NPS","tags","tags","{{responseTags}}","Sem condicionais para execução"
+"[BETA] GerenteEmp1","Navegar NPS","broadcast","broad","{{contact.extras.broadcastOrigem}}","context exists variable: contact.extras.broadcastOrigem and context notEquals variable: contact.extras.broadcastOrigem value: -"
+"[BETA] GerenteEmp1","[Redirect] Finalização","Track ¨Atendimento finalizado pelo usuario""","Atendimento finalizado pelo usuario","{{input.content}}","Sem condicionais para execução"

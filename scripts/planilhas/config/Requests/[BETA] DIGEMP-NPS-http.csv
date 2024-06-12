@@ -1,0 +1,42 @@
+"Bot","Bloco","Nome do Script","Endpoint","Metodo","Token","Variavel De Resposta","Variavel De Status","Variavel enviada no body","Descrição"
+"[BETA] DIGEMP-NPS","[7] Agradecimento","Nome Atendente","{{config.commands}}","POST","{{selectedToken}}","retornoUsuario","statusEncode","{
+  ""id"": ""{{random.guid}}"",
+  ""to"": ""postmaster@blip.ai"",
+  ""method"": ""get"",
+  ""uri"": ""lime://{{config.blip}}/accounts/{{emailEncode}}""
+}",""
+"[BETA] DIGEMP-NPS","Update contact","Get contact","{{config.commands}}","POST","{{selectedToken}}","responseContact","statusContact","{  
+  ""id"": ""{{random.guid}}"",
+  ""method"": ""get"",
+  ""uri"": ""/contacts/{{tunnelIdentity}}""
+}",""
+"[BETA] DIGEMP-NPS","Update contact","Update contact","{{config.commands}}","POST","{{selectedToken}}","response","status","{
+  ""id"": ""{{random.guid}}"",
+  ""method"": ""set"",
+  ""uri"": ""/contacts"",
+  ""type"": ""application/vnd.lime.contact+json"",
+  ""resource"": {
+    ""name"": ""{{resourceContact@name}}"",
+    ""lastMessageDate"": ""{{resourceContact@lastMessageDate}}"",
+    ""identity"": ""{{tunnelIdentity}}"",
+    ""phoneNumber"": ""{{resourceContact@phoneNumber}}"",
+    ""extras"": {
+      ""broadcastOrigem"": ""{{extrasContact@broadcastOrigem}}"",
+      ""broadcastListId"": ""{{extrasContact@broadcastListId}}"",
+      ""var1"": ""{{extrasContact@var1}}"",
+      ""var2"": ""{{extrasContact@var2}}"",
+      ""var3"": ""{{extrasContact@var3}}"",
+      ""telefone"": ""{{extrasContact@telefone}}"",
+      ""cnpj"": ""{{extrasContact@cnpj}}"",
+      ""empresa"": ""{{extrasContact@empresa}}"",
+      ""gerente"": ""{{extrasContact@gerente}}"",
+      ""filial"": ""{{extrasContact@filial}}"",
+      ""team"": ""{{extrasContact@team}}"",
+      ""tunnel.owner"": ""safraproddigemprouter2@msging.net"",
+      ""NPS"": ""{{score}}"",
+      ""DataAvaliacao"": ""{{DataHoraAvaliacao}}"",
+      ""Ticket_Tag"": ""#{{sequentialId}}|{{ticketTags}}"",
+      ""SugestaoNPS"": ""{{SugestaoNPS}}""
+    }
+  }
+}",""

@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const pasta = path.resolve(__dirname, 'Fluxos/prod'); // Substitua pelo caminho da sua pasta
+const pasta = path.resolve(__dirname, 'config/Fluxos/beta'); // Substitua pelo caminho da sua pasta
 
 const { identificarChamadas } = require('./config/identificaChamadasHttp')
 const { identificarTrackings } = require('./config/identificaTrackings')
@@ -24,6 +24,7 @@ fs.readdir(pasta, (err, arquivos) => {
 
   // Exibe os nomes dos arquivos .json
   arquivosJson.forEach(arquivo => {
+    console.log(arquivo)
     const fluxo = JSON.parse(fs.readFileSync(path.resolve(pasta, arquivo)))
     const nome = arquivo.replace('.json', '')
     identificarChamadas(fluxo, nome)

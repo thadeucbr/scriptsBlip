@@ -1,0 +1,9 @@
+"Bot","Bloco","Nome do Script","Endpoint","Metodo","Token","Variavel De Resposta","Variavel De Status","Variavel enviada no body","Descrição"
+"[BETA] GerenteEmp1","Início","Process ""responseTicketMonitor"" using ""POST"" ""Subscribe""","{{config.ApiUrl}}/v1/Subscription/Subscribe","POST",,"responseTicketMonitor","statusTicketMonitor","{
+    ""firstName"": ""John"",
+    ""lastName"": ""Doe""
+}",""
+"[BETA] GerenteEmp1","Navegar NPS","Process ""responseTicketMonitor"" using ""POST"" ""Unsubscribe""","{{config.ApiUrl}}/v1/Subscription/Unsubscribe","POST",,"responseTicketMonitor","statusTicketMonitor","{
+    ""firstName"": ""John"",
+    ""lastName"": ""Doe""
+}",""

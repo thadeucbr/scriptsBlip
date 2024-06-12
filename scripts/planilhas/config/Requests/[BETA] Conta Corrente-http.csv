@@ -1,0 +1,2 @@
+"Bot","Bloco","Nome do Script","Endpoint","Metodo","Token","Variavel De Resposta","Variavel De Status","Variavel enviada no body","Descrição"
+"[BETA] Conta Corrente","[TC.8.0.0][HTTP] API Pacotes","HTTP GET ""bodyPacote""","{{config.urlCHT}}/chat-assistente/safra-pay/v1/pacotes?agencia={{contaSelecionada@agencia}}&conta={{contaSelecionada@conta}}","GET","Bearer {{bodyToken@access_token}}","bodyPacote","statusPacote","-",""

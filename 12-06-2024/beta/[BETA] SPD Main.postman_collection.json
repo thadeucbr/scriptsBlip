@@ -1,0 +1,173 @@
+{
+  "info": {
+    "name": "teste",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "[M.1.0.0][MSG][HTTP] Boas vindas",
+      "item": [
+        {
+          "name": "Process \"bodyToken\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": {
+              "Content-Type": "application/x-www-form-urlencoded",
+              "accept": "*/*",
+              "Connection": "keep-alive",
+              "User-Agent": "Fiddler"
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "[M.3.0.0][MSG][HTTP] Verifica contas",
+      "item": [
+        {
+          "name": "Process \"bodyContas\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": {
+              "Authorization": "Bearer {{bodyToken@access_token}}",
+              "User-Agent": "Fiddler",
+              "Content-Type": "application/json",
+              "Safra-Bot-ID": "{{application.identifier}}"
+            },
+            "body": {
+              "mode": "raw"
+            },
+            "url": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "[M.4.0.0][MSG][HTTP] Obtem EC",
+      "item": [
+        {
+          "name": "Process \"bodyDadosConta\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": {
+              "Authorization": "Bearer {{bodyToken@access_token}}",
+              "User-Agent": "Fiddler",
+              "Content-Type": "application/json",
+              "Safra-Bot-ID": "{{application.identifier}}"
+            },
+            "body": {
+              "mode": "raw"
+            },
+            "url": {}
+          }
+        },
+        {
+          "name": "Process \"bodyUsuarios\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": {
+              "Authorization": "Bearer {{bodyToken@access_token}}",
+              "User-Agent": "Fiddler",
+              "Content-Type": "application/json",
+              "Safra-Aplicacao": "CHT",
+              "Safra-Correlation-ID": "{{random.guid}}",
+              "Safra-Bot-ID": "{{application.identifier}}"
+            },
+            "body": {
+              "mode": "raw"
+            },
+            "url": {}
+          }
+        },
+        {
+          "name": "Process \"bodyEC\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": {
+              "Authorization": "Bearer {{bodyToken@access_token}}",
+              "User-Agent": "Fiddler",
+              "Content-Type": "application/json",
+              "Safra-Bot-ID": "{{application.identifier}}"
+            },
+            "body": {
+              "mode": "raw"
+            },
+            "url": {}
+          }
+        }
+      ]
+    },
+    {
+      "name": "[M.4.0.1][HTTP] Obtem Carterização",
+      "item": [
+        {
+          "name": "Process \"bodyAccountManager\" using \"GET\" AG/CONTA",
+          "request": {
+            "method": "GET",
+            "header": {
+              "Authorization": "Bearer {{bodyToken@access_token}}",
+              "Content-Type": "application/json",
+              "User-Agent": "Fiddler",
+              "Safra-Correlation-ID": "{{idSessao}}",
+              "Safra-Bot-ID": "{{config.serviceName}}"
+            },
+            "body": {
+              "mode": "raw"
+            },
+            "url": {}
+          }
+        },
+        {
+          "name": "Process \"bodyAccountManager\" using \"GET\" Segmento 20",
+          "request": {
+            "method": "GET",
+            "header": {
+              "Authorization": "Bearer {{bodyToken@access_token}}",
+              "Content-Type": "application/json",
+              "User-Agent": "Fiddler"
+            },
+            "body": {
+              "mode": "raw"
+            },
+            "url": {}
+          }
+        },
+        {
+          "name": "Process \"bodyAccountManager\" using \"GET\" Segmento 17",
+          "request": {
+            "method": "GET",
+            "header": {
+              "Authorization": "Bearer {{bodyToken@access_token}}",
+              "Content-Type": "application/json",
+              "User-Agent": "Fiddler"
+            },
+            "body": {
+              "mode": "raw"
+            },
+            "url": {}
+          }
+        },
+        {
+          "name": "Process \"bodyAccountManager\" using \"GET\" PHONE",
+          "request": {
+            "method": "GET",
+            "header": {
+              "Authorization": "Bearer {{bodyToken@access_token}}",
+              "Content-Type": "application/json",
+              "User-Agent": "Fiddler"
+            },
+            "body": {
+              "mode": "raw"
+            },
+            "url": {}
+          }
+        }
+      ]
+    }
+  ]
+}
