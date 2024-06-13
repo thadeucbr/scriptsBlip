@@ -1,0 +1,6 @@
+"Bot","Bloco","Script","Variavel de entrada","Variavel de saida","Condição de Execução"
+"[BETA] AtendimentoHumano","Início","Process ""blockDestinationId""","[""state"",""config.serviceName""]","blockDestinationId","Sem condicionais para execução"
+"[BETA] AtendimentoHumano","[AH.2.2.0] Api horario atendimento","Process ""isWorkTime""","[""bodyIsWorkTime""]","isWorkTime","Sem condicionais para execução"
+"[BETA] AtendimentoHumano","[Redirect] WhatsApp PJ (atendente)","Process ""state""","[""state.previous.id"",""state.previous.name"",""input.content"",""userInput"",""config.serviceName"",""config.env""]","state","Sem condicionais para execução"
+"[BETA] AtendimentoHumano","[Redirect] To  Finalizacao (Welcome)","Process ""state""","[""state.previous.id"",""state.previous.name"",""input.content"",""userInput"",""config.serviceName"",""config.env""]","state","Sem condicionais para execução"
+"[BETA] AtendimentoHumano","[Redirect] To  Finalizacao (Finalizar)","Process ""state""","[""state.previous.id"",""state.previous.name"",""input.content"",""userInput"",""config.serviceName"",""config.env""]","state","Sem condicionais para execução"

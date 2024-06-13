@@ -1,0 +1,3 @@
+"Bot","Bloco","Nome do Script","Endpoint","Metodo","Token","Variavel De Resposta","Variavel De Status","Variavel enviada no body","Descrição"
+"[BETA] SPD Cascata","Verifica SmallTalks","Process ""bodySmallTlaks"" using ""GET""","https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3","GET",,"bodySmallTalks","statusSmallTalks","-",""
+"[BETA] SPD Cascata","Gera novo token","Process ""bodyToken"" using ""POST""","{{config.urlToken}}/api/oauth/token","POST",,"bodyToken","statusToken","{{encodingUrl}}",""

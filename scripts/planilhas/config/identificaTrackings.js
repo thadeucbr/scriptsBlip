@@ -23,7 +23,7 @@ function getTransitFlows() {
       const condicoesExecucao = item.conditions
       let condicaoExecucao = []
 
-      if (condicoesExecucao.length > 0) {
+      if (condicoesExecucao?.length > 0) {
         condicoesExecucao.forEach(({source, comparison, variable, values}) => {
           condicaoExecucao.push(`${source} ${comparison} ${variable ? 'variable: ' : ''}${variable || ''} ${values.length > 0 ? 'value: ': ''}${values || ''}`)
         })

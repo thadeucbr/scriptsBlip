@@ -1,0 +1,6 @@
+"Bot","Bloco","Variavel","Valor Setado","Descrição"
+"[BETA] AtendimentoHumano","[AH.2.4.0] Define fila de atendimento","tunnelMain","{{tunnel.identity}}",""
+"[BETA] AtendimentoHumano","[AH.2.2.0] Api horario atendimento","isWorkTime","Execução de script",""
+"[BETA] AtendimentoHumano","[Redirect] WhatsApp PJ (atendente)","state","Execução de script",""
+"[BETA] AtendimentoHumano","[Redirect] To  Finalizacao (Welcome)","state","Execução de script",""
+"[BETA] AtendimentoHumano","[Redirect] To  Finalizacao (Finalizar)","state","Execução de script",""

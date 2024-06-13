@@ -1,0 +1,2 @@
+"Bot","Bloco","Nome do Script","Endpoint","Metodo","Token","Variavel De Resposta","Variavel De Status","Variavel enviada no body","Descrição"
+"[BETA] AtendimentoHumano","[AH.2.2.0] Api horario atendimento","Requisição HTTP horario","{{config.urlCHT}}/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team=default","GET","Bearer {{bodyToken@access_token}}","bodyIsWorkTime","statusIsWorkTime","-",""
