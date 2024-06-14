@@ -36,7 +36,7 @@ async function getBotJson({ key, bot, env }) {
       const index = resource.publications.sort((a, b) => a.publishedAt - b.publishedAt)[0]
       return index.index
     })
-    .catch(error => console.log('error', error));
+    .catch(error => console.log('error', error.message));
 
   raw = JSON.stringify({
     "id": "f09d5ff3-b6b6-441d-ac75-277e3e7c04e7",
@@ -56,9 +56,10 @@ async function getBotJson({ key, bot, env }) {
     .then(result => {
       const { resource } = JSON.parse(result)
       writeFileSync(path.resolve(__dirname,`./backup/${date}/${env}/${bot}.json`), JSON.stringify(resource))
+      console.log(`${bot} - ${env} - Downloaded`)
     }
     )
-    .catch(error => console.log('error', error));
+    .catch(error => console.log('error', error.message));
 }
 
 const bots = [...dev, ...beta, ...prod, ...local]
