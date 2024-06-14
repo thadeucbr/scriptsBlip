@@ -1,14 +1,14 @@
 [
   "teste_pix_1",
-   "teste_antecipacao_1",
-   "teste_boleto_1",
-   "extrato_conta_hml",
-   "extrato_safrapay_recebimentos_homol",
-   "extrato_safrapay_vendas_homol",
-   "fazer_pix",
-   "antecipar_saldo",
-   "pagar_boleto",
-   "extrato_conta_prod",
-   "extrato_safrapay_recebimentos_prod",
-   "extrato_safrapay_vendas_prod"
+  "teste_antecipacao_1",
+  "teste_boleto_1",
+  "extrato_conta_hml",
+  "extrato_safrapay_recebimentos_homol",
+  "extrato_safrapay_vendas_homol",
+  "fazer_pix",
+  "antecipar_saldo",
+  "pagar_boleto",
+  "extrato_conta_prod",
+  "extrato_safrapay_recebimentos_prod",
+  "extrato_safrapay_vendas_prod"
 ]

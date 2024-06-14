@@ -10,6 +10,9 @@ Conta 1 = Seg 17 - EMP2
 CPF Diego: 39053633804
 
 ****
+CPF com Bom Dia Safrapay (CPFAppKey): 17321181758
+Senha do WEBVIEW em Homol: paulist1 ou Paulist
+****
 
 CNPJ Valido:      20331145000182 EMP2
 CNPJ Conta 3 Ana: 05956079000142 EMP1

@@ -7,7 +7,6 @@ function filtraTemplates() {
   const objTemplates = {}
   templatesEmp.forEach((template) => {
     const foundTemplate = templatesWaba.find(({ name }) => name === template)
-    objTemplates[template] = foundTemplate
     // if (foundTemplate) {
     //   const buttons = foundTemplate.components.find(({ type }) => type === 'BUTTONS')?.buttons
     //   if (buttons) {
@@ -20,6 +19,7 @@ function filtraTemplates() {
     //     objTemplates[template] = 'sem botão'
     //   }
     // }
+    console.log(JSON.stringify(foundTemplate))
   })
   fs.writeFileSync(path.resolve(__dirname, 'templates.json'), JSON.stringify(objTemplates))
 }
