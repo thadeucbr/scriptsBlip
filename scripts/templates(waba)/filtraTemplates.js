@@ -7,18 +7,19 @@ function filtraTemplates() {
   const objTemplates = {}
   templatesEmp.forEach((template) => {
     const foundTemplate = templatesWaba.find(({ name }) => name === template)
-    if (foundTemplate) {
-      const buttons = foundTemplate.components.find(({ type }) => type === 'BUTTONS')?.buttons
-      if (buttons) {
-        const buttonsOjb = {}
-        buttons.forEach((button) => {
-          buttonsOjb[button.text] = ''
-        })
-        objTemplates[template] = buttonsOjb
-      } else {
-        objTemplates[template] = 'sem botão'
-      }
-    }
+    objTemplates[template] = foundTemplate
+    // if (foundTemplate) {
+    //   const buttons = foundTemplate.components.find(({ type }) => type === 'BUTTONS')?.buttons
+    //   if (buttons) {
+    //     const buttonsOjb = {}
+    //     buttons.forEach((button) => {
+    //       buttonsOjb[button.text] = ''
+    //     })
+    //     objTemplates[template] = buttonsOjb
+    //   } else {
+    //     objTemplates[template] = 'sem botão'
+    //   }
+    // }
   })
   fs.writeFileSync(path.resolve(__dirname, 'templates.json'), JSON.stringify(objTemplates))
 }
