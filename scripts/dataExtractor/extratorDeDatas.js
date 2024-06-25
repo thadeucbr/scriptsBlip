@@ -99,43 +99,36 @@ function run(input) {
             return [parseDate(`${day}/${month}/${year}`)];
         }
 
-        //Verifica presença de ultimo mês
-        match = /último mês/i.exec(text);
+        // Verifica último mês ou mês passado
+        match = text.match(/(último|mês) passad(o)?/i);
         if (match) {
             const lastMonthStartDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1);
             const lastMonthEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
             return [lastMonthStartDate, lastMonthEndDate];
         }
-        //Verifica mês passado
-        match = /mês passado/i.exec(text);
-        if (match) {
-            const lastMonthStartDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1);
-            const lastMonthEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
-            return [lastMonthStartDate, lastMonthEndDate];
-        }
-        //Verifica semana passada
-        match = /semana passada/i.exec(text);
+        //Verifica semana passada ou última semana
+        match = text.match(/(últim(a|o)|semana) (passad(a|o)|semana)?/i);
         if (match) {
             const lastWeekEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - currentDate.getDay());
             const lastWeekStartDate = new Date(lastWeekEndDate.getFullYear(), lastWeekEndDate.getMonth(), lastWeekEndDate.getDate() - 6);
             return [lastWeekStartDate, lastWeekEndDate];
         }
         //Verifica deste mês
-        match = /deste mês/i.exec(text);
+        match = text.match(/deste m[eê]s?/i);
         if (match) {
             const thisMonthStartDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
             const thisMonthEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
             return [thisMonthStartDate, thisMonthEndDate];
         }
-        //Verifica trimestre
-        match = /último trimestre/i.exec(text);
+        //Verifica ultimo trimestre ou trimestre passado
+        match = text.match(/(últim(a|o)|trimestre) (passad(a|o)|trimestre)?/i);
         if (match) {
             const lastQuarterStartDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - ((currentDate.getMonth() % 3) + 3) % 3, 1);
             const lastQuarterEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - ((currentDate.getMonth() % 3) + 3) % 3 + 2, 0);
             return [lastQuarterStartDate, lastQuarterEndDate];
         }
-        //Verifica bimestre
-        match = /último bimestre/i.exec(text);
+        //Verifica ultimo bimestre ou bimestre passado
+        match = text.match(/(últim(a|o)|bimestre) (passad(a|o)|bimestre)?/i);
         if (match) {
             const lastBimesterStartDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - ((currentDate.getMonth() % 2) + 2) % 2, 1);
             const lastBimesterEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - ((currentDate.getMonth() % 2) + 2) % 2 + 1, 0);
@@ -182,7 +175,9 @@ const testCases = [
     "Quero o extrato deste mês, por favor.",
     "Pode me mostrar o extrato do último trimestre?",
     "Quero consultar o extrato do último trimestre por favor.",
-    "Quero o extrato do último bimestre, por gentileza."
+    "Quero o extrato do último bimestre, por gentileza.",
+    "Extrado da semana passada",
+    "Extrado da última semana",
 ];
 // const testCases = [
 //     "Extrato de abril até setembro",
