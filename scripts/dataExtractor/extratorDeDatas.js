@@ -100,14 +100,14 @@ function run(input) {
         }
 
         // Verifica último mês ou mês passado
-        match = text.match(/(último|mês) passad(o)?/i);
+        match = text.match(/([úu]ltimo|mês) passad(o)?/i);
         if (match) {
             const lastMonthStartDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1);
             const lastMonthEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
             return [lastMonthStartDate, lastMonthEndDate];
         }
         //Verifica semana passada ou última semana
-        match = text.match(/(últim(a|o)|semana) (passad(a|o)|semana)?/i);
+        match = text.match(/([úu]ltim(a|o)|semana) (passad(a|o)|semana)?/i);
         if (match) {
             const lastWeekEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - currentDate.getDay());
             const lastWeekStartDate = new Date(lastWeekEndDate.getFullYear(), lastWeekEndDate.getMonth(), lastWeekEndDate.getDate() - 6);
@@ -121,14 +121,14 @@ function run(input) {
             return [thisMonthStartDate, thisMonthEndDate];
         }
         //Verifica ultimo trimestre ou trimestre passado
-        match = text.match(/(últim(a|o)|trimestre) (passad(a|o)|trimestre)?/i);
+        match = text.match(/([úu]ltim(a|o)|trimestre) (passad(a|o)|trimestre)?/i);
         if (match) {
             const lastQuarterStartDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - ((currentDate.getMonth() % 3) + 3) % 3, 1);
             const lastQuarterEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - ((currentDate.getMonth() % 3) + 3) % 3 + 2, 0);
             return [lastQuarterStartDate, lastQuarterEndDate];
         }
         //Verifica ultimo bimestre ou bimestre passado
-        match = text.match(/(últim(a|o)|bimestre) (passad(a|o)|bimestre)?/i);
+        match = text.match(/([úu]ltim(a|o)|bimestre) (passad(a|o)|bimestre)?/i);
         if (match) {
             const lastBimesterStartDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - ((currentDate.getMonth() % 2) + 2) % 2, 1);
             const lastBimesterEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - ((currentDate.getMonth() % 2) + 2) % 2 + 1, 0);
