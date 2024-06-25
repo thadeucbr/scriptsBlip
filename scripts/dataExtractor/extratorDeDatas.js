@@ -29,7 +29,7 @@ function run(input) {
 
     function extractDates(text) {
         //Verifica ultimos X dias
-        let match = /últimos (\d{1,2}) dias/i.exec(text);
+        let match = text.match(/[uú]ltimos (\d{1,2}) dias/i);
         if (match) {
             const numberOfDays = parseInt(match[1], 10); // Captura o número de dias
             const endDate = currentDate;
