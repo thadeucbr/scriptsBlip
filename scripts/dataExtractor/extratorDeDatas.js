@@ -6,6 +6,8 @@ function run(input) {
     const monthsRegex = '(janeiro|jan|fevereiro|fev|março|mar|abril|abr|maio|mai|junho|jun|julho|jul|agosto|ago|setembro|set|outubro|out|novembro|nov|dezembro|dez)';
 
     const currentDate = new Date();
+    const currentMonth = currentDate.getMonth();
+    const currentYear = currentDate.getFullYear();
     const ninetyDaysInMillis = 90 * 24 * 60 * 60 * 1000;
 
     function parseDate(dateStr) {
@@ -100,7 +102,7 @@ function run(input) {
         }
 
         // Verifica último mês ou mês passado
-        match = text.match(/([úu]ltimo|mês) passad(o)/i);
+        match = text.match(/([úu]ltimo|m[eê]s) passad(o)/i);
         if (match) {
             const lastMonthStartDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1);
             const lastMonthEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
@@ -123,9 +125,6 @@ function run(input) {
         //Verifica ultimo trimestre ou trimestre passado
         match = text.match(/([úu]ltim(a|o)|trimestre) (passad(a|o)|trimestre)/i);
         if (match) {
-            const currentDate = new Date();
-            const currentMonth = currentDate.getMonth();
-            const currentYear = currentDate.getFullYear();
             // Determinar o trimestre atual
             const currentQuarter = Math.floor(currentMonth / 3) + 1;
             // Calcular o trimestre anterior
@@ -138,20 +137,17 @@ function run(input) {
                 lastQuarterYear = currentYear;
             }
             // Calcular o mês inicial e final do último trimestre
-            const startMonth = (lastQuarter - 1) * 3;
-            const endMonth = startMonth + 2;
+            const startMonthX = (lastQuarter - 1) * 3;
+            const endMonthX = startMonthX + 2;
             // Data de início do último trimestre (primeiro dia do mês inicial)
-            const lastQuarterStartDate = new Date(lastQuarterYear, startMonth, 1);
-            const lastQuarterEndDate = new Date(lastQuarterYear, endMonth + 1, 0);
+            const lastQuarterStartDate = new Date(lastQuarterYear, startMonthX, 1);
+            const lastQuarterEndDate = new Date(lastQuarterYear, endMonthX + 1, 0);
 
             return [lastQuarterStartDate, lastQuarterEndDate];
         }
         //Verifica ultimo bimestre ou bimestre passado
         match = text.match(/([úu]ltim(a|o)|bimestre) (passad(a|o)|bimestre)/i);
         if (match) {
-            const currentDate = new Date();
-            const currentMonth = currentDate.getMonth();
-            const currentYear = currentDate.getFullYear();
             // Determinar o bimestre atual
             const currentBimester = Math.floor(currentMonth / 2) + 1;
             // Calcular o bimestre anterior
@@ -271,4 +267,4 @@ function run(input) {
 // testCases.forEach(testCase => {
 //     console.log(run(testCase), "| " + testCase);
 // });
-console.log(run("Quero consultar o extrato deste mês por favor.", "| "));
+console.log(run("Extrado da semana passada", "| "));
