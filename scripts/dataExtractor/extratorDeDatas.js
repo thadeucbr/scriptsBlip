@@ -55,10 +55,10 @@ function run(input) {
         }
 
         // Verifica intervalos de meses por extenso
-        match = text.match(new RegExp(`de (${monthsRegex}) até (${monthsRegex})`, 'i'));
+        match = text.match(new RegExp(`de (${monthsRegex}) (at[eé]|a) (${monthsRegex})`, 'i'));
         if (match) {
             const startMonth = getMonthNumber(match[1]);
-            const endMonth = getMonthNumber(match[2]);
+            const endMonth = getMonthNumber(match[5]);
             const year = currentDate.getFullYear();
             const startDate = parseDate(`01/${startMonth}/${year}`);
             const endDate = new Date(year, parseInt(endMonth, 10), 0); // Último dia do mês
@@ -86,10 +86,10 @@ function run(input) {
         }
 
         // Verifica intervalos no formato DD/MM até DD/MM
-        match = text.match(/(\d{1,2}\/\d{1,2}) até (\d{1,2}\/\d{1,2})/i);
+        match = text.match(/(\d{1,2}\/\d{1,2}) (at[eé]|a) (\d{1,2}\/\d{1,2})/i);
         if (match) {
             const year = currentDate.getFullYear();
-            return [parseDate(`${match[1]}/${year}`), parseDate(`${match[2]}/${year}`)];
+            return [parseDate(`${match[1]}/${year}`), parseDate(`${match[3]}/${year}`)];
         }
 
         // Verifica data no formato "dia D"
@@ -267,4 +267,4 @@ function run(input) {
 // testCases.forEach(testCase => {
 //     console.log(run(testCase), "| " + testCase);
 // });
-console.log(run("Extrado da semana passada", "| "));
+console.log(run("Extrado de abril a junho"));
