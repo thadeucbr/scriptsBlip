@@ -13,9 +13,30 @@ Conta 01 - Segmento 20 (EMP1) - SEM EC
 Conta 03 - Segmento 20 (EMP2) - COM EC
 Conta 10 - Segmento 07 (Não Carteirizado)
 
+KBA BIGID:
+"Qual das opções abaixo indica o segmento de uma das empresa para a qual você trabalha ou já trabalhou como CLT?",
+R: "ATIVIDADES DE INTERMEDIACAO E AGENCIAMENTO DE SERVICOS E NEGOCIOS EM GERAL, EXCETO IMOBILIARIOS"
+ 
+"Qual das alternativas abaixo indica tanto a sua idade quanto a idade da sua mãe?",
+"33 E 51",
+ 
+"Quais são as iniciais do nome completo da sua mãe?",
+R: "V.L.L.D.P.",
+ 
+"Qual das alternativas abaixo indica tanto o seu ano de nascimento quanto o ano de nascimento da sua mãe?",
+R: "1991 E 1972",
+ 
+"Qual é o nome da sua mãe?",
+R: "VERA LUCIA LOPES DANTAS PEREIRA"
+ 
+"Qual curso e turno você frequenta ou já frequentou na faculdade?",
+R: "ENGENHARIA MECANICA - NOTURNO"
+
 ****
 CPF com Bom Dia Safrapay (CPFAppKey): 17321181758
 Senha do WEBVIEW em Homol: paulist1 ou Paulist
+
+BDSP PROD - 17nickol - 30120476894
 ****
 
 CNPJ Valido:      20331145000182 EMP2
