@@ -174,15 +174,24 @@ function run(input) {
     const dates = extractDates(input);
 
     if (dates.length === 1) {
-        return formatDate(dates[0]);
+        const startDate = dates[0];
+        const endDate = new Date();
+        const diffInMillis = endDate - startDate;
+        if (diffInMillis > 0) {
+            return "Lançamento futuro";
+        }
+        return formatDate(dates[0])
     } else if (dates.length === 2) {
         const startDate = dates[0];
         const endDate = dates[1];
         const diffInMillis = endDate - startDate;
-
-        if (diffInMillis > 0 && diffInMillis <= ninetyDaysInMillis) {
+        if (diffInMillis > 0) {
+            return "Lançamento futuro"
+        }
+        if (diffInMillis <= ninetyDaysInMillis) {
             return `${formatDate(startDate)} - ${formatDate(endDate)}`;
-        } else {
+        }
+        else {
             return 'Período deve ser inferior a 90 dias';
         }
     } else {
@@ -267,4 +276,4 @@ function run(input) {
 // testCases.forEach(testCase => {
 //     console.log(run(testCase), "| " + testCase);
 // });
-console.log(run("Extrado de abril a junho"));
+console.log(run("Extrado de dezembro"));
