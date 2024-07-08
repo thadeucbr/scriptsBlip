@@ -1,7 +1,9 @@
 function run(input) {
     const months = {
         janeiro: '01', fevereiro: '02', março: '03', abril: '04', maio: '05', junho: '06',
-        julho: '07', agosto: '08', setembro: '09', outubro: '10', novembro: '11', dezembro: '12'
+        julho: '07', agosto: '08', setembro: '09', outubro: '10', novembro: '11', dezembro: '12',
+        jan: '01', fev: '02', mar: '03', abr: '04', mai: '05', jun: '06', jul: '07', ago: '08',
+        set: '09', out: '10', nov: '11', dez: '12'
     };
     const monthsRegex = '(janeiro|jan|fevereiro|fev|março|mar|abril|abr|maio|mai|junho|jun|julho|jul|agosto|ago|setembro|set|outubro|out|novembro|nov|dezembro|dez)';
 
@@ -174,24 +176,23 @@ function run(input) {
     const dates = extractDates(input);
 
     if (dates.length === 1) {
-        const startDate = dates[0];
-        const endDate = new Date();
-        const diffInMillis = endDate - startDate;
-        if (diffInMillis > 0) {
+        let startDate = dates[0];
+        let endDate = new Date();
+        let diffInMillis = endDate - startDate;
+        if (diffInMillis < 0) {
             return "Lançamento futuro";
         }
-        return formatDate(dates[0])
+        return formatDate(dates[0]);
     } else if (dates.length === 2) {
-        const startDate = dates[0];
-        const endDate = dates[1];
-        const diffInMillis = endDate - startDate;
-        if (diffInMillis > 0) {
-            return "Lançamento futuro"
+        let startDate = dates[0];
+        let endDate = dates[1];
+        let diffInMillis = endDate - startDate;
+        if (diffInMillis < 0) {
+            return "Lançamento futuro";
         }
         if (diffInMillis <= ninetyDaysInMillis) {
             return `${formatDate(startDate)} - ${formatDate(endDate)}`;
-        }
-        else {
+        } else {
             return 'Período deve ser inferior a 90 dias';
         }
     } else {
