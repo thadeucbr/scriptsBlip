@@ -180,15 +180,16 @@ function run(input) {
             const startDate = dates[0];
             const endDate = new Date();
             const diffInMillis = endDate - startDate;
-            if (diffInMillis < 0) {
+            if (diffInMillis < 0 || startDate > endDate) {
                 return { error: 'extratoLancamentoFuturo' };
             }
             return formatDate(dates[0]);
         } else if (dates.length === 2) {
+            const actualDate = new Date();
             const startDate = dates[0];
             const endDate = dates[1];
             const diffInMillis = endDate - startDate;
-            if (diffInMillis < 0) {
+            if (diffInMillis < 0 || startDate > actualDate) {
                 return { error: 'extratoLancamentoFuturo' };
             }
             if (diffInMillis <= ninetyDaysInMillis) {
@@ -280,4 +281,4 @@ const testCases = [
 // testCases.forEach(testCase => {
 //     console.log(run(testCase), "| " + testCase);
 // });
-console.log(run("Extrato do dia 15/07/2024 até 25/08/2024"));
+console.log(run("extrato do dia 15/07/2024 até 25/08/2024"));
