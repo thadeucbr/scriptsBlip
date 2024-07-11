@@ -5,7 +5,7 @@ async function updateFlow(key, flow) {
     'Content-Type': 'application/json'
   }
   const body = JSON.stringify({
-    "id": "f09d5ff3-b6b6-441d-ac75-277e3e7c04e7",
+    "id": "6cdace09-2f5d-4693-a2f2-40c69e76b79c",
     "method": "set",
     "uri": "/buckets/blip_portal:builder_working_flow",
     type: "application/json",
@@ -17,7 +17,7 @@ async function updateFlow(key, flow) {
     body: body,
     redirect: 'follow'
   };
-  await fetch("https://msging.net/commands", requestOptions).then((response) => response.text()).then((result) => {
+  await fetch("https://safra.http.msging.net/commands", requestOptions).then((response) => response.text()).then((result) => {
     const { status, to } = JSON.parse(result)
     if (status === 'success') {
       log('verde', `${to.split('@')[0]} Status: ${status}`)

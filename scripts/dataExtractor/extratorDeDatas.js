@@ -34,7 +34,7 @@ function run(input) {
 
         function extractDates(text) {
             //Verifica ultimos X dias
-            let match = text.match(/[uú]ltimos (\d{1,4}) dias/i);
+            let match = text.match(/[uú]ltimos (\d{1,2}) dias/i);
             if (match) {
                 const numberOfDays = parseInt(match[1], 10); // Captura o número de dias
                 const endDate = currentDate;
@@ -172,7 +172,7 @@ function run(input) {
                 return [lastBimesterStartDate, lastBimesterEndDate];
             }
             //Verifica X dias
-            match = text.match(/(\d{1,4}) dias/i);
+            match = text.match(/(\d{1,2}) dias/i);
             if (match) {
                 const numberOfDays = parseInt(match[1], 10); // Captura o número de dias
                 const endDate = currentDate;
@@ -183,16 +183,15 @@ function run(input) {
             match = text.match(/de hoje|(hoje)/i);
             if (match) {
                 let today = new Date();
-                return ([today]);
+                return ([today, today]);
             }
             //ontem
             match = text.match(/de ontem|(ontem)/i);
             if (match) {
                 let tomorrow = new Date();
                 tomorrow.setDate(tomorrow.getDate() - 1);
-                return ([tomorrow]);
+                return ([tomorrow, tomorrow]);
             }
-
             return [];
 
         }
@@ -304,4 +303,4 @@ function run(input) {
 // testCases.forEach(testCase => {
 //     console.log(run(testCase), "| " + testCase);
 // });
-console.log(run("de ontem"));
+console.log(run("hoje"));

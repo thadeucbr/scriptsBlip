@@ -7,7 +7,7 @@ async function getBotJsonAndUpdateFlow(keyOrigin, keyDestination) {
     'Content-Type': 'application/json'
   }
   const body = JSON.stringify({
-    "id": "f09d5ff3-b6b6-441d-ac75-277e3e7c04e7",
+    "id": "ad93ba70-2fb4-4da7-99c4-cfc0743f7623",
     "method": "get",
     "uri": "/buckets/blip_portal:builder_working_flow"
   })
