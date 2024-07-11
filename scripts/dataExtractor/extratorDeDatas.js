@@ -155,8 +155,7 @@ function run(input) {
             match = text.match(/(dessa semana|essa semana)/i);
             if (match) {
                 const weekStartDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - currentDate.getDay() + 1);
-                const weekEndDate = new Date(weekStartDate.getFullYear(), weekStartDate.getMonth(), weekStartDate.getDate() + 6);
-                return [weekStartDate, weekEndDate];
+                return [weekStartDate, currentDate];
             }
 
             // Verifica semana passada
@@ -176,11 +175,10 @@ function run(input) {
             }
 
             // Verifica deste mês
-            match = text.match(/deste m[eê]s/i);
+            match = text.match(/[d]?esse m[eê]s|m[eê]s atual/i);
             if (match) {
                 const thisMonthStartDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-                const thisMonthEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
-                return [thisMonthStartDate, thisMonthEndDate];
+                return [thisMonthStartDate, currentDate];
             }
 
             // Verifica último trimestre ou trimestre passado
@@ -365,4 +363,4 @@ function run(input) {
 // testCases.forEach(testCase => {
 //     console.log(run(testCase), "| " + testCase);
 // });
-console.log(run("extrato de julho"));
+console.log(run("extrato mes atual"));
