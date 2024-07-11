@@ -7,6 +7,28 @@ function run(input) {
             set: '09', out: '10', nov: '11', dez: '12'
         };
         const monthsRegex = '(janeiro|jan|fevereiro|fev|março|mar|abril|abr|maio|mai|junho|jun|julho|jul|agosto|ago|setembro|set|outubro|out|novembro|nov|dezembro|dez)';
+        const numbersInWords = {
+            um: 1, dois: 2, três: 3, quatro: 4, cinco: 5, seis: 6, sete: 7, oito: 8, nove: 9,
+            dez: 10, onze: 11, doze: 12, treze: 13, quatorze: 14, quinze: 15, dezesseis: 16, dezessete: 17,
+            dezoito: 18, dezenove: 19, vinte: 20, "vinte e um": 21, "vinte e dois": 22, "vinte e três": 23,
+            "vinte e quatro": 24, "vinte e cinco": 25, "vinte e seis": 26, "vinte e sete": 27, "vinte e oito": 28,
+            "vinte e nove": 29, trinta: 30, "trinta e um": 31, "trinta e dois": 32, "trinta e três": 33,
+            "trinta e quatro": 34, "trinta e cinco": 35, "trinta e seis": 36, "trinta e sete": 37,
+            "trinta e oito": 38, "trinta e nove": 39, quarenta: 40, "quarenta e um": 41, "quarenta e dois": 42,
+            "quarenta e três": 43, "quarenta e quatro": 44, "quarenta e cinco": 45, "quarenta e seis": 46,
+            "quarenta e sete": 47, "quarenta e oito": 48, "quarenta e nove": 49, cinquenta: 50,
+            "cinquenta e um": 51, "cinquenta e dois": 52, "cinquenta e três": 53, "cinquenta e quatro": 54,
+            "cinquenta e cinco": 55, "cinquenta e seis": 56, "cinquenta e sete": 57, "cinquenta e oito": 58,
+            "cinquenta e nove": 59, sessenta: 60, "sessenta e um": 61, "sessenta e dois": 62,
+            "sessenta e três": 63, "sessenta e quatro": 64, "sessenta e cinco": 65, "sessenta e seis": 66,
+            "sessenta e sete": 67, "sessenta e oito": 68, "sessenta e nove": 69, setenta: 70, "setenta e um": 71,
+            "setenta e dois": 72, "setenta e três": 73, "setenta e quatro": 74, "setenta e cinco": 75,
+            "setenta e seis": 76, "setenta e sete": 77, "setenta e oito": 78, "setenta e nove": 79, oitenta: 80,
+            "oitenta e um": 81, "oitenta e dois": 82, "oitenta e três": 83, "oitenta e quatro": 84,
+            "oitenta e cinco": 85, "oitenta e seis": 86, "oitenta e sete": 87, "oitenta e oito": 88,
+            "oitenta e nove": 89, noventa: 90
+        };
+
 
         const currentDate = new Date();
         const currentMonth = currentDate.getMonth();
@@ -18,12 +40,12 @@ function run(input) {
             day = day.padStart(2, '0');
             month = month.padStart(2, '0');
             year = year ? (year.length === 2 ? '20' + year : year) : currentDate.getFullYear();
-            return new Date(year, month - 1, day); // Note que subtraímos 1 de month para o objeto Date
+            return new Date(year, month - 1, day);
         }
 
         function formatDate(date) {
             const day = String(date.getDate()).padStart(2, '0');
-            const month = String(date.getMonth() + 1).padStart(2, '0'); // Acrescentamos 1 a month
+            const month = String(date.getMonth() + 1).padStart(2, '0');
             const year = date.getFullYear();
             return `${day}/${month}/${year}`;
         }
@@ -32,23 +54,36 @@ function run(input) {
             return months[monthName.toLowerCase()];
         }
 
+        function getNumberFromWords(word) {
+            return numbersInWords[word.toLowerCase()];
+        }
+
         function extractDates(text) {
-            //Verifica ultimos X dias
+            text = text.toLowerCase();
+
+            // Verifica ultimos X dias
             let match = text.match(/[uú]ltimos (\d{1,2}) dias/i);
             if (match) {
-                const numberOfDays = parseInt(match[1], 10); // Captura o número de dias
+                const numberOfDays = parseInt(match[1], 10);
                 const endDate = currentDate;
                 const startDate = new Date(endDate.getTime() - numberOfDays * 24 * 60 * 60 * 1000);
                 return ([startDate, endDate]);
             }
 
-            // Verifica intervalos de meses por extenso e dias númericos
+            // Verifica ultimos X dias por extenso
+            match = text.match(new RegExp(`últimos (${Object.keys(numbersInWords).join('|')}) dias`, 'i'));
+            if (match) {
+                const numberOfDays = getNumberFromWords(match[1]);
+                const endDate = currentDate;
+                const startDate = new Date(endDate.getTime() - numberOfDays * 24 * 60 * 60 * 1000);
+                return ([startDate, endDate]);
+            }
+
+            // Verifica intervalos de meses por extenso e dias numéricos
             match = text.match(new RegExp(`(\\d{1,2}) de (${monthsRegex}) (at[eé]|a) (\\d{1,2}) de (${monthsRegex})`, 'i'));
             if (match) {
-                let startDay = match[1];
-                startDay = startDay.padStart(2, '0');
-                let endDay = match[5];
-                endDay = endDay.padStart(2, '0');
+                let startDay = match[1].padStart(2, '0');
+                let endDay = match[5].padStart(2, '0');
                 const startMonth = getMonthNumber(match[2]);
                 const endMonth = getMonthNumber(match[6]);
                 const year = currentDate.getFullYear();
@@ -64,7 +99,7 @@ function run(input) {
                 const endMonth = getMonthNumber(match[5]);
                 const year = currentDate.getFullYear();
                 const startDate = parseDate(`01/${startMonth}/${year}`);
-                const endDate = new Date(year, parseInt(endMonth, 10), 0); // Último dia do mês
+                const endDate = new Date(year, parseInt(endMonth, 10), 0);
                 return [startDate, endDate];
             }
 
@@ -74,7 +109,11 @@ function run(input) {
                 const month = getMonthNumber(match[1]);
                 const year = currentDate.getFullYear();
                 const startDate = parseDate(`01/${month}/${year}`);
-                const endDate = new Date(year, parseInt(month, 10), 0); // Último dia do mês
+                const endDate = new Date(year, parseInt(month, 10), 0);
+                if (currentDate.getMonth() + 1 === parseInt(month, 10)) {
+                    // Se o mês solicitado é o mês atual
+                    return [startDate, currentDate];
+                }
                 return [startDate, endDate];
             }
 
@@ -111,26 +150,41 @@ function run(input) {
                 const lastMonthEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 0);
                 return [lastMonthStartDate, lastMonthEndDate];
             }
-            //Verifica semana passada ou última semana
-            match = text.match(/([úu]ltima semana|semana passada)/i);
+
+            // Verifica "dessa semana" ou "essa semana"
+            match = text.match(/(dessa semana|essa semana)/i);
+            if (match) {
+                const weekStartDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - currentDate.getDay() + 1);
+                return [weekStartDate, currentDate];
+            }
+
+            // Verifica semana passada
+            match = text.match(/semana passada/i);
             if (match) {
                 const lastWeekEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - currentDate.getDay());
                 const lastWeekStartDate = new Date(lastWeekEndDate.getFullYear(), lastWeekEndDate.getMonth(), lastWeekEndDate.getDate() - 6);
                 return [lastWeekStartDate, lastWeekEndDate];
             }
-            //Verifica deste mês
-            match = text.match(/deste m[eê]s/i);
+
+            // Verifica semana retrasada
+            match = text.match(/semana retrasada/i);
+            if (match) {
+                const twoWeeksAgoEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate() - currentDate.getDay() - 7);
+                const twoWeeksAgoStartDate = new Date(twoWeeksAgoEndDate.getFullYear(), twoWeeksAgoEndDate.getMonth(), twoWeeksAgoEndDate.getDate() - 6);
+                return [twoWeeksAgoStartDate, twoWeeksAgoEndDate];
+            }
+
+            // Verifica deste mês
+            match = text.match(/[d]?esse m[eê]s|m[eê]s atual/i);
             if (match) {
                 const thisMonthStartDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
-                const thisMonthEndDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0);
-                return [thisMonthStartDate, thisMonthEndDate];
+                return [thisMonthStartDate, currentDate];
             }
-            //Verifica ultimo trimestre ou trimestre passado
+
+            // Verifica último trimestre ou trimestre passado
             match = text.match(/([úu]ltim(a|o)|trimestre) (passad(a|o)|trimestre)/i);
             if (match) {
-                // Determinar o trimestre atual
                 const currentQuarter = Math.floor(currentMonth / 3) + 1;
-                // Calcular o trimestre anterior
                 let lastQuarter, lastQuarterYear;
                 if (currentQuarter === 1) {
                     lastQuarter = 4;
@@ -139,21 +193,17 @@ function run(input) {
                     lastQuarter = currentQuarter - 1;
                     lastQuarterYear = currentYear;
                 }
-                // Calcular o mês inicial e final do último trimestre
                 const startMonthX = (lastQuarter - 1) * 3;
                 const endMonthX = startMonthX + 2;
-                // Data de início do último trimestre (primeiro dia do mês inicial)
                 const lastQuarterStartDate = new Date(lastQuarterYear, startMonthX, 1);
                 const lastQuarterEndDate = new Date(lastQuarterYear, endMonthX + 1, 0);
-
                 return [lastQuarterStartDate, lastQuarterEndDate];
             }
-            //Verifica ultimo bimestre ou bimestre passado
+
+            // Verifica último bimestre ou bimestre passado
             match = text.match(/([úu]ltim(a|o)|bimestre) (passad(a|o)|bimestre)/i);
             if (match) {
-                // Determinar o bimestre atual
                 const currentBimester = Math.floor(currentMonth / 2) + 1;
-                // Calcular o bimestre anterior
                 let lastBimester, lastBimesterYear;
                 if (currentBimester === 1) {
                     lastBimester = 6;
@@ -162,38 +212,45 @@ function run(input) {
                     lastBimester = currentBimester - 1;
                     lastBimesterYear = currentYear;
                 }
-                // Calcular o mês inicial e final do último bimestre
                 const startMonth = (lastBimester - 1) * 2;
                 const endMonth = startMonth + 1;
-                // Data de início do último bimestre (primeiro dia do mês inicial)
                 const lastBimesterStartDate = new Date(lastBimesterYear, startMonth, 1);
-                // Data de término do último bimestre (último dia do mês final)
                 const lastBimesterEndDate = new Date(lastBimesterYear, endMonth + 1, 0);
                 return [lastBimesterStartDate, lastBimesterEndDate];
             }
             //Verifica X dias
-            match = text.match(/(\d{1,2}) dias/i);
+            match = text.match(/(\d{1,4}) dias/i);
             if (match) {
-                const numberOfDays = parseInt(match[1], 10); // Captura o número de dias
+                const numberOfDays = parseInt(match[1], 10);
                 const endDate = currentDate;
                 const startDate = new Date(endDate.getTime() - numberOfDays * 24 * 60 * 60 * 1000);
                 return ([startDate, endDate]);
             }
-            //hoje
+
+            // Verifica X dias por extenso
+            match = text.match(new RegExp(`(${Object.keys(numbersInWords).join('|')}) dias`, 'i'));
+            if (match) {
+                const numberOfDays = getNumberFromWords(match[1]);
+                const endDate = currentDate;
+                const startDate = new Date(endDate.getTime() - numberOfDays * 24 * 60 * 60 * 1000);
+                return ([startDate, endDate]);
+            }
+
+            // Verifica hoje
             match = text.match(/de hoje|(hoje)/i);
             if (match) {
                 let today = new Date();
-                return ([today, today]);
+                return ([today]);
             }
-            //ontem
+
+            // Verifica ontem
             match = text.match(/de ontem|(ontem)/i);
             if (match) {
                 let tomorrow = new Date();
                 tomorrow.setDate(tomorrow.getDate() - 1);
-                return ([tomorrow, tomorrow]);
+                return ([tomorrow]);
             }
             return [];
-
         }
 
         const dates = extractDates(input);
@@ -212,20 +269,22 @@ function run(input) {
             const endDate = dates[1];
             const diffInMillis = endDate - startDate;
             if (diffInMillis < 0 || startDate > actualDate || endDate > actualDate) {
-                return { error: 'extratoLancamentoFuturo' };//Acima da data atual.
+                return { error: 'extratoLancamentoFuturo' };
             }
             if (diffInMillis <= ninetyDaysInMillis) {
                 return `${formatDate(startDate)} - ${formatDate(endDate)}`;
             } else {
-                return { error: 'extrato90dias' };//Acima de 90 Dias
+                return { error: 'extrato90dias' };
             }
         } else {
             return { error: 'extratoDataInvalida' };
         }
     } catch (err) {
-        return { error: 'extratoDataInvalida' }
+        return { error: 'extratoDataInvalida' };
     }
 }
+
+
 // const testCases = [
 //     "Preciso do extrato dos últimos 30 dias",
 //     "Quero consultar o extrato de junho",
@@ -303,4 +362,4 @@ function run(input) {
 // testCases.forEach(testCase => {
 //     console.log(run(testCase), "| " + testCase);
 // });
-console.log(run("hoje"));
+console.log(run("de ontem"));
