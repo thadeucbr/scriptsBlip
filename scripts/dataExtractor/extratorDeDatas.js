@@ -62,7 +62,7 @@ function run(input) {
             text = text.toLowerCase();
 
             // Verifica ultimos X dias
-            let match = text.match(/[uú]ltimos (\d{1,2}) dias/i);
+            let match = text.match(/[uú]ltimos (\d{1,4}) dias/i);
             if (match) {
                 const numberOfDays = parseInt(match[1], 10);
                 const endDate = currentDate;
@@ -116,22 +116,22 @@ function run(input) {
                 }
                 return [startDate, endDate];
             }
-
-            // Verifica datas no formato DD/MM/AAAA
-            match = text.match(/(\d{1,2}\/\d{1,2}\/\d{2,4})/g);
-            if (match) return match.map(date => parseDate(date));
-
-            // Verifica datas no formato DD/MM
-            match = text.match(/(\d{1,2}\/\d{1,2})/g);
-            if (match) {
-                return match.map(dateStr => parseDate(`${dateStr}/${currentDate.getFullYear()}`));
-            }
-
+            
             // Verifica intervalos no formato DD/MM até DD/MM
             match = text.match(/(\d{1,2}\/\d{1,2}) (at[eé]|a) (\d{1,2}\/\d{1,2})/i);
             if (match) {
                 const year = currentDate.getFullYear();
                 return [parseDate(`${match[1]}/${year}`), parseDate(`${match[3]}/${year}`)];
+            }
+        
+            // Verifica intervalos no formato MM/AAAA até MM/AAAA
+            match = text.match(/(\d{1,2}\/\d{4}) (at[eé]|a) (\d{1,2}\/\d{4})/i);
+            if (match) {
+                const [endMonth, endYear] = match[3].split('/');
+                const endDate = new Date(endYear, endMonth, 0); // O dia 0 do próximo mês é o último dia do mês anterior
+                const lastDay = endDate.getDate();
+                
+                return [parseDate(`01/${match[1]}`), parseDate(`${lastDay}/${match[3]}`)];
             }
 
             // Verifica data no formato "dia D"
@@ -218,7 +218,8 @@ function run(input) {
                 const lastBimesterEndDate = new Date(lastBimesterYear, endMonth + 1, 0);
                 return [lastBimesterStartDate, lastBimesterEndDate];
             }
-            //Verifica X dias
+
+            // Verifica X dias
             match = text.match(/(\d{1,4}) dias/i);
             if (match) {
                 const numberOfDays = parseInt(match[1], 10);
@@ -239,17 +240,27 @@ function run(input) {
             // Verifica hoje
             match = text.match(/de hoje|(hoje)/i);
             if (match) {
-                let today = new Date();
-                return ([today]);
+                return [currentDate, currentDate];
             }
 
             // Verifica ontem
             match = text.match(/de ontem|(ontem)/i);
             if (match) {
-                let tomorrow = new Date();
-                tomorrow.setDate(tomorrow.getDate() - 1);
-                return ([tomorrow]);
+                let yesterday = new Date();
+                yesterday.setDate(yesterday.getDate() - 1);
+                return [yesterday, yesterday];
             }
+
+            // Verifica datas no formato DD/MM/AAAA
+            match = text.match(/(\d{1,2}\/\d{1,2}\/\d{2,4})/g);
+            if (match) return match.map(date => parseDate(date));
+
+            // Verifica datas no formato DD/MM
+            match = text.match(/(\d{1,2}\/\d{1,2})/g);
+            if (match) {
+                return match.map(dateStr => parseDate(`${dateStr}/${currentDate.getFullYear()}`));
+            }
+
             return [];
         }
 
@@ -283,7 +294,6 @@ function run(input) {
         return { error: 'extratoDataInvalida' };
     }
 }
-
 
 // const testCases = [
 //     "Preciso do extrato dos últimos 30 dias",
@@ -362,4 +372,4 @@ function run(input) {
 // testCases.forEach(testCase => {
 //     console.log(run(testCase), "| " + testCase);
 // });
-console.log(run("de ontem"));
+console.log(run("Extrato de 03/04/2024 até 05/05/2024"));
