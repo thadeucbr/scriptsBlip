@@ -1,0 +1,57 @@
+{
+    "SQE": {
+        "1": "consultaCartoes",
+        "5": "desbloqueioDeCartao",
+        "6": "novaViaSenhaDeCartao",
+        "4": "bloqueioDeCartao"
+    },
+    "CMU": {
+        "2": "desbloqueioDeCartao",
+        "7": "fatura",
+        "4": "bloqueioDeCartao"
+    },
+    "CPR": {
+        "3": "consLimiteCredito"
+    },
+    "POS": {
+        "23": "limitesDeCreditos",
+        "4": "extratoDeContaCorrente",
+        "5": "consultarPacoteServico",
+        "3": "consLimiteCredito"
+    },
+    "SPA": {
+        "1": "extratoSafrapay",
+        "6": "novoExtratoSafrapay",
+        "2": "solicitarAntecipAuto",
+        "3": "consultOperAutomatica",
+        "4": "solicAntecipEvent",
+        "5": "consultarCompromissos",
+        "17": "solicCancelDeVendas",
+        "18": "consultCancelDeVendas",
+        "21": "simuladorSafrapay"
+    },
+    "GDM": {
+        "3": "consultaSolicitacao",
+        "2": "desinstalacao"
+    },
+    "AFO": {
+        "1": "consultaAntecipFornec"
+    },
+    "PAG": {
+        "48": "minhasChavesPix",
+        "44": "transferenciaPix",
+        "51": "consultaLancamentoPix",
+        "9": "consultaCadForneced",
+        "6": "inclusaoDeCompromissos",
+        "7": "autorizacaoCompromissos"
+    },
+    "CRE": {
+        "1": "contaGarantida"
+    },
+    "COB": {
+        "32": "boletosComQrcodePix"
+    },
+    "NCL": {
+        "1": "cadastroCelular"
+    }
+}
