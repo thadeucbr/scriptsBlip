@@ -1,17 +1,30 @@
 const dynamicContent = {
-    "recipient_type": "individual",
-    "type": "interactive",
-    "interactive": {
-        "type": "cta_url",
-        "body": {
-          "text": "Olá, informamos que a partir de julho, este número será desativado e o seu atendimento será realizado pelo número: (11) 3175-8248.\n\nPara um atendimento ainda mais completo, disponibilizamos este novo número.\nCom ele, você poderá esclarecer dúvidas, fazer consultas, acessar serviços e muito mais.\n\nToque no botão abaixo para continuar."
-        },
-        "action": {
-          "name": "cta_url",
-          "parameters": {
-            "display_text": "Abrir WhatsAp PJ",
-            "url": "https://novotestevalida-vglka.blip.ai/"
-          }
-        }
+  "recipient_type": "individual",
+  "type": "interactive",
+  "interactive": {
+    "type": "cta_url",
+    "body": {
+      "text": "texto do corpo do conteúdo interativo"
+    },
+    "action": {
+      "name": "cta_url",
+      "parameters": {
+        "display_text": "texto do botão de ação",
+        "url": "https://novotestevalida-vglka.blip.ai/"
       }
+    }
+  }
+}
+
+function run() {
+  try {
+    dynamicContent.interactive.body.text = `Preciso que confirme o seu número de telefone. Para isso, você precisa acessar o aplicativo e realizar o processo por lá.
+
+Após atualizar o seu cadastro, volte aqui e envie um *oi* que eu já confirmo a atualização.`
+    dynamicContent.interactive.action.parameters.display_text = `Acessar o app`
+    dynamicContent.interactive.action.parameters.url = `https://google.com.br`
+    return dynamicContent
+  } catch (err) {
+    return false
+  }
 }
