@@ -1,17 +1,17 @@
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 CPF Ana: 03994543657
 
-Conta 3 = Seg 20 - EMP1
-Conta 2 = Seg 11 - Não Carteirizado
-Conta 1 = Seg 17 - EMP2
+Conta 3 = Seg 20 - EMP1 (LEVEL: MASTER)
+Conta 2 = Seg 11 - Não Carteirizado (LEVEL: MASTER)
+Conta 1 = Seg 17 - EMP2 (LEVEL: MASTER)
 
 ****
 
 CPF Diego: 39053633804
 
-Conta 01 - Segmento 20 (EMP1) - SEM EC
-Conta 03 - Segmento 20 (EMP2) - COM EC
-Conta 10 - Segmento 07 (Não Carteirizado)
+Conta 01 - Segmento 20 (EMP1) - SEM EC (LEVEL: USUÁRIO)
+Conta 03 - Segmento 20 (EMP2) - COM EC (LEVEL: USUÁRIO)
+Conta 10 - Segmento 07 (Não Carteirizado) (LEVEL: USUÁRIO)
 
 KBA BIGID:
 "Qual das opções abaixo indica o segmento de uma das empresa para a qual você trabalha ou já trabalhou como CLT?",
