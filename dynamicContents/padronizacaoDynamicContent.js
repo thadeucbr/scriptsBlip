@@ -182,6 +182,17 @@ function removeOpcaoDoMenu({ tituloDoBotao }) {
 	menuOptions.splice(index, 1)
 }
 
+function removeDescricaoDoBotao({ tituloDoBotao, parteASerRemovida, listaPermissoes, permissaoNecessaria }) {
+	if (listaPermissoes.includes(permissaoNecessaria)) { 
+		return
+	}
+	const opcao = menuOptions.find(option => option.title === tituloDoBotao || option.description === tituloDoBotao)
+	if (!opcao) {
+		return
+	}
+	const index = menuOptions.indexOf(opcao)
+	menuOptions[index].description = menuOptions[index].description.replace(parteASerRemovida, '')
+}
 /**
  * @typedef {Object} ContaSelecionada
  * @property {number} codigoCliente
