@@ -45,7 +45,7 @@ async function main() {
           verificarUltimaPublicacao(keyOrigin.key, bot);
           break;
         case 'verificaConfigs':
-          verificaConfigs(keyOrigin.key, bot, origin);
+          await verificaConfigs(bot);
           break;
         case 'verificaActions':
           verificaActions(keyOrigin.key, bot, origin);
