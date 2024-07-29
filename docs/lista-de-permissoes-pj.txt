@@ -1,0 +1,246 @@
+MASTER:
+Total 53 em 29/07
+[
+    "alteracaoDeLimite",
+    "alteracaoDeTelefoneECelular",
+    "alterarAntecipAutomatica",
+    "autorizacaoCompromissos",
+    "bloquearEReemitir",
+    "bloqueioDeCartao",
+    "boletosComQrcodePix",
+    "cadastroCelular",
+    "cancelarAntecipAutomatica",
+    "consLimiteCredito",
+    "consultCancelDeVendas",
+    "consultOperAutomatica",
+    "consultaAntecipFornec",
+    "consultaCadForneced",
+    "consultaCartoes",
+    "consultaDeProtocolo",
+    "consultaLancamentoPix",
+    "consultaMeusLimites",
+    "consultaSolicitacao",
+    "consultarChaves",
+    "consultarCompromissos",
+    "consultarOS",
+    "consultarPacoteServico",
+    "consultarSaldoDevedor",
+    "contaGarantida",
+    "desbloquear",
+    "desbloqueioDeCartao",
+    "desinstalacao",
+    "extratoDeContaCorrente",
+    "extratoSafrapay",
+    "extratoSafrapayDaMaquina",
+    "fatura",
+    "habilitarAntecipAutomatica",
+    "habilitarAntecipEventual",
+    "inclusaoDeCompromissos",
+    "limiteDisponivel",
+    "limitesDeCreditos",
+    "minhasChavesPix",
+    "naoRecebiAVenda",
+    "novaViaSenhaDeCartao",
+    "novoExtratoSafrapay",
+    "pacotesDeServicos",
+    "pagamentosESaques",
+    "perdaERoubo",
+    "simuladorSafrapay",
+    "simularFaturamentoAtual",
+    "solicAntecipEvent",
+    "solicCancelDeVendas",
+    "solicitarAntecipAuto",
+    "taxaDeAntecipacao",
+    "transferenciaPix",
+    "transferencias",
+    "valorDisponivel"
+]
+
+=-=-=--=-=-=
+
+CPF Diego
+
+Conta 01:
+[
+    "alterarAntecipAutomatica",
+    "autorizacaoCompromissos",
+    "bloquearEReemitir",
+    "bloqueioDeCartao",
+    "cancelarAntecipAutomatica",
+    "consultCancelDeVendas",
+    "consultOperAutomatica",
+    "consultaAntecipFornec",
+    "consultaDeProtocolo",
+    "consultaSolicitacao",
+    "consultarCompromissos",
+    "consultarOS",
+    "consultarPacoteServico",
+    "desbloquear",
+    "desbloqueioDeCartao",
+    "desinstalacao",
+    "extratoDeContaCorrente",
+    "extratoSafrapay",
+    "extratoSafrapayDaMaquina",
+    "fatura",
+    "habilitarAntecipAutomatica",
+    "habilitarAntecipEventual",
+    "inclusaoDeCompromissos",
+    "naoRecebiAVenda",
+    "pacotesDeServicos",
+    "pagamentosESaques",
+    "perdaERoubo",
+    "simuladorSafrapay",
+    "simularFaturamentoAtual",
+    "solicAntecipEvent",
+    "solicCancelDeVendas",
+    "solicitarAntecipAuto",
+    "taxaDeAntecipacao",
+    "transferencias"
+]
+
+Conta 02:
+[
+    "alterarAntecipAutomatica",
+    "autorizacaoCompromissos",
+    "bloquearEReemitir",
+    "bloqueioDeCartao",
+    "cancelarAntecipAutomatica",
+    "consultCancelDeVendas",
+    "consultOperAutomatica",
+    "consultaAntecipFornec",
+    "consultaDeProtocolo",
+    "consultaSolicitacao",
+    "consultarCompromissos",
+    "consultarOS",
+    "consultarPacoteServico",
+    "desbloquear",
+    "desbloqueioDeCartao",
+    "desinstalacao",
+    "extratoDeContaCorrente",
+    "extratoSafrapay",
+    "extratoSafrapayDaMaquina",
+    "fatura",
+    "habilitarAntecipAutomatica",
+    "habilitarAntecipEventual",
+    "inclusaoDeCompromissos",
+    "naoRecebiAVenda",
+    "pacotesDeServicos",
+    "pagamentosESaques",
+    "perdaERoubo",
+    "solicAntecipEvent",
+    "solicCancelDeVendas",
+    "solicitarAntecipAuto",
+    "taxaDeAntecipacao",
+    "transferencias"
+]
+
+Conta 03:
+
+[
+    "alterarAntecipAutomatica",
+    "autorizacaoCompromissos",
+    "bloquearEReemitir",
+    "bloqueioDeCartao",
+    "cancelarAntecipAutomatica",
+    "consultCancelDeVendas",
+    "consultOperAutomatica",
+    "consultaAntecipFornec",
+    "consultarCompromissos",
+    "desbloquear",
+    "desbloqueioDeCartao",
+    "extratoDeContaCorrente",
+    "extratoSafrapay",
+    "extratoSafrapayDaMaquina",
+    "fatura",
+    "habilitarAntecipAutomatica",
+    "habilitarAntecipEventual",
+    "inclusaoDeCompromissos",
+    "naoRecebiAVenda",
+    "pagamentosESaques",
+    "perdaERoubo",
+    "solicAntecipEvent",
+    "solicCancelDeVendas",
+    "solicitarAntecipAuto",
+    "taxaDeAntecipacao",
+    "transferencias"
+]
+
+Conta 04:
+[
+    "alterarAntecipAutomatica",
+    "autorizacaoCompromissos",
+    "bloquearEReemitir",
+    "bloqueioDeCartao",
+    "boletosComQrcodePix",
+    "cancelarAntecipAutomatica",
+    "consultOperAutomatica",
+    "consultaAntecipFornec",
+    "consultaDeProtocolo",
+    "consultaSolicitacao",
+    "consultarCompromissos",
+    "consultarOS",
+    "desbloquear",
+    "desbloqueioDeCartao",
+    "desinstalacao",
+    "extratoDeContaCorrente",
+    "extratoSafrapay",
+    "extratoSafrapayDaMaquina",
+    "fatura",
+    "habilitarAntecipAutomatica",
+    "habilitarAntecipEventual",
+    "inclusaoDeCompromissos",
+    "naoRecebiAVenda",
+    "pagamentosESaques",
+    "perdaERoubo",
+    "simuladorSafrapay",
+    "simularFaturamentoAtual",
+    "solicAntecipEvent",
+    "solicitarAntecipAuto",
+    "taxaDeAntecipacao",
+    "transferencias"
+]
+
+Conta 05:
+Falha na API
+
+Conta 06:
+Falha na API
+
+Conta 07:
+Falha na API
+
+Conta 08:
+Falha na API
+
+Conta 09:
+Falha na API
+
+Conta 10:
+[
+    "alterarAntecipAutomatica",
+    "autorizacaoCompromissos",
+    "cancelarAntecipAutomatica",
+    "consultCancelDeVendas",
+    "consultOperAutomatica",
+    "consultaAntecipFornec",
+    "consultaDeProtocolo",
+    "consultaSolicitacao",
+    "consultarCompromissos",
+    "consultarOS",
+    "consultarPacoteServico",
+    "desinstalacao",
+    "extratoDeContaCorrente",
+    "extratoSafrapay",
+    "extratoSafrapayDaMaquina",
+    "habilitarAntecipAutomatica",
+    "habilitarAntecipEventual",
+    "inclusaoDeCompromissos",
+    "naoRecebiAVenda",
+    "pacotesDeServicos",
+    "pagamentosESaques",
+    "solicAntecipEvent",
+    "solicCancelDeVendas",
+    "solicitarAntecipAuto",
+    "taxaDeAntecipacao",
+    "transferencias"
+]
