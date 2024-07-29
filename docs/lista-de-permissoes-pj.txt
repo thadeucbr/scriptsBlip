@@ -244,3 +244,28 @@ Conta 10:
     "taxaDeAntecipacao",
     "transferencias"
 ]
+
+Conta 10:
+["alterarAntecipAutomatica","autorizacaoCompromissos","cancelarAntecipAutomatica","consultCancelDeVendas","consultOperAutomatica","consultaAntecipFornec","consultaDeProtocolo","consultaSolicitacao","consultarCompromissos","consultarOS","consultarPacoteServico","desinstalacao","extratoDeContaCorrente","extratoSafrapay","extratoSafrapayDaMaquina","habilitarAntecipAutomatica","habilitarAntecipEventual","inclusaoDeCompromissos","naoRecebiAVenda","pacotesDeServicos","pagamentosESaques","solicAntecipEvent","solicCancelDeVendas","solicitarAntecipAuto","taxaDeAntecipacao","transferencias"]
+
+Conta 11
+["alterarAntecipAutomatica","autorizacaoCompromissos","boletosComQrcodePix","cancelarAntecipAutomatica","consultCancelDeVendas","consultOperAutomatica","consultaAntecipFornec","consultaDeProtocolo","consultaSolicitacao","consultarCompromissos","consultarOS","consultarPacoteServico","desinstalacao","extratoDeContaCorrente","extratoSafrapay","extratoSafrapayDaMaquina","habilitarAntecipAutomatica","habilitarAntecipEventual","inclusaoDeCompromissos","naoRecebiAVenda","pacotesDeServicos","pagamentosESaques","simuladorSafrapay","simularFaturamentoAtual","solicAntecipEvent","solicCancelDeVendas","solicitarAntecipAuto","taxaDeAntecipacao","transferencias"]
+
+Conta 12:
+["alterarAntecipAutomatica","autorizacaoCompromissos","cancelarAntecipAutomatica","consultOperAutomatica","consultaAntecipFornec","consultarCompromissos","extratoDeContaCorrente","extratoSafrapay","extratoSafrapayDaMaquina","habilitarAntecipAutomatica","habilitarAntecipEventual","inclusaoDeCompromissos","naoRecebiAVenda","pagamentosESaques","solicAntecipEvent","solicitarAntecipAuto","taxaDeAntecipacao","transferencias"]
+
+Conta 13:
+["alterarAntecipAutomatica","autorizacaoCompromissos","cancelarAntecipAutomatica","consultOperAutomatica","consultaAntecipFornec","consultarCompromissos","extratoDeContaCorrente","extratoSafrapay","extratoSafrapayDaMaquina","habilitarAntecipAutomatica","habilitarAntecipEventual","inclusaoDeCompromissos","naoRecebiAVenda","pagamentosESaques","solicAntecipEvent","solicitarAntecipAuto","taxaDeAntecipacao","transferencias"]
+
+Conta 14:
+Erro de api
+Conta 15:
+Erro de api
+Conta 16:
+Erro de API
+
+Conta 17:
+["alterarAntecipAutomatica","autorizacaoCompromissos","bloquearEReemitir","bloqueioDeCartao","boletosComQrcodePix","cancelarAntecipAutomatica","consultCancelDeVendas","consultOperAutomatica","consultaAntecipFornec","consultaDeProtocolo","consultaSolicitacao","consultarCompromissos","consultarOS","consultarPacoteServico","desbloquear","desbloqueioDeCartao","desinstalacao","extratoDeContaCorrente","extratoSafrapay","extratoSafrapayDaMaquina","fatura","habilitarAntecipAutomatica","habilitarAntecipEventual","inclusaoDeCompromissos","naoRecebiAVenda","pacotesDeServicos","pagamentosESaques","perdaERoubo","simuladorSafrapay","simularFaturamentoAtual","solicAntecipEvent","solicCancelDeVendas","solicitarAntecipAuto","taxaDeAntecipacao","transferenciaPix","transferencias"]
+
+Conta 18:
+["alterarAntecipAutomatica","autorizacaoCompromissos","bloquearEReemitir","bloqueioDeCartao","boletosComQrcodePix","cancelarAntecipAutomatica","consultCancelDeVendas","consultOperAutomatica","consultaAntecipFornec","consultaDeProtocolo","consultaSolicitacao","consultarCompromissos","consultarOS","consultarPacoteServico","desbloquear","desbloqueioDeCartao","desinstalacao","extratoDeContaCorrente","extratoSafrapay","extratoSafrapayDaMaquina","fatura","habilitarAntecipAutomatica","habilitarAntecipEventual","inclusaoDeCompromissos","naoRecebiAVenda","pacotesDeServicos","pagamentosESaques","perdaERoubo","simuladorSafrapay","simularFaturamentoAtual","solicAntecipEvent","solicCancelDeVendas","solicitarAntecipAuto","taxaDeAntecipacao","transferenciaPix","transferencias"]
