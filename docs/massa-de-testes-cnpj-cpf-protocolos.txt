@@ -59,9 +59,11 @@ Abertos:
 Dados de testes CNPJ/CPF/Protocolos Pessoa Física
 
 Bruno:
-Celular:
-11963239642
-32495598811
+Celular: 11963239642
+Cpf: 32495598811
 
-Outros:
-181.678.988-73
+******
+32495598811 (CPF Funcionário 1 Conta)
+18167898873(CPF 2 Contas (Uma Funcionario - AG: 07100) e Outra Conta Comum (AG: 28500))
+14175476695 (Sem cadastro)
+******
