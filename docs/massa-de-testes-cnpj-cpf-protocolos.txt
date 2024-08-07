@@ -10,7 +10,7 @@ Conta 1 = Seg 17 - EMP2 (LEVEL: MASTER)
 CPF Diego: 39053633804
 
 Conta 01 - Segmento 20 (EMP1) - SEM EC (LEVEL: USUÁRIO)
-Conta 03 - Segmento 20 (EMP2) - COM EC (LEVEL: USUÁRIO)
+Conta 03 - Segmento 20 (EMP2) - COM EC (LEVEL: USUÁRIO) (07308577000104)
 Conta 10 - Segmento 07 (Não Carteirizado) (LEVEL: USUÁRIO)
 
 KBA BIGID:
