@@ -54,6 +54,32 @@ Encerrados:
 Abertos:
 20240411034963
 
+********************************************************************************************
+CPF: 38483112833
+
+Protocolo: 20240704037533
+Aberto: CONTA CORRENTE > PACOTE DE TARIFAS
+Em andamento: IB/MOBILE > AUTO SERVIÇO
+
+Protocolo: 20240704037541
+Concluído: IB/MOBILE > DESBLOQUEIO
+CPF: 365.465.648-07
+CNPJ: 63.083.547/0001-18
+Protocolo: 20240704037536
+Aberto: SENHA DE ACESSO > REENVIO DE SENHA DE ACESSO
+Em andamento: IB/MOBILE > LIBERAÇÃO DE MÁQUINA
+
+Protocolo: 20240704037536
+Concluído: IB/MOBILE > BLOQUEIO DE POP-UP OFERTAS
+CNPJ: 30360357000141 (não tem usuário/CPF cadastrado)
+Protocolo: 20240704037535
+Aberto: IB/MOBILE > AUTO SERVIÇO
+Em andamento: IB/MOBILE > BLOQUEIO DE POP-UP OFERTAS
+
+Protocolo: 20240704037538
+Concluído: IB/MOBILE > DESBLOQUEIO
+********************************************************************************************
+
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 Dados de testes CNPJ/CPF/Protocolos Pessoa Física
