@@ -35,12 +35,12 @@ var bodyConsultaProtocoloLista = {
             "id": "31573",
             "idProtocolo": "20240806038862",
             "dataHoraAbertura": "2024-08-06T19:36:32",
-            "descricaoStatus": "ENCERRADO",
+            "descricaoStatus": "ABERTO",
             "descricaoMotivo": "CADASTRO",
             "descricaoSubmotivo": "DOMÍCILIO SAFRA",
             "motivoResolucao": "Sua solicitação foi encerrada",
-            "dataPrevistaEncerramento": "2024-08-06",
-            "dataHoraEncerramento": "2024-08-06T19:40:50"
+            "dataPrevistaEncerramento": "2024-08-13",
+            "dataHoraEncerramento": null
         }
     ]
 }
