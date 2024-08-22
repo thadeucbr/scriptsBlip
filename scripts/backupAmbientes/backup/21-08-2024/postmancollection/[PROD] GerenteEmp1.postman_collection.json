@@ -1,0 +1,64 @@
+{
+  "info": {
+    "name": "GerenteEmp1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Início",
+      "item": [
+        {
+          "name": "Process \"responseTicketMonitor\" using \"POST\" \"Subscribe\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Blip-User",
+                "value": "{{tunnel.identity}}"
+              },
+              {
+                "key": "X-Blip-Bot",
+                "value": "{{config.botIdentity}}"
+              },
+              {
+                "key": "X-Desk-Team",
+                "value": "Default"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n}"
+            },
+            "url": "{{config.ApiUrl}}/v1/Subscription/Subscribe"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Navegar NPS",
+      "item": [
+        {
+          "name": "Process \"responseTicketMonitor\" using \"POST\" \"Unsubscribe\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Blip-User",
+                "value": "{{tunnel.identity}}"
+              },
+              {
+                "key": "X-Blip-Bot",
+                "value": "{{config.botIdentity}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n}"
+            },
+            "url": "{{config.ApiUrl}}/v1/Subscription/Unsubscribe"
+          }
+        }
+      ]
+    }
+  ]
+}

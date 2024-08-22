@@ -1,0 +1,66 @@
+{
+  "info": {
+    "name": "Conta Corrente",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "[TC.8.0.0][HTTP] API Pacotes",
+      "item": [
+        {
+          "name": "HTTP GET \"bodyPacote\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/safra-pay/v1/pacotes?agencia={{contaSelecionada@agencia}}&conta={{contaSelecionada@conta}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[CC.11.1.1][HTTP] Consulta de extrato",
+      "item": [
+        {
+          "name": "Process \"extratoResponse\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "1"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/extratos?{{urlParams}}"
+          }
+        }
+      ]
+    }
+  ]
+}
