@@ -1,0 +1,178 @@
+{
+  "info": {
+    "name": "SPD Maquina Safrapay",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "[MS.2.1.3] [HTTP] API Simular Vendas",
+      "item": [
+        {
+          "name": "HTTP POST \"bodySimulacao\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"valorVenda\": \"{{salesValue}}\",\n  \"tipoSimulacao\": \"{{salesOrder}}\",\n  \"modalidade\": \"{{salesType}}\",\n  \"tipoPagamento\": \"{{salesPaymentType}}\"\n}"
+            },
+            "url": "{{config.urlCHT}}/safrapay/vendas-servicos/vendas/planejamentos-vendas/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}/vendas/simular"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[MS.7.3.0][HTTP] API Protocolo",
+      "item": [
+        {
+          "name": "HTTP POST \"bodyProtocoloBpm\" (Cria Protocolo no Front)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{payloadProtocolo}}"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos"
+          }
+        },
+        {
+          "name": "HTTP POST \"bodyOcorrencia\" (Cria nova ocorrencia)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{payloadOcorrencia}}"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{idProtocoloBpm}}/ocorrencias"
+          }
+        },
+        {
+          "name": "HTTP GET \"bodyConsultaProtocolo\" (Consultar Protocolo)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{idProtocoloBpm}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[Redirect] to WhatsApp PJ (Caca_POS)",
+      "item": [
+        {
+          "name": "Process \"possuiMovimentacaoResponse\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/movimentacoes/verificar?codigoEC={{contaSelecionada@ec}}&qtdDiasApuracao=40"
+          }
+        }
+      ]
+    }
+  ]
+}

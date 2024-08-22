@@ -64,7 +64,12 @@ class PostmanCollection {
         this.collection.item.push(item)
       }
       const fs = require('fs');
-      fs.writeFileSync(`${this.saveFileName}`, JSON.stringify(this.collection, null, 2))
+      const path = require('path');
+
+      const directoryPath = path.join(`scripts/backupAmbientes/backup/${getDataFormatada()}/postmancollection/`);
+      fs.mkdirSync(directoryPath, { recursive: true });
+
+      fs.writeFileSync(`scripts/backupAmbientes/backup/${getDataFormatada()}/postmancollection/${this.saveFileName}`, JSON.stringify(this.collection, null, 2))
       return this.collection
     }
     console.log('No requests found')
@@ -72,10 +77,24 @@ class PostmanCollection {
 }
 
 const fs = require('fs')
-fs.readdirSync('./12-06-2024/beta/').forEach(file => { 
+fs.readdirSync(`scripts/backupAmbientes/backup/${getDataFormatada()}/beta`).forEach(file => {
   const name = file.replace('[BETA] ', '').replace('.json', '')
-  const teste = new PostmanCollection(name, `./12-06-2024/beta/${file}`);
-  teste.createCollection()
+  const postmanFile = new PostmanCollection(name, `scripts/backupAmbientes/backup/${getDataFormatada()}/beta/${file}`);
+  console.log(`${name}: ${postmanFile.saveFileName} created.`);
+  postmanFile.createCollection()
 })
-// const teste = new PostmanCollection('Main', './12-06-2024/beta/[BETA] SPD Main.json');
-// teste.createCollection()
+fs.readdirSync(`scripts/backupAmbientes/backup/${getDataFormatada()}/prod`).forEach(file => {
+  const name = file.replace('[PROD] ', '').replace('.json', '')
+  const postmanFile = new PostmanCollection(name, `scripts/backupAmbientes/backup/${getDataFormatada()}/prod/${file}`);
+  console.log(`${name}: ${postmanFile.saveFileName} created.`);
+  postmanFile.createCollection()
+})
+
+function getDataFormatada() {
+  const date = Intl.DateTimeFormat('pt-BR').format(new Date()).replaceAll('/', '-')
+  return date;
+}
+
+//debugging tests
+//const postmanFile = new PostmanCollection('Main', './12-06-2024/beta/[BETA] SPD Main.json');
+//postmanFile.createCollection()

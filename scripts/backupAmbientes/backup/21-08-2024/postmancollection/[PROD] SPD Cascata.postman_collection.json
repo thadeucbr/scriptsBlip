@@ -1,0 +1,58 @@
+{
+  "info": {
+    "name": "SPD Cascata",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Verifica SmallTalks",
+      "item": [
+        {
+          "name": "Process \"bodySmallTlaks\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Gera novo token",
+      "item": [
+        {
+          "name": "Process \"bodyToken\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        }
+      ]
+    }
+  ]
+}
