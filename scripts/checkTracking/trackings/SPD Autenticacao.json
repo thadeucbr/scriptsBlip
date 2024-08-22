@@ -1,0 +1,24 @@
+{
+  "Início": {
+    "inicio": "{{config.serviceName}} | {{state@botOrigin}} | {{state@stateNameOrigin}} | {{input.content}} | {{input.intent.name}}"
+  },
+  "Redirecionar Main (Menu inicial)": {
+    "SPD Excecoes redirecionamento": "Menu inicial"
+  },
+  "[A.0.0.0] Verifica tipo de autenticação": {
+    "[A.0.0.0] Verifica tipo de autenticação api status": "{{statusMFA}}",
+    "[A.0.0.0] Verifica tipo de autenticação api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}{{config.urlCHT}}/vendas-servicos/multicanal/autorizacoes-transacoes/assistente-virtual/v1/transacoes | POST | {{statusMFA}} | {{bodyMFA}}",
+    "autenticacao acao": "{{bodyMFA@data.acao}}"
+  },
+  "[A.3.0.0] Autenticação via BigId": {
+    "SPD Intenções [A.3.0.0] Autenticação via BigId": "Negado | {{statusQuestion}}",
+    "SPD Intencoes [A.3.0.0] Autenticação via BigId api status": "{{statusQuestion}}",
+    "Autenticacao BigID sem pesquisa": "{{phone}} | sem pesquisa"
+  },
+  "[A.3.1.0] Inicio perguntas BigID": {
+    "SPD Inicio [A.3.1.0] Inicio perguntas BigID exibição": "Exibição"
+  },
+  "[A.3.3.0] Valida respostas BigID": {
+    "SPD Intencoes [A.3.3.0] Valida respostas BigID resultado respostas": "{{bigIdValidationBody@ResultMessage}}"
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "Início": {
+    "inicio": "{{config.serviceName}} | {{state@botOrigin}} | {{state@stateNameOrigin}} | {{input.content}} | {{input.intent.name}}"
+  },
+  "[OS.2.0.0] Consultar Ordens de Serviço": {
+    "SPD ORdem de servico [OS.2.0.0] Consultar Ordens de Serviço exibição": "Exibição"
+  },
+  "[OS.2.0.1] Sem ordens de serviço": {
+    "SPD ORdem de servico [OS.2.0.1] Sem ordens de serviço exibição": "Exibição"
+  },
+  "[OS.2.1.0] Exibe ordens de serivço": {
+    "SPD ORdem de servico [OS.2.1.0] Exibe ordens de serivço exibição": "Exibição"
+  },
+  "[OS.2.1.0] Seleciona ordem de serviço": {
+    "SPD Ordem de servico [OS.2.1.0] Seleciona ordem de serviço validação": "{{userInput}}",
+    "SPD Ordem de servico [OS.2.1.0] Seleciona ordem de serviço input inesperado": "{{input.content}}"
+  },
+  "[OS.2.1.1] Exibir ordem de serviço": {
+    "SPD ORdem de servico [OS.2.1.1] Exibir ordem de serviço exibição": "Exibição"
+  },
+  "[OS.2.2.0] Possui o número da ordem?": {
+    "SPD ORdem de servico [OS.2.2.0] Possui o número da ordem? exibição": "Exibição"
+  },
+  "[OS.2.2.0] Valida se possui o numero da ordem": {
+    "SPD Ordem de servico [OS.2.2.0] Valida se possui o numero da ordem input inesperado": "{{input.content}}",
+    "SPD Ordem de servico [OS.2.2.0] Valida se possui o numero da ordem validação": "{{userInput}}"
+  },
+  "[OS.2.2.1] Não possui o numero da OS": {
+    "SPD ORdem de servico [OS.2.2.1] Não possui o numero da OS exibição": "Exibição"
+  },
+  "[OS.2.2.1] Valida se quer tentar novamente": {
+    "SPD Ordem de servico [OS.2.2.1] Valida se quer tentar novamente input inesperado": "{{input.content}}",
+    "SPD Ordem de servico [OS.2.2.1] Valida se quer tentar novamente validação": "{{userInput}}"
+  },
+  "[OS.2.3.0] Solicita numero da ordem de serviço": {
+    "SPD ORdem de servico [OS.2.3.0] Solicita numero da ordem de serviço exibição": "Exibição"
+  },
+  "[OS.2.3.0] Valida numero digitado": {
+    "SPD Ordem de servico [OS.2.3.0] Valida numero digitado input inesperado": "{{input.content}}",
+    "SPD Ordem de servico [OS.2.3.0] Valida numero digitado validação": "{{userInput}}"
+  },
+  "[OS.2.4.1] OS Não encontrada": {
+    "SPD ORdem de servico [OS.2.4.1] OS Não encontrada exibição": "Exibição"
+  },
+  "[OS.2.4.1] Valida input OS Não encontrada": {
+    "SPD Ordem de servico [OS.2.4.1] Valida input OS Não encontrada input inesperado": "{{input.content}}",
+    "SPD Ordem de servico [OS.2.4.1] Valida input OS Não encontrada validação": "{{userInput}}"
+  }
+}

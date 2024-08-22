@@ -1,0 +1,33 @@
+{
+  "Fora do Horario de Atendimento": {
+    "Fora horário": "1"
+  },
+  "Início": {
+    "inicio": "{{config.serviceName}} | {{state@botOrigin}} | {{state@stateNameOrigin}} | {{input.content}} | {{input.intent.name}}"
+  },
+  "Mensagem Informativa": {
+    "assuntoTransferencia": "{{assuntoTransferencia}}"
+  },
+  "Perfil Hibrido": {
+    "horaMin": "{{horaMin}}",
+    "hora": "{{hora}}"
+  },
+  "Pré Transbordo": {
+    "Humano": "1"
+  },
+  "Pré Transbordo Contingência": {
+    "autoservicoAtendimento": "1"
+  },
+  "[AH.2.2.0] Api horario atendimento": {
+    "Status API Horario": "{{statusIsWorkTime}}"
+  },
+  "[DESATIVADO] Verifica Horario de Atendimento": {
+    "Derivação": "{{dataHoraBR}}|{{phoneClient}}|{{labelHorario}}",
+    "Horário de Atendimento Detalhado": "{{dataHoraBR}}|{{labelHorario}}",
+    "Horário de Atendimento - Volume": "Fora",
+    "Teste - Derivação - {{fila}}": "{{dataHoraBR}}-{{phoneClient}}-{{labelHorario}}",
+    "Teste - Horário de Atendimento Detalhado - {{fila}}": "{{dataHoraBR}}|{{labelHorario}}",
+    "Teste - Horário de Atendimento - Volume - {{fila}}": "Fora",
+    "Status API DE HORARIO": "Data - {{calendar.datetime}} - Cel - {{phoneClient}} - Status - {{statusIsWorkTime}} - MSG {{bodyAPIHorario}}"
+  }
+}

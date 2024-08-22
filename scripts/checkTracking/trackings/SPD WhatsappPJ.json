@@ -1,0 +1,183 @@
+{
+  "Bom dia Safrapay": {
+    "Bom dia Safrapay": "{{dataHora}} | {{contact.identity}} | {{contact.extras.broadcastOrigem}} | {{input.content}} | {{contact.extras.doc}}"
+  },
+  "CSAT - Solicitação concluída?": {
+    "Csat solicitacao concluida origem": "{{config.botIdentity}}|{{state.previous.name}}",
+    "Csat solicitacao concluida exibicao": "{{trackingCsat@csatExibicao}}",
+    "Csat solicitacao concluida selecao": "{{trackingCsat@csatExibicao}} | {{menu@input}}",
+    "Csat solicitacao concluida inesperado": "{{trackingCsat@csatExibInesperado}} | {{input.content}}"
+  },
+  "Cancelamento de OS": {
+    "count cancelamento OS": "count cancelamento OS",
+    "statusCancelamentoOS": "{{dataHoraBR}} - {{contact.identity}} - {{statusCancelamentoOS}} - {{contact.extras.numeroPedido}}"
+  },
+  "Cliente abandonou atendimento": {
+    "Humano abandonada": "1",
+    "Pesquisa BigId - Abandono": "{{calendar.date}} | {{phoneNumber}} | {{cpf}}",
+    "Abandono por Estado - Volume": "{{estado}}",
+    "Abandono por Estado - Detalhado": "{{calendar.date}} | {{phoneNumber}} | {{contact.extras.cpf}} | {{estado}}",
+    "abandonoCliente": "1"
+  },
+  "Cliente digitou sair em qualquer ponto da jornada": {
+    "Pesquisa BigId - Abandono": "{{calendar.date}} | {{phoneNumber}} | {{cpf}}",
+    "Abandono por Estado - Volume": "{{estado}}",
+    "Abandono por Estado - Detalhado": "{{calendar.date}} | {{phoneNumber}} | {{cpf}} | {{estado}}"
+  },
+  "Deseja Consultar Outro Protocolo": {
+    "Consulta de Protocolo": "{{input.content}}"
+  },
+  "Detratores": {
+    "Nps padrao motivo exibicao": "{{trackingNps@npsExibInesperado}} | {{trackingNpsNotaClass}}",
+    "Nps padrao motivo selecao": "{{trackingNps@npsExibicao}} | {{trackingNpsNotaClass}} | {{trackingNpsMotivo}}",
+    "Nps padrao motivo inesperado": "{{trackingNps@npsExibInesperado}} | {{trackingNpsNotaClass}} | {{input.content}}",
+    "NPS - Motivos Chatbot": "{{notaNPSMotivo}}",
+    "NPS Motivos": "{{notaNPSMotivo}}",
+    "NPS -  Motivos - Atendimento - Detalhado": "{{notaNPSMotivo}} - #{{sequencialId}} - {{agentIdentity}} - {{dataHoraTicket}} - {{responseTeam}}",
+    "NPS Motivos Bot Detalhado": "{{notaNPSMotivo}}|#{{sequencialId}}",
+    "Teste - NPS Motivos - {{responseTeam}}": "{{notaNPSMotivo}}",
+    "Teste - NPS -  Motivos - Atendimento - Detalhado - {{responseTeam}}": "{{notaNPSMotivo}} - #{{sequencialId}} - {{agentIdentity}} - {{dataHoraTicket}} - {{responseTeam}}",
+    "Nps reason report": "{{julietTicketId}}|{{sequencialId}}|{{score}}|{{valorClassificacao}}|{{tipoJornadaUsuarioTracking}}|{{notaNPSMotivo}}"
+  },
+  "Entrega Pedido Broadcast": {
+    "Resposta Endereço": "{{dataHoraBR}}  | {{contact.identity}}  | {{input.content}}"
+  },
+  "Erros de Requisições": {
+    "Indisponibilidade {{erro@servico}}": "{{calendar.datetime}} | {{erro@status}} | {{erro@body}}",
+    "Indisponibilidade de Serviços - Volume": "{{erro@servico}} | {{erro@status}}",
+    "Indisponibilidade de Serviços - Clientes": "{{phoneNumber}} | {{erro@servico}}",
+    "Falhas API de Consulta KBA": "{{DataHoraBR}} | {{application.identifier}} | {{numeroSegmento}} | {{phoneNumber}} | {{cpf}} | {{agenciaContaSelecionada@agencia}}/{{agenciaContaSelecionada@conta}}"
+  },
+  "Finalização de Atendimento": {
+    "Humano bem sucedidas": "1",
+    "Pesquisa - Perfil Hibrido": "#{{sequencialId}} - {{contact.name}} - {{cpf}} - {{dataHoraTicket}} - {{responseTeam}}  - {{codigoPerfil}} - {{callID}}",
+    "Derivação Fora Horario Ticket": "#{{sequencialId}} - {{dataHoraBR}} - {{phoneClient}} - {{labelHorario}} - {{fila}}",
+    "Contatos KBA Validado": "{{DataHoraBR}} | {{application.identifier}} | {{numeroSegmento}} | {{phoneNumber}} | {{cpf}} | {{agenciaContaSelecionada@agencia}}/{{agenciaContaSelecionada@conta}} | {{sequencialId}} | {{agentIdentity}} | {{responseTags}}",
+    "finalizadaAtendente": "1"
+  },
+  "Finalização de Atendimento 2": {
+    "Descred_Dig - Operador - Quantidade - Tag": "{{nomeAtendente}} - {{responseTags}}",
+    "Descred_Dig_Detalhado": "#{{sequencialId}} - {{dataHoraBr}} - {{numeroEC@codigoEc}} - {{nomeAtendente}} - {{responseTeam}} - {{responseTags}}",
+    "Descred_Dig - Transferencia - Operador - Area": "#{{sequencialId}} - {{nomeAtendente}} - {{responseTeam}}",
+    "retenção bruta": "{{atendimento}}",
+    "retenção total": "{{atendimento}} | {{autoservico}}",
+    "retenção atendimento humano": "sucesso",
+    "retenção liquida": "{{atendimento}} | {{autoservico}}"
+  },
+  "Fora do Horario de Atendimento": {
+    "Fora horário": "1"
+  },
+  "Inatividade": {
+    "inatividade": "1",
+    "Jornada Encerrada Inatividade": "{{calendar.datetime}} | {{phoneNumber}} | {{cpf}} | {{estado}}",
+    "Pesquisa BigId - Abandono": "{{calendar.date}} | {{phoneNumber}} | {{cpf}}",
+    "Abandono por Estado - Volume": "{{estado}}",
+    "Abandono por Estado - Detalhado": "{{calendar.date}} | {{phoneNumber}} | {{cpf}} | {{estado}}"
+  },
+  "Início": {
+    "Origem campanha {{origemCampanhaPadrao@canal}}": "{{origemCampanhaPadrao@trackOrigemCampanha}}",
+    "Hypo Safrapay Varejo": "{{contact.identity}} | {{contact.extras.broadcastOrigem}} | {{input.content}}"
+  },
+  "Mensagem Informativa": {
+    "assuntoTransferencia": "{{assuntoTransferencia}}"
+  },
+  "Menu transações": {
+    "menu transações": "{{contact.identity}} | {{input.content}}"
+  },
+  "Neutros": {
+    "Nps padrao motivo exibicao": "{{trackingNps@npsExibInesperado}} | {{trackingNpsNotaClass}}"
+  },
+  "Perfil Hibrido": {
+    "horaMin": "{{horaMin}}",
+    "hora": "{{hora}}"
+  },
+  "Pesquisa Finalizada": {
+    "Pesquisa Finalizada": "Volume",
+    "Finalizacao resumo": "{{trackingCsat@csatExibicao}} | {{solicitacaoConcluida}} | {{trackingCsatNotaClass}} | {{trackingCsatMotivo}}",
+    "Atendimentos por Agentes": "{{calendar.date}}|{{phoneNumber}}|{{score}}|{{valorClassificacao}}|{{notaNPSMotivo}}|"
+  },
+  "Pesquisa de Satisfação CSAT": {
+    "Csat padrao origem": "{{config.botIdentity}} | {{state.previous.name}}",
+    "Csat padrao exibicao": "{{trackingCsat@csatExibicao}} | {{solicitacaoConcluida}}",
+    "ST survey question": "{{botOrHuman}} | Count",
+    "ST survey answer": "{{botOrHuman}} | {{returnST}}",
+    "Csat padrao selecao": "{{trackingCsat@csatExibicao}} | {{solicitacaoConcluida}} | {{trackingCsatNotaClass}}",
+    "Csat padrao inesperado": "{{trackingCsat@csatExibInesperado}} | {{input.content}}",
+    "Csat padrao selecao WhatsApp_Caça_POS": "{{trackingCsat@csatExibicao}} | {{solicitacaoConcluida}} | {{trackingCsatNotaClass}}"
+  },
+  "Pesquisa de Satisfação CSAT - Motivo": {
+    "Csat motivo padrao exibicao": "{{trackingCsat@csatExibInesperado}}|{{solicitacaoConcluida}}|{{trackingCsatNotaClass}}",
+    "Csat motivo padrao selecao": "{{trackingCsat@csatExibicao}} | {{solicitacaoConcluida}} | {{trackingCsatNotaClass}} | {{trackingCsatMotivo}}",
+    "Csat motivo padrao inesperado": "{{trackingCsat@csatExibInesperado}} | {{trackingCsatNotaClass}} | {{input.content}}",
+    "ST survey reason": "{{botOrHuman}} | {{score}} | {{returnST}} | {{menu@input}}",
+    "Csat motivo padrao selecao WhatsApp_Caça_POS": "{{trackingCsat@csatExibicao}} | {{solicitacaoConcluida}} | {{trackingCsatNotaClass}} | {{trackingCsatMotivo}}"
+  },
+  "Pesquisa de Satisfação CSAT - Outros motivos": {
+    "Csat motivo outros exibicao": "{{trackingCsat@csatExibInesperado}} | {{solicitacaoConcluida}} | {{trackingCsatNotaClass}}",
+    "Csat motivo outros input": "{{trackingCsat@csatExibicao}} | {{solicitacaoConcluida}} | {{trackingCsatNotaClass}} | {{trackingCsatMotivo}} | {{motivo}}"
+  },
+  "Pesquisa do NPS": {
+    "Nps padrao exibicao": "{{trackingNps@npsExibicao}}",
+    "Contatos KBA Validado": "{{DataHoraBR}} | {{application.identifier}} | {{numeroSegmento}} | {{phoneNumber}} | {{cpf}} | {{agenciaContaSelecionada@agencia}}/{{agenciaContaSelecionada@conta}} | {{sequencialId}}  | {{agentIdentity}} | {{responseTags}} | {{score}}",
+    "Resultado Pesquisa Bot": "{{inputScore}} - {{telefoneDoCliente}}",
+    "Pesquisa - Atendimento": "{{inputScore}} - #{{sequencialId}} - {{agentIdentity}} - {{responseTags}} - {{dataHoraTicket}} - {{responseTeam}}",
+    "NPS  PERFIL BOT": "{{valorClassificacao}}",
+    "NPS - Dia-a-Dia - BOT": "{{inputScore}}",
+    "NPS - Team - Score": "{{calendar.date}}|{{inputScore}}|{{responseTeam}}",
+    "NPS - Score - Agent": "{{dataHoraTicket}}|{{inputScore}}|{{agentIdentity}}",
+    "NPS - Team - Cassificação": "{{calendar.date}}|{{responseTeam}}|{{valorClassificacao}}",
+    "NPS - Completo": "{{calendar.date}}|{{inputScore}}|{{valorClassificacao}}|{{agentIdentity}}|{{responseTeam}}|#{{sequencialId}}",
+    "NPS - PERFIL - ATENDIMENTO": "{{valorClassificacao}}",
+    "NPS-Dia-a-Dia - ATENDIMENTO": "{{inputScore}}",
+    "NPS - Classificação - Atendimento": "{{valorClassificacao}}",
+    "Nps answer report": "{{julietTicketId}}|{{sequencialId}}|{{score}}|{{valorClassificacao}}|{{tipoJornadaUsuarioTracking}}",
+    "Nps padrao selecao": "{{trackingNps@npsExibicao}} | {{trackingNpsNotaClass}}",
+    "Nps padrao input inesperado": "{{trackingNps@npsExibInesperado}} | {{input.content}}"
+  },
+  "Promotores": {
+    "Nps padrao motivo exibicao": "{{trackingNps@npsExibInesperado}} | {{trackingNpsNotaClass}}"
+  },
+  "Protocolo": {
+    "Protocolo - Erro de Requisição Token": "{{statusTokenProtocolo}}",
+    "Protocolo - Erro de Requisição": "{{statusProtocoloBpm}} {{bodyProtocoloBpm}}",
+    "Protocolo": "{{calendar.date}}|{{phoneClient}}|{{cpf}}|{{idSubMotivo}}|{{idProtocoloBpm}}",
+    "Ocorrência - Erro de Requisição": "{{statusOcorrencia}} | {{bodyOcorrencia}}",
+    "Ocorrência": "{{phoneNumber}} | {{cpf}} | {{bodyOcorrencia@id}} | {{bodyOcorrencia@protocoloAtendimentoId}}",
+    "Teste - Protocolo - {{setaEquipe}}": "{{calendar.date}}-{{phoneClient}}-{{cpf}}-{{idSubMotivo}}-{{idProtocoloBpm}}"
+  },
+  "Pré Transbordo": {
+    "Humano": "1"
+  },
+  "Pré Transbordo Contingência": {
+    "autoservicoAtendimento": "1"
+  },
+  "Tracking Pesquisa do NPS": {
+    "Teste - NPS  PERFIL BOT - {{responseTeam}}": "{{valorClassificacao}}",
+    "Teste - Resultado Pesquisa Bot - {{responseTeam}}": "{{inputScore}} - {{telefoneDoCliente}}",
+    "Teste - Pesquisa - Atendimento - {{responseTeam}}": "{{inputScore}} - #{{sequencialId}} - {{agentIdentity}} - {{responseTags}} - {{dataHoraTicket}} - {{responseTeam}}",
+    "Teste - NPS - Dia-a-Dia - BOT - {{responseTeam}}": "{{inputScore}}",
+    "Teste - NPS - Team - Score - {{responseTeam}}": "{{calendar.date}}|{{inputScore}}|{{responseTeam}}",
+    "Teste - NPS - Team - Cassificação - {{responseTeam}}": "{{calendar.date}}|{{responseTeam}}|{{valorClassificacao}}",
+    "Teste - NPS - Score - Agent - {{responseTeam}}": "{{dataHoraTicket}}|{{inputScore}}|{{agentIdentity}}",
+    "Teste - NPS - Completo - {{responseTeam}}": "{{calendar.date}}|{{inputScore}}|{{valorClassificacao}}|{{agentIdentity}}|{{responseTeam}}|#{{sequencialId}}",
+    "Teste - NPS - PERFIL - ATENDIMENTO - {{responseTeam}}": "{{valorClassificacao}}",
+    "Teste - NPS-Dia-a-Dia - ATENDIMENTO - {{responseTeam}}": "{{inputScore}}",
+    "Teste - NPS - Classificação - Atendimento - {{responseTeam}}": "{{valorClassificacao}}"
+  },
+  "Verifica Horario de Atendimento": {
+    "Derivação": "{{dataHoraBR}}|{{phoneClient}}|{{labelHorario}}",
+    "Horário de Atendimento Detalhado": "{{dataHoraBR}}|{{labelHorario}}",
+    "Horário de Atendimento - Volume": "Fora",
+    "Teste - Derivação - {{fila}}": "{{dataHoraBR}}-{{phoneClient}}-{{labelHorario}}",
+    "Teste - Horário de Atendimento Detalhado - {{fila}}": "{{dataHoraBR}}|{{labelHorario}}",
+    "Teste - Horário de Atendimento - Volume - {{fila}}": "Fora",
+    "Status API DE HORARIO": "Data - {{calendar.datetime}} - Cel - {{phoneClient}} - Status - {{statusIsWorkTime}} - MSG {{bodyAPIHorario}}"
+  },
+  "tracking": {
+    "Confirmações": "Não",
+    "Pergunta Finalização": "Não",
+    "CPF CNPJ ZERADOS": "{{cpf}}",
+    "CNPJ ZERADOS": "{{cnpj}}",
+    "Todos os Inputs e Estado": "estado - {{estado}} | Input - {{input.content}}"
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "Exceções": {
+    "SPD Excecoes erros inesperados": "{{state.previous.id}}"
+  },
+  "Início": {
+    "inicio": "{{config.serviceName}} | {{state@botOrigin}} | {{state@stateNameOrigin}} | {{input.content}} | {{input.intent.name}}",
+    "SPD Excecoes tipo de erro": "{{exceptionType}}",
+    "SPD Excecoes origin": "{{state@botOrigin}} | {{state@stateNameOrigin}} | {{state@lastInput}}",
+    "exception grafico origem": "{{state@stateNameOrigin}} | {{exceptionType}}"
+  },
+  "Redireciona serviço anterior erro tipo": {
+    "SPD Excecoes redirecionamento": "Tipo de mensagem não suportada"
+  },
+  "[EX.0.0.0] Identifica exception": {
+    "SPD Excecoes exceptionBlock": "{{exceptionBlockId}}"
+  },
+  "[EX.0.0.1] Redirecionar Main (Reiniciar fluxo)": {
+    "SPD Excecoes redirecionamento": "Reiniciar fluxo"
+  },
+  "[EX.1.0.0] Erro de lista": {
+    "SPD Excecoes [EX.1.0.0] Erro de lista exibição": "Exibição"
+  },
+  "[EX.10.0.0] Valor invalido": {
+    "SPD Excecoes [EX.10.0.0] Valor invalido exibição": "Exibição"
+  },
+  "[EX.10.0.0] Valor invalido (Persistente)": {
+    "SPD Excecoes [EX.10.0.0] Valor invalido (Persistente) exibição": "Exibição"
+  },
+  "[EX.10.0.0] Valor invalido finalização": {
+    "SPD Excecoes [EX.10.0.0] Valor invalido finalização exibição": "Exibição"
+  },
+  "[EX.11.0.0] Serial invalido (Persistente)": {
+    "SPD Excecoes [EX.11.0.0] Serial invalido (Persistente) exibição": "Exibição"
+  },
+  "[EX.11.0.0] Serial number invalido": {
+    "SPD Excecoes [EX.11.0.0] Serial number invalido exibição": "Exibição"
+  },
+  "[EX.12.0.0] Lista númerica invalida": {
+    "SPD Excecoes [EX.12.0.0] Lista númerica invalida exibição": "Exibição"
+  },
+  "[EX.13.0.0] Hora incorreta": {
+    "SPD Excecoes [EX.13.0.0] Hora incorreta exibição": "Exibição"
+  },
+  "[EX.13.0.2] Hora incorreta finalização": {
+    "SPD Excecoes [EX.13.0.2] Hora incorreta finalização exibição": "Exibição"
+  },
+  "[EX.14.0.0] CNPJ Incorreto": {
+    "SPD Excecoes [EX.14.0.0] CNPJ Incorreto exibição": "Exibição"
+  },
+  "[EX.14.1.0] CNPJ Incorreto (Erro persistente)": {
+    "SPD Excecoes [EX.14.1.0] CNPJ Incorreto (Erro persistente) exibição": "Exibição"
+  },
+  "[EX.15.0.0] Finalização generica": {
+    "SPD Excecoes [EX.15.0.0] Finalização generica exibição": "Exibição"
+  },
+  "[EX.2.0.0] Erro de quickReply": {
+    "SPD Excecoes [EX.2.0.0] Erro de quickReply exibição": "Exibição"
+  },
+  "[EX.3.0.0] Cutuca": {
+    "SPD Excecoes [EX.3.0.0] Cutuca exibição": "Exibição",
+    "SPD Excecoes cutuca input": "{{input.content}}",
+    "SPD Excecoes cutuca retorno inatividade": "Retorno inatividade",
+    "SPD Excecoes cutuca encerramento inatividade": "Encerramento"
+  },
+  "[EX.3.0.0] Erro generico": {
+    "SPD Excecoes [EX.3.0.0] Erro generico exibição": "Exibição"
+  },
+  "[EX.3.0.1] Erro generico persistente": {
+    "SPD Excecoes [EX.3.0.1] Erro generico persistente exibição": "Exibição"
+  },
+  "[EX.3.0.2] Erro generico Finalização": {
+    "SPD Excecoes [EX.3.0.2] Erro generico Finalização exibição": "Exibição"
+  },
+  "[EX.4.0.0] Erro Persistente": {
+    "SPD Excecoes redirecionamento menu inicial por erro persistente": "Exibição"
+  },
+  "[EX.5.0.0] Erro de audio": {
+    "Áudio": "1",
+    "SPD Excecoes [EX.5.0.0] Erro de audio exibição": "Exibição"
+  },
+  "[EX.5.0.1] Erro de imagem / sticker": {
+    "SPD Excecoes [EX.5.0.1] Erro de imagem / sticker exibição": "Exibição"
+  },
+  "[EX.5.0.2] Erro de video": {
+    "SPD Excecoes [EX.5.0.2] Erro de video exibição": "Exibição"
+  },
+  "[EX.5.0.3] Erro de localização": {
+    "SPD Excecoes [EX.5.0.3] Erro de localização exibição": "Exibição"
+  },
+  "[EX.5.0.4] Erro de arquivo": {
+    "SPD Excecoes [EX.5.0.4] Erro de arquivo exibição": "Exibição"
+  },
+  "[EX.5.0.5] Erro de emoji": {
+    "SPD Excecoes [EX.5.0.5] Erro de emoji exibição": "Exibição"
+  },
+  "[EX.5.0.6] Erro de contato": {
+    "SPD Excecoes [EX.5.0.6] Erro de contato exibição": "Exibição"
+  },
+  "[EX.5.0.6] Erro de contato finalização": {
+    "SPD Excecoes [EX.5.0.6] Erro de contato finalização exibição": "Exibição"
+  },
+  "[EX.5.2.0] Erro de audio finalização": {
+    "SPD Excecoes [EX.5.2.0] Erro de audio finalização exibição": "Exibição"
+  },
+  "[EX.5.2.1] Erro de imagem / sticker finalização": {
+    "SPD Excecoes [EX.5.2.1] Erro de imagem / sticker finalização exibição": "Exibição"
+  },
+  "[EX.5.2.2] Erro de video finalização": {
+    "SPD Excecoes [EX.5.2.2] Erro de video finalização exibição": "Exibição"
+  },
+  "[EX.5.2.3] Erro de localização finalização": {
+    "SPD Excecoes [EX.5.2.3] Erro de localização finalização exibição": "Exibição"
+  },
+  "[EX.5.2.4] Erro de arquivo finalização": {
+    "SPD Excecoes [EX.5.2.4] Erro de arquivo finalização exibição": "Exibição"
+  },
+  "[EX.5.2.5] Erro de emoji finalização": {
+    "SPD Excecoes [EX.5.2.5] Erro de emoji finalização exibição": "Exibição"
+  },
+  "[EX.6.0.0] Erro de API": {
+    "SPD Excecoes [EX.6.0.0] Erro de API exibição": "Exibição"
+  },
+  "[EX.6.0.0] Validação erro API": {
+    "SPD Excecoes [EX.6.0.0] Validação erro API validação": "{{userInput}}",
+    "SPD Excecoes [EX.6.0.0] Validação erro API input inesperado": "{{input.content}}",
+    "SPD Excecoes cutuca encerramento inatividade": "Encerramento"
+  },
+  "[EX.6.0.1] Erro de API Menu": {
+    "SPD Excecoes [EX.6.0.1] Erro de API Menu exibição": "Exibição"
+  },
+  "[EX.7.0.0] Ofensas": {
+    "Ofensas": "1",
+    "SPD Excecoes [EX.7.0.0] Ofensas exibição": "Exibição",
+    "SPD Excecoes [EX.7.0.0] Ofensas input": "{{input.content}}"
+  },
+  "[EX.7.0.1] Ofensas Persistente": {
+    "Ofensas": "1",
+    "SPD Excecoes [EX.7.0.1] Ofensas Persistente exibição": "Exibição",
+    "SPD Excecoes [EX.7.0.1] Ofensas Persistente input": "{{input.content}}"
+  },
+  "[EX.8.0.0] KBA finalização": {
+    "SPD Excecoes [EX.8.0.0] KBA finalização exibição": "Exibição"
+  },
+  "[EX.8.0.0] Resposta invalida KBA": {
+    "SPD Excecoes [EX.8.0.0] Resposta invalida KBA input inesperado exibição": "Exibição"
+  },
+  "[EX.9.0.0] Data invalida": {
+    "SPD Excecoes [EX.9.0.0] Data invalida exibição": "Exibição"
+  },
+  "[EX.9.0.0] Data invalida (Persistente)": {
+    "SPD Excecoes [EX.9.0.0] Data invalida (Persistente) exibição": "Exibição"
+  },
+  "[EX.9.0.0] Data invalida finalização": {
+    "SPD Excecoes [EX.9.0.0] Data invalida finalização exibição": "Exibição"
+  },
+  "[EX.X.X.X] [INPUT] Erro persistente": {
+    "SPD Excecoes [EX.X.X.X] [INPUT] Erro persistente exibição": "{{state@stateOrigin}}",
+    "SPD Excecoes [EX.X.X.X] [INPUT] Erro persistente validação": "{{state@stateOrigin}} | {{state.previous.name}} | {{userInput}}",
+    "SPD Excecoes [EX.X.X.X] [INPUT] Erro persistente input inesperado": "{{state@stateOrigin}} | {{state.previous.name}} | {{userInput}}",
+    "SPD Excecoes cutuca encerramento inatividade": "Encerramento"
+  },
+  "[EX.X.X.X] [INPUT] Erro persistente finalização": {
+    "SPD Excecoes [EX.X.X.X] [INPUT] Erro persistente finalização exibição": "{{state@stateOrigin}}",
+    "SPD Excecoes [EX.X.X.X] [INPUT] Erro persistente finalização validação": "{{state@stateOrigin}} | {{state.previous.name}} | {{userInput}}",
+    "SPD Excecoes [EX.X.X.X] [INPUT] Erro persistente finalização input inesperado": "{{state@stateOrigin}} | {{state.previous.name}} | {{userInput}}",
+    "SPD Excecoes cutuca encerramento inatividade": "Encerramento"
+  },
+  "[GO TO] [EX.0.0.1] Reiniciar Fluxo": {
+    "Finalizacao erro de api": "{{idSessao}} | {{contact.identity}} | {{state@stateNameOrigin}}"
+  },
+  "[M.2.0.1] CPF invalido": {
+    "SPD Excecoes [M.2.0.1] CPF invalido exibição": "Exibição"
+  },
+  "[M.2.0.1] Erro persistente": {
+    "SPD Excecoes [M.2.0.1] Erro persistente exibição": "Exibição"
+  },
+  "[M.2.0.1] Erro persistente finalização": {
+    "SPD Excecoes [M.2.0.1] Erro persistente finalização exibição": "Exibição"
+  },
+  "[M.2.0.1] [INPUT] Erro persistente": {
+    "SPD Excecoes [M.2.0.1] [INPUT] Erro persistente validação": "{{userInput}}",
+    "SPD Excecoes [M.2.0.1] [INPUT] Erro persistente input inesperado": "{{input.content}}",
+    "SPD Excecoes cutuca encerramento inatividade": "Encerramento"
+  },
+  "[M.3.1.1] Conta corrente invalida": {
+    "SPD Excecoes [M.3.1.1] Conta corrente invalida exibição": "Exibição"
+  },
+  "[M.3.1.1] Conta corrente invalida (persistente)": {
+    "SPD Excecoes [M.3.1.1] Conta corrente invalida (persistente) exibição": "Exibição"
+  },
+  "[M.3.1.1] Conta corrente invalida finalização": {
+    "SPD Excecoes [M.3.1.1] Conta corrente invalida finalização exibição": "Exibição"
+  },
+  "[M.4.1.0] Ec invalido": {
+    "SPD Excecoes [M.4.1.0] Ec invalido exibição": "Exibição"
+  },
+  "[M.4.1.0] Ec invalido (persistente)": {
+    "SPD Excecoes [M.4.1.0] Ec invalido (persistente) exibição": "Exibição"
+  },
+  "[M.4.1.0] Ec invalido finalização": {
+    "SPD Excecoes [M.4.1.0] Ec invalido finalização exibição": "Exibição"
+  },
+  "[MS.2.1.1] Valor simulacao invalido": {
+    "SPD Excecoes [MS.2.1.1] Valor simulacao invalido exibição": "Exibição"
+  },
+  "[MS.2.1.1] Valor simulacao invalido (Persistente)": {
+    "SPD Excecoes [MS.2.1.1] Valor simulacao invalido (Persistente) exibição": "Exibição"
+  },
+  "[MS.2.1.1] Valor simulacao invalido finalização": {
+    "SPD Excecoes [MS.2.1.1] Valor simulacao invalido finalização exibição": "Exibição"
+  },
+  "[MS.4.0.0] Não recebi minha venda": {
+    "SPD Excecoes [MS.4.0.0] Não recebi minha venda exibição": "Exibição"
+  },
+  "[MS.4.0.0] Não recebi minha venda (Persistente)": {
+    "SPD Excecoes [MS.4.0.0] Não recebi minha venda (Persistente) exibição": "Exibição"
+  },
+  "[MS.4.0.0] Não recebi minha venda finalização": {
+    "SPD Excecoes [MS.4.0.0] Não recebi minha venda finalização exibição": "Exibição"
+  },
+  "[MS.4.1.0] Solicita valor da venda": {
+    "SPD Excecoes [MS.4.1.0] Solicita valor da venda exibição": "Exibição"
+  },
+  "[MS.4.1.0] Solicita valor da venda (Persistente)": {
+    "SPD Excecoes [MS.4.1.0] Solicita valor da venda (Persistente) exibição": "Exibição"
+  },
+  "[MS.4.1.0] Valor de venda finalização": {
+    "SPD Excecoes [MS.4.1.0] Valor de venda finalização exibição": "Exibição"
+  },
+  "[MS.7.2.0] Quantidade de transações inválidas": {
+    "SPD Excecoes [MS.7.2.0] Quantidade de transações inválidas exibição": "Exibição"
+  },
+  "[MS.7.2.1] Data Inválida Finalização": {
+    "SPD Excecoes [MS.7.2.1] Data Inválida Finalização exibição": "Exibição"
+  },
+  "[MS.7.2.1] Data incorreta": {
+    "SPD Excecoes [MS.7.2.1] Data incorreta exibição": "Exibição"
+  },
+  "[Redirect] To  Finalizacao (Welcome)": {
+    "SPD Excecoes redirecionamento": "Finalização"
+  },
+  "[Redirect] To  WhatsApp Pj (Atendente)": {
+    "SPD Excecoes redirecionamento": "WhatsApp PJ"
+  },
+  "[Redirect] To  serviço anterior (Bloco [INPUT])": {
+    "SPD Excecoes redirecionamento": "Redireciona serviço"
+  },
+  "[Redirect] To  serviço anterior (Bloco [MSG])": {
+    "SPD Excecoes redirecionamento": "Redireciona serviço"
+  },
+  "[Redirect] To Main (Menu inicial)": {
+    "SPD Excecoes redirecionamento": "Menu inicial"
+  },
+  "[S.2.0.0] Número de protocolo inval (Persistente)": {
+    "SPD Excecoes [S.2.0.0] Número de protocolo inval (Persistente) exibição": "Exibição"
+  },
+  "[S.2.0.0] Número de protocolo invalido": {
+    "SPD Excecoes [S.2.0.0] Número de protocolo invalido exibição": "Exibição"
+  },
+  "[S.2.0.0] Número de protocolo invalido finalização": {
+    "SPD Excecoes [S.2.0.0] Número de protocolo invalido finalização exibição": "Exibição"
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "Início": {
+    "inicio": "{{config.serviceName}} | {{state@botOrigin}} | {{state@stateNameOrigin}} | {{input.content}} | {{input.intent.name}}",
+    "SPD Finalizacao origem": "{{state@botOrigin}}",
+    "SPD Finalizacao jornada": "{{idSessao}} | {{voltarState}}"
+  },
+  "[F.0.0.0][INPUT] Confirma finalização": {
+    "SPD Finalizacao [F.0.0.0][INPUT] Confirma finalização validação": "{{userInput}}",
+    "SPD Finalizacao [F.0.0.0][INPUT] Confirma finalização input inesperado": "{{input.content}}",
+    "SPD Finalizacao [F.0.0.0][INPUT] Confirma finalização registro": "Registro"
+  },
+  "[F.0.0.0][MSG] Confirma finalização": {
+    "SPD Finalizacao [F.0.0.0][MSG] Confirma finalização exibição": "Exibição"
+  },
+  "[F.1.0.0][MSG] Tipo de finalização": {
+    "SPD Finalizacao [F.1.0.0][MSG] Tipo de finalização exibição": "Exibição"
+  },
+  "[F.2.0.0][MSG] Finalização sem pesquisa": {
+    "SPD Finalizacao [F.2.0.0][MSG] Finalização sem pesquisa registro": "Registro"
+  },
+  "[F.3.1.0][INPUT] Pesquisa Resolutividade": {
+    "SPD Finalizacao [F.3.1.0][INPUT] Pesquisa Resolutividade validação consolidado": "{{userInput}}",
+    "SPD Finalizacao [F.3.1.0][INPUT] Pesquisa Resolutividade input inesperado": "{{input.content}}",
+    "SPD Finalizacao [F.3.1.0][INPUT] Pesquisa Resolutividade validação assunto": "{{assunto}} | {{userInput}}"
+  },
+  "[F.3.1.0][MSG] Pesquisa Resolutividade": {
+    "SPD Finalizacao [F.3.1.0][MSG] Pesquisa Resolutividade exibição": "Exibição"
+  },
+  "[F.3.1.1][MSG] Resolutividade - Sim": {
+    "Resolutividade": "Sim",
+    "Resolutividade Sim Assunto": "{{assunto}}",
+    "SPD Intencoes [F.3.1.1][MSG] Resolutividade - Sim exibição": "Exibição",
+    "SPD Finalizacao [F.3.1.1][MSG] Resolutividade - Sim exibição": "Exibição"
+  },
+  "[F.3.1.2][INPUT] Resolutividade - Não validação": {
+    "Opção resolutividade negativa": "{{assunto}}: {{input.content}}",
+    "SPD Intencoes [F.3.1.2][INPUT] Resolutividade - Não validação validação": "{{input.content}}",
+    "SPD Intencoes [F.3.1.2][INPUT] Resolutividade - Não validação input inesperado": "{{input.content}}",
+    "SPD Finalizacao [F.3.1.2][INPUT] Resolutividade - Não validação validação consolidado": "{{userInput}}",
+    "SPD Finalizacao [F.3.1.2][INPUT] Resolutividade - Não validação input inesperado": "{{input.content}}",
+    "SPD Finalizacao [F.3.1.2][INPUT] Resolutividade - Não validação validação assunto": "{{assunto}} | {{userInput}}"
+  },
+  "[F.3.1.2][MSG] Resolutividade - Não": {
+    "Resolutividade": "Não",
+    "Resolutividade Não Assunto": "{{assunto}}",
+    "SPD Finalizacao [F.3.1.2][MSG] Resolutividade - Não exibição": "Exibição"
+  },
+  "[F.3.1.3][INPUT] Outros motivos": {
+    "SPD Finalizacao [F.3.1.3][INPUT] Outros motivos exibição": "Exibição",
+    "SPD Finalizacao [F.3.1.3][INPUT] Outros motivos validação": "{{input.content}}"
+  },
+  "[F.3.2.0][INPUT] Pesquisa CES validação": {
+    "SPD Finalizacao [F.3.2.0][INPUT] Pesquisa CES validação validação consolidado": "{{userInput}}",
+    "SPD Finalizacao [F.3.2.0][INPUT] Pesquisa CES validação input inesperado": "{{input.content}}",
+    "SPD Finalizacao [F.3.2.0][INPUT] Pesquisa CES validação validação assunto": "{{assunto}} | {{userInput}}"
+  },
+  "[F.3.2.0][MSG] Pesquisa CES": {
+    "SPD Finalizacao [F.3.2.0][MSG] Pesquisa CES exibição": "Exibição"
+  },
+  "[F.3.2.1][MSG] Muito Fácil": {
+    "Pesquisa CES Muito fácil": "1",
+    "Pesquisa CES Muito fácil assunto": "{{assunto}}",
+    "SPD Finalizacao [F.3.2.1][MSG] Muito Fácil exibição": "Exibição"
+  },
+  "[F.3.2.2][MSG] Fácil": {
+    "PESQUISA CES MUITO FÁCIL ASSUNTO": "{{assunto}}",
+    "PESQUISA CES MUITO FÁCIL": "1",
+    "SPD Intencoes [F.3.2.2][MSG] Fácil exibição": "Exibição",
+    "SPD Finalizacao [F.3.2.2][MSG] Fácil exibição": "Exibição"
+  },
+  "[F.3.2.3][MSG] Neutro": {
+    "SPD Finalizacao [F.3.2.3][MSG] Neutro exibição": "Exibição"
+  },
+  "[F.3.2.4][INPUT] Difícil validação": {
+    "SPD Finalizacao [F.3.2.4][INPUT] Difícil validação validação consolidado": "{{userInput}}",
+    "SPD Finalizacao [F.3.2.4][INPUT] Difícil validação input inesperado": "{{input.content}}",
+    "SPD Finalizacao [F.3.2.4][INPUT] Difícil validação validação assunto": "{{assunto}} | {{userInput}}"
+  },
+  "[F.3.2.4][MSG] Difícil": {
+    "PESQUISA CES DIFÍCIL ASSUNTO": "{{assunto}}",
+    "PESQUISA CES DIFÍCIL": "1",
+    "SPD Intencoes [F.3.2.4][MSG] Difícil exibição": "Exibição"
+  },
+  "[F.3.2.5][INPUT] Muito difícil validação": {
+    "SPD Finalizacao [F.3.2.5][INPUT] Muito difícil validação validação consolidado": "{{userInput}}",
+    "SPD Finalizacao [F.3.2.5][INPUT] Muito difícil validação input inesperado": "{{input.content}}",
+    "SPD Finalizacao [F.3.2.5][INPUT] Muito difícil validação validação assunto": "{{assunto}} | {{userInput}}"
+  },
+  "[F.3.2.5][MSG] Muito difícil": {
+    "PESQUISA CES MUITO DIFÍCIL ASSUNTO": "{{assunto}}",
+    "PESQUISA CES MUITO DIFÍCIL": "1",
+    "SPD Intencoes [F.3.2.5][MSG] Muito difícil exibição": "Exibição"
+  },
+  "[F.3.2.6][MSG] Outros motivos": {
+    "SPD Finalizacao [F.3.2.6][MSG] Outros motivos exibição": "Exibição",
+    "SPD Finalizacao [F.3.2.6][MSG] Outros motivos validação": "{{input.content}}"
+  },
+  "[F.4.0.0][INPUT] Menu Como deseja seguir?": {
+    "[F.4.0.0][INPUT] Menu Como deseja seguir? validação": "{{userInput}}",
+    "[F.4.0.0][INPUT] Menu Como deseja seguir? input inesperado": "{{input.content}}"
+  },
+  "[F.4.0.0][MSG] Menu Como deseja seguir?": {
+    "[F.4.0.0][MSG] Menu Como deseja seguir? exibicao": "Exibição"
+  },
+  "[Redirect] to Main (Menu inicial)": {
+    "SPD Finalizacao [Redirect] to Main (Menu inicial) registro": "Registro"
+  },
+  "[Redirect] to Main (Welcome)": {
+    "SPD Finalizacao [Redirect] to Main (Welcome) registro": "Registro"
+  }
+}

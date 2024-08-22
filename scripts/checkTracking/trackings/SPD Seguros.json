@@ -1,0 +1,45 @@
+{
+  "Início": {
+    "inicio": "{{config.serviceName}} | {{state@botOrigin}} | {{state@stateNameOrigin}} | {{input.content}} | {{input.intent.name}}"
+  },
+  "[S.1.0.0][INPUT] Menu Seguros": {
+    "[S.1.0.0][INPUT] Menu Seguros validação": "{{userInput}}",
+    "[S.1.0.0][INPUT] Menu Seguros input inesperado": "{{input.content}}"
+  },
+  "[S.1.0.0][MSG] Menu Seguros": {
+    "[S.1.0.0][MSG] Menu Seguros exibicao": "Exibição"
+  },
+  "[S.2.0.0][MSG] Contratação": {
+    "[S.2.0.0][MSG] Contratação exibicao": "Exibição"
+  },
+  "[S.3.0.0][INPUT] Pagamento em atraso": {
+    "[S.3.0.0][INPUT] Pagamento em atraso validação": "{{userInput}}",
+    "[S.3.0.0][INPUT] Pagamento em atraso input inesperado": "{{input.content}}"
+  },
+  "[S.3.0.0][MSG] Indenização": {
+    "[S.3.0.0][MSG] Indenização exibicao": "Exibição"
+  },
+  "[S.3.0.0][MSG] Pagamento em atraso": {
+    "[S.3.0.0][MSG] Pagamento em atraso exibicao": "Exibição"
+  },
+  "[S.4.0.0][MSG] Renovação": {
+    "[S.4.0.0][MSG] Renovação exibicao": "Exibição"
+  },
+  "[S.5.0.0][MSG] Assistência Funeral": {
+    "[S.5.0.0][MSG] Assistência Funeral exibicao": "Exibição"
+  },
+  "[S.6.0.0][INPUT] Sinistro": {
+    "[S.6.0.0][INPUT] Sinistro validação": "{{userInput}}",
+    "[S.6.0.0][INPUT] Sinistro input inesperado": "{{input.content}}"
+  },
+  "[S.6.0.0][MSG] Sinistro": {
+    "[S.6.0.0][MSG] Sinistro exibicao": "Exibição"
+  },
+  "[S.7.0.0][MSG] Cancelamento": {
+    "[S.7.0.0][MSG] Cancelamento exibicao": "Exibição"
+  },
+  "[SET] Valida Carteirização": {
+    "[SET] Valida Carteirização exibicao": "Exibição",
+    "[SET] Valida Carteirização dados": "{{contact.identity}} | {{state.previous.name}} | {{contaSelecionada@segmentoGerente}}"
+  }
+}

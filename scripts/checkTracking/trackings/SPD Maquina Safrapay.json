@@ -1,0 +1,543 @@
+{
+  "Início": {
+    "inicio": "{{config.serviceName}} | {{state@botOrigin}} | {{state@stateNameOrigin}} | {{input.content}} | {{input.intent.name}}"
+  },
+  "[M.10.3.0][LOGIC] Cliente carterizado?": {
+    "[M.10.3.0][LOGIC] Cliente carterizado? exibicao": "Exibição",
+    "[M.10.3.0][LOGIC] Cliente carterizado? validação": "Gerente | {{contaSelecionada@segmentoGerente}}"
+  },
+  "[M.10.3.1][INPUT] Menu Sem Carteira": {
+    "[M.10.3.1][INPUT] Menu Sem Carteira validação": "{{userInput}}",
+    "[M.10.3.1][INPUT] Menu Sem Carteira input inesperado": "{{input.content}}"
+  },
+  "[M.10.3.1][MSG] Conseguimos te ajudar?": {
+    "[M.10.3.1][MSG] Conseguimos te ajudar? exibicao": "Exibição"
+  },
+  "[M.10.3.1][MSG] Menu Sem Carteira": {
+    "[M.10.3.1][MSG] Menu Sem Carteira exibicao": "Exibição"
+  },
+  "[M.10.3][INPUT] Conseguimos te ajudar?": {
+    "[M.10.3][INPUT] Conseguimos te ajudar? validação": "{{userInput}}",
+    "[M.10.3][INPUT] Conseguimos te ajudar? input inesperado": "{{input.content}}"
+  },
+  "[M.10.4.0][LOGIC] Seguimento EMP1?": {
+    "[M.10.4.0][LOGIC] Seguimento EMP1? exibicao": "Exibição",
+    "[M.10.4.0][LOGIC] Seguimento EMP1? validação": "Gerente | {{contaSelecionada@segmentoGerente}}"
+  },
+  "[M.10.5.0][INPUT] Como podemos ajudar? (EMP1)": {
+    "[M.10.5.0][INPUT] Como podemos ajudar? (EMP1) validação": "{{userInput}}",
+    "[M.10.5.0][INPUT] Como podemos ajudar? (EMP1) input inesperado": "{{input.content}}"
+  },
+  "[M.10.5.0][MSG] Como podemos ajudar? (EMP1)": {
+    "[M.10.5.0][MSG] Como podemos ajudar? (EMP1) exibicao": "Exibição"
+  },
+  "[M.5.1.0][INPUT] Menu - Máquinas Safrapay": {
+    "SPD Main [M.5.1.0][INPUT] Menu - Máquinas Safrapay validação": "{{userInput}}",
+    "SPD Main [M.5.1.0][INPUT] Menu - Máquinas Safrapay input inesperado": "{{input.content}}"
+  },
+  "[M.5.1.0][MSG] Menu - Máquinas Safrapay": {
+    "SPD Main [M.5.1.0][MSG] Menu - Máquinas Safrapay exibição": "Exibição",
+    "dynamicContent erro": "{{config.serviceName}} | {{state.name}} | {{dynamicContent@error}} | {{contact.identity}} | {{idSessao}}"
+  },
+  "[M.5.1.2][INPUT] Menu - Vendas": {
+    "SPD Main [M.5.1.2][INPUT] Menu - Vendas validação": "{{userInput}}",
+    "SPD Main [M.5.1.2][INPUT] Menu - Vendas input inesperado": "{{input.content}}"
+  },
+  "[M.5.1.2][MSG] Menu - Vendas": {
+    "SPD Main [M.5.1.2][MSG] Menu - Vendas exibição": "Exibição",
+    "dynamicContent erro": "{{config.serviceName}} | {{state.name}} | {{dynamicContent@error}} | {{contact.identity}} | {{idSessao}}"
+  },
+  "[M.5.2.0][MSG] Venda Online": {
+    "SPD Main [M.5.2.0][MSG] Venda Online exibição": "Exibição",
+    "dynamicContent erro": "{{config.serviceName}} | {{state.name}} | {{dynamicContent@error}} | {{contact.identity}} | {{idSessao}}"
+  },
+  "[M.5.2.1][MSG] FAQ Venda Online": {
+    "SPD Main [M.5.2.1][MSG] FAQ Venda Online exibição": "Exibição"
+  },
+  "[M.5.2.2][INPUT] Resposta foi util": {
+    "SPD Main [M.5.2.2][INPUT] Resposta foi util validação": "{{userInput}}",
+    "SPD Main [M.5.2.2][INPUT] Resposta foi util input inesperado": "{{input.content}}"
+  },
+  "[M.5.2.2][MSG] Resposta foi util": {
+    "SPD Main [M.5.2.2][MSG] Resposta foi util exibição": "Exibição"
+  },
+  "[M.5.3.0][INPUT] Cancelar Venda": {
+    "[M.5.3.0][INPUT] Cancelar Venda validação": "{{userInput}}",
+    "[M.5.3.0][INPUT] Cancelar Venda input inesperado": "{{input.content}}"
+  },
+  "[M.5.3.0][MSG] Cancelar Venda": {
+    "[M.5.3.0][MSG] Cancelar Venda exibicao": "Exibição"
+  },
+  "[M.5.3.1][INPUT] Qual trasacao": {
+    "[M.5.3.1][INPUT] Qual trasacao validação": "{{userInput}}",
+    "[M.5.3.1][INPUT] Qual trasacao input inesperado": "{{input.content}}"
+  },
+  "[M.5.3.1][MSG] Qual transacao": {
+    "[M.5.3.1][MSG] Qual transacao exibicao": "Exibição"
+  },
+  "[M.5.3.2][MSG] Última transação": {
+    "[M.5.3.2][MSG] Última transação exibicao": "Exibição"
+  },
+  "[M.5.3.3][MSG] Transações do dia": {
+    "[M.5.3.3][MSG] Transações do dia exibicao": "Exibição"
+  },
+  "[M.5.3.4][MSG] Transações Outros Dias": {
+    "[M.5.3.4][MSG] Transações Outros Dias exibicao": "Exibição"
+  },
+  "[M.5.4.0][INPUT] Instrucoes sem senha": {
+    "[M.5.4.0][INPUT] Instrucoes sem senha validação": "{{userInput}}",
+    "[M.5.4.0][INPUT] Instrucoes sem senha input inesperado": "{{input.content}}"
+  },
+  "[M.5.4.0][MSG] Instrucoes sem senha": {
+    "[M.5.4.0][MSG] Instrucoes sem senha exibicao": "Exibição"
+  },
+  "[M.5.5.0][INPUT] Conseguimos te ajudar?": {
+    "[M.5.5.0][INPUT] Conseguimos te ajudar? validação": "{{userInput}}",
+    "[M.5.5.0][INPUT] Conseguimos te ajudar? input inesperado": "{{input.content}}"
+  },
+  "[M.5.5.0][MSG] Conseguimos te ajudar?": {
+    "[M.5.5.0][MSG] Conseguimos te ajudar? exibicao": "Exibição"
+  },
+  "[M.5.6.0][LOGIC] Cliente carterizado?": {
+    "[M.5.6.0][LOGIC] Cliente carterizado? exibicao": "Exibição",
+    "[M.5.6.0][LOGIC] Cliente carterizado? validação": "Gerente | {{contaSelecionada@segmentoGerente}}"
+  },
+  "[M.5.7.0][INPUT] Como podemos ajudar? (EMP1)": {
+    "[M.5.7.0][INPUT] Como podemos ajudar? (EMP1) validação": "{{userInput}}",
+    "[M.5.7.0][INPUT] Como podemos ajudar? (EMP1) input inesperado": "{{input.content}}"
+  },
+  "[M.5.7.0][LOGIC] Seguimento EMP1?": {
+    "[M.5.7.0][LOGIC] Seguimento EMP1? exibicao": "Exibição",
+    "[M.5.7.0][LOGIC] Seguimento EMP1? validação": "Gerente | {{contaSelecionada@segmentoGerente}}"
+  },
+  "[M.5.7.0][MSG] Como podemos ajudar? (EMP1)": {
+    "[M.5.7.0][MSG] Como podemos ajudar? (EMP1) exibicao": "Exibição"
+  },
+  "[MS.10.0.0][INPUT] Menu Antecipação": {
+    "[MS.10.0.0][INPUT] Menu Antecipação validação": "{{userInput}}",
+    "[MS.10.0.0][INPUT] Menu Antecipação input inesperado": "{{input.content}}"
+  },
+  "[MS.10.0.0][MSG] Menu Antecipação": {
+    "[MS.10.0.0][MSG] Menu Antecipação exibicao": "Exibição",
+    "dynamicContent erro": "{{config.serviceName}} | {{state.name}} | {{dynamicContent@error}} | {{contact.identity}} | {{idSessao}}"
+  },
+  "[MS.10.1.0][MSG] Contratar Antecipação Automatica": {
+    "[MS.10.1.0][MSG] Contratar Antecipação Automatica exibicao": "Exibição"
+  },
+  "[MS.10.2.0][MSG]Contratar Antecipação Eventual": {
+    "[MS.10.2.0][MSG]Contratar Antecipação Eventual exibicao": "Exibição"
+  },
+  "[MS.2.0.0] [SET] Simulador de Vendas Inicio": {
+    "SPD Maquina Safrapay [MS.2.0.0] [SET] Simulador de Vendas Inicio exibição": "Exibição"
+  },
+  "[MS.2.0.1] [INPUT] Simulador de Vendas - Máquina": {
+    "SPD Maquina Safrapay [MS.2.0.1] [INPUT] Simulador de Vendas - Máquina validação": "{{userInput}}",
+    "SPD Maquina Safrapay [MS.2.0.1] [INPUT] Simulador de Vendas - Máquina input inesperado": "{{input.content}}"
+  },
+  "[MS.2.0.1] [MSG] Simulador de Vendas - Máquina": {
+    "SPD Maquina Safrapay [MS.2.0.1] [MSG] Simulador de Vendas - Máquina exibição": "Exibição"
+  },
+  "[MS.2.1.0] [INPUT] Tipo de venda": {
+    "SPD Maquina Safrapay [MS.2.1.0] [INPUT] Tipo de venda validação": "{{userInput}}",
+    "SPD Maquina Safrapay [MS.2.1.0] [INPUT] Tipo de venda input inesperado": "{{input.content}}"
+  },
+  "[MS.2.1.0] [MSG] Tipo de venda": {
+    "SPD Maquina Safrapay [MS.2.1.0] [MSG] Tipo de venda exibição": "Exibição"
+  },
+  "[MS.2.1.1] [INPUT] Valor simulacao": {
+    "SPD Maquina Safrapay [MS.2.1.1] [INPUT] Valor simulacao validação": "{{userInput}}",
+    "SPD Maquina Safrapay [MS.2.1.1] [INPUT] Valor simulacao input inesperado": "{{input.content}}"
+  },
+  "[MS.2.1.1] [MSG] Valor simulacao": {
+    "SPD Maquina Safrapay [MS.2.1.1] [MSG] Valor simulacao exibição": "Exibição",
+    "SPD Maquina Safrapay [MS.2.1.1] [MSG] Valor simulacao validação": "{{valor}}",
+    "SPD Maquina Safrapay [MS.2.1.1] [MSG] Valor simulacao input inesperado": "{{input.content}}"
+  },
+  "[MS.2.1.2] [INPUT] Tipo pagamento": {
+    "SPD Maquina Safrapay [MS.2.1.2] [INPUT] Tipo pagamento validação": "{{userInput}}",
+    "SPD Maquina Safrapay [MS.2.1.2] [INPUT] Tipo pagamento input inesperado": "{{input.content}}"
+  },
+  "[MS.2.1.2] [MSG] Tipo pagamento": {
+    "SPD Maquina Safrapay [MS.2.1.2] [MSG] Tipo pagamento exibição": "Exibição"
+  },
+  "[MS.2.1.3] [HTTP] API Simular Vendas": {
+    "[MS.2.1.3] [HTTP] API Simular Vendas api status": "{{statusSimulacao}}",
+    "SPD Maquina Safrapay [MS.2.1.3] [HTTP] API Simular Vendas api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/safrapay/vendas-servicos/vendas/planejamentos-vendas/assistente-virtual/v1/estabelecimentos/{{ec}}/vendas/simular | POST | {{statusSimulacao}} | {{bodySimulacao}}",
+    "consolidado api request": "{{config.urlCHT}}/safrapay/vendas-servicos/vendas/planejamentos-vendas/assistente-virtual/v1/estabelecimentos/selectedEc@codigoEc/vendas/simular | {{statusSimulacao}}"
+  },
+  "[MS.2.1.4] [INPUT] Selecao Bandeira": {
+    "SPD Maquina Safrapay [MS.2.1.4] [INPUT] Selecao Bandeira validação": "{{input.content}}",
+    "SPD Maquina Safrapay [MS.2.1.4] [INPUT] Selecao Bandeira input inesperado": "{{input.content}}"
+  },
+  "[MS.2.1.4] [MSG] Selecao Bandeira": {
+    "SPD Maquina Safrapay [MS.2.1.4] [MSG] Selecao Bandeira exibição": "Exibição"
+  },
+  "[MS.2.1.5] Cobrar / Receber (À Vista)": {
+    "SPD Maquina Safrapay [MS.2.1.5] Cobrar / Receber (À Vista) exibição": "Exibição",
+    "SPD Maquina Safrapay [MS.2.1.5] Cobrar / Receber (À Vista) dados": "{{salesValueStringfy}} | {{salesSimulation@valorFinal}}| {{salesSimulation@valorTaxaTotal}} | {{salesPaymentTypeStringfy}} | {{salesCardFlag}}",
+    "assuntos": "{{salesOrder}} - Simulador de Vendas"
+  },
+  "[MS.2.1.6] Cobrar / Receber (Parcelado)": {
+    "SPD Maquina Safrapay [MS.2.1.6] Cobrar / Receber (Parcelado) exibição": "Exibição",
+    "SPD Maquina Safrapay [MS.2.1.6] Cobrar / Receber (Parcelado) dados": "{{salesValueStringfy}} | {{salesPaymentTypeStringfy}} | {{salesCardFlag}}",
+    "assuntos": "Crédito Parcelado - {{salesOrder}}"
+  },
+  "[MS.2.2.0] [INPUT] Menu simulação opções": {
+    "SPD Maquina Safrapay [MS.2.2.0] [INPUT] Menu simulação opções input inesperado": "{{input.content}}",
+    "SPD Maquina Safrapay [MS.2.2.0] [INPUT] Menu simulação opções validação": "{{userInput}}"
+  },
+  "[MS.2.2.0] [MSG] Menu simulação opções": {
+    "SPD Maquina Safrapay [MS.2.2.0] [MSG] Menu simulação opções exibição": "Exibição"
+  },
+  "[MS.4.0.0] [SET] Não recebi minha venda Inicio": {
+    "SPD Maquina Safrapay [MS.4.0.0] [SET] Não recebi minha venda Inicio exibição": "Exibição"
+  },
+  "[MS.4.0.0][INPUT] Não recebi minha venda": {
+    "[MS.4.0.0][INPUT] Não recebi minha venda validação": "{{userInput}}",
+    "[MS.4.0.0][INPUT] Não recebi minha venda input inesperado": "{{input.content}}"
+  },
+  "[MS.4.0.0][MSG] Não recebi minha venda": {
+    "[MS.4.0.0][MSG] Não recebi minha venda exibição": "Exibição"
+  },
+  "[MS.4.1.0][INPUT] Solicita valor da venda": {
+    "SPD Maquina Safrapay [MS.4.1.0][INPUT] Solicita valor da venda validação": "{{userInput}}",
+    "SPD Maquina Safrapay [MS.4.1.0][INPUT] Solicita valor da venda input inesperado": "{{input.content}}"
+  },
+  "[MS.4.1.0][MSG] Solicita valor da venda": {
+    "SPD Maquina Safrapay [MS.4.1.0][MSG] Solicita valor da venda exibição": "Exibição"
+  },
+  "[MS.5.0.0][INPUT] Menu suporte e configurações": {
+    "SPD Main [MS.5.0.0][INPUT] Menu suporte e configurações validação": "{{userInput}}",
+    "SPD Main [MS.5.0.0][INPUT] Menu suporte e configurações input inesperado": "{{input.content}}"
+  },
+  "[MS.5.0.0][MSG] Menu Suporte e configurações": {
+    "[MS.5.0.0][MSG] Menu Suporte e configurações exibição": "Exibição",
+    "dynamicContent erro": "{{config.serviceName}} | {{state.name}} | {{dynamicContent@error}} | {{contact.identity}} | {{idSessao}}"
+  },
+  "[MS.6.0.0][INPUT] Menu Suporte": {
+    "SPD Main [MS.6.0.0][INPUT] Menu Suporte validação": "{{userInput}}",
+    "SPD Main [MS.6.0.0][INPUT] Menu Suporte input inesperado": "{{input.content}}"
+  },
+  "[MS.6.0.0][MSG] Menu Suporte": {
+    "[MS.6.0.0][MSG] Menu Suporte exibição": "Exibição",
+    "dynamicContent erro": "{{config.serviceName}} | {{state.name}} | {{dynamicContent@error}} | {{contact.identity}} | {{idSessao}}"
+  },
+  "[MS.6.1.0][INPUT] Menu Ligar e Desligar": {
+    "SPD Main [MS.6.1.0][INPUT] Menu Ligar e Desligar validação": "{{userInput}}",
+    "SPD Main [MS.6.1.0][INPUT] Menu Ligar e Desligar input inesperado": "{{input.content}}"
+  },
+  "[MS.6.1.0][MSG] Menu Ligar e Desligar": {
+    "[MS.6.1.0][MSG] Menu Ligar e Desligar exibição": "Exibição"
+  },
+  "[MS.6.1.1][INPUT] Menu selecionar modelo da maquina": {
+    "SPD Main [MS.6.1.1][INPUT] Menu selecionar modelo da maquina validação": "{{userInput}}",
+    "SPD Main [MS.6.1.1][INPUT] Menu selecionar modelo da maquina input inesperado": "{{input.content}}"
+  },
+  "[MS.6.1.1][MSG] Menu selecionar modelo da maquina": {
+    "[MS.6.1.1][MSG] Menu selecionar modelo da maquina exibição": "Exibição"
+  },
+  "[MS.6.1.2][MSG] Ligar e Desligar": {
+    "[MS.6.1.2][MSG] Ligar e Desligar exibição": "Exibição"
+  },
+  "[MS.6.10.0][MSG] Aplicação com problema": {
+    "[MS.6.10.0][MSG] Aplicação com problema exibição": "Exibição"
+  },
+  "[MS.6.2.0][MSG] Problema/comunicação": {
+    "[MS.6.2.0][MSG] Problema/comunicação exibição": "Exibição"
+  },
+  "[MS.6.3.0][MSG] Voucher": {
+    "[MS.6.3.0][MSG] Voucher exibição": "Exibição"
+  },
+  "[MS.6.4.0][INPUT] Status inválido": {
+    "[MS.6.4.0][INPUT] Status inválido validação": "{{userInput}}",
+    "[MS.6.4.0][INPUT] Status inválido input inesperado": "{{input.content}}"
+  },
+  "[MS.6.4.0][MSG] Status inválido": {
+    "[MS.6.4.0][MSG] Status inválido exibição": "Exibição"
+  },
+  "[MS.6.5.0][INPUT] Equipamento reiniciando": {
+    "SPD Main [MS.6.5.0][INPUT] Equipamento reiniciando validação": "{{userInput}}",
+    "SPD Main [MS.6.5.0][INPUT] Equipamento reiniciando input inesperado": "{{input.content}}"
+  },
+  "[MS.6.5.0][MSG] Menu Reinicialização": {
+    "[MS.6.5.0][MSG] Menu Reinicialização exibição": "Exibição"
+  },
+  "[MS.6.5.1][INPUT] Menu selecionar modelo da maquina": {
+    "SPD Main [MS.6.5.1][INPUT] Menu selecionar modelo da maquina validação": "{{userInput}}",
+    "SPD Main [MS.6.5.1][INPUT] Menu selecionar modelo da maquina input inesperado": "{{input.content}}"
+  },
+  "[MS.6.5.1][MSG] Menu selecionar modelo da maquina": {
+    "[MS.6.5.1][MSG] Menu selecionar modelo da maquina exibição": "Exibição"
+  },
+  "[MS.6.5.2][MSG] Reinicialização": {
+    "[MS.6.5.2][MSG] Reinicialização exibição": "Exibição"
+  },
+  "[MS.6.6.0][INPUT] POS travando": {
+    "[MS.6.6.0][INPUT] POS travando validação": "{{userInput}}",
+    "[MS.6.6.0][INPUT] POS travando input inesperado": "{{input.content}}"
+  },
+  "[MS.6.6.0][MSG] POS travando": {
+    "[MS.6.6.0][MSG] POS travando exibição": "Exibição"
+  },
+  "[MS.6.6.1][INPUT] POS travando 2 instrução": {
+    "[MS.6.6.1][INPUT] POS travando 2 instrução validação": "{{userInput}}",
+    "[MS.6.6.1][INPUT] POS travando 2 instrução input inesperado": "{{input.content}}"
+  },
+  "[MS.6.6.1][MSG] POS travando 2 instrução": {
+    "[MS.6.6.1][MSG] POS travando 2 instrução exibição": "Exibição"
+  },
+  "[MS.6.6.2][INPUT] POS travando 3 instrução": {
+    "[MS.6.6.2][INPUT] POS travando 3 instrução validação": "{{userInput}}",
+    "[MS.6.6.2][INPUT] POS travando 3 instrução input inesperado": "{{input.content}}"
+  },
+  "[MS.6.6.2][MSG] POS travando 3 instrução": {
+    "[MS.6.6.2][MSG] POS travando 3 instrução exibição": "Exibição"
+  },
+  "[MS.6.6.3][MSG] POS travando 4 instrução": {
+    "[MS.6.6.3][MSG] POS travando 4 instrução exibição": "Exibição"
+  },
+  "[MS.6.7.0][INPUT] Menu Bateria": {
+    "SPD Main [MS.6.7.0][INPUT] Menu Bateria validação": "{{userInput}}",
+    "SPD Main [MS.6.7.0][INPUT] Menu Bateria input inesperado": "{{input.content}}"
+  },
+  "[MS.6.7.0][MSG] Menu Bateria": {
+    "[MS.6.7.0][MSG] Menu Bateria exibição": "Exibição"
+  },
+  "[MS.6.7.1][MSG] Bateria": {
+    "[MS.6.7.1][MSG] Bateria exibição": "Exibição"
+  },
+  "[MS.6.7.1][MSG] Impressão": {
+    "[MS.6.7.1][MSG] Impressão exibição": "Exibição"
+  },
+  "[MS.6.7.2][IMG] Instalação de bobina": {
+    "[MS.6.7.2][IMG] Instalação de bobina exibição": "Exibição"
+  },
+  "[MS.6.8.0][INPUT] Menu Impressão": {
+    "SPD Main [MS.6.8.0][INPUT] Menu Impressão validação": "{{userInput}}",
+    "SPD Main [MS.6.8.0][INPUT] Menu Impressão input inesperado": "{{input.content}}"
+  },
+  "[MS.6.8.0][MSG] Menu Impressão": {
+    "[MS.6.8.0][MSG] Menu Impressão exibição": "Exibição"
+  },
+  "[MS.6.9.0][INPUT] Menu USB": {
+    "SPD Main [MS.6.9.0][INPUT] Menu USB validação": "{{userInput}}",
+    "SPD Main [MS.6.9.0][INPUT] Menu USB input inesperado": "{{input.content}}"
+  },
+  "[MS.6.9.0][MSG] Menu USB": {
+    "[MS.6.9.0][MSG] Menu USB exibição": "Exibição"
+  },
+  "[MS.6.9.1][MSG] USB": {
+    "[MS.6.9.1][MSG] USB exibição": "Exibição"
+  },
+  "[MS.7.0.1][INPUT] Menu Transação não autorizada": {
+    "SPD Main [MS.7.0.1][INPUT] Menu Transação não autorizada validação": "{{userInput}}",
+    "SPD Main [MS.7.0.1][INPUT] Menu Transação não autorizada input inesperado": "{{input.content}}"
+  },
+  "[MS.7.0.1][MSG] Menu Transação não autorizada": {
+    "[MS.7.0.1][MSG] Menu Transação não autorizada exibição": "Exibição"
+  },
+  "[MS.7.1.0][INPUT] Débito (motivo)": {
+    "[MS.7.1.0][INPUT] Débito (motivo) validação": "{{userInput}}",
+    "[MS.7.1.0][INPUT] Débito (motivo) input inesperado": "{{input.content}}"
+  },
+  "[MS.7.1.0][MSG] Débito (motivo)": {
+    "[MS.7.1.0][MSG] Débito (motivo) exibição": "Exibição"
+  },
+  "[MS.7.1.1][MSG] Credito": {
+    "[MS.7.1.1][MSG] Credito exibição": "Exibição"
+  },
+  "[MS.7.2.0][INPUT] Quantidade de transações": {
+    "[MS.7.2.0][INPUT] Quantidade de transações validação": "{{userInput}}",
+    "[MS.7.2.0][INPUT] Quantidade de transações input inesperado": "{{input.content}}"
+  },
+  "[MS.7.2.0][MSG] Quantidade de transações": {
+    "[MS.7.2.0][MSG] Quantidade de transações exibição": "Exibição"
+  },
+  "[MS.7.2.1][INPUT] Data das transações": {
+    "[MS.7.2.1][INPUT] Data das transações validação": "{{userInput}}",
+    "[MS.7.2.1][INPUT] Data das transações input inesperado": "{{input.content}}"
+  },
+  "[MS.7.2.1][MSG] Data das transações": {
+    "[MS.7.2.1][MSG] Data das transações exibição": "Exibição"
+  },
+  "[MS.7.2.2][INPUT] Horario das transações": {
+    "[MS.7.2.2][INPUT] Horario das transações validação": "{{userInput}}",
+    "[MS.7.2.2][INPUT] Horario das transações input inesperado": "{{input.content}}"
+  },
+  "[MS.7.2.2][MSG] Horario das transações": {
+    "[MS.7.2.2][MSG] Horario das transações exibição": "Exibição"
+  },
+  "[MS.7.2.3][INPUT] Valor das transações": {
+    "[MS.7.2.3][INPUT] Valor das transações validação": "{{userInput}}",
+    "[MS.7.2.3][INPUT] Valor das transações input inesperado": "{{input.content}}"
+  },
+  "[MS.7.2.3][MSG] Valor das transações": {
+    "[MS.7.2.3][MSG] Valor das transações exibição": "Exibição"
+  },
+  "[MS.7.2.4][INPUT] Confirma transação": {
+    "[MS.7.2.4][INPUT] Confirma transação validação": "{{userInput}}",
+    "[MS.7.2.4][INPUT] Confirma transação input inesperado": "{{input.content}}"
+  },
+  "[MS.7.2.4][MSG] Confirma transaçao": {
+    "[MS.7.2.4][MSG] Confirma transaçao exibição": "Exibição"
+  },
+  "[MS.7.3.0][HTTP] API Protocolo": {
+    "[MS.7.3.0][HTTP] API Protocolo exibição": "Exibição",
+    "[MS.7.3.0][HTTP] API Protocolo api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos | {{payloadProtocolo}} | {{statusProtocoloBpm}} | {{bodyProtocoloBpm}}",
+    "[MS.7.3.0][HTTP] API Protocolo api resumo 2": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{idProtocoloBpm}}/ocorrencias | {{payloadOcorrencia}} | {{statusOcorrencia}} | {{bodyOcorrencia}}",
+    "[MS.7.3.0][HTTP] API Protocolo api status": "{{apiStatus}}",
+    "consolidado api request": "{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/idProtocoloBpm | {{statusConsultaProtocolo}}"
+  },
+  "[MS.7.4.0][MSG] Status Protocolo Aberto": {
+    "[MS.7.4.0][MSG] Status Protocolo Aberto exibição": "Exibição"
+  },
+  "[MS.8.0.0][INPUT] Menu Configurações": {
+    "SPD Main [MS.8.0.0][INPUT] Menu Configurações validação": "{{userInput}}",
+    "SPD Main [MS.8.0.0][INPUT] Menu Configurações input inesperado": "{{input.content}}"
+  },
+  "[MS.8.0.0][MSG] Menu Configurações": {
+    "[MS.8.0.0][MSG] Menu Configurações exibição": "Exibição",
+    "dynamicContent erro": "{{config.serviceName}} | {{state.name}} | {{dynamicContent@error}} | {{contact.identity}} | {{idSessao}}"
+  },
+  "[MS.8.1.0][MSG] Botao Configuração Wi-Fi": {
+    "[MS.8.1.0][MSG] Botao Configuração Wi-Fi exibição": "Exibição"
+  },
+  "[MS.8.10.0] Tamper Interruption": {
+    "[MS.8.10.0] Tamper Interruption exibição": "Exibição"
+  },
+  "[MS.8.2.0][INPUT] Seleciona modelo de maquina": {
+    "SPD Main [MS.8.2.0][INPUT] Seleciona modelo de maquina validação": "{{userInput}}",
+    "SPD Main [MS.8.2.0][INPUT] Seleciona modelo de maquina input inesperado": "{{input.content}}"
+  },
+  "[MS.8.2.0][MSG] Seleciona modelo de maquina": {
+    "[MS.8.2.0][MSG] Seleciona modelo de maquina exibição": "Exibição"
+  },
+  "[MS.8.2.1][MSG] Venda parcelada": {
+    "[MS.8.2.1][MSG] Venda parcelada exibição": "Exibição"
+  },
+  "[MS.8.4.0][MSG] Terminal não configurado": {
+    "[MS.8.4.0][MSG] Terminal não configurado exibição": "Exibição"
+  },
+  "[MS.8.5.0][INPUT] Seleciona modelo de maquina": {
+    "SPD Main [MS.8.5.0][INPUT] Seleciona modelo de maquina validação": "{{userInput}}",
+    "SPD Main [MS.8.5.0][INPUT] Seleciona modelo de maquina input inesperado": "{{input.content}}"
+  },
+  "[MS.8.5.0][MSG] Seleciona modelo de maquina": {
+    "[MS.8.5.0][MSG] Seleciona modelo de maquina exibição": "Exibição"
+  },
+  "[MS.8.5.1] Ativar o som da senha": {
+    "[MS.8.5.1] Ativar o som da senha exibição": "Exibição"
+  },
+  "[MS.8.6.0][MSG] QR Code": {
+    "[MS.8.6.0][MSG] QR Code exibição": "Exibição"
+  },
+  "[MS.8.7.0][INPUT] Sem SIM Card": {
+    "[MS.8.7.0][INPUT] Sem SIM Card validação": "{{userInput}}",
+    "[MS.8.7.0][INPUT] Sem SIM Card input inesperado": "{{input.content}}"
+  },
+  "[MS.8.7.0][MSG] Sem SIM Card": {
+    "[MS.8.7.0][MSG] Sem SIM Card exibição": "Exibição"
+  },
+  "[MS.8.7.1][MSG] Sem Sim Card (Não deu certo)": {
+    "[MS.8.7.1][MSG] Sem Sim Card (Não deu certo) exibição": "Exibição"
+  },
+  "[MS.8.8.0][INPUT] Venda por aproximação": {
+    "[MS.8.8.0][INPUT] Venda por aproximação validação": "{{userInput}}",
+    "[MS.8.8.0][INPUT] Venda por aproximação input inesperado": "{{input.content}}"
+  },
+  "[MS.8.8.0][MSG] Venda por aproximação": {
+    "[MS.8.8.0][MSG] Venda por aproximação exibição": "Exibição"
+  },
+  "[MS.8.8.1] Venda por aproximação (não deu certo)": {
+    "[MS.8.8.1] Venda por aproximação (não deu certo) exibição": "Exibição"
+  },
+  "[MS.8.9.0] Senha Cancelamento": {
+    "[MS.8.9.0] Senha Cancelamento exibição": "Exibição"
+  },
+  "[MS.9.0.0][INPUT] Como fazer Downgrade/Upgrade": {
+    "[MS.9.0.0][INPUT] Como fazer Downgrade/Upgrade validação": "{{userInput}}",
+    "[MS.9.0.0][INPUT] Como fazer Downgrade/Upgrade input inesperado": "{{input.content}}"
+  },
+  "[MS.9.0.0][INPUT] Menu Erros gerais": {
+    "SPD Maquina Safrapay [MS.9.0.0][INPUT] Menu Erros gerais validação": "{{userInput}}",
+    "SPD Maquina Safrapay [MS.9.0.0][INPUT] Menu Erros gerais input inesperado": "{{input.content}}"
+  },
+  "[MS.9.0.0][MSG] Como fazer Downgrade/Upgrade": {
+    "[MS.9.0.0][MSG] Como fazer Downgrade/Upgrade exibicao": "Exibição"
+  },
+  "[MS.9.0.0][MSG] Menu Erros gerais": {
+    "SPD Maquina Safrapay [MS.9.0.0][MSG] Menu Erros gerais exibição": "Exibição",
+    "dynamicContent erro": "{{config.serviceName}} | {{state.name}} | {{dynamicContent@error}} | {{contact.identity}} | {{idSessao}}"
+  },
+  "[MS.9.1.0][INPUT] Menu Erro desfazimento": {
+    "SPD Maquina Safrapay [MS.9.1.0][INPUT] Menu Erro desfazimento validação": "{{userInput}}",
+    "SPD Maquina Safrapay [MS.9.1.0][INPUT] Menu Erro desfazimento input inesperado": "{{input.content}}"
+  },
+  "[MS.9.1.0][MSG] Menu Erro desfazimento": {
+    "SPD Maquina Safrapay [MS.9.1.0][MSG] Menu Erro desfazimento exibição": "Exibição"
+  },
+  "[MS.9.1.1][MSG] Dica Erro desfazimento": {
+    "SPD Maquina Safrapay [MS.9.1.1][MSG] Dica Erro desfazimento exibição": "Exibição"
+  },
+  "[MS.9.2.0][INPUT] Menu Torre de celular com X": {
+    "SPD Maquina Safrapay [MS.9.2.0][INPUT] Menu Torre de celular com X validação": "{{userInput}}",
+    "SPD Maquina Safrapay [MS.9.2.0][INPUT] Menu Torre de celular com X input inesperado": "{{input.content}}"
+  },
+  "[MS.9.2.0][MSG] Menu Torre de celular com X": {
+    "SPD Maquina Safrapay [MS.9.2.0][MSG] Menu Torre de celular com X exibição": "Exibição"
+  },
+  "[MS.9.2.1][MSG] Tutorial Torre de celular com X": {
+    "SPD Maquina Safrapay [MS.9.2.1][MSG] Tutorial Torre de celular com X exibição": "Exibição"
+  },
+  "[MS.9.3.0][INPUT] Menu Discado": {
+    "SPD Maquina Safrapay [MS.9.3.0][INPUT] Menu Discado validação": "{{userInput}}",
+    "SPD Maquina Safrapay [MS.9.3.0][INPUT] Menu Discado input inesperado": "{{input.content}}"
+  },
+  "[MS.9.3.0][MSG] Menu Discado": {
+    "SPD Maquina Safrapay [MS.9.3.0][MSG] Menu Discado exibição": "Exibição"
+  },
+  "[MS.9.3.1][MSG] Tutorial Discado": {
+    "SPD Maquina Safrapay [MS.9.3.1][MSG] Tutorial Discado exibição": "Exibição"
+  },
+  "[MS.9.4.0][INPUT] Menu Ethernet": {
+    "SPD Maquina Safrapay [MS.9.4.0][INPUT] Menu Ethernet validação": "{{userInput}}",
+    "SPD Maquina Safrapay [MS.9.4.0][INPUT] Menu Ethernet input inesperado": "{{input.content}}"
+  },
+  "[MS.9.4.0][MSG] Menu Ethernet": {
+    "SPD Maquina Safrapay [MS.9.4.0][MSG] Menu Ethernet exibição": "Exibição"
+  },
+  "[MS.9.4.0][MSG] Tutorial Ethernet": {
+    "SPD Maquina Safrapay [MS.9.4.0][MSG] Tutorial Ethernet exibição": "Exibição"
+  },
+  "[MS.9.5.0][INPUT] Menu Acessar arquivo": {
+    "SPD Maquina Safrapay [MS.9.5.0][INPUT] Menu Acessar arquivo validação": "{{userInput}}",
+    "SPD Maquina Safrapay [MS.9.5.0][INPUT] Menu Acessar arquivo input inesperado": "{{input.content}}"
+  },
+  "[MS.9.5.0][MSG] Menu Acessar arquivo": {
+    "SPD Maquina Safrapay [MS.9.5.0][MSG] Menu Acessar arquivo exibição": "Exibição"
+  },
+  "[MS.9.5.1][MSG] Tutorial Acessar arquivo": {
+    "SPD Maquina Safrapay [MS.9.5.1][MSG] Tutorial Acessar arquivo exibição": "Exibição"
+  },
+  "[MS.9.6.0][MSG] Informativo Leitura do cartão": {
+    "SPD Maquina Safrapay [MS.9.6.0][MSG] Informativo Leitura do cartão exibição": "Exibição"
+  },
+  "[MS.9.7.0][MSG] Informativo Códigos": {
+    "SPD Maquina Safrapay [MS.9.7.0][MSG] Informativo Códigos exibição": "Exibição"
+  },
+  "[MS.9.8.0][MSG] Informativo Atalhos": {
+    "SPD Maquina Safrapay [MS.9.8.0][MSG] Informativo Atalhos exibição": "Exibição"
+  },
+  "[MS.X.X.X][INPUT] Problema resolvido?": {
+    "[MS.X.X.X][INPUT] Problema resolvido? validação": "{{userInput}}",
+    "[MS.X.X.X][INPUT] Problema resolvido? input inesperado": "{{input.content}}"
+  },
+  "[MS.X.X.X][MSG] Problema resolvido?": {
+    "[MS.X.X.X][MSG] Problema resolvido? exibição": "Exibição"
+  },
+  "[Redirect] to WhatsApp PJ (Caca_POS)": {
+    "[Redirect] to WhatsApp PJ (Caca_POS) api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/movimentacoes/verificar?codigoEC={{contaSelecionada@ec}}&qtdDiasApuracao=40 | GET | {{possuiMovimentacaoStatus}} | {{possuiMovimentacaoResponse}}",
+    "[Redirect] to WhatsApp PJ (Caca_POS) api status": "{{possuiMovimentacaoStatus}}",
+    "consolidado api request": "{{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/movimentacoes/verificar?codigoEC=contaSelecionada@ec&qtdDiasApuracao=40 | {{possuiMovimentacaoStatus}}"
+  }
+}

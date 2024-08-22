@@ -1,0 +1,291 @@
+{
+  "Aceita digitalpf_cd_oferta_cdbturbo120_a": {
+    "Broadcast_digitalpf_cd_oferta_cdbturbo120_a": "{{contact.extras.broadcastOrigem}} | {{input.content}}"
+  },
+  "Aceita digitalpf_cd_oferta_cdbturbo120_investiment": {
+    "Broadcast_digitalpf_cd_oferta_cdbturbo120_investimento": "{{contact.extras.broadcastOrigem}} | {{input.content}}"
+  },
+  "Atendimento humano FInalizado": {
+    "Ticket Notificacao Ativa Novo": "#{{sequencialId}} - {{dataHoraBr}} - {{contact.identity}} - {{contact.extras.broadcastOrigem}} - {{respostaTemplate}} - {{contact.extras.ec}} - {{agentIdentity}}"
+  },
+  "Ação Remarketing - Gerente Atribuido": {
+    "RemarketingNaoClienteGerenteAtribuido": "{{dataHora}}|{{phoneNumber}}|{{input.content}}|{{selectTeam}}"
+  },
+  "Ação Remarketing - Saudação Cliente": {
+    "RemarketingJaCliente": "{{dataHora}}|{{phoneNumber}}|{{input.content}}"
+  },
+  "Broadcast AG2": {
+    "BROADCAST  AG2 - BOAS VINDAS": "{{phoneNumber}} | {{contact.extras.additionalProp3}} |{{contact.name}} | {{contact.extras.broadcastOrigem}} | {{input.content}}"
+  },
+  "Broadcast Sem Transferencia": {
+    "Broadcast Sem Transferencia": "{{phoneNumber}} | {{contact.name}} | {{contact.extras.broadcastOrigem}} | {{input.content}}"
+  },
+  "Broadcast com conteúdo": {
+    "menudigital_super_quarta_v3": "{{dataHora}}|{{phoneNumber}}|{{contact.extras.cpf}}|{{contact.extras.broadcastOrigem}}|{{input.content}}",
+    "resposta_broad_comercial_cartao_contratacao_img": "{{dataHora}}|{{phoneNumber}}|{{contact.extras.cpf}}|{{contact.extras.broadcastOrigem}}|{{input.content}}",
+    "pf_cp_investor_versao_final": "{{dataHora}}|{{phoneNumber}}|{{contact.extras.broadcastOrigem}}|{{input.content}}"
+  },
+  "Einstein - CPF": {
+    "Cpf inesperado": "{{input.content}}",
+    "Cpf validacao": "{{validaCpf}}",
+    "Cadastro cpf correto validacao": "{{validaCpf}}"
+  },
+  "Einstein - Confira Informações": {
+    "Confira programacao exibicao": "Exibicao"
+  },
+  "Einstein - Confira Informações CNPJ": {
+    "Confira programacao exibicao": "Exibicao"
+  },
+  "Einstein - Email": {
+    "Email {{bot}} inesperado": "{{input.content}}",
+    "Email {{bot}} validacao": "{{validaEmail}}"
+  },
+  "Einstein - Nome Completo": {
+    "Dados nome completo inesperado": "{{input.content}}",
+    "Dados nome completo validacao": "{{validaNome}}",
+    "Funil nome": "{{calendar.datetime}} | {{phoneNumber}} | {{idExecucao}} | {{bot}} | {{input.content}}"
+  },
+  "Einstein - Nome Contato": {
+    "Dados nome completo inesperado": "{{input.content}}",
+    "Dados nome completo validacao": "{{validaNome}}",
+    "Funil nome": "{{calendar.datetime}} | {{phoneNumber}} | {{idExecucao}} | {{bot}} | {{input.content}}"
+  },
+  "FC.1.0.0 - Nome Completo": {
+    "Dados nome completo exibicao": "exibicao",
+    "Dados nome completo inesperado": "{{input.content}}",
+    "Dados nome completo validacao": "{{validaNome}}",
+    "Funil nome": "{{calendar.datetime}} | {{phoneNumber}} | {{idExecucao}} | {{bot}} | {{input.content}}"
+  },
+  "FC.2.0.0 - CPF": {
+    "Cpf exibicao": "exibicao",
+    "Cpf inesperado": "{{input.content}}",
+    "Cpf validacao": "{{validaCpf}}",
+    "Cadastro cpf correto validacao": "{{validaCpf}}"
+  },
+  "FC.3.0.0 - Email": {
+    "Email exibicao": "exibicao",
+    "Email {{bot}} inesperado": "{{input.content}}",
+    "Email {{bot}} validacao": "{{validaEmail}}"
+  },
+  "FC.4.0.0 - Celular": {
+    "Celular exibicao": "exibição",
+    "Celular inesperado": "{{input.content}}"
+  },
+  "FC.5.0.0 - Renda Mensal": {
+    "Renda exibicao": "exibicao",
+    "Renda inesperado": "{{input.content}}",
+    "renda selecao": "{{processedInput}}"
+  },
+  "FC.6.0.0 - Sem Oferta": {
+    "Sem oferta Claro exibicao": "exibicao"
+  },
+  "FC.7.0.0 - Cargo na Claro": {
+    "Cargo exibicao": "exibicao",
+    "Cargo selecao": "{{input.content}}"
+  },
+  "FC.8.0.0 - Data de Admissão": {
+    "Data admissao exibicao": "exibicao",
+    "Data admissao inesperado": "{{input.content}}"
+  },
+  "FC.9.0.0 - Conferir Informações": {
+    "conferir informacoes exibicao": "exibicao",
+    "Confer Informações Seleção": "{{processedInput}}",
+    "Confer Informações Inesperado": "{{input.content}}"
+  },
+  "Identifica celular do cliente": {
+    "lastState": "{{state.name}}"
+  },
+  "Interacao pos fim de fluxo": {
+    "lastState": "{{state.name}}"
+  },
+  "Início": {
+    "Origem campanha {{origemCampanhaPadrao@canal}}": "{{origemCampanhaPadrao@trackOrigemCampanha}}"
+  },
+  "Link - carrinho_renda_fixa_carteiras_recomendadas": {
+    "Broadcast antifraude resumo": "{{origemCampanhaPadrao@trackOrigemCampanha}}"
+  },
+  "Link - consumer_carrinho_renda_fixa_agilite": {
+    "Broadcast antifraude resumo": "{{origemCampanhaPadrao@trackOrigemCampanha}}"
+  },
+  "Mensagem Super Quarta": {
+    "Positivo - SuperQuarta": "{{phoneNumber}} | {{contact.name}} | {{contact.extras.broadcastOrigem}} | {{input.content}}"
+  },
+  "Mensagem inatividade - consumer_ofertacrm_ia": {
+    "mensagem_inatividade_oferta_ia": "{{phoneNumber}} | {{input.content}}"
+  },
+  "Negativa - comercial_carrinho_abandonado_credito": {
+    "negativa_comercial_carrinho_abandonado_credito": "{{phoneNumber}}|{{contact.extras.broadcastOrigem}}|{{input.content}}"
+  },
+  "Negativa - comercial_cdb150_cdi": {
+    "Broadcast Negativa 150 CDI": "{{contact.extras.broadcastOrigem}} | {{input.content}}"
+  },
+  "Não Cliente - DeepLink": {
+    "RemarketingNaoClienteDeepLink": "{{dataHora}}|{{phoneNumber}}|{{nomeRemarketing}}|{{cpfRemaketing}}|{{emailRemarketing}}"
+  },
+  "Não Cliente - Gerente Atribuido Rechamada": {
+    "RemarketingNaoClienteGerenteAtribuidoRechamada": "{{dataHora}}|{{phoneNumber}}|{{input.content}}|{{selectTeam}}"
+  },
+  "Não digitalpf_boas_vindas": {
+    "Broadcast_digitalpf_boas_vindas": "{{contact.extras.broadcastOrigem}} | {{input.content}}"
+  },
+  "Não digitalpf_cd_oferta_cdbturbo120_3": {
+    "Broadcast_cdb_turbo_resposta_negativas": "{{phoneNumber}} | {{contact.name}} | {{contact.extras.broadcastOrigem}} | {{input.content}}"
+  },
+  "Não digitalpf_cd_oferta_cdbturbo120_a": {
+    "Broadcast_digitalpf_cd_oferta_cdbturbo120_a": "{{contact.extras.broadcastOrigem}} | {{input.content}}"
+  },
+  "Não digitalpf_cd_oferta_renegociacao_a": {
+    "Broadcast_digitalpf_cd_oferta_renegociacao_a": "{{contact.extras.broadcastOrigem}} | {{input.content}}"
+  },
+  "Não digitalpf_renegociacao": {
+    "Broadcast_digitalpf_renegociacao": "{{contact.extras.broadcastOrigem}} | {{input.content}}"
+  },
+  "Remarketing - Email": {
+    "Email {{bot}} inesperado": "{{input.content}}",
+    "Email {{bot}} validacao": "{{validaEmail}}"
+  },
+  "Remarketing - Nome Contato": {
+    "Dados nome completo inesperado": "{{input.content}}",
+    "Dados nome completo validacao": "{{validaNome}}",
+    "Funil nome": "{{calendar.datetime}} | {{phoneNumber}} | {{idExecucao}} | {{bot}} | {{input.content}}"
+  },
+  "Remarketing Fim Fluxo": {
+    "GravaDadosRemarketingNaoCliente": "{{dataHora}}|{{phoneNumber}}|{{nomeRemarketing}}|{{cpfRemaketing}}|{{emailRemarketing}}"
+  },
+  "Remarketing- CPF": {
+    "Cpf inesperado": "{{input.content}}",
+    "Cpf validacao": "{{validaCpf}}",
+    "Cadastro cpf correto validacao": "{{validaCpf}}"
+  },
+  "Safra One não carterizado": {
+    "Não Carterizados SafraOne": "{{calendar.datetime}} | {{phoneNumber}} | {{cpf}} | {{selectTeam}}"
+  },
+  "Sim - Confirma Informações": {
+    "Confirma dados Einstein": "{{nomeEinstein}}|{{cpfEinstein}}|{{emailEinstein}}|{{tipocontasEinstein}}|{{cnpjEinstein}}|{{representanteEinstein}}|{{prefereContadoEinstein}}|{{periodocontatoEinstein}}"
+  },
+  "Veio da campanha Ação Remarketing": {
+    "CampanhaRemarketingInicio": "{{dataHora}}|{{phoneNumber}}|{{input.content}}",
+    "CampanhaRemarketingExibicao": "Exibicao"
+  },
+  "[1.0] Menu Investimentos": {
+    "Menu Investimentos": "Exibição",
+    "Menu_Investimento": "{{input.content}}"
+  },
+  "[1.1] Retorno Cliente": {
+    "lastState": "{{state.name}}",
+    "Retorno": "{{selectTeam}}|{{retorno}}",
+    "anterior retorno cliente": "{{state.previous.name}}"
+  },
+  "[1.2] Menu Portifolio Investimentos": {
+    "Menu Cliente": "Exibição",
+    "portifolio_investimentos": "{{input.content}}"
+  },
+  "[11.7] Horário retorno": {
+    "Horário retorno": "{{input.content}}|{{nome}}|{{email}}|{{telefone}}|{{valor}}|{{cpf}}|{{renda}}"
+  },
+  "[12.0] Menu Cliente": {
+    "Menu Cliente": "Exibição",
+    "Menu_Cliente": "{{input.content}}"
+  },
+  "[1] Boas vindas": {
+    "Inicio": "{{Inicio}}",
+    "lastState": "{{state.name}}"
+  },
+  "[2.0] Menu Empréstimos": {
+    "Menu Empréstimos": "Exibição",
+    "Menu_Emprestimos": "{{input.content}}"
+  },
+  "[2.1] Informe CPF": {
+    "lastState": "{{state.name}}"
+  },
+  "[2.1] Valida numero CPF": {
+    "lastState": "{{state.name}}"
+  },
+  "[3.0] Cartão de Crédito": {
+    "Menu Cartão de Crédito": "Exibição",
+    "Menu_Cartao_Credito": "{{input.content}}"
+  },
+  "[3.2] Menu Pagamento por aproximação": {
+    "Menu Empréstimos": "Exibição",
+    "Menu_PagamentoAproximacao": "{{input.content}}"
+  },
+  "[3.4] Limite do Cartão": {
+    "Menu Limite do Cartão": "Exibição",
+    "Menu_LimiteCartao": "{{input.content}}"
+  },
+  "[3.7] Faturas": {
+    "Menu Faturas": "Exibição",
+    "Menu_Faturas": "{{input.content}}"
+  },
+  "[3.9] Safra Rewards": {
+    "Menu Safra Rewards": "Exibição",
+    "Menu_SafraRewards": "{{input.content}}"
+  },
+  "[3] Consulta CNPJ Recursos": {
+    "lastState": "{{state.name}}"
+  },
+  "[4.0] Seguros": {
+    "Menu Seguros": "Exibição",
+    "opcaoSeguros": "{{input.content}}"
+  },
+  "[4.1] Fora do horario de atendimento": {
+    "Fora de Horario": "Fora do Horario | {{phoneNumber}}"
+  },
+  "[4] Api horario atendimento": {
+    "lastState": "{{state.name}}",
+    "Status API Horario Token": "{{statusToken}}",
+    "Status API Horario": "{{statusAPIHorario}}"
+  },
+  "[4] Verifica horario atendimento": {
+    "lastState": "{{state.name}}"
+  },
+  "[5] Regra pré transbordo": {
+    "EstadosAgentesNovo": "{{selectTeam}} | Offiline | {{novafila}}"
+  },
+  "[6.0] Renegocie suas dívidas": {
+    "Menu Renegocie suas dívidas": "Exibição",
+    "Menu_Renegociacao": "{{input.content}}"
+  },
+  "[7.0] Conta Corrente": {
+    "Menu Conta Corrente": "Exibição",
+    "Menu_ContaCorrente": "{{input.content}}"
+  },
+  "[7.4] Senhas": {
+    "Menu Senhas": "Exibição",
+    "Menu_Senhas": "{{input.content}}"
+  },
+  "[7] Agradecimento": {
+    "lastState": "{{state.name}}"
+  },
+  "[8.0] Outros assuntos": {
+    "Menu Outros assuntos": "Exibição",
+    "Menu_OutrosAssuntos": "{{input.content}}"
+  },
+  "[PF.1.0.0] Inicio Piloto NLP": {
+    "Inicio piloto dados": "{{contact.identity}} | {{contact.extras.cpf}} | {{contas}}"
+  },
+  "[PF.2.0.0][INPUT] Validação Intenção": {
+    "Piloto validacao intencao contador": "Contador",
+    "Intencoes e inputs saudacao dados": "{{contact.identity}} | {{input.content}} | {{input.state.name}} | {{calendar.datetime}}"
+  },
+  "[PF.2.0.1][MSG] Como ajudar?": {
+    "Saudacao piloto exibicao": "Exibicao"
+  },
+  "[PF.2.0.1][MSG] Saudação Piloto": {
+    "Saudacao piloto exibicao": "Exibicao"
+  },
+  "[PF.2.0.3][MSG] Ótimo": {
+    "Saudacao piloto exibicao": "Exibicao"
+  },
+  "[PF.2.1.0][MSG] Encerrar": {
+    "Encerrar exibicao": "Exibicao"
+  },
+  "consumer_ofertacrm_ia - Investir no COE IA": {
+    "consumer_ofertacrm_ia_coe_ia_botao": "{{phoneNumber}} | {{input.content}}"
+  },
+  "horario atendimento AG2 (0007)": {
+    "lastState": "{{state.name}}",
+    "Status API Horario Token": "{{statusToken}}",
+    "Status API Horario": "{{statusAPIHorario}}"
+  }
+}

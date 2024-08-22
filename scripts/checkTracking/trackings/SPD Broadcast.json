@@ -1,0 +1,50 @@
+{
+  "Início": {
+    "inicio": "{{config.serviceName}} | {{state@botOrigin}} | {{state@stateNameOrigin}} | {{input.content}} | {{input.intent.name}}",
+    "Origem campanha {{origemCampanhaPadrao@canal}}": "{{origemCampanhaPadrao@trackOrigemCampanha}}"
+  },
+  "[BC.0.0.0] Identifica broadcast": {
+    "[BC.0.0.0] Identifica broadcast exibição": "Exibição",
+    "[BC.0.0.0] Identifica broadcast dados": "{{contact.identity}} | {{contact.extras.broadcastOrigem}} | {{userInput}} | {{blockDestinationId}}"
+  },
+  "[BC.0.0.0][HTTP] Reseta State ID": {
+    "[BC.0.0.0][HTTP] Reseta State ID exibição": "Exibição",
+    "[BC.0.0.0][HTTP] Reseta State ID api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | https://flowassistant.cs.blip.ai/api-states | DELETE | {{statusDeleteBody}} | {{statusDeleteStatus}}"
+  },
+  "[BC.1.0.0] Link New age": {
+    "count_new_age_acesse_uso": "1"
+  },
+  "[BC.2.0.0] Link  boas vindas mbj ibj": {
+    "[BC.2.0.0] Link  boas vindas mbj ibj exibição": "Exibição"
+  },
+  "[BC.3.0.0] Link de Pagamento": {
+    "[BC.3.0.0] Link de Pagamento exibição": "Exibição"
+  },
+  "[BC.4.0.0] Atendimento humano": {
+    "[BC.4.0.0] Atendimento humano api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/chat-assistente/gerentes/v1/carteiras?dddCelular={{telephone@ddd}}&numeroCelular={{telephone@telephone}}&tipoPessoa=J | GET | {{statusAccountManager}} | {{bodyAccountManager}}"
+  },
+  "[BC.4.1.0][INPUT] Solicita CNPJ": {
+    "[BC.4.1.0][INPUT] Solicita CNPJ validação": "{{userInput}}",
+    "[BC.4.1.0][INPUT] Solicita CNPJ input inesperado": "{{input.content}}",
+    "[BC.4.1.0][INPUT] Solicita CNPJ dados": "{{contact.identity}} | {{contact.extras.broadcastOrigem}} | {{userInput}} | {{userInput}} | {{input.content}}"
+  },
+  "[BC.4.1.0][MSG] Solicita CNPJ": {
+    "[BC.4.1.0][MSG] Solicita CNPJ exibição": "Exibição"
+  },
+  "[BC.4.2.0] Verifica carterização por CNPJ": {
+    "[BC.4.2.0] Verifica carterização por CNPJ api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/chat-assistente/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{userInput}}&codigoSegmento=0020 | GET | {{statusAccountManager2}} | {{bodyAccountManager}}",
+    "[BC.4.2.0] Verifica carterização por CNPJ api resumo 2": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/chat-assistente/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{userInput}}&codigoSegmento=0017 | GET | {{statusAccountManager3}} | {{bodyAccountManager}}"
+  },
+  "[BC.4.3.0] Monta variavel contaSelecionada": {
+    "[BC.4.3.0] Monta variavel contaSelecionada dados": "{{contact.identity}} | {{contact.extras.broadcastOrigem}} | {{userInput}} | {{userInput}} | {{input.content}} | {{contaSelecionada}}"
+  },
+  "[BC.5.0.0] Redirect to Main": {
+    "[BC.5.0.0] Redirect to Main exibição": "Exibição"
+  },
+  "[BC.6.0.0] Redirect to Finalização": {
+    "[BC.6.0.0] Redirect to Finalização exibição": "Exibição"
+  },
+  "[BC.7.0.0] Link Pesquisa Pix": {
+    "[BC.7.0.0] Link Pesquisa Pix exibição": "Exibição"
+  }
+}

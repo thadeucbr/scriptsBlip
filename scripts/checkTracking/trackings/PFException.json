@@ -1,0 +1,74 @@
+{
+  "Exceções": {
+    "Excecoes erros inesperados": "{{state.previous.id}}"
+  },
+  "Início": {
+    "SPD Excecoes tipo de erro": "{{exceptionType}}",
+    "SPD Excecoes origin": "{{state@botOrigin}} | {{state@stateNameOrigin}} | {{state@lastInput}}"
+  },
+  "[EX.0.0.0] Identifica exception": {
+    "SPD Excecoes exceptionBlock": "{{exceptionBlockId}}"
+  },
+  "[EX.0.0.1][Redirect] To Principal (Reiniciar)": {
+    "Excecoes redirecionamento": "Reiniciar fluxo"
+  },
+  "[EX.5.0.0] Erro de audio": {
+    "Áudio": "1",
+    "SPD Excecoes [EX.5.0.0] Erro de audio exibição": "Exibição"
+  },
+  "[EX.5.0.1] Erro de imagem / sticker": {
+    "SPD Excecoes [EX.5.0.1] Erro de imagem / sticker exibição": "Exibição"
+  },
+  "[EX.5.0.2] Erro de video": {
+    "SPD Excecoes [EX.5.0.2] Erro de video exibição": "Exibição"
+  },
+  "[EX.5.0.3] Erro de localização": {
+    "SPD Excecoes [EX.5.0.3] Erro de localização exibição": "Exibição"
+  },
+  "[EX.5.0.4] Erro de arquivo": {
+    "SPD Excecoes [EX.5.0.4] Erro de arquivo exibição": "Exibição"
+  },
+  "[EX.5.0.5] Erro de emoji": {
+    "SPD Excecoes [EX.5.0.5] Erro de emoji exibição": "Exibição"
+  },
+  "[EX.5.0.6] Erro de contato": {
+    "SPD Excecoes [EX.5.0.6] Erro de contato exibição": "Exibição"
+  },
+  "[EX.5.1.0] Erro de audio (Persistente)": {
+    "Áudio": "1",
+    "SPD Excecoes [EX.5.1.0] Erro de audio (Persistente) exibição": "Exibição"
+  },
+  "[EX.5.1.1] Erro de imagem / sticker (Persistente)": {
+    "SPD Excecoes [EX.5.1.1] Erro de imagem / sticker (Persistente) exibição": "Exibição"
+  },
+  "[EX.5.1.2] Erro de video (Persistente)": {
+    "SPD Excecoes [EX.5.1.2] Erro de video (Persistente) exibição": "Exibição"
+  },
+  "[EX.5.1.3] Erro de localização (Persistente)": {
+    "SPD Excecoes [EX.5.1.3] Erro de localização (Persistente) exibição": "Exibição"
+  },
+  "[EX.5.1.4] Erro de arquivo (Persistente)": {
+    "SPD Excecoes [EX.5.1.4] Erro de arquivo (Persistente) exibição": "Exibição"
+  },
+  "[EX.5.1.5] Erro de emoji (Persistente)": {
+    "SPD Excecoes [EX.5.1.5] Erro de emoji (Persistente) exibição": "Exibição"
+  },
+  "[EX.5.1.6] Erro de contato (Persistente)": {
+    "SPD Excecoes [EX.5.1.6] Erro de contato (Persistente) exibição": "Exibição"
+  },
+  "[Redirect] To  serviço anterior (Bloco [INPUT])": {
+    "SPD Excecoes redirecionamento": "Redireciona serviço"
+  },
+  "[Redirect] To  serviço anterior (Bloco [MSG])": {
+    "SPD Excecoes redirecionamento": "Redireciona serviço"
+  },
+  "[Redirect] To Extrato (Retorno Exceção)": {
+    "SPD Excecoes redirecionamento": "Finalização"
+  },
+  "[Redirect] To Principal (Saudacao inicial)": {
+    "SPD Excecoes redirecionamento": "Menu inicial"
+  },
+  "[Redirect] To Principal (Welcome)": {
+    "SPD Excecoes redirecionamento": "Finalização"
+  }
+}

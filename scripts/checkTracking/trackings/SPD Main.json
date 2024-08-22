@@ -1,0 +1,111 @@
+{
+  "[M.0.0.0] Limpa Variaveis": {
+    "SPD Main id sessao": "{{calendar.datetime}} | {{contact.identity}} | {{idSessao}}"
+  },
+  "[M.1.0.0][MSG][HTTP] Boas vindas": {
+    "SPD Main [M.1.0.0][MSG][HTTP] Boas vindas exibição": "Exibição",
+    "SPD Main id sessao": "{{calendar.datetime}} | {{contact.identity}} | {{idSessao}}",
+    "SPD Main boas vindas input inicial": "{{input.content}}",
+    "SPD Main [M.1.0.0][MSG][HTTP] Boas vindas api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlToken}}/api/oauth/token | {{encodingUrl}} | {{statusToken}} | {{bodyToken}}",
+    "consolidado api request": "{{config.urlToken}}/api/oauth/token | {{statusToken}}"
+  },
+  "[M.2.0.0][MSG] Solicita CPF": {
+    "SPD Main [M.2.0.0][MSG] Solicita CPF exibição": "Exibição"
+  },
+  "[M.2.0.1][INPUT] Valida CPF": {
+    "SPD Main [M.2.0.1][INPUT] Valida CPF validação": "{{userInput}}",
+    "SPD Main [M.2.0.1][INPUT] Valida CPF input inesperado": "{{input.content}}"
+  },
+  "[M.2.0.2][MSG] Aguarde um instante": {
+    "SPD Main [M.2.0.2][MSG] Aguarde um instante exibição": "Exibição"
+  },
+  "[M.2.0.4][SET] contaSelecionada e ecSelecionado": {
+    "conta selecionada pf": "{{contaSelecionada}}"
+  },
+  "[M.3.0.0][MSG][HTTP] Verifica contas": {
+    "SPD Main [M.3.0.0][MSG][HTTP] Verifica contas quantidade de contas": "{{contas@quantidadeContas}}",
+    "SPD Main script error": "{{exibeSelecionarContas@tracking}}",
+    "SPD Main [M.3.0.0][MSG][HTTP] Verifica contas api status": "{{apiStatus}}",
+    "SPD Main [M.3.0.0][MSG][HTTP] Verifica contas api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/chat-assistente/contas-pessoa-juridica/v1/shortnames-vinculados?cpf={{contact.extras.cpf}} | GET | {{statusContas}} | {{bodyContas}}",
+    "consolidado api request": "{{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/usuarios/contact.extras.cpf/shortnames?expand=contas"
+  },
+  "[M.3.0.1][MSG] Transbordo cliente não identificado": {
+    "SPD Main [M.3.0.1][MSG] Transbordo cliente não identificado exibição": "Exibição"
+  },
+  "[M.3.1.0][MSG]Seleciona conta": {
+    "SPD Main [M.3.1.0][MSG]Seleciona conta exibição": "Exibição"
+  },
+  "[M.3.1.1][INPUT] Valida Seleção de conta": {
+    "SPD Main [M.3.1.1][INPUT] Valida Seleção de conta validação": "{{userInput}}",
+    "SPD Main [M.3.1.1][INPUT] Valida Seleção de conta input inesperado": "{{input.content}}"
+  },
+  "[M.3.1.2][HTTP] Obtem Permissionamento": {
+    "SPD Main [M.3.1.2][HTTP] Obtem Permissionamento api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/usuarios/{{contaSelecionada@usuario}}/shortnames/{{contaSelecionada@shortname}}/permissoes | GET | {{statusPermissoes}} | {{bodyPermissoes}}"
+  },
+  "[M.4.0.0][MSG][HTTP] Obtem EC": {
+    "SPD Main [M.4.0.0][MSG][HTTP] Obtem EC quantidade ec": "{{ecList@ecQuantity}}",
+    "SPD Main [M.4.0.0][MSG][HTTP] Obtem EC api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/shortnames/{{contaSelecionada@shortname}}/usuarios | GET | {{statusUsuarios}} | {{bodyUsuarios}}",
+    "SPD Main [M.4.0.0][MSG][HTTP] Obtem EC api status": "{{apiStatus}}",
+    "SPD Main script error": "{{exibeSelecionarEc@tracking}}"
+  },
+  "[M.4.0.1][HTTP] Obtem Carterização": {
+    "SPD Main [M.4.0.1][HTTP] Obtem Carterização api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/chat-assistente/gerentes/v1/carteiras?dddCelular={{telephone@ddd}}&numeroCelular={{telephone@telephone}}&tipoPessoa=J | GET | {{statusAccountManager4}} | {{bodyAccountManager}}",
+    "SPD Main [M.4.0.1][HTTP] Obtem Carterização api status": "{{apiStatus}}"
+  },
+  "[M.4.0.2][HTTP] Obtem CpfAppKey": {
+    "[M.4.0.2][HTTP] Obtem CpfAppKey api resumo v2": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/vendas-servicos/clientes/autorizacoes-acessos-clientes/assistente-virtual/v1/chaves?documento={{contact.extras.cpf}} | GET | {{statusAppKey}} | {{bodyAppKey}}",
+    "[M.4.0.2][HTTP] Obtem CpfAppKey api status": "{{apiStatusCpfAppKey}}",
+    "[M.4.0.2][HTTP] Obtem CpfAppKey dados": "{{contact.identity}} | {{calendar.datetime}} | {{contaSelecionada@doc}} | {{apiStatusCpfAppKey}}"
+  },
+  "[M.4.0.3][SET] Define permissionamento": {
+    "[M.4.0.3][SET] Define permissionamento permissionList erro": "{{permissionList@error}} || {{contact.identity}} | {{idSessao}}",
+    "[M.4.0.3][SET] Define permissionamento contaSelecionada erro": "{{contaSelecionada@error}} | {{contact.identity}} | {{idSessao}}",
+    "nivel conta": "{{contaSelecionada@nivel}}",
+    "conta selecionada": "{{contaSelecionada}}",
+    "permissoes": "{{permissionList}}"
+  },
+  "[M.4.1.0][MSG] Selecionar EC": {
+    "SPD Main [M.4.1.0][MSG] Selecionar EC exibição": "Exibição"
+  },
+  "[M.4.1.1][INPUT] Valida Seleção de ec": {
+    "SPD Main [M.4.1.1][INPUT] Valida Seleção de ec validação": "{{userInput}}",
+    "SPD Main [M.4.1.1][INPUT] Valida Seleção de ec input inesperado": "{{input.content}}"
+  },
+  "[M.5.0.0][INPUT] Menu Principal": {
+    "SPD Main [M.5.0.0][INPUT] Menu Principal validação": "{{userInput}}",
+    "SPD Main [M.5.0.0][INPUT] Menu Principal input inesperado": "{{input.content}}"
+  },
+  "[M.5.0.0][MSG] Menu Principal": {
+    "SPD Main [M.5.0.0][MSG] Menu Principal exibição": "Exibição",
+    "dynamicContent erro": "{{config.serviceName}} | {{state.name}} | {{dynamicContent@error}} | {{contact.identity}} | {{idSessao}}"
+  },
+  "[M.5.4.0][INPUT] Produtos": {
+    "[M.5.4.0][INPUT] Produtos validação": "{{userInput}}",
+    "[M.5.4.0][INPUT] Produtos input inesperado": "{{input.content}}"
+  },
+  "[M.5.4.0][MSG] Produtos": {
+    "[M.5.4.0][MSG] Produtos exibicao": "Exibição",
+    "dynamicContent erro": "{{config.serviceName}} | {{state.name}} | {{dynamicContent@error}} | {{contact.identity}} | {{idSessao}}"
+  },
+  "[M.5.4.1][MSG] Meu Desempenho": {
+    "[M.5.4.1][MSG] Meu Desempenho exibicao": "Exibição"
+  },
+  "[M.5.5.0][HTTP] Verifica carta serasa": {
+    "SPD Main [M.5.5.0][HTTP] Verifica carta serasa api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/serasa/documentos?tipoPessoa=F&baseDocumento={{contaSelecionada@baseDocumento}} | GET | {{cartaSerasaStatus}} | {{cartaSerasaResponse}}"
+  },
+  "[M.5.5.1][INPUT] Renegociação": {
+    "[M.5.5.1][INPUT] Renegociação validação": "{{userInput}}",
+    "[M.5.5.1][INPUT] Renegociação input inesperado": "{{input.content}}"
+  },
+  "[M.5.5.1][MSG] Renegociação": {
+    "[M.5.5.1][MSG] Renegociação exibicao": "Exibição"
+  },
+  "[Redirect] to WhatsApp PJ (Caca_POS)": {
+    "[Redirect] to WhatsApp PJ (Caca_POS) api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/movimentacoes/verificar?codigoEC={{contaSelecionada@ec}}&qtdDiasApuracao=40 | GET | {{possuiMovimentacaoStatus}} | {{possuiMovimentacaoResponse}}",
+    "[Redirect] to WhatsApp PJ (Caca_POS) api status": "{{possuiMovimentacaoStatus}}",
+    "consolidado api request": "{{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/movimentacoes/verificar?codigoEC=contaSelecionada@ec&qtdDiasApuracao=40 | {{possuiMovimentacaoStatus}}"
+  },
+  "[Temporario][OLD] Redireciona ao serviço": {
+    "[Temporario][OLD] Redireciona ao serviço dados": "{{contact.identity}} | {{calendar.datetime}} | {{state}}"
+  }
+}

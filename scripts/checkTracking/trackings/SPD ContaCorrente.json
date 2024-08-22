@@ -1,0 +1,151 @@
+{
+  "Início": {
+    "inicio": "{{config.serviceName}} | {{state@botOrigin}} | {{state@stateNameOrigin}} | {{input.content}} | {{input.intent.name}}"
+  },
+  "[CC.0.0.0] Verifica cpfAppKey": {
+    "[CC.0.0.0] Verifica cpfAppKey exibição": "Exibição",
+    "[CC.0.0.0] Verifica cpfAppKey dados validacao": "{{cpfAppKey}}"
+  },
+  "[CC.0.0.1] Rotas com cpfAppKey": {
+    "[CC.0.0.1] Rotas com cpfAppKey exibição": "Exibição",
+    "[CC.0.0.1] Rotas com cpfAppKey dados validacao": "{{userInput}}"
+  },
+  "[CC.0.0.2] Rotas sem cpfAppKey": {
+    "[CC.0.0.2] Rotas sem cpfAppKey exibição": "Exibição",
+    "[CC.0.0.2] Rotas sem cpfAppKey dados validacao": "{{userInput}}"
+  },
+  "[CC.0.1.1][MSG] Não carterizado": {
+    "[CC.0.1.1][MSG] Não carterizado exibicao": "Exibição"
+  },
+  "[CC.0.1.2][INPUT] Não carterizado": {
+    "[CC.0.1.2][INPUT] Não carterizado validação": "{{userInput}}",
+    "[CC.0.1.2][INPUT] Não carterizado input inesperado": "{{input.content}}"
+  },
+  "[CC.0.1.3][MSG] Carterizado": {
+    "[CC.0.1.3][MSG] Carterizado exibicao": "Exibição"
+  },
+  "[CC.0.1.4][INPUT] Carterizado": {
+    "[CC.0.1.4][INPUT] Carterizado validação": "{{userInput}}",
+    "[CC.0.1.4][INPUT] Carterizado input inesperado": "{{input.content}}"
+  },
+  "[CC.0.1.6][MSG] Como podemos ajudar? (emp1)": {
+    "[CC.0.1.6][MSG] Como podemos ajudar? (emp1) exibicao": "Exibição"
+  },
+  "[CC.0.1.7][INPUT] Como podemos ajudar? (emp1)": {
+    "[CC.0.1.7][INPUT] Como podemos ajudar? (emp1) validação": "{{userInput}}",
+    "[CC.0.1.7][INPUT] Como podemos ajudar? (emp1) input inesperado": "{{input.content}}"
+  },
+  "[CC.1.0.0] Cheque Empresas": {
+    "[CC.1.0.0] Cheque Empresas exibicao": "Exibição"
+  },
+  "[CC.10.0.0] Falar sobre conta - Pergunta assunto": {
+    "[CC.10.0.0] Falar sobre conta - Pergunta assunto exibição": "Exibição"
+  },
+  "[CC.10.0.0][INPUT] Pergunta assunto": {
+    "[CC.10.0.0][INPUT] Pergunta assunto validação": "{{userInput}} | {{input.intent.name}}"
+  },
+  "[CC.10.1.0][INPUT] Assunto existe no bot": {
+    "[CC.10.1.0][INPUT] Assunto existe no bot validação": "{{userInput}}",
+    "[CC.10.1.0][INPUT] Assunto existe no bot input inesperado": "{{input.content}}"
+  },
+  "[CC.10.1.0][MSG] Assusto existe no bot": {
+    "[CC.10.1.0][MSG] Assusto existe no bot exibicao": "Exibição"
+  },
+  "[CC.11.0.0][INPUT] Extrato": {
+    "[CC.11.0.0][INPUT] Extrato validação": "{{userInput}}",
+    "[CC.11.0.0][INPUT] Extrato input inesperado": "{{input.content}}"
+  },
+  "[CC.11.0.0][MSG] Extrato": {
+    "[CC.11.0.0][MSG] Extrato exibicao": "Exibição"
+  },
+  "[CC.11.1.0][MSG] Mensagem pré chamada API": {
+    "[CC.11.1.0][MSG] Mensagem pré chamada API exibicao": "Exibição"
+  },
+  "[CC.11.3.0][MSG] Exibição extrato": {
+    "[CC.11.3.0][MSG] Exibição extrato exibicao": "Exibicao"
+  },
+  "[CC.2.0.0][INPUT] Menu Cartão": {
+    "[CC.2.0.0][INPUT] Menu Cartão validação": "{{userInput}}",
+    "[CC.2.0.0][INPUT] Menu Cartão input inesperado": "{{input.content}}"
+  },
+  "[CC.2.0.0][MSG] Menu Cartão": {
+    "[CC.2.0.0][MSG] Menu Cartão exibicao": "Exibição",
+    "dynamicContent erro": "{{config.serviceName}} | {{state.name}} | {{dynamicContent@error}} | {{contact.identity}} | {{idSessao}}"
+  },
+  "[CC.2.1.0] Solicitar Cartão": {
+    "[CC.2.1.0] Solicitar Cartão exibicao": "Exibição"
+  },
+  "[CC.2.2.0] Desbloquear Cartão": {
+    "[CC.2.2.0] Desbloquear Cartão exibicao": "Exibição"
+  },
+  "[CC.2.3.0] Esqueci minha senha": {
+    "[CC.2.3.0] Esqueci minha senha exibicao": "Exibição"
+  },
+  "[CC.2.4.0] Perda / Roubo": {
+    "[CC.2.4.0] Perda / Roubo exibicao": "Exibição"
+  },
+  "[CC.3.0.0] Investimentos": {
+    "[CC.3.0.0] Investimentos exibicao": "Exibição"
+  },
+  "[CC.3.0.0][SET] Consultar Pacotes Contratados": {
+    "assuntos": "{{assunto}}"
+  },
+  "[CC.5.0.0] Gravame": {
+    "[CC.5.0.0] Gravame exibicao": "Exibição"
+  },
+  "[CC.6.0.0] Renegociação": {
+    "[CC.6.0.0] Renegociação exibicao": "Exibição"
+  },
+  "[CC.7.0.0] PIX": {
+    "[CC.7.0.0] PIX exibição": "Exibição"
+  },
+  "[CC.8.0.0] Antecipação": {
+    "[CC.8.0.0] Antecipação exibição": "Exibição"
+  },
+  "[CC.9.0.0] Pagar Contas": {
+    "[CC.9.0.0] Pagar Contas exibição": "Exibição"
+  },
+  "[M.5.3.0][INPUT]Valida seleção menu conta corrente": {
+    "SPD Main [M.5.3.0][INPUT]Valida seleção menu conta corrente validação": "{{userInput}}",
+    "SPD Main [M.5.3.0][INPUT]Valida seleção menu conta corrente input inesperado": "{{input.content}}"
+  },
+  "[M.5.3.0][MSG]Menu Conta Corrente": {
+    "SPD Main [M.5.3.0][MSG]Menu Conta Corrente exibição": "Exibição",
+    "dynamicContent erro": "{{config.serviceName}} | {{state.name}} | {{dynamicContent@error}} | {{contact.identity}} | {{idSessao}}"
+  },
+  "[M.5.3.1][INPUT] Valida seleção menu extratos": {
+    "SPD Main [M.5.3.1][INPUT] Valida seleção menu extratos validação": "{{userInput}}",
+    "SPD Main [M.5.3.1][INPUT] Valida seleção menu extratos input inesperado": "{{input.content}}"
+  },
+  "[M.5.3.1][MSG] Menu Extratos": {
+    "SPD Main [M.5.3.1][MSG] Menu Extratos exibição": "Exibição"
+  },
+  "[M.5.3.2][MSG] Pix": {
+    "SPD Main [M.5.3.2][MSG] Pix exibição": "Exibição"
+  },
+  "[M.5.3.2][MSG]Extrato Conta Corrente": {
+    "[M.5.3.2][MSG]Extrato Conta Corrente exibição": "Exibição"
+  },
+  "[M.5.3.3][MSG]Extrato Safrapay": {
+    "[M.5.3.3][MSG]Extrato Safrapay exibição": "Exibição"
+  },
+  "[M.5.3.4][MSG]Extrato Safrapay vendas": {
+    "[M.5.3.4][MSG]Extrato Safrapay vendas exibição": "Exibição"
+  },
+  "[SET] Valida Carteirização": {
+    "[SET] Valida Carteirização exibicao": "Exibição",
+    "[SET] Valida Carteirização dados": "{{contact.identity}} | {{state.previous.name}} | {{contaSelecionada@segmentoGerente}}"
+  },
+  "[TC.8.0.0][HTTP] API Pacotes": {
+    "SPD Taxas e Condicoes [TC.8.0.0][HTTP] API Pacotes exibição": "Exibição",
+    "assuntos": "{{assunto}}",
+    "[TC.8.0.0][HTTP] API Pacotes api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/chat-assistente/safra-pay/v1/pacotes?agencia={{contaSelecionada@agencia}}&conta={{contaSelecionada@conta}} | GET| {{statusPacote}} | {{bodyPacote}}",
+    "[TC.8.0.0][HTTP] API Pacotes api status": "statusPacote"
+  },
+  "[TC.8.1.0][MSG] Não possui pacotes": {
+    "SPD Taxas e Condicoes [TC.8.1.0][MSG] Não possui pacotes exibição": "Exibição"
+  },
+  "[TC.8.2.0][MSG] Possui pacotes": {
+    "SPD Taxas e Condicoes [TC.8.2.0][MSG] Possui pacotes exibição": "Exibição"
+  }
+}

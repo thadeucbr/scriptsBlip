@@ -1,0 +1,53 @@
+{
+  "Erro de api": {
+    "Cascata erro de api": "Erro"
+  },
+  "Exceções da Skill de Cascata de Validações": {
+    "Cascata regex global validacao": "Nao"
+  },
+  "Gera novo token": {
+    "Cascata erro de api": "Token"
+  },
+  "Início da Skill de Cascata de Validações": {
+    "Cascata origem": "{{state@botOrigin}}|{{state@stateNameOrigin}}",
+    "cascata inputs inesperados": "{{contact.identity}} | {{state@stateNameOrigin}} | {{state@lastInput}}"
+  },
+  "Redirecionar a servico Intenção identificada": {
+    "Cascata redirecionamento intencao identificada": "Exibicao"
+  },
+  "V.1.0.0 | É uma imagem, um áudio, local. ou arq.?": {
+    "Contem midia validacao": "{{isInputNotText}}"
+  },
+  "V.1.0.1 | Contém emoji?": {
+    "Contem emoji validacao": "{{hasEmoji}}"
+  },
+  "V.1.0.2 | É só emoji?": {
+    "Apenas emoji validacao": "{{isEmojiOnly}}"
+  },
+  "V.1.0.3 | É palavra-chave?": {
+    "Palavra chave validacao": "Nao",
+    "Palavra chave input": "{{input.content}}",
+    "Palavra chave origem": "{{lastBot}} | {{origin}}"
+  },
+  "V.1.1.0 | Intenção identificada?": {
+    "cascata intencao identificada": "{{contact.identity}} | {{input.intent.name}}"
+  },
+  "V.1.1.1 | Pode ir para menu?": {
+    "Cascata pode seguir para intencao": "{{podeSeguirIntencao@allowed}} | {{input.intent.name}} | {{state@lastInput}} | {{state@botOrigin}} | {{state@stateNameOrigin}} |  {{podeSeguirIntencao@destinationBot}} | {{podeSeguirIntencao@destinationBlock}} | {{podeSeguirIntencao@error}}"
+  },
+  "Valida erro de API": {
+    "cascata erros de api": "{{contact.identity}} | {{state@stateNameOrigin}} | {{apiStatus}}"
+  },
+  "[GO TO][SET] Finalizacao (Goodbye)": {
+    "Sair exibicao": "Exibicao"
+  },
+  "[Redirect] Exceptions": {
+    "Cascata redirecionamento exceptions": "Exibicao"
+  },
+  "[Redirect] Redirecionar para serviço": {
+    "Cascata redirecionamento servico dados": "{{contact.identity}} | {{state}}"
+  },
+  "[Redirect] To Principal (Inatividade)": {
+    "inatividade dados": "{{contact.idenitty}} - {{input.content}} - {{state}}"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "Erro de api": {
+    "SPD Cascata erro de api": "Erro"
+  },
+  "Exceções da Skill de Cascata de Validações": {
+    "Cascata regex global validacao": "Nao"
+  },
+  "Gera novo token": {
+    "SPD Cascata erro de api": "Token"
+  },
+  "Início da Skill de Cascata de Validações": {
+    "inicio": "{{config.serviceName}} | {{state@botOrigin}} | {{state@stateNameOrigin}} | {{input.content}} | {{input.intent.name}}",
+    "SPD Cascata origem": "{{state@botOrigin}}|{{state@stateNameOrigin}}",
+    "cascata inputs inesperados": "{{contact.identity}} | {{state@stateNameOrigin}} | {{state@lastInput}}"
+  },
+  "Redirecionamento exceptions": {
+    "SPD Cascata redirecionamento exceptions": "Execução"
+  },
+  "Redirecionamento palavra chave": {
+    "SPD Cascata redirecionamento palavra chave": "Execução"
+  },
+  "Redirecionar a servico Intenção identificada": {
+    "SPD Cascata redirecionamento intencao identificada": "Execução"
+  },
+  "V.1.0.0 | É uma imagem, um áudio, local. ou arq.?": {
+    "Contem midia validacao": "{{isInputNotText}}"
+  },
+  "V.1.0.1 | Contém emoji?": {
+    "Contem emoji validacao": "{{hasEmoji}}"
+  },
+  "V.1.0.2 | É só emoji?": {
+    "Apenas emoji validacao": "{{isEmojiOnly}}"
+  },
+  "V.1.0.3 | É palavra-chave?": {
+    "Palavra chave validacao": "Nao",
+    "Palavra chave input": "{{input.content}}",
+    "Palavra chave origem": "{{lastBot}} | {{origin}}"
+  },
+  "V.1.1.0 | Intenção identificada?": {
+    "cascata intencao identificada": "{{contact.identity}} | {{input.intent.name}}"
+  },
+  "V.1.1.1 | Pode ir para menu?": {
+    "SPD Cascata pode seguir para intencao": "{{podeSeguirIntencao@allowed}} | {{input.intent.name}} | {{state@botOrigin}} | {{state@stateNameOrigin}} |  {{podeSeguirIntencao@destinationBot}} | {{podeSeguirIntencao@destinationBlock}} | {{podeSeguirIntencao@error}}"
+  },
+  "V.2.0.0 | Sair": {
+    "SPD Cascata sair": "Execução"
+  },
+  "V.3.0.0 | Início": {
+    "SPD Cascata inicio": "Execução"
+  },
+  "V.4.0.0 | Transbordo": {
+    "SPD Cascata Transbordo": "Execução"
+  },
+  "V.5.0.0 | Voltar": {
+    "SPD Cascata voltar": "Execução"
+  },
+  "Valida erro de API": {
+    "cascata erros de api": "{{contact.identity}} | {{state@stateNameOrigin}} | {{apiStatus}}"
+  }
+}

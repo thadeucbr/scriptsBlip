@@ -1,0 +1,69 @@
+{
+  "Exceções": {
+    "extrato exception": "{{state.previous.name}} | {{input.content}} | {{input.intent.name}}",
+    "extrato inatividade": "{{state.previous.name}} | inatividade"
+  },
+  "Início": {
+    "inicio extrato": "{{state@botOrigin}} | {{input.content}} | {{input.intent.name}}",
+    "inicio": "{{config.serviceName}} | {{state@botOrigin}} | {{state@stateNameOrigin}}"
+  },
+  "[E.0.0.0][HTTP] Autenticação": {
+    "[E.0.0.0][HTTP] Autenticação exibicao": "exibicao",
+    "api autenticacao extrato": "extrato | {{state.name}} | {{authStatus}} | {{authResponse@data.acao}}",
+    "api autenticacao extrato resumo": "{{state.name}} | {{contact.identity}} | {{bodyAuth}} | {{authStatus}} | {{authResponse}}"
+  },
+  "[E.0.0.1][INPUT] Aguarda atualização de telefone": {
+    "[E.0.0.1][INPUT] Aguarda atualização de telefone exibicao": "exibicao",
+    "api autenticacao extrato": "extrato | {{state.name}} | {{authStatus}} | {{authResponse@data.acao}}",
+    "api autenticacao extrato resumo": "{{state.name}} | {{contact.identity}} | {{bodyAuth}} | {{authStatus}} | {{authResponse}}",
+    "[E.0.0.1][INPUT] Aguarda atualização de telefone user input": "{{input.content}}"
+  },
+  "[E.0.0.1][MSG] Usuario não autorizado": {
+    "[E.0.0.1][MSG] Usuario não autorizado exibicao": "exibicao"
+  },
+  "[E.1.0.0][SET] Valida input do usuario": {
+    "[E.1.0.0][SET] Valida input do usuario exibicao": "exibicao",
+    "periodo extrato input inesperado": "{{state.previous.name}} | {{dataExtractor@error}} | {{input.content}}",
+    "periodo extrato error": "{{state.previous.name}} | {{dataExtractor@error}}",
+    "periodo extrato input": "{{state.previous.name}} | {{input.content}} | {{dataExtractor}}"
+  },
+  "[E.1.0.1][INPUT] Retorno exception": {
+    "[E.1.0.1][INPUT] Retorno exception exibicao": "Exibicao",
+    "[E.1.0.1][INPUT] Retorno exception user input": "{{input.content}}"
+  },
+  "[E.2.0.0] Pergunta periodo": {
+    "[E.2.0.0] Pergunta periodo exibicao": "Exibicao",
+    "[E.2.0.0] Pergunta periodo user input": "{{input.content}}"
+  },
+  "[E.3.0.0][SET] Periodo identificado": {
+    "[E.3.0.0][SET] Periodo identificado exibicao": "Exibicao"
+  },
+  "[E.4.0.0][MSG] Aguarde um momento": {
+    "[E.4.0.0][MSG] Aguarde um momento exibicao": "Exibicao"
+  },
+  "[E.4.1.0][HTTP] Consulta extrato": {
+    "[E.4.1.0][HTTP] Consulta extrato exibicao": "Exibicao",
+    "api extrato status": "{{extratoStatus}}",
+    "api extrato resumo": "{{extratoStatus}} | {{config.baseURL}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/extratos?{{urlParams}}"
+  },
+  "[E.5.0.0][MSG] Exibição extrato": {
+    "[E.5.0.0][MSG] Exibição extrato exibicao": "Exibicao"
+  },
+  "[E.5.1.0][MSG] Ajudo com algo mais?": {
+    "[E.5.1.0][MSG] Ajudo com algo mais? exibicao": "Exibicao",
+    "ajudo com algo mais intencao nao identificada": "{{input.content}}",
+    "ajudo com algo mais intencao identificada": "{{input.intent.name}}",
+    "[E.5.1.0][MSG] Ajudo com algo mais? user input": "{{input.content}}",
+    "[E.5.1.0][MSG] Ajudo com algo mais? smalltalks": "{{SmallTalksIdentified}}"
+  },
+  "[E.6.0.0][MSG] Sem extratos no periodo": {
+    "[E.6.0.0][MSG] Sem extratos no periodo exibicao": "Exibicao",
+    "{state.name} input": "{{input.content}}"
+  },
+  "[GO TO][Redirect] to cascata": {
+    "[GO TO][Redirect] to cascata exibicao": "exibicao"
+  },
+  "[Redirect] to finalização": {
+    "[Redirect] to finalização exibicao": "exibicao"
+  }
+}

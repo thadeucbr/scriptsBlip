@@ -1,0 +1,253 @@
+{
+  "Início": {
+    "inicio": "{{config.serviceName}} | {{state@botOrigin}} | {{state@stateNameOrigin}} | {{input.content}} | {{input.intent.name}}"
+  },
+  "Vendas Físicas - Amex e Hiper": {
+    "SPD Taxas e Condicoes Vendas Físicas - Amex e Hiper exibição": "Exibição"
+  },
+  "Vendas Online - Amex e Hiper": {
+    "SPD Taxas e Condicoes Vendas Online - Amex e Hiper exibição": "Exibição"
+  },
+  "[SET] Valida Carteirização": {
+    "[SET] Valida Carteirização exibicao": "Exibição",
+    "[SET] Valida Carteirização dados": "{{contact.identity}} | {{state.previous.name}} | {{contaSelecionada@segmentoGerente}}"
+  },
+  "[TC.1.0.0][INPUT] Menu Taxas e condições": {
+    "SPD Taxas e Condicoes [TC.1.0.0][INPUT] Menu Taxas e condições validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.1.0.0][INPUT] Menu Taxas e condições input inesperado": "{{input.content}}"
+  },
+  "[TC.1.0.0][MSG] Menu Taxas e condições": {
+    "SPD Taxas e condições [TC.1.0.0][MSG] Menu Taxas e condições exibição": "Exibição",
+    "dynamicContent erro": "{{config.serviceName}} | {{state.name}} | {{dynamicContent@error}} | {{contact.identity}} | {{idSessao}}"
+  },
+  "[TC.1.0.0][SET] Menu Taxas e condições": {
+    "[TC.1.0.0][SET] Menu Taxas e condições validação": "{{userInput}} | {{taxMenuDestinationId}}"
+  },
+  "[TC.2.0.0][HTTP] API Taxas de Venda": {
+    "Chamada de API": "taxas de venda",
+    "SPD Taxas e Condicoes [TC.2.0.0][HTTP] API Taxas de Venda exibição": "Exibição",
+    "assuntos": "{{assunto}}",
+    "SPD Taxas e Condicoes [TC.2.0.0][HTTP] API Taxas de Venda api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}} | GET| {{taxaVendasStatus}} | {{taxaVendasBody}}",
+    "[TC.2.0.0][HTTP] API Taxas de Venda api status": "{{taxaVendasStatus}}"
+  },
+  "[TC.2.0.1] [MSG] Selecao Bandeira": {
+    "SPD Taxas e Condicoes [TC.2.0.1] [MSG] Selecao Bandeira exibição": "Exibição"
+  },
+  "[TC.2.0.1][INPUT] Selecao Bandeiras": {
+    "SPD Taxas e Condicoes [TC.2.0.1][INPUT] Selecao Bandeiras exibição": "Exibição",
+    "SPD Taxas e Condicoes [TC.2.0.1][INPUT] Selecao Bandeiras validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.2.0.1][INPUT] Selecao Bandeiras input inesperado": "{{input.content}}"
+  },
+  "[TC.2.0.2][INPUT] Modalidade de venda": {
+    "SPD Taxas e Condicoes [TC.2.0.2][INPUT] Modalidade de venda exibição": "Exibição",
+    "SPD Taxas e Condicoes [TC.2.0.2][INPUT] Modalidade de venda validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.2.0.2][INPUT] Modalidade de venda input inesperado": "{{input.content}}"
+  },
+  "[TC.2.0.2][MSG] Modalidade de venda": {
+    "SPD Taxas e Condicoes [TC.2.0.2][MSG] Modalidade de venda exibição": "Exibição"
+  },
+  "[TC.2.0.2][SET] \"taxasExibir\"": {
+    "SPD Taxas e Condicoes [TC.2.0.2][SET] \"taxasExibir\" validacao": "{{taxModality}}"
+  },
+  "[TC.2.0.3][MSG] Vendas Online": {
+    "SPD Taxas e Condicoes [TC.2.0.3][MSG] Vendas Online exibição": "Exibição"
+  },
+  "[TC.2.0.4][MSG] Vendas Físicas": {
+    "SPD Taxas e Condicoes [TC.2.0.4][MSG] Vendas Físicas exibição": "Exibição"
+  },
+  "[TC.2.1.0][INPUT] Selecionar outra bandeira": {
+    "SPD Taxas e Condicoes [TC.2.1.0][INPUT] Selecionar outra bandeira validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.2.1.0][INPUT] Selecionar outra bandeira input inesperado": "{{input.content}}"
+  },
+  "[TC.2.1.0][MSG] Selecionar outra bandeira": {
+    "SPD Taxas e Condicoes [TC.2.1.0][MSG] Selecionar outra bandeira exibição": "Exibição"
+  },
+  "[TC.2.2.0][HTTP] API Taxas de Antecipação": {
+    "Chamada de API": "consulta taxas de atencipação do plano",
+    "SPD Taxas e Condicoes [TC.2.2.0][HTTP] API Taxas de Antecipação exibição": "Exibição",
+    "SPD Taxas e Condicoes [TC.2.2.0][HTTP] API Taxas de Antecipação api status": "{{taxaStatus}}"
+  },
+  "[TC.2.2.1][INPUT] Consultar Taxas": {
+    "SPD Taxas e Condicoes [TC.2.2.1][INPUT] Consultar Taxas validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.2.2.1][INPUT] Consultar Taxas input inesperado": "{{input.content}}"
+  },
+  "[TC.2.2.1][MSG] Consultar Taxas": {
+    "SPD Taxas e Condicoes [TC.2.2.1][MSG] Consultar Taxas exibição": "Exibição"
+  },
+  "[TC.2.2.2][INPUT] Taxa atual": {
+    "SPD Taxas e Condicoes [TC.2.2.2][INPUT] Taxa atual validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.2.2.2][INPUT] Taxa atual input inesperado": "{{input.content}}"
+  },
+  "[TC.2.2.2][MSG] Taxa atual": {
+    "SPD Taxas e Condicoes [TC.2.2.2][MSG] Taxa atual exibição": "Exibição"
+  },
+  "[TC.2.2.3][INPUT] Questionar Transferência": {
+    "SPD Taxas e Condicoes [TC.2.2.3][INPUT] Questionar Transferência validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.2.2.3][INPUT] Questionar Transferência input inesperado": "{{input.content}}"
+  },
+  "[TC.2.2.3][MSG] Questionar Transferência": {
+    "SPD Taxas e Condicoes [TC.2.2.3][MSG] Questionar Transferência exibição": "Exibição"
+  },
+  "[TC.3.0.0][HTTP] API Taxas de Antecipação": {
+    "Chamada de API": "consulta taxas de atencipação do plano",
+    "SPD Taxas e Condicoes [TC.3.0.0][HTTP] API Taxas de Antecipação exibição": "Exibição",
+    "assuntos": "{{assunto}}",
+    "SPD Taxas e Condicoes [TC.3.0.0][HTTP] API Taxas de Antecipação api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/antecipacoes-recebiveis/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}?view=taxas-antecipacao | GET| {{taxaStatus}} | {{taxaBody}}",
+    "SPD Taxas e Condicoes [TC.3.0.0][HTTP] API Taxas de Antecipação api resumo 2": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}} | GET| {{taxaVendasStatus}} | {{taxaVendasBody}}",
+    "SPD Taxas e Condicoes [TC.3.0.0][HTTP] API Taxas de Antecipação api status": "{{taxaStatus}}"
+  },
+  "[TC.3.1.0][MSG] Exibe Taxas de Antecipação": {
+    "SPD Taxas e Condicoes [TC.3.1.0][MSG] Exibe Taxas de Antecipação exibição": "Exibição"
+  },
+  "[TC.4.0.0][HTTP] API Consultar Máquinas": {
+    "Chamada de API": "Consulta máquinas disponíveis para EC.",
+    "SPD Taxas e Condicoes [TC.4.0.0][HTTP] API Consultar Máquinas exibição": "Exibição",
+    "assuntos": "{{assunto}}",
+    "[TC.4.0.0][HTTP] API Consultar Máquinas api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/terminais?codigoEstabelecimentoComercial={{selectedEc@codigoEc}} | GET| {{consultMaquinaStatus}} | {{consultMaquina}}"
+  },
+  "[TC.4.1.0][INPUT] Sem máquinas": {
+    "SPD Taxas e Condicoes [TC.4.1.0][INPUT] Sem máquinas validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.4.1.0][INPUT] Sem máquinas input inesperado": "{{input.content}}"
+  },
+  "[TC.4.1.0][MSG] Sem máquinas": {
+    "SPD Taxas e Condicoes [TC.4.1.0][MSG] Sem máquinas exibição": "Exibição"
+  },
+  "[TC.4.2.0][INPUT] Numero de Série": {
+    "SPD Taxas e Condicoes [TC.4.2.0][INPUT] Numero de Série validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.4.2.0][INPUT] Numero de Série input inesperado": "{{input.content}}"
+  },
+  "[TC.4.2.0][MSG] Numero de Série (Maquina> 10)": {
+    "SPD Taxas e Condicoes [TC.4.2.0][MSG] Numero de Série (Maquina> 10) exibição": "Exibição"
+  },
+  "[TC.4.3.0][INPUT] Alugada ou Comprada": {
+    "SPD Taxas e Condicoes [TC.4.3.0][INPUT] Alugada ou Comprada validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.4.3.0][INPUT] Alugada ou Comprada input inesperado": "{{input.content}}"
+  },
+  "[TC.4.3.0][MSG] Alugada ou Comprada": {
+    "SPD Taxas e Condicoes [TC.4.3.0][MSG] Alugada ou Comprada exibição": "Exibição"
+  },
+  "[TC.4.4.0][INPUT] Lista número série": {
+    "SPD Taxas e Condicoes [TC.4.4.0][INPUT] Lista número série validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.4.4.0][INPUT] Lista número série input inesperado": "{{input.content}}"
+  },
+  "[TC.4.4.0][MSG] Lista número S (Maquina< = 10)": {
+    "SPD Taxas e Condicoes [TC.4.4.0][MSG] Lista número S (Maquina< = 10) exibição": "Exibição"
+  },
+  "[TC.4.5.0][HTTP][SET] Alugada": {
+    "Chamada de API": "Consulta Máquinas e traz alugadas.",
+    "SPD Taxas e Condicoes [TC.4.5.0][HTTP][SET] Alugada exibição": "Exibição",
+    "SPD Taxas e Condicoes [TC.4.5.0][HTTP][SET] Alugada api status": "{{statusAlugueis}}",
+    "SPD Taxas e Condicoes [TC.4.5.0][HTTP][SET] Alugada api status 2": "{{statusApolice}}",
+    "SPD Taxas e Condicoes [TC.4.5.0][HTTP][SET] Alugada api status 3": "{{statusFaturamentoAnual}}",
+    "SPD Taxas e Condicoes [TC.4.5.0][HTTP][SET] Alugada api status 4": "{{statusFaturamentoMensal}}"
+  },
+  "[TC.4.5.1][MSG][SET] Comprada": {
+    "Chamada de API": "Consulta Máquinas e traz compradas.",
+    "SPD Taxas e Condicoes [TC.4.5.1][MSG][SET] Comprada exibição": "Exibição"
+  },
+  "[TC.4.6.0][INPUT] Como deseja prosseguir?": {
+    "SPD Taxas e Condicoes [TC.4.6.0][INPUT] Como deseja prosseguir? exibição": "Exibição",
+    "SPD Taxas e Condicoes [TC.4.6.0][INPUT] Como deseja prosseguir? validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.4.6.0][INPUT] Como deseja prosseguir? input inesperado": "{{input.content}}"
+  },
+  "[TC.4.6.0][MSG] Como deseja prosseguir?": {
+    "SPD Taxas e Condicoes [TC.4.6.0][MSG] Como deseja prosseguir? exibição": "Exibição",
+    "SPD Taxas e Condicoes [TC.4.6.0][MSG] Como deseja prosseguir? validação": "{{input.content}}",
+    "SPD Taxas e Condicoes [TC.4.6.0][MSG] Como deseja prosseguir? input inesperado": "{{input.content}}"
+  },
+  "[TC.5.0.0][HTTP] API Taxas Pix na SafraPay": {
+    "Chamada de API": "Taxas Pix na Safrapay",
+    "SPD Taxas e Condicoes [TC.5.0.0][HTTP] API Taxas Pix na SafraPay exibição": "Exibição",
+    "assuntos": "{{assunto}}",
+    "[TC.5.0.0][HTTP] API Taxas Pix na SafraPay api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/antecipacoes-recebiveis/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}?view=taxas-antecipacao | GET| {{taxaStatus}} | {{taxaBody}}",
+    "[TC.5.0.0][HTTP] API Taxas Pix na SafraPay api status": "{{taxaStatus}}",
+    "[TC.5.0.0][HTTP] API Taxas Pix na SafraPay api status 2": "{{taxaVendasStatus}}"
+  },
+  "[TC.5.1.0][MSG] Exibir Taxas Pix na SafraPay": {
+    "SPD Taxas e Condicoes [TC.5.1.0][MSG] Exibir Taxas Pix na SafraPay exibição": "Exibição"
+  },
+  "[TC.6.0.0][HTTP] API Domicilio bancario": {
+    "SPD Taxas e Condicoes [TC.6.0.0][HTTP] API Domicilio bancario exibição": "Exibição",
+    "SPD Taxas e Condicoes [TC.6.0.0][HTTP] API Domicilio bancario tamanho array dados": "{{tamanhoRetornoDomicilio@bodyDomicilio}} | {{tamanhoRetornoDomicilio@bodyGeraldomicilio}} | {{tamanhoRetornoDomicilio@Erro}}",
+    "assuntos": "{{assunto}}",
+    "[TC.6.0.0][HTTP] API Domicilio bancario api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/chat-assistente/safra-pay/v1/domicilios?idEstabelecimento={{selectedEc@codigoEc}} | GET| {{statusDomicilio}} | {{bodyDomicilio}}",
+    "[TC.6.0.0][HTTP] API Domicilio bancario api resumo 2": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/safrapay/vendas-servicos/vendas/prospeccoes-clientes/assistente-virtual/v1/domicilios-bancarios | GET| {{statusGeraldomicilio}} | {{bodyGeraldomicilio}}",
+    "[TC.6.0.0][HTTP] API Domicilio bancario api status": "{{statusDomicilio}}",
+    "[TC.6.0.0][HTTP] API Domicilio bancario api status 2": "{{statusGeraldomicilio}}"
+  },
+  "[TC.6.1.0][INPUT] Selecionar bandeira": {
+    "SPD Taxas e Condicoes [TC.6.1.0][INPUT] Selecionar bandeira validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.6.1.0][INPUT] Selecionar bandeira input inesperado": "{{input.content}}"
+  },
+  "[TC.6.1.0][MSG] Selecionar bandeira": {
+    "SPD Taxas e Condicoes [TC.6.1.0][MSG] Selecionar bandeira exibição": "Exibição"
+  },
+  "[TC.6.1.1][MSG] Exibir Taxas Crédito": {
+    "SPD Taxas e Condicoes [TC.6.1.1][MSG] Exibir Taxas Crédito exibição": "Exibição"
+  },
+  "[TC.6.1.2][MSG] Exibir Taxas Ambos": {
+    "SPD Taxas e Condicoes [TC.6.1.2][MSG] Exibir Taxas Ambos exibição": "Exibição"
+  },
+  "[TC.6.1.3][MSG] Exibir Taxas Débito": {
+    "SPD Taxas e Condicoes [TC.6.1.3][MSG] Exibir Taxas Débito exibição": "Exibição"
+  },
+  "[TC.6.2.0][INPUT] Prosseguir": {
+    "SPD Taxas e Condicoes [TC.6.2.0][INPUT] Prosseguir validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.6.2.0][INPUT] Prosseguir input inesperado": "{{input.content}}"
+  },
+  "[TC.6.2.0][MSG] Prosseguir": {
+    "SPD Taxas e Condicoes [TC.6.2.0][MSG] Prosseguir exibição": "Exibição"
+  },
+  "[TC.7.0.0][INPUT] Questionar uma cobrança": {
+    "SPD Taxas e Condicoes [TC.7.0.0][INPUT] Questionar uma cobrança validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.7.0.0][INPUT] Questionar uma cobrança input inesperado": "{{input.content}}"
+  },
+  "[TC.7.0.0][MSG] Questionar uma cobrança": {
+    "SPD Taxas e Condicoes [TC.7.0.0][MSG] Questionar uma cobrança exibição": "Exibição",
+    "assuntos": "{{assunto}}"
+  },
+  "[TC.7.0.1][INPUT] Outro Motivo": {
+    "SPD Taxas e Condicoes [TC.7.0.1][INPUT] Outro Motivo validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.7.0.1][INPUT] Outro Motivo input inesperado": "{{input.content}}"
+  },
+  "[TC.7.0.1][MSG] Outro Motivo": {
+    "SPD Taxas e Condicoes [TC.7.0.1][MSG] Outro Motivo exibição": "Exibição"
+  },
+  "[TC.7.0.2][INPUT] Origem da cobrança": {
+    "SPD Taxas e Condicoes [TC.7.0.2][INPUT] Origem da cobrança validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.7.0.2][INPUT] Origem da cobrança input inesperado": "{{input.content}}"
+  },
+  "[TC.7.0.2][MSG] Origem da cobrança": {
+    "SPD Taxas e Condicoes [TC.7.0.2][MSG] Origem da cobrança exibição": "Exibição"
+  },
+  "[TC.7.1.0][INPUT] Onde visualizou a cobrança": {
+    "SPD Taxas e Condicoes [TC.7.1.0][INPUT] Onde visualizou a cobrança validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.7.1.0][INPUT] Onde visualizou a cobrança input inesperado": "{{input.content}}"
+  },
+  "[TC.7.1.0][MSG] Onde visualizou a cobrança": {
+    "SPD Taxas e Condicoes [TC.7.1.0][MSG] Onde visualizou a cobrança exibição": "Exibição"
+  },
+  "[TC.7.2.0][INPUT] Solicita data da cobrança": {
+    "SPD Taxas e Condicoes [TC.7.2.0][INPUT] Solicita data da cobrança validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.7.2.0][INPUT] Solicita data da cobrança input inesperado": "{{input.content}}"
+  },
+  "[TC.7.2.0][MSG] Solicita data da cobrança": {
+    "SPD Taxas e Condicoes [TC.7.2.0][MSG] Solicita data da cobrança exibição": "Exibição"
+  },
+  "[TC.7.3.0][INPUT] Solicita valor da cobrança": {
+    "SPD Taxas e Condicoes [TC.7.3.0][INPUT] Solicita valor da cobrança validação": "{{userInput}}",
+    "SPD Taxas e Condicoes [TC.7.3.0][INPUT] Solicita valor da cobrança input inesperado": "{{input.content}}"
+  },
+  "[TC.7.3.0][MSG] Solicita valor da cobrança": {
+    "SPD Taxas e Condicoes [TC.7.3.0][MSG] Solicita valor da cobrança exibição": "Exibição"
+  },
+  "[TC.7.4.0][HTTP] API Protocolo": {
+    "[TC.7.4.0][HTTP] API Protocolo exibição": "Exibição",
+    "[TC.7.4.0][HTTP] API Protocolo api status": "{{apiStatus}}",
+    "[TC.7.4.0][HTTP] API Protocolo api resumo": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos | {{payloadProtocolo}} | {{statusProtocoloBpm}} | {{bodyProtocoloBpm}}",
+    "[TC.7.4.0][HTTP] API Protocolo api resumo 2": "{{idSessao}} | {{contact.identity}} | {{calendar.datetime}} | {{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{idProtocoloBpm}}/ocorrencias | {{payloadOcorrencia}} | {{statusOcorrencia}} | {{bodyOcorrencia}}"
+  },
+  "[TC.7.5.0][MSG] Protocolo Criado": {
+    "SPD Taxas e Condicoes [TC.7.5.0][MSG] Protocolo Criado exibição": "Exibição"
+  }
+}

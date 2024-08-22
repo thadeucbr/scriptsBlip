@@ -1,0 +1,18 @@
+{
+  "Início": {
+    "inicio": "{{config.serviceName}} | {{state@botOrigin}} | {{state@stateNameOrigin}} | {{input.content}} | {{input.intent.name}}"
+  },
+  "Navegar NPS": {
+    "Ticket Notificacao Ativa Novo": "#{{sequencialId}} - {{dataHoraBr}} - {{contact.identity}} - {{contact.extras.broadcastOrigem}} - {{respostaTemplate}} - {{contact.extras.ec}} - {{agentIdentity}}",
+    "notificação ativa v2": "#{{sequencialId}} | {{dataHoraBr}} | {{contact.identity}} | {{contact.extras.broadcastOrigem}} | {{respostaTemplate}} | {{contact.extras.ec}} | {{responseTeam}} | {{emailOperador}} | {{responseTags}}",
+    "tags": "{{responseTags}}",
+    "broad": "{{contact.extras.broadcastOrigem}}"
+  },
+  "[E.0] Erro padrão": {
+    "Erro padrão - origem": "{{lastState}}",
+    "Erro padrão": "Exibicao"
+  },
+  "[Redirect] Finalização": {
+    "Atendimento finalizado pelo usuario": "{{input.content}}"
+  }
+}

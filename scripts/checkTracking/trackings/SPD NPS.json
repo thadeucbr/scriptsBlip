@@ -1,0 +1,61 @@
+{
+  "CSAT - Solicitação concluída?": {
+    "Pesquisa csat exibicao": "Exibicao",
+    "Csat solicitacao concluida origem": "{{config.botIdentity}} | {{state.previous.name}}",
+    "Csat solicitacao concluida exibicao": "{{trackingCsat@csatExibicao}}",
+    "Csat solicitacao concluida selecao": "{{trackingCsat@csatExibicao}} | {{menu@input}}",
+    "Csat solicitacao concluida selecao consolidado bot": "{{menu@input}}",
+    "Csat solicitacao concluida selecao consolidado human": "{{menu@input}}",
+    "Csat solicitacao concluida inesperado": "{{trackingCsat@csatExibInesperado}} | {{input.content}}"
+  },
+  "Erro Padrão": {
+    "Erro padrao origem": "{{botId}} | {{previousBlockName}}",
+    "Erro padrao exibicao": "Exibicao"
+  },
+  "Inatividade": {
+    "Inatividade origem": "{{botId}}|{{previousBlockName}}",
+    "Inatividade exibicao": "Exibicao"
+  },
+  "Início": {
+    "inicio": "{{config.serviceName}} | {{state@botOrigin}} | {{state@stateNameOrigin}} | {{input.content}} | {{input.intent.name}}",
+    "Pesquisa NPS assunto": "{{assunto}}",
+    "Pesquisa NPS assunto dados": "{{assunto}} | {{contact.identity}} | {{calendar.datetime}}"
+  },
+  "Pesquisa de Satisfação CSAT": {
+    "Csat padrao origem": "{{config.botIdentity}} | {{state.previous.name}}",
+    "Csat padrao exibicao": "{{trackingCsat@csatExibicao}} | {{solicitacaoConcluida}}",
+    "ST survey question": "{{botOrHuman}} | Count",
+    "Csat padrao selecao": "{{trackingCsat@csatExibicao}} | {{solicitacaoConcluida}} | {{trackingCsatNotaClass}}",
+    "Csat padrao selecao consolidado bot": "{{menu@input}}",
+    "Csat padrao selecao consolidado human": "{{menu@input}}",
+    "Csat padrao inesperado": "{{trackingCsat@csatExibInesperado}} | {{input.content}}",
+    "ST survey answer": "{{botOrHuman}} | {{returnST}}",
+    "Csat padrao selecao Chat_Caça_POS_Empresas": "{{trackingCsat@csatExibicao}} | {{solicitacaoConcluida}} | {{trackingCsatNotaClass}}",
+    "Pesquisa NPS nota assunto": "{{score}} | {{assunto}} | {{contact.identity}} | {{calendar.datatime}} |"
+  },
+  "Pesquisa de Satisfação CSAT - Motivo": {
+    "Csat motivo padrao exibicao": "{{trackingCsat@csatExibInesperado}} | {{solicitacaoConcluida}} | {{trackingCsatNotaClass}}",
+    "Csat motivo padrao selecao": "{{trackingCsat@csatExibicao}} | {{solicitacaoConcluida}} | {{trackingCsatNotaClass}} | {{trackingCsatMotivo}}",
+    "Csat motivo padrao selecao consolidado bot": "{{menu@input}}",
+    "Csat motivo padrao selecao consolidado human": "{{menu@input}}",
+    "Csat motivo padrao inesperado": "{{trackingCsat@csatExibInesperado}} | {{trackingCsatNotaClass}} | {{input.content}}",
+    "ST survey reason": "{{botOrHuman}} | {{score}} | {{returnST}} | {{menu@input}}",
+    "Csat motivo padrao selecao Chat_Caça_POS_Empresas": "{{trackingCsat@csatExibicao}} | {{solicitacaoConcluida}} | {{trackingCsatNotaClass}} | {{trackingCsatMotivo}}",
+    "Pesquisa NPS insatisfeito assunto": "{{assunto}}",
+    "Pesquisa NPS insatisfeito assunto dados": "{{assunto}} | {{score}} | {{sugestaoCliente}} {{contact.identity}} | {{calendar.datetime}}"
+  },
+  "Pesquisa de Satisfação CSAT - Outros motivos": {
+    "Csat motivo outros exibicao": "{{trackingCsat@csatExibInesperado}}|{{solicitacaoConcluida}}|{{trackingCsatNotaClass}}",
+    "Csat motivo outros input": "{{trackingCsat@csatExibicao}} | {{solicitacaoConcluida}} | {{trackingCsatNotaClass}} | {{trackingCsatMotivo}} | {{motivo}}"
+  },
+  "[7] Agradecimento": {
+    "lastState": "{{state.name}}"
+  },
+  "[I.1.1.0] Pesquisa finalizada": {
+    "Pesquisa satisfacao finalizacao exibicao": "Exibicao",
+    "Finalizacao resumo": "{{trackingCsat@csatExibicao}} | {{solicitacaoConcluida}} | {{trackingCsatNotaClass}} | {{trackingCsatMotivo}}",
+    "Pesquisa NPS satisfeito assunto": "{{assunto}}",
+    "Pesquisa NPS satisfeito assunto dados": "{{assunto}} | {score}} | {{contact.identity}} | {{calendar.datetime}}",
+    "Resumo do Csat EMP1": "{{dataHora}} | {{agentIdentity}} | {{solicitacaoConcluida}} | {{trackingCsatNotaClass}} | {{sugestaoCliente}}"
+  }
+}
