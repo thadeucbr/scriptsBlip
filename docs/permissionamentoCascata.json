@@ -1,0 +1,285 @@
+[
+  {
+    "intent": "Acesso",
+    "destinationBlock": "ed7daa5a-8ec1-479d-b17d-bbdb3093bf90",
+    "destinationBot": "App",
+    "requirements": [
+      "agencia"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Alterações cadastrais",
+    "destinationBlock": "8dde4e04-03a4-49d0-b329-73923e1d59b7",
+    "destinationBot": "App",
+    "requirements": [
+      "agencia"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Alterar domicílio",
+    "destinationBlock": "f2bd8402-1da3-41b4-ad11-2e5d699e3107",
+    "destinationBot": "App",
+    "requirements": [
+      "agencia"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Antecipar Saldo",
+    "destinationBlock": "16cc5d45-c8d8-4b01-b000-e76eff268c33",
+    "destinationBot": "Bot Main",
+    "requirements": [
+      "agencia"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Aplicativo",
+    "destinationBlock": "welcome",
+    "destinationBot": "App",
+    "requirements": [
+      "agencia"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Baixar aplicativo",
+    "destinationBlock": "b1c8e006-ddb2-4d2a-9832-b66b95b20c0c",
+    "destinationBot": "App",
+    "requirements": [
+      "agencia"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Condições e taxas",
+    "destinationBlock": "a5ddf643-13c0-4a81-a174-e1aa9dd86873",
+    "destinationBot": "Bot Main",
+    "requirements": [
+      "agencia",
+      "doc"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Consulta de Protocolo",
+    "destinationBlock": "9347f7bd-f145-45c2-8df9-09c201063df1",
+    "destinationBot": "Bot Soluções",
+    "requirements": [
+      "agencia"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Consultar máquinas",
+    "destinationBlock": "24ee326c-2f65-4cf1-944e-2b178eaf2a82",
+    "destinationBot": "Bot Taxas e Condições",
+    "requirements": [
+      "agencia",
+      "codigoEc",
+      "doc"
+    ],
+    "auth": true
+  },
+  {
+    "intent": "Consultar ordem de serviço",
+    "destinationBlock": "fb46f9fc-1dfe-45f8-a9c6-09bfd80f21db",
+    "destinationBot": "Bot OS",
+    "requirements": [
+      "doc"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Conta corrente",
+    "destinationBlock": "daa2d803-2548-400e-8782-47ecaec9aca1",
+    "destinationBot": "contacorrente",
+    "requirements": [
+      "agencia"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Contratar antecipacao",
+    "destinationBlock": "a5ddf643-13c0-4a81-a174-e1aa9dd86873",
+    "destinationBot": "Bot Taxas e Condições",
+    "requirements": [
+      "agencia",
+      "doc"
+    ]
+  },
+  {
+    "intent": "Descredenciamento",
+    "destinationBlock": "2c5ecc04-daf8-4fee-ac52-1e4c15182f30",
+    "destinationBot": "Bot Soluções",
+    "requirements": [
+      "agencia",
+      "doc"
+    ]
+  },
+  {
+    "intent": "Domicílio bancário",
+    "destinationBlock": "ad3f23f8-0c79-4faf-8b19-06ad242f99d2",
+    "destinationBot": "Bot Taxas e Condições",
+    "requirements": [
+      "agencia",
+      "codigoEc"
+    ],
+    "auth": true
+  },
+  {
+    "intent": "Erro no aplicativo",
+    "destinationBlock": "fbfdaef0-87b1-4457-9fb2-4e3c3932e3be",
+    "destinationBot": "App",
+    "requirements": [
+      "agencia"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Máquinas Safrapay",
+    "destinationBlock": "a5ddf643-13c0-4a81-a174-e1aa9dd86873",
+    "destinationBot": "Bot Main",
+    "requirements": [
+      "agencia"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "pacotes",
+    "destinationBlock": "191a2f33-c58e-4a64-9e66-af23348bcbad",
+    "destinationBot": "contacorrente",
+    "requirements": [
+      "agencia",
+      "codigoEc",
+      "doc"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Problemas de Login",
+    "destinationBlock": "ed7daa5a-8ec1-479d-b17d-bbdb3093bf90",
+    "destinationBot": "App",
+    "requirements": [
+      "agencia"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Questionar uma cobrança",
+    "destinationBlock": "4a101355-7808-4bb7-a96d-7053a966074a",
+    "destinationBot": "Bot Taxas e Condições",
+    "requirements": [
+      "agencia",
+      "codigoEc"
+    ],
+    "auth": true
+  },
+  {
+    "intent": "Simulador de vendas",
+    "destinationBlock": "c391e959-860e-4eaf-86b9-71fcd8888c86",
+    "destinationBot": "Bot Máquina Safrapay",
+    "requirements": [
+      "agencia"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Suporte Técnico",
+    "destinationBlock": "4f6e7e6d-21b4-4b11-9913-6aa5149a7469",
+    "destinationBot": "Bot Máquina Safrapay",
+    "requirements": [
+      "agencia"
+    ]
+  },
+  {
+    "intent": "Taxa Pix na SafraPay",
+    "destinationBlock": "91dec6e6-2e08-462d-8d81-d38d2b223594",
+    "destinationBot": "Bot Taxas e Condições",
+    "requirements": [
+      "agencia",
+      "codigoEc"
+    ],
+    "auth": true
+  },
+  {
+    "intent": "Taxas de antecipação",
+    "destinationBlock": "cac63fde-6671-4aa1-9a67-efc2f5336711",
+    "destinationBot": "Bot Taxas e Condições",
+    "requirements": [
+      "agencia",
+      "codigoEc"
+    ],
+    "auth": true
+  },
+  {
+    "intent": "Taxas de venda",
+    "destinationBlock": "c4fec3d1-c20d-43de-9160-8a93f67989eb",
+    "destinationBot": "Bot Taxas e Condições",
+    "requirements": [
+      "agencia",
+      "codigoEc"
+    ],
+    "auth": true
+  },
+  {
+    "intent": "Venda não recebida",
+    "destinationBlock": "4b038e89-c130-4869-a541-4954e12ebf81",
+    "destinationBot": "Bot Máquina Safrapay",
+    "requirements": [
+      "agencia"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "cartoes",
+    "destinationBlock": "37f23f86-2009-43f1-b7a5-f50093c784f0",
+    "destinationBot": "contacorrente",
+    "requirements": [
+      "agencia"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Extratos",
+    "destinationBlock": "a508df2f-7177-4554-959b-2b62037f453b",
+    "destinationBot": "contacorrente",
+    "requirements": [
+      "agencia",
+      "cpfAppKey"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Extrato Conta Corrente",
+    "destinationBlock": "03573ae8-ef6e-49cc-9b6d-34a535eabaaa",
+    "destinationBot": "contacorrente",
+    "requirements": [
+      "agencia",
+      "cpfAppKey"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Extrato recebimentos",
+    "destinationBlock": "48bd2fab-30a5-46c8-8a6b-cf482187a66e",
+    "destinationBot": "contacorrente",
+    "requirements": [
+      "agencia",
+      "cpfAppKey"
+    ],
+    "auth": false
+  },
+  {
+    "intent": "Extrato vendas",
+    "destinationBlock": "c9666009-688a-4b7f-913b-e16f3ec2ca36",
+    "destinationBot": "contacorrente",
+    "requirements": [
+      "agencia",
+      "cpfAppKey"
+    ],
+    "auth": false
+  }
+]
