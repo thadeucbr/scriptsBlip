@@ -1,0 +1,42 @@
+function run(selectTeam, result) {
+    try {
+        result = JSON.parse(result);
+        let split = selectTeam.split("|")
+        if (!split || split.length < 2) {
+            return "Fila de Exceção";
+        }
+        let resultStatus = result.resource.items.filter(function (e) {
+            return e.teams.includes(split[0]) && e.status === 'Online';
+        })
+
+        if (resultStatus.length > 0) {
+            return split[0]
+        }
+        if (resultStatus.length == 0) {
+            return split[1]
+
+        }
+    }
+    catch (e) {
+        return e.message;
+    }
+
+}
+
+//tests
+var bodyConsultaProtocolo = {
+    "data": {
+        "id": "20240806038862",
+        "idCentralOrigem": "3",
+        "documento": "07308577000104",
+        "status": "3",
+        "statusDescricao": "ENCERRADO",
+        "dataHoraInclusao": "2024-08-06T19:36:32.847",
+        "dataHoraEncerramento": "2024-08-06T19:40:50",
+        "maiorSlaOcorrencia": null,
+        "qtdOcorrencias": 1
+    }
+}
+let selectTeam = "x|y";
+
+console.log(run(selectTeam, JSON.stringify(bodyConsultaProtocolo))); //returns "teste"
