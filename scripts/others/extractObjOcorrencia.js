@@ -138,6 +138,14 @@ var obj = {
 function run(bodyConsultaOcorrenciaLista) {
     try {
         let data = JSON.parse(bodyConsultaOcorrenciaLista).data;
+
+        // Order by dataHoraAbertura in ascending order
+        data.sort((a, b) => {
+            let dateA = new Date(a.dataHoraAbertura);
+            let dateB = new Date(b.dataHoraAbertura);
+            return dateA - dateB;
+        });
+
         return data;
     }
     catch (e) {
