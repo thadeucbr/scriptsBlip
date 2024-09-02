@@ -16,7 +16,7 @@ function run(bodyConsultaProtocolo, listaDeOcorencias) {
                 }
             } else {
                 msgProtocolo += `\n*Retorno previsto*: ${getDataFormatada(dataPrevistaEncerramento)}`;
-                 if (item.motivoResolucao) {
+                if (item.motivoResolucao) {
                     msgProtocolo += `\n*Comentario*: ${item.motivoResolucao}`;
                 }
             }
@@ -30,12 +30,21 @@ function run(bodyConsultaProtocolo, listaDeOcorencias) {
     }
 }
 function getDataFormatada(data) {
-    let dataHoraInclusao = new Date(data);
-    let dia = ("0" + dataHoraInclusao.getDate()).slice(-2);
-    let mes = ("0" + (dataHoraInclusao.getMonth() + 1)).slice(-2);
-    let ano = dataHoraInclusao.getFullYear();
-    return `${dia}/${mes}/${ano}`;
-};
+    if (data) {
+        let partes = data.split(/[-\/]/);
+        let ano = parseInt(partes[0], 10);
+        let mes = parseInt(partes[1], 10) - 1;
+        let dia = parseInt(partes[2], 10);
+        let dataHora = new Date(ano, mes, dia);
+
+        let diaFormatado = ("0" + dataHora.getDate()).slice(-2);
+        let mesFormatado = ("0" + (dataHora.getMonth() + 1)).slice(-2);
+        let anoFormatado = dataHora.getFullYear();
+
+        return `${diaFormatado}/${mesFormatado}/${anoFormatado}`;
+    }
+    return "00/00/0000"
+}
 
 //tests
 
@@ -54,38 +63,29 @@ var bodyConsultaProtocolo = {
 }
 var listaDeOcorencias = [
     {
-      id: '29164',
-      idProtocolo: '20240214033441',
-      dataHoraAbertura: '2024-02-20T11:57:39',
-      descricaoStatus: 'ENCERRADO',
-      descricaoMotivo: 'ARRECADAÇÃO',
-      descricaoSubmotivo: 'CANCELAMENTO',
-      motivoResolucao: null,
-      dataPrevistaEncerramento: '2024-02-23',
-      dataHoraEncerramento: '2024-02-21T14:51:55'
+        "id": "21712793",
+        "idProtocolo": "20240830010032",
+        "dataHoraAbertura": "2024-08-30T12:24:34",
+        "descricaoStatus": "ENCERRADO",
+        "descricaoMotivo": "ACESSO CANAIS",
+        "descricaoSubmotivo": "DISPOSITIVO COM ACESSO FRAGILIZADO",
+        "motivoResolucao": null,
+        "dataPrevistaEncerramento": "2024-09-02",
+        "dataHoraEncerramento": "2024-08-30T15:45:01"
     },
     {
-      id: '29165',
-      idProtocolo: '20240214033441',
-      dataHoraAbertura: '2024-02-20T12:00:02',
-      descricaoStatus: 'ENCERRADO',
-      descricaoMotivo: 'ARRECADAÇÃO',
-      descricaoSubmotivo: 'CANCELAMENTO',
-      motivoResolucao: null,
-      dataPrevistaEncerramento: '2024-02-23',
-      dataHoraEncerramento: '2024-02-21T14:51:55'
-    },
-    {
-      id: '29131',
-      idProtocolo: '20240214033441',
-      dataHoraAbertura: '2024-02-14T14:17:00',
-      descricaoStatus: 'ENCERRADO',
-      descricaoMotivo: 'Canais Digitais',
-      descricaoSubmotivo: 'INTERNET BANKING',
-      motivoResolucao: null,
-      dataPrevistaEncerramento: '2024-02-19',
-      dataHoraEncerramento: '2024-02-14T14:17:29'
+        "id": "21717706",
+        "idProtocolo": "20240830010032",
+        "dataHoraAbertura": "2024-08-30T15:45:01",
+        "descricaoStatus": "ABERTO",
+        "descricaoMotivo": "IB/MOBILE",
+        "descricaoSubmotivo": "TRANSAÇÃO NÃO AUTORIZADA NO IB OU APP",
+        "motivoResolucao": null,
+        "dataPrevistaEncerramento": "2024-09-02",
+        "dataHoraEncerramento": null
     }
 ]
+
+
 
 console.log(run(JSON.stringify(bodyConsultaProtocolo), JSON.stringify(listaDeOcorencias))); //
