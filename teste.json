@@ -1,0 +1,3121 @@
+[
+  [
+    {
+      "data": {
+        "codigoCliente": 3995453,
+        "tipoPessoa": "PJ",
+        "baseDocumento": 20331145,
+        "filialCnpj": 1,
+        "digitoCpf": 82,
+        "nome": "ACOUGUE E ROTISSERIA RD EIRELI - EPP                             ",
+        "codigoAgencia": 9700,
+        "numeroConta": 3950030,
+        "titularidadeConta": 1,
+        "tipoVinculo": " ",
+        "sequenciaEnderecoDaConta": 0,
+        "dataInicio": "30.06.2017",
+        "dataFim": "          ",
+        "codigoProdutoRelacionamento": 88770155,
+        "chaveRelacionamento": "09700395003009                ",
+        "nomeSocio": "                                                                 ",
+        "cargoSocio": "                    ",
+        "taxaPacoteServico": 0,
+        "codigoClienteSocio": 0,
+        "baseFilialSocio": 0
+      }
+    }
+  ],
+  [
+    {
+      "data": {
+        "codigoCliente": 505148,
+        "tipoPessoa": "PJ",
+        "baseDocumento": 250699,
+        "filialCnpj": 1,
+        "digitoCpf": 48,
+        "nome": "AGK CORRETORA DE CAMBIO SA                                       ",
+        "codigoAgencia": 11500,
+        "numeroConta": 275291,
+        "titularidadeConta": 1,
+        "tipoVinculo": " ",
+        "sequenciaEnderecoDaConta": 0,
+        "dataInicio": "02.07.2019",
+        "dataFim": "          ",
+        "codigoProdutoRelacionamento": 26580157,
+        "chaveRelacionamento": "11500027529109                ",
+        "nomeSocio": "                                                                 ",
+        "cargoSocio": "                    ",
+        "taxaPacoteServico": 0,
+        "codigoClienteSocio": 0,
+        "baseFilialSocio": 0
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "data": {
+        "codigoCliente": 5640207,
+        "tipoPessoa": "PJ",
+        "baseDocumento": 31127414,
+        "filialCnpj": 1,
+        "digitoCpf": 0,
+        "nome": "BOULEVARD PAULISTA COMERCIO D                                    ",
+        "codigoAgencia": 9700,
+        "numeroConta": 5827049,
+        "titularidadeConta": 1,
+        "tipoVinculo": " ",
+        "sequenciaEnderecoDaConta": 0,
+        "dataInicio": "27.06.2019",
+        "dataFim": "          ",
+        "codigoProdutoRelacionamento": 15388001,
+        "chaveRelacionamento": "09700582704909                ",
+        "nomeSocio": "                                                                 ",
+        "cargoSocio": "                    ",
+        "taxaPacoteServico": 0,
+        "codigoClienteSocio": 0,
+        "baseFilialSocio": 0
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "data": {
+        "codigoCliente": 121611,
+        "tipoPessoa": "PJ",
+        "baseDocumento": 65660961,
+        "filialCnpj": 1,
+        "digitoCpf": 78,
+        "nome": "BULLION PARTICIPACOES LTDA                                       ",
+        "codigoAgencia": 9700,
+        "numeroConta": 26871,
+        "titularidadeConta": 1,
+        "tipoVinculo": " ",
+        "sequenciaEnderecoDaConta": 3,
+        "dataInicio": "12.08.1991",
+        "dataFim": "          ",
+        "codigoProdutoRelacionamento": 15540103,
+        "chaveRelacionamento": "09700002687109                ",
+        "nomeSocio": "                                                                 ",
+        "cargoSocio": "                    ",
+        "taxaPacoteServico": 0,
+        "codigoClienteSocio": 0,
+        "baseFilialSocio": 0
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "data": {
+        "codigoCliente": 0,
+        "tipoPessoa": "PJ",
+        "baseDocumento": 0,
+        "filialCnpj": 0,
+        "digitoCpf": 0,
+        "nome": null,
+        "codigoAgencia": 0,
+        "numeroConta": 0,
+        "titularidadeConta": 0,
+        "tipoVinculo": null,
+        "sequenciaEnderecoDaConta": 0,
+        "dataInicio": null,
+        "dataFim": null,
+        "codigoProdutoRelacionamento": 0,
+        "chaveRelacionamento": null,
+        "nomeSocio": null,
+        "cargoSocio": null,
+        "taxaPacoteServico": 0,
+        "codigoClienteSocio": 0,
+        "baseFilialSocio": 0
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "data": {
+        "codigoCliente": 96044,
+        "tipoPessoa": "PJ",
+        "baseDocumento": 84043009,
+        "filialCnpj": 1,
+        "digitoCpf": 70,
+        "nome": "CIRCULO S/A.                                                     ",
+        "codigoAgencia": 6700,
+        "numeroConta": 1300113,
+        "titularidadeConta": 1,
+        "tipoVinculo": " ",
+        "sequenciaEnderecoDaConta": 0,
+        "dataInicio": "16.06.2010",
+        "dataFim": "          ",
+        "codigoProdutoRelacionamento": 36460565,
+        "chaveRelacionamento": "06700130011309                ",
+        "nomeSocio": "                                                                 ",
+        "cargoSocio": "                    ",
+        "taxaPacoteServico": 0,
+        "codigoClienteSocio": 0,
+        "baseFilialSocio": 0
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "data": {
+        "codigoCliente": 872185,
+        "tipoPessoa": "PJ",
+        "baseDocumento": 6058321,
+        "filialCnpj": 1,
+        "digitoCpf": 23,
+        "nome": "CLARA E GUILHERME CAMPOS SERVICOS EM RECEPCOES E FESTAS LTDA ME  ",
+        "codigoAgencia": 9700,
+        "numeroConta": 174799,
+        "titularidadeConta": 1,
+        "tipoVinculo": " ",
+        "sequenciaEnderecoDaConta": 0,
+        "dataInicio": "17.02.2004",
+        "dataFim": "          ",
+        "codigoProdutoRelacionamento": 15540103,
+        "chaveRelacionamento": "09700017479909                ",
+        "nomeSocio": "                                                                 ",
+        "cargoSocio": "                    ",
+        "taxaPacoteServico": 0,
+        "codigoClienteSocio": 0,
+        "baseFilialSocio": 0
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "data": {
+        "codigoCliente": 2668169,
+        "tipoPessoa": "PJ",
+        "baseDocumento": 19441249,
+        "filialCnpj": 1,
+        "digitoCpf": 60,
+        "nome": "CUTRALE TRADING BRASIL LTDA.                                     ",
+        "codigoAgencia": 11500,
+        "numeroConta": 166280,
+        "titularidadeConta": 1,
+        "tipoVinculo": " ",
+        "sequenciaEnderecoDaConta": 1,
+        "dataInicio": "22.05.2014",
+        "dataFim": "          ",
+        "codigoProdutoRelacionamento": 15540103,
+        "chaveRelacionamento": "11500016628009                ",
+        "nomeSocio": "                                                                 ",
+        "cargoSocio": "                    ",
+        "taxaPacoteServico": 0,
+        "codigoClienteSocio": 0,
+        "baseFilialSocio": 0
+      }
+    }
+  ],
+  [
+    {
+      "data": {
+        "codigoCliente": 5305980,
+        "tipoPessoa": "PJ",
+        "baseDocumento": 11502213,
+        "filialCnpj": 1,
+        "digitoCpf": 38,
+        "nome": "DALSCH FLORES E PLANTAS LTDA                                     ",
+        "codigoAgencia": 9782,
+        "numeroConta": 4971359,
+        "titularidadeConta": 1,
+        "tipoVinculo": " ",
+        "sequenciaEnderecoDaConta": 0,
+        "dataInicio": "21.03.2019",
+        "dataFim": "          ",
+        "codigoProdutoRelacionamento": 15540103,
+        "chaveRelacionamento": "09782497135909                ",
+        "nomeSocio": "                                                                 ",
+        "cargoSocio": "                    ",
+        "taxaPacoteServico": 0,
+        "codigoClienteSocio": 0,
+        "baseFilialSocio": 0
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "data": {
+        "codigoCliente": 74172,
+        "tipoPessoa": "PJ",
+        "baseDocumento": 61412110,
+        "filialCnpj": 1,
+        "digitoCpf": 55,
+        "nome": "DROGARIA SAO PAULO S.A                                           ",
+        "codigoAgencia": 11500,
+        "numeroConta": 5120288,
+        "titularidadeConta": 1,
+        "tipoVinculo": " ",
+        "sequenciaEnderecoDaConta": 0,
+        "dataInicio": "09.04.2010",
+        "dataFim": "          ",
+        "codigoProdutoRelacionamento": 38243106,
+        "chaveRelacionamento": "11500512028809                ",
+        "nomeSocio": "                                                                 ",
+        "cargoSocio": "                    ",
+        "taxaPacoteServico": 0,
+        "codigoClienteSocio": 0,
+        "baseFilialSocio": 0
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [],
+  [],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [],
+  [],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "data": {
+        "codigoCliente": 6763388,
+        "tipoPessoa": "PJ",
+        "baseDocumento": 64066228,
+        "filialCnpj": 1,
+        "digitoCpf": 67,
+        "nome": "JUNDIAI PALACE HOTEL LTDA                                        ",
+        "codigoAgencia": 9700,
+        "numeroConta": 5840347,
+        "titularidadeConta": 1,
+        "tipoVinculo": " ",
+        "sequenciaEnderecoDaConta": 0,
+        "dataInicio": "27.05.2020",
+        "dataFim": "          ",
+        "codigoProdutoRelacionamento": 15540103,
+        "chaveRelacionamento": "09700584034709                ",
+        "nomeSocio": "                                                                 ",
+        "cargoSocio": "                    ",
+        "taxaPacoteServico": 0,
+        "codigoClienteSocio": 0,
+        "baseFilialSocio": 0
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [],
+  [],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "data": {
+        "codigoCliente": 0,
+        "tipoPessoa": "PJ",
+        "baseDocumento": 0,
+        "filialCnpj": 0,
+        "digitoCpf": 0,
+        "nome": null,
+        "codigoAgencia": 0,
+        "numeroConta": 0,
+        "titularidadeConta": 0,
+        "tipoVinculo": null,
+        "sequenciaEnderecoDaConta": 0,
+        "dataInicio": null,
+        "dataFim": null,
+        "codigoProdutoRelacionamento": 0,
+        "chaveRelacionamento": null,
+        "nomeSocio": null,
+        "cargoSocio": null,
+        "taxaPacoteServico": 0,
+        "codigoClienteSocio": 0,
+        "baseFilialSocio": 0
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "data": {
+        "codigoCliente": 78607,
+        "tipoPessoa": "PJ",
+        "baseDocumento": 61522173,
+        "filialCnpj": 1,
+        "digitoCpf": 64,
+        "nome": "ROSSET & CIA LTDA                                                ",
+        "codigoAgencia": 200,
+        "numeroConta": 5005766,
+        "titularidadeConta": 1,
+        "tipoVinculo": " ",
+        "sequenciaEnderecoDaConta": 0,
+        "dataInicio": "13.03.1991",
+        "dataFim": "          ",
+        "codigoProdutoRelacionamento": 54790106,
+        "chaveRelacionamento": "00200500576609                ",
+        "nomeSocio": "                                                                 ",
+        "cargoSocio": "                    ",
+        "taxaPacoteServico": 0,
+        "codigoClienteSocio": 0,
+        "baseFilialSocio": 0
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    },
+    {
+      "data": {
+        "codigoCliente": 839265,
+        "tipoPessoa": "PJ",
+        "baseDocumento": 5481041,
+        "filialCnpj": 1,
+        "digitoCpf": 60,
+        "nome": "ROSSET NORDESTE LTDA                                             ",
+        "codigoAgencia": 2400,
+        "numeroConta": 218957,
+        "titularidadeConta": 1,
+        "tipoVinculo": " ",
+        "sequenciaEnderecoDaConta": 0,
+        "dataInicio": "21.02.2008",
+        "dataFim": "          ",
+        "codigoProdutoRelacionamento": 15540103,
+        "chaveRelacionamento": "02400021895709                ",
+        "nomeSocio": "                                                                 ",
+        "cargoSocio": "                    ",
+        "taxaPacoteServico": 0,
+        "codigoClienteSocio": 0,
+        "baseFilialSocio": 0
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    },
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:42"
+      }
+    }
+  ],
+  [
+    {
+      "erros": [
+        {
+          "code": "504",
+          "title": "Falha inesperada.",
+          "detail": "Ocorreu um erro inesperado. Por favor, tente novamente."
+        }
+      ],
+      "meta": {
+        "totalRecords": 1,
+        "totalPages": 1,
+        "requestDateTime": "2024-09-26T16:52:41"
+      }
+    }
+  ]
+]
