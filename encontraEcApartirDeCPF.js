@@ -1,99 +1,129 @@
-async function start(cpf, key) {
-  async function first(cpf) {
-    const myHeaders = new Headers();
-    myHeaders.append("Authorization", `Bearer ${key}`);
-    myHeaders.append("User-Agent", "Fiddler");
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Safra-Bot-ID", "Postman");
+const cpf_a_ser_consultado = '39053633804';
 
-    const requestOptions = {
-      method: "GET",
-      headers: myHeaders,
-      redirect: "follow"
-    };
+const createHeaders = (token = null, contentType = "application/json") => {
+  const headers = {
+    "User-Agent": "Fiddler",
+    "Content-Type": contentType,
+    "accept": "*/*",
+    "Connection": "keep-alive",
+  };
 
-    const data = await fetch(`https://api-hml.safra.com.br/chat-assistente/contas-pessoa-juridica/v1/shortnames-vinculados?cpf=${cpf}`, requestOptions)
-      .then((response) => response.json())
-      .then(async ({ data }) => {
-        const results = await Promise.all(data.map(async ({ contas }) => {
-          return Promise.all(contas.map(({ agencia, conta }) => teste1(agencia, conta)));
-        }));
-        return results;
-      })
-      .catch((error) => console.error(error));
-    return data;
+  if (token) {
+    headers["Authorization"] = `Bearer ${token}`;
+    headers["Safra-Bot-ID"] = "Postman";
   }
 
-  async function teste1(agencia, conta) {
-    const myHeaders2 = new Headers();
-    myHeaders2.append("Authorization", `Bearer ${key}`);
-    myHeaders2.append("User-Agent", "Fiddler");
-    myHeaders2.append("Content-Type", "application/json");
-    myHeaders2.append("Safra-Bot-ID", "Postman");
+  return headers;
+};
 
-    const requestOptions2 = {
-      method: "GET",
-      headers: myHeaders2,
-      redirect: "follow"
-    };
+const getAccessToken = async () => {
+  const headers = createHeaders(null, "application/x-www-form-urlencoded");
+  const body = new URLSearchParams({
+    "client_id": "BLIP",
+    "grant_type": "client_credentials",
+    "client_secret": "ee1f5004-2400-4ab1-9af7-d9168d517204"
+  });
 
-    try {
-      const response = await fetch(`https://api-hml.safra.com.br/chat-assistente/contas-pessoa-juridica/v1/contas?agencia=${agencia}&conta=${conta}`, requestOptions2);
-      return await response.json();
-    } catch (error) {
-      console.error(error);
-      return null;
+  const requestOptions = {
+    method: "POST",
+    headers,
+    body,
+    redirect: "follow"
+  };
+
+  try {
+    const response = await fetch("https://sts-api-hml.safra.com.br/api/oauth/token", requestOptions);
+    const result = await response.json();
+    return result.access_token;
+  } catch (error) {
+    console.error('Error fetching access token:', error);
+    throw new Error('Failed to retrieve access token');
+  }
+};
+
+const fetchJsonData = async (url, token) => {
+  const headers = createHeaders(token);
+  const requestOptions = {
+    method: "GET",
+    headers,
+    redirect: "follow"
+  };
+
+  try {
+    const response = await fetch(url, requestOptions);
+    if (!response.ok) {
+      throw new Error(`Failed to fetch from ${url}, status: ${response.status}`);
     }
+    return await response.json();
+  } catch (error) {
+    console.error(`Error fetching data from ${url}:`, error);
+    throw error;
   }
+};
 
-  const contaSelecionada = (await first(cpf))
-    .flat()
-    .filter((item) => item && item.data && item.data.situacaoUsuario !== 'BLOQUEADO')
+const getContas = async (cpf, token) => {
+  const url = `https://api-hml.safra.com.br/chat-assistente/contas-pessoa-juridica/v1/shortnames-vinculados?cpf=${cpf}`;
+  try {
+    const data = await fetchJsonData(url, token);
+    const contasPromises = data.data.map(({ contas }) =>
+      Promise.all(contas.map(({ agencia, conta }) => 
+        fetchJsonData(`https://api-hml.safra.com.br/chat-assistente/contas-pessoa-juridica/v1/contas?agencia=${agencia}&conta=${conta}`, token)
+      ))
+    );
+
+    const contasResults = await Promise.all(contasPromises);
+    return contasResults.flat();
+  } catch (error) {
+    console.error('Error fetching accounts:', error);
+    throw error;
+  }
+};
+
+const filterContas = (contas) => {
+  return contas
+    .filter(item => item?.data?.situacaoUsuario !== 'BLOQUEADO')
     .map(item => {
       const { tipoPessoa, baseDocumento, filialCnpj, digitoCpf, codigoAgencia, numeroConta } = item.data;
       const conta = { codigoAgencia, numeroConta };
+
       if (tipoPessoa === 'PJ') {
-        let doc = baseDocumento + "000" + filialCnpj;
-        let digito = digitoCpf;
-        if (digitoCpf < 10) {
-          digito = "0" + digitoCpf;
-        }
-        conta['doc'] = baseDocumento + "000" + filialCnpj + digito;
-        while (conta['doc'].length < 14) {
-          conta['doc'] = `0${conta['doc']}`;
-        }
+        let doc = `${baseDocumento}000${filialCnpj}${digitoCpf < 10 ? '0' : ''}${digitoCpf}`;
+        conta.doc = doc.padStart(14, '0');
       }
+
       return conta;
-    }).filter((it) => it.codigoAgencia != 0 && it.numeroConta != 0);
+    })
+    .filter(it => it.codigoAgencia && it.numeroConta);
+};
 
-  async function getEc(contaSelecionada) {
-    const myHeaders = new Headers();
-    myHeaders.append("Authorization", `Bearer ${key}`);
-    myHeaders.append("User-Agent", "Fiddler");
-    myHeaders.append("Content-Type", "application/json");
-    myHeaders.append("Safra-Bot-ID", "Postman");
-
-    const requestOptions = {
-      method: "GET",
-      headers: myHeaders,
-      redirect: "follow"
-    };
-
-    fetch(`https://api-hml.safra.com.br/chat-assistente/safra-pay/v1/estabelecimentos?cpfCnpj=${contaSelecionada.doc}`, requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        if (result.data.length > 0) {
-          console.log(contaSelecionada);
-        } else {
-          console.log('Não encontrado estabelecimento', result);
-        }
-      })
-      .catch((error) => console.error(error));
+const getEstabelecimento = async (conta, token) => {
+  const url = `https://api-hml.safra.com.br/chat-assistente/safra-pay/v1/estabelecimentos?cpfCnpj=${conta.doc}`;
+  try {
+    const result = await fetchJsonData(url, token);
+    if (result.data.length > 0) {
+      console.log(conta);
+    } else {
+      console.log('Estabelecimento não encontrado', result);
+    }
+  } catch (error) {
+    console.error('Error fetching establishment:', error);
   }
+};
 
-  contaSelecionada.forEach(async (conta) => {
-    await getEc(conta);
-  });
-}
+const start = async (cpf) => {
+  try {
+    const token = await getAccessToken();
+    const contas = await getContas(cpf, token);
+    const contasFiltradas = filterContas(contas);
 
-start('39053633804', 'HKuMO7ddfpbNsqQv8yTXBwoKtg6Q3DrmYfL69GkkkvA5eP3LxwmCxs');
+    for (const conta of contasFiltradas) {
+      await getEstabelecimento(conta, token);
+    }
+  } catch (error) {
+    console.error('Error in main execution:', error);
+  }
+};
+
+(async () => {
+  await start(cpf_a_ser_consultado);
+})();
