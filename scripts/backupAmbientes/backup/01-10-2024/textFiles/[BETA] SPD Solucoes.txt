@@ -1,0 +1,85 @@
+Bot Name: SPD Solucoes
+
+Block: [S.2.0.1] [HTTP] Api Consulta Status Protocolo
+	Request Name: HTTP GET "bodyConsultaProtocolo" (Consultar Protocolo)
+	Method: GET
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/protocolos/{{numeroProtocolo}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+	Request Name: HTTP GET "bodyConsultaOcorrenciaLista" (Consultar Ocorrencias Unico)
+	Method: GET
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/ocorrencias?idProtocolo={{numeroProtocolo}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: [S.2.1.0] [HTTP] Consulta Ocorrencias
+	Request Name: HTTP GET "bodyConsultaProtocoloLista" (Consultar Protocolo Lista)
+	Method: GET
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/ocorrencias?documentoCliente={{contaSelecionada@doc}}&{{intervaloDeDatas}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: [S.2.2.6][MSG][HTTP]Protocolo fora do Prazo
+	Request Name: HTTP POST "bodyComentarioOcorrencia"
+	Method: POST
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/protocolos/{{ocorrenciaEncontrada@idProtocolo}}/ocorrencias/{{ocorrenciaEncontrada@id}}/historicos
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{idSessao}}
+	Body:
+{{requestComentarioOcorrencia}}
+
+Block: [S.2.7.0] [HTTP] Consulta Ocorrencias (60 Dias)
+	Request Name: HTTP GET "bodyConsultaProtocoloLista" (Consultar Protocolo Lista)
+	Method: GET
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/ocorrencias?documentoCliente={{contaSelecionada@doc}}&{{intervaloDeDatas}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: [S.2.8.8.1][MSG][HTTP]Protocolo fora do Prazo
+	Request Name: HTTP POST "bodyComentarioOcorrencia"
+	Method: POST
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/protocolos/{{ocorrenciaEncontrada@idProtocolo}}/ocorrencias/{{ocorrenciaEncontrada@id}}/historicos
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{idSessao}}
+	Body:
+{{requestComentarioOcorrencia}}
+

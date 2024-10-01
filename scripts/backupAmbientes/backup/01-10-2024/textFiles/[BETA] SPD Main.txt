@@ -1,0 +1,173 @@
+Bot Name: SPD Main
+
+Block: [M.1.0.0][MSG][HTTP] Boas vindas
+	Request Name: Process "bodyToken" using "POST"
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+Block: [M.3.0.0][MSG][HTTP] Verifica contas
+	Request Name: Process "bodyContas" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/usuarios/{{contact.extras.cpf}}/shortnames?expand=contas
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: [M.4.0.0][MSG][HTTP] Obtem EC
+	Request Name: Process "bodyDadosConta" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/contas-pessoa-juridica/v1/contas?agencia={{contaSelecionada@agencia}}&conta={{contaSelecionada@conta}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Bot-ID: {{application.identifier}}
+	Body:
+undefined
+
+	Request Name: Process "bodyUsuarios" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/shortnames/{{contaSelecionada@shortname}}/usuarios
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: {{application.identifier}}
+	Body:
+undefined
+
+	Request Name: Process "bodyEC" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/safra-pay/v1/estabelecimentos?cpfCnpj={{contaSelecionada@doc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Bot-ID: {{application.identifier}}
+	Body:
+undefined
+
+Block: [M.4.0.1][HTTP] Obtem Carterização
+	Request Name: Process "bodyAccountManager" using "GET" AG/CONTA
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/gerentes/v1/gerentes?agencia={{contaSelecionada@agencia}}&conta={{contaSelecionada@conta}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Bot-ID: {{config.serviceName}}
+	Body:
+undefined
+
+	Request Name: Process "bodyAccountManager" using "GET" Segmento 20
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contaSelecionada@doc}}&codigoSegmento=0020
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+	Request Name: Process "bodyAccountManager" using "GET" Segmento 17
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contaSelecionada@doc}}&codigoSegmento=0017
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+	Request Name: Process "bodyAccountManager" using "GET" PHONE
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/gerentes/v1/carteiras?dddCelular={{telephone@ddd}}&numeroCelular={{telephone@telephone}}&tipoPessoa=J
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+Block: [M.4.0.2][HTTP] Obtem CpfAppKey
+	Request Name: Process "bodyAppKey" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/vendas-servicos/clientes/autorizacoes-acessos-clientes/assistente-virtual/v1/chaves?documento={{contact.extras.cpf}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Aplicacao: SPD
+	Body:
+undefined
+
+Block: [M.3.1.2][HTTP] Obtem Permissionamento
+	Request Name: Process "bodyPermissoes" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/usuarios/{{contaSelecionada@usuario}}/shortnames/{{contaSelecionada@shortname}}/permissoes
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Aplicacao: IPJ
+	Body:
+undefined
+
+Block: [M.2.0.3][HTTP] Verifica PF
+	Request Name: Process "estabelecimentoPfResponse" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/safra-pay/v1/estabelecimentos?cpfCnpj={{contact.extras.cpf}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: [M.5.5.0][HTTP] Verifica carta serasa
+	Request Name: Process "cartaSerasaResponse" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/serasa/documentos?tipoPessoa={{contaSelecionada@tipoPessoaCode}}&baseDocumento={{contaSelecionada@baseDocumento}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Aplicacao: IPJ
+		Safra-Correlation-ID: {{idSessao}}
+	Body:
+undefined
+
+Block: [Redirect] to WhatsApp PJ (Caca_POS)
+	Request Name: Process "possuiMovimentacaoResponse" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/movimentacoes/verificar?codigoEC={{contaSelecionada@ec}}&qtdDiasApuracao=40
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: {{application.identifier}}
+	Body:
+undefined
+

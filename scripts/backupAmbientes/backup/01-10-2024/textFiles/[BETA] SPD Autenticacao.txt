@@ -1,0 +1,62 @@
+Bot Name: SPD Autenticacao
+
+Block: [A.0.0.0] Verifica tipo de autenticação
+	Request Name: Process "bodyMFA" using "POST"
+	Method: POST
+	URL: {{config.urlCHT}}/vendas-servicos/multicanal/autorizacoes-transacoes/assistente-virtual/v1/transacoes
+	Headers:
+		Safra-Aplicacao: CHT
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+{{requestBodyMFA}}
+
+Block: [A.1.2.0] Valida respostas do KBA
+	Request Name: Process "bodyKbaValidar" using "POST"
+	Method: POST
+	URL: {{config.urlCHT}}/vendas-servicos/multicanal/autorizacoes-transacoes/assistente-virtual/v1/kba/validar
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Aplicacao: CHT
+	Body:
+{{requestBodyValidacaoKBA}}
+
+Block: [A.3.0.0] Autenticação via BigId
+	Request Name: Process "bodyTokenBigID" using "POST"
+	Method: POST
+	URL: https://accesstoken.bigdatacorp.com.br/Generate
+	Headers:
+	Body:
+{
+    "login": "SAFRABIGIDAPI_BANKING",
+    "password": "zvasdp3t",
+    "expires": 8750
+}
+
+	Request Name: Process "bodyQuestion" using "POST"
+	Method: POST
+	URL: https://bigid.bigdatacorp.com.br/Questions
+	Headers:
+		Authorization: Bearer {{bodyTokenBigID@token}}
+	Body:
+{
+    "Group": "WHATS_PJ",
+    "Parameters": [
+        "CPF={{contact.extras.cpf}}"
+    ]
+}
+
+Block: [A.3.3.0] Valida respostas BigID
+	Request Name: Process "bigIdValidationBody"
+	Method: POST
+	URL: https://app.bigdatacorp.com.br/bigid/kba/respostas
+	Headers:
+		Authorization: Bearer {{bodyTokenBigID@token}}
+	Body:
+{{validationBody}}
+

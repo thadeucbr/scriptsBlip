@@ -1,0 +1,182 @@
+Bot Name: SPD Taxas e Condicoes
+
+Block: [TC.3.0.0][HTTP] API Taxas de Antecipação
+	Request Name: HTTP GET "taxaBody"
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/antecipacoes-recebiveis/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}?view=taxas-antecipacao
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+	Request Name: HTTP GET "taxaVendasBody"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: [TC.4.5.0][HTTP][SET] Alugada
+	Request Name: HTTP GET "bodyAlugueis" (alugueis)
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/alugueis?tipoFiltro=EC&valorFiltro={{selectedEc@codigoEc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+	Request Name: HTTP GET "bodyApolice" (apolices)
+	Method: GET
+	URL: {{config.urlCHT}}/vendas-servicos/vendas/seguros/assistente-virtual/v1/clientes/{{contaSelecionada@doc}}/apolices?codigoProduto=7105
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+	Request Name: HTTP GET "bodyFaturamentoAnual" (Faturamento Anual)
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/faturamentos?codigoEstabelecimentoComercial={{selectedEc@codigoEc}}&view=Anual
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+	Request Name: HTTP GET "bodyFaturamentoMensal" (Faturamento Mensal)
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/faturamentos?codigoEstabelecimentoComercial={{selectedEc@codigoEc}}&view=Mensal
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+Block: [TC.2.0.0][HTTP] API Taxas de Venda
+	Request Name: HTTP GET "taxaVendasBody"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: [TC.2.2.0][HTTP] API Taxas de Antecipação
+	Request Name: HTTP GET "taxaBody" (taxa)
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/antecipacoes-recebiveis/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}?view=taxas-antecipacao
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+	Request Name: HTTP GET "taxaVendasBody"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: [TC.5.0.0][HTTP] API Taxas Pix na SafraPay
+	Request Name: HTTP GET "taxaBody"
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/antecipacoes-recebiveis/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}?view=taxas-antecipacao
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+	Request Name: HTTP GET "taxaVendasBody"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: [TC.7.4.0][HTTP] API Protocolo
+	Request Name: HTTP POST "bodyProtocoloBpm" (Cria Protocolo no Front)
+	Method: POST
+	URL: {{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+{{payloadProtocolo}}
+
+	Request Name: HTTP POST "bodyOcorrencia" (Cria nova ocorrencia)
+	Method: POST
+	URL: {{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{idProtocoloBpm}}/ocorrencias
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+{{payloadOcorrencia}}
+
+Block: [TC.6.0.0][HTTP] API Domicilio bancario
+	Request Name: HTTP GET "bodyDomicilio"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/safra-pay/v1/domicilios?idEstabelecimento={{selectedEc@codigoEc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+	Request Name: HTTP GET "bodyGeraldomicilio"
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/vendas-servicos/vendas/prospeccoes-clientes/assistente-virtual/v1/domicilios-bancarios
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+Block: [TC.4.0.0][HTTP] API Consultar Máquinas [Duplicate]
+	Request Name: HTTP GET "consultMaquina" (Terminais)
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/terminais?codigoEstabelecimentoComercial={{selectedEc@codigoEc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+

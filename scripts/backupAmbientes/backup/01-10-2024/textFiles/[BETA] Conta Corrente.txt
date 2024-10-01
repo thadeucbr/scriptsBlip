@@ -1,0 +1,24 @@
+Bot Name: Conta Corrente
+
+Block: [TC.8.0.0][HTTP] API Pacotes
+	Request Name: HTTP GET "bodyPacote"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/safra-pay/v1/pacotes?agencia={{contaSelecionada@agencia}}&conta={{contaSelecionada@conta}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+Block: [CC.11.1.1][HTTP] Consulta de extrato
+	Request Name: Process "extratoResponse" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/extratos?{{urlParams}}
+	Headers:
+		Safra-Correlation-ID: 1
+		Authorization: Bearer {{bodyToken@access_token}}
+	Body:
+undefined
+

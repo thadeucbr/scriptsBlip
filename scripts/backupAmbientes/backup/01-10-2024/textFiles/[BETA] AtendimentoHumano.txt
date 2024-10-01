@@ -1,0 +1,117 @@
+Bot Name: AtendimentoHumano
+
+Block: [AH.2.2.0] Api horario atendimento
+	Request Name: Requisição HTTP horario
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team=default
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: Pré Transbordo Contingência
+	Request Name: HTTP - SUBSCRIBE INATIVIDADE
+	Method: POST
+	URL: {{config.urlTake}}/v1/Subscription/Subscribe
+	Headers:
+		X-Blip-User: {{tunnel.identity}}
+		X-Blip-Bot: {{config.botIdentity}}
+		X-Desk-Team: {{compactaEquipe}}
+	Body:
+{
+    "firstName": "John",
+    "lastName": "Doe"
+}
+
+	Request Name: Verifica Resource
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Authorization: {{config.apiKey}}
+		Content-Type: application/json
+	Body:
+{
+    "id": "{{random.guid}}",
+    "method": "get",
+    "uri": "/resources/{{contact.extras.ec}}"
+}
+
+Block: Perfil Hibrido
+	Request Name: HTTP - GET TOKEN
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP SOLICITA FILA PERFIL HIBRIDO
+	Method: GET
+	URL: {{config.gateway}}/chat-assistente/atendimentos-hibridos/v1/perfils/{{setaEquipe}}
+	Headers:
+		Authorization: Bearer {{tokenFront}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+	Request Name: HTTP - CRIA BILHETE FRONT UNICO
+	Method: POST
+	URL: {{config.gateway}}/chat-assistente/atendimentos-hibridos/v1/bilhetes
+	Headers:
+		Authorization: Bearer {{tokenFront}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+{{payloadBilhetes}}
+
+Block: [DESATIVADO] Verifica Horario de Atendimento
+	Request Name: TOKEN API HORÁRIO
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: API - HORARIO
+	Method: GET
+	URL: {{config.urlCHT}}/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team={{fila}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: [AH.2.1.0] Api contato gerentes
+	Request Name: Process "bodyToken" using "POST"
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: Process  "bodyContatoGerente" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/gerentes?agencia={{contaSelecionada@agencia}}&conta={{contaSelecionada@conta}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
