@@ -1,0 +1,81 @@
+{
+  "info": {
+    "name": "DIGEMP-NPS",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "[7] Agradecimento",
+      "item": [
+        {
+          "name": "Nome Atendente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{selectedToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"{{random.guid}}\",\n  \"to\": \"postmaster@blip.ai\",\n  \"method\": \"get\",\n  \"uri\": \"lime://{{config.blip}}/accounts/{{emailEncode}}\"\n}"
+            },
+            "url": "{{config.commands}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Update contact",
+      "item": [
+        {
+          "name": "Get contact",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{selectedToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{  \n  \"id\": \"{{random.guid}}\",\n  \"method\": \"get\",\n  \"uri\": \"/contacts/{{tunnelIdentity}}\"\n}"
+            },
+            "url": "{{config.commands}}"
+          }
+        },
+        {
+          "name": "Update contact",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{selectedToken}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"{{random.guid}}\",\n  \"method\": \"set\",\n  \"uri\": \"/contacts\",\n  \"type\": \"application/vnd.lime.contact+json\",\n  \"resource\": {\n    \"name\": \"{{resourceContact@name}}\",\n    \"lastMessageDate\": \"{{resourceContact@lastMessageDate}}\",\n    \"identity\": \"{{tunnelIdentity}}\",\n    \"phoneNumber\": \"{{resourceContact@phoneNumber}}\",\n    \"extras\": {\n      \"broadcastOrigem\": \"{{extrasContact@broadcastOrigem}}\",\n      \"broadcastListId\": \"{{extrasContact@broadcastListId}}\",\n      \"var1\": \"{{extrasContact@var1}}\",\n      \"var2\": \"{{extrasContact@var2}}\",\n      \"var3\": \"{{extrasContact@var3}}\",\n      \"telefone\": \"{{extrasContact@telefone}}\",\n      \"cnpj\": \"{{extrasContact@cnpj}}\",\n      \"empresa\": \"{{extrasContact@empresa}}\",\n      \"gerente\": \"{{extrasContact@gerente}}\",\n      \"filial\": \"{{extrasContact@filial}}\",\n      \"team\": \"{{extrasContact@team}}\",\n      \"tunnel.owner\": \"safraproddigemprouter2@msging.net\",\n      \"NPS\": \"{{score}}\",\n      \"DataAvaliacao\": \"{{DataHoraAvaliacao}}\",\n      \"Ticket_Tag\": \"#{{sequentialId}}|{{ticketTags}}\",\n      \"SugestaoNPS\": \"{{SugestaoNPS}}\"\n    }\n  }\n}"
+            },
+            "url": "{{config.commands}}"
+          }
+        }
+      ]
+    }
+  ]
+}
