@@ -114,7 +114,7 @@ export function jsonReader({ flow }: any): BlockList[] {
       saidaPadrao: flow[key].$defaultOutput.stateId,
       actions,
       position: flow[key].$position,
-      tags: flow[key].$tags.map((tag: Tag) => tag.label),
+      tags: Array.isArray(flow[key].$tags) ? flow[key].$tags.map((tag: Tag) => tag.label) : [],
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
       condicaoSaida: identifyOutpoutConditions(flow[key].$conditionOutputs),
       // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
