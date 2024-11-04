@@ -4,8 +4,13 @@ import decodeName from './src/decodeName.js';
 import getBotJsonAndUpdateFlow from './src/getBotJsonAndUpdateFlow.js';
 import updateEnv from './src/updateEnv.js';
 
-function getBotNames(env) {
-  return vars[env].map(({ name }) => name);
+function getProjects(env) {
+  const projects = new Set(vars[env].map(({ project }) => project));
+  return [...projects];
+}
+
+function getBotNamesByProject(env, project) {
+  return vars[env].filter(({ project: botProject }) => botProject === project).map(({ name }) => name);
 }
 
 async function main() {
@@ -24,7 +29,18 @@ async function main() {
     },
   ]);
 
-  const botNames = getBotNames(origin);
+  const projects = getProjects(origin);
+  
+  const { project } = await inquirer.prompt([
+    {
+      type: 'list',
+      name: 'project',
+      message: 'Selecione o projeto:',
+      choices: projects,
+    },
+  ]);
+
+  const botNames = getBotNamesByProject(origin, project);
 
   const { bot } = await inquirer.prompt([
     {
