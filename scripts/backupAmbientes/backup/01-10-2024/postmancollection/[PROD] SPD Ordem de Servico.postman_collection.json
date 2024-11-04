@@ -1,0 +1,74 @@
+{
+  "info": {
+    "name": "SPD Ordem de Servico",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "[OS.2.0.0] Consultar Ordens de Serviço",
+      "item": [
+        {
+          "name": "Process \"bodyOrdernsDeServicos\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/vendas-servicos/vendas/tracking-credenciadoras/v1/ordens-servicos?documento={{contaSelecionada@doc}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[OS.2.4.0] Consulta OS pelo número",
+      "item": [
+        {
+          "name": "Process \"bodyOrdernsDeServicos\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/vendas-servicos/vendas/tracking-credenciadoras/v1/ordens-servicos/{{userInput}}"
+          }
+        }
+      ]
+    }
+  ]
+}

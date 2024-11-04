@@ -1,0 +1,2497 @@
+Bot Name: AtendimentoHumano
+
+Block: [AH.2.2.0] Api horario atendimento
+	Request Name: Requisição HTTP horario
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team=default
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: Pré Transbordo Contingência
+	Request Name: HTTP - SUBSCRIBE INATIVIDADE
+	Method: POST
+	URL: {{config.urlTake}}/v1/Subscription/Subscribe
+	Headers:
+		X-Blip-User: {{tunnel.identity}}
+		X-Blip-Bot: {{config.botIdentity}}
+		X-Desk-Team: {{compactaEquipe}}
+	Body:
+{
+    "firstName": "John",
+    "lastName": "Doe"
+}
+
+	Request Name: Verifica Resource
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Authorization: {{config.apiKey}}
+		Content-Type: application/json
+	Body:
+{
+    "id": "{{random.guid}}",
+    "method": "get",
+    "uri": "/resources/{{contact.extras.ec}}"
+}
+
+Block: Perfil Hibrido
+	Request Name: HTTP - GET TOKEN
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP SOLICITA FILA PERFIL HIBRIDO
+	Method: GET
+	URL: {{config.gateway}}/chat-assistente/atendimentos-hibridos/v1/perfils/{{setaEquipe}}
+	Headers:
+		Authorization: Bearer {{tokenFront}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+	Request Name: HTTP - CRIA BILHETE FRONT UNICO
+	Method: POST
+	URL: {{config.gateway}}/chat-assistente/atendimentos-hibridos/v1/bilhetes
+	Headers:
+		Authorization: Bearer {{tokenFront}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+{{payloadBilhetes}}
+
+Block: [DESATIVADO] Verifica Horario de Atendimento
+	Request Name: TOKEN API HORÁRIO
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: API - HORARIO
+	Method: GET
+	URL: {{config.urlCHT}}/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team={{fila}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: [AH.2.1.0] Api contato gerentes
+	Request Name: Process "bodyToken" using "POST"
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: Process  "bodyContatoGerente" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/gerentes?agencia={{contaSelecionada@agencia}}&conta={{contaSelecionada@conta}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Bot Name: BANCO SAFRA PF
+
+Block: [7] Agradecimento
+	Request Name: Nome Atendente
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{config.token}}
+	Body:
+{
+  "id": "{{newGuidId}}",
+  "to": "postmaster@blip.ai",
+  "method": "get",
+  "uri": "lime://{{config.blip}}/accounts/{{emailEncode}}"
+}
+
+Block: [3] Consulta CNPJ Recursos
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - CONSULTA CARTERIZACAO
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{cpf}}&codigoSegmento={{config.codigoSegmento}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+	Request Name: GET dados cliente
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-juridica/v1/contas?agencia={{carterizacao@agencia}}&conta={{numeroConta}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+Block: [4] Api horario atendimento
+	Request Name: TOKEN API HORÁRIO
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: API HORÁRIO
+	Method: GET
+	URL: {{config.urlCHT}}/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team={{filaHorarioAtendimento}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: Agendamento
+	Request Name: New Campaign
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{scheduleConfig@apiKey}}
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@activecampaign.msging.net",
+    "method": "set",
+    "uri": "/campaigns",
+    "type": "application/vnd.iris.activecampaign.campaign+json",
+    "resource": {
+        "name": "{{scheduleConfig@nomeCampanha}}-{{calendar.unixTime}}",
+        "campaignType": "Individual",
+        "masterState": "{{scheduleConfig@botId}}@msging.net",
+        "flowId": "{{scheduleConfig@flowId}}",
+        "stateId": "{{scheduleConfig@stateId}}",
+        "scheduled": "{{scheduleConfig@agendamento}}",
+        "notificationEmail": "{{scheduleConfig@email}}",
+        "notificationEmailLanguage": "pt-BR"
+    },
+    "metadata": {
+        "blip_portal.email": "{{scheduleConfig@email}}",
+        "server.shouldStore": "true"
+    }
+}
+
+	Request Name: New Audience
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{scheduleConfig@apiKey}}
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@activecampaign.msging.net",
+    "method": "set",
+    "uri": "/audiences/{{campaignId}}",
+    "type": "application/vnd.iris.activecampaign.audience+json",
+    "resource": {
+        "recipient": "{{scheduleConfig@telefone}}",
+        "recipientType": "phoneNumber",
+        "channelType": "whatsApp",
+        "messageParams": "{{scheduleConfig@vars}}"
+    },
+    "metadata": {
+        "blip_portal.email": "{{scheduleConfig@email}}",
+        "server.shouldStore": "true"
+    }
+}
+
+	Request Name: Schedule Message
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{scheduleConfig@apiKey}}
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@activecampaign.msging.net",
+    "method": "set",
+    "uri": "/messages/{{campaignId}}",
+    "type": "application/vnd.iris.activecampaign.message+json",
+    "resource": {
+        "messageTemplate": "{{scheduleConfig@template}}",
+        "messageTemplateLanguage": "pt_BR",
+        "messageParams": "{{scheduleConfig@varsList}}",
+        "channelType": "whatsApp"
+    },
+    "metadata": {
+        "blip_portal.email": "{{scheduleConfig@email}}",
+        "server.shouldStore": "true"
+    }
+}
+
+	Request Name: Dispatch Message
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{scheduleConfig@apiKey}}
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@activecampaign.msging.net",
+    "method": "set",
+    "uri": "/dispatch",
+    "type": "application/vnd.iris.activecampaign.campaign+json",
+    "resource": {
+        "id": "{{campaignId}}"
+    },
+    "metadata": {
+        "blip_portal.email": "{{scheduleConfig@email}}",
+        "server.shouldStore": "true"
+    }
+}
+
+Block: Cliente AG2
+	Request Name: GET DADOS CLIENTE
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-juridica/v1/clientes?tipoPessoa=F&cpfCnpj={{baseCpf}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Verifica carterização
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - CONSULTA LISTA CONTAS
+	Method: GET
+	URL: {{config.urlSafra}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/contas?baseDocumento={{baseCpf}}&tipoPessoa=PF
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Serviço Consulta de Telefone
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - CONSULTA TELEFONE
+	Method: GET
+	URL: https://api.safra.com.br/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/dados-cadastrais?tipoPessoa=F&ddd={{ddd}}&numeroCelular={{telefoneSemDDD}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Set Contact Extras
+	Request Name: Requisição HTTP - Set
+	Method: POST
+	URL: https://safra.http.msging.net/commands
+	Headers:
+		Content-Type: application/json
+		Authorization: Key c2FmcmFwcm9kZ2VyZGlncGY6cDBJVGdoZklOYmRndEUyc1RCZTQ=
+	Body:
+{
+   "id":"{{$guid}}",
+   "method":"set",
+   "uri":"/contacts",
+   "type":"application/vnd.lime.contact+json",
+   "resource":{
+      "identity":"{{tunnel.identity}}",
+      "name":"{{dados@nomeCliente}}",
+      "email":"{{email}}",
+      "city":"{{cidade}}",
+      "phoneNumber":"{{phoneNumber}}",
+      "extras":{
+         "cliente":"{{dados@nomeCliente}}",
+         "cpf":"{{cpf}}",
+         "conta":"{{numeroConta}}",
+         "agencia":"{{numeroAgencia}}",
+         "nome gerente":"{{nomeGerente}}",
+         "gerente":"{{selectTeam}}",
+         "team":"{{selectTeam}}",
+         "prospect nome":"{{prospectNome}}"
+      }
+   }
+}
+
+	Request Name: Requisição HTTP
+	Method: POST
+	URL: https://safra.http.msging.net/commands
+	Headers:
+		Authorization: Key cm91dGVyd2hhdHNhcHBkaWdpdGFsOloxblJra21TRko5eEh3RnZXVjZt
+		Content-Type: application/json
+	Body:
+{
+   "id":"{{$guid}}",
+   "method":"set",
+   "uri":"/contacts",
+   "type":"application/vnd.lime.contact+json",
+   "resource":{
+      "identity":"{{contact.identity}}",
+      "name":"{{dados@nomeCliente}}",
+      "email":"{{email}}",
+      "city":"{{cidade}}",
+      "phoneNumber":"{{phoneNumber}}",
+      "extras":{
+         "cliente":"{{dados@nomeCliente}}",
+         "cpf":"{{cpf}}",
+         "conta":"{{numeroConta}}",
+         "agencia":"{{numeroAgencia}}",
+         "nome gerente":"{{nomeGerente}}",
+         "gerente":"{{selectTeam}}",
+         "team":"{{selectTeam}}",
+         "prospect nome":"{{prospectNome}}"
+      }
+   }
+}
+
+Block: Consulta Segmento
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: CONSULTA Segmento
+	Method: GET
+	URL: {{config.urlSafra}}/chat-assistente/gerentes/v1/gerentes?agencia={{numeroAgencia}}&conta={{numeroConta}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+	Request Name: HTTP - CONSULTA SEG AG2
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contact.extras.cpf}}&codigoSegmento={{config.segmentoAG2}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+	Request Name: HTTP - CONSULTA SEG DIGITAL
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contact.extras.cpf}}&codigoSegmento={{config.codigoSegmento}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+	Request Name: HTTP - CONSULTA SEG ONE
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contact.extras.cpf}}&codigoSegmento={{config.codigoSegmentoOne}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+	Request Name: GET DADOS CLIENTE para 07100
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-juridica/v1/clientes?tipoPessoa=F&cpfCnpj={{baseCpf}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Bot Name: Broadcast
+
+Block: [BC.4.0.0] Atendimento humano
+	Request Name: Process "bodyToken" using "POST"
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: Process "bodyAccountManager" using "GET" PHONE
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/gerentes/v1/carteiras?dddCelular={{telephone@ddd}}&numeroCelular={{telephone@telephone}}&tipoPessoa=J
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+Block: [BC.4.2.0] Verifica carterização por CNPJ
+	Request Name: Process "bodyAccountManager" using "GET" - 20
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{userInput}}&codigoSegmento=0020
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+	Request Name: Process "bodyAccountManager" using "GET" - 17
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{userInput}}&codigoSegmento=0017
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+Block: [BC.0.0.0][HTTP] Reseta State ID
+	Request Name: DELETE "statusDeleteBody"
+	Method: DELETE
+	URL: https://flowassistant.cs.blip.ai/api-states
+	Headers:
+		Organization: safra
+		ContactIdentity: {{contact.identity}}
+		BotAuthorization: {{config.routerKey}}
+	Body:
+undefined
+
+	Request Name: DELETE "statusDeleteBodyBroad" Router Broadcast
+	Method: DELETE
+	URL: https://flowassistant.cs.blip.ai/api-states
+	Headers:
+		Organization: safra
+		ContactIdentity: {{contact.identity}}
+		BotAuthorization: {{config.routerKeyBroadcast}}
+	Body:
+undefined
+
+Block: [BC.9.0.2][HTTP] Api Consulta Status Protocolo
+	Request Name: HTTP GET "bodyConsultaProtocolo" (Consultar Protocolo)
+	Method: GET
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/protocolos/{{numeroProtocolo}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+	Request Name: HTTP GET "bodyConsultaOcorrenciaLista" (Consultar Ocorrencias Unico)
+	Method: GET
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/ocorrencias?idProtocolo={{numeroProtocolo}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: [BC.9.0.1][MSG][HTTP] Criar Token
+	Request Name: Process "bodyToken" using "POST"
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+Bot Name: Conta Corrente
+
+Block: [TC.8.0.0][HTTP] API Pacotes
+	Request Name: HTTP GET "bodyPacote"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/safra-pay/v1/pacotes?agencia={{contaSelecionada@agencia}}&conta={{contaSelecionada@conta}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+Block: [CC.11.1.1][HTTP] Consulta de extrato
+	Request Name: Process "extratoResponse" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/extratos?{{urlParams}}
+	Headers:
+		Safra-Correlation-ID: 1
+		Authorization: Bearer {{bodyToken@access_token}}
+	Body:
+undefined
+
+Bot Name: DIGEMP-NPS
+
+Block: [7] Agradecimento
+	Request Name: Nome Atendente
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{selectedToken}}
+	Body:
+{
+  "id": "{{random.guid}}",
+  "to": "postmaster@blip.ai",
+  "method": "get",
+  "uri": "lime://{{config.blip}}/accounts/{{emailEncode}}"
+}
+
+Block: Update contact
+	Request Name: Get contact
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Authorization: {{selectedToken}}
+		Content-Type: application/json
+	Body:
+{  
+  "id": "{{random.guid}}",
+  "method": "get",
+  "uri": "/contacts/{{tunnelIdentity}}"
+}
+
+	Request Name: Update contact
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Authorization: {{selectedToken}}
+		Content-Type: application/json
+	Body:
+{
+  "id": "{{random.guid}}",
+  "method": "set",
+  "uri": "/contacts",
+  "type": "application/vnd.lime.contact+json",
+  "resource": {
+    "name": "{{resourceContact@name}}",
+    "lastMessageDate": "{{resourceContact@lastMessageDate}}",
+    "identity": "{{tunnelIdentity}}",
+    "phoneNumber": "{{resourceContact@phoneNumber}}",
+    "extras": {
+      "broadcastOrigem": "{{extrasContact@broadcastOrigem}}",
+      "broadcastListId": "{{extrasContact@broadcastListId}}",
+      "var1": "{{extrasContact@var1}}",
+      "var2": "{{extrasContact@var2}}",
+      "var3": "{{extrasContact@var3}}",
+      "telefone": "{{extrasContact@telefone}}",
+      "cnpj": "{{extrasContact@cnpj}}",
+      "empresa": "{{extrasContact@empresa}}",
+      "gerente": "{{extrasContact@gerente}}",
+      "filial": "{{extrasContact@filial}}",
+      "team": "{{extrasContact@team}}",
+      "tunnel.owner": "safraproddigemprouter2@msging.net",
+      "NPS": "{{score}}",
+      "DataAvaliacao": "{{DataHoraAvaliacao}}",
+      "Ticket_Tag": "#{{sequentialId}}|{{ticketTags}}",
+      "SugestaoNPS": "{{SugestaoNPS}}"
+    }
+  }
+}
+
+Bot Name: GerenteEmp1
+
+Block: Início
+	Request Name: Process "responseTicketMonitor" using "POST" "Subscribe"
+	Method: POST
+	URL: {{config.ApiUrl}}/v1/Subscription/Subscribe
+	Headers:
+		X-Blip-User: {{tunnel.identity}}
+		X-Blip-Bot: {{config.botIdentity}}
+		X-Desk-Team: Default
+	Body:
+{
+    "firstName": "John",
+    "lastName": "Doe"
+}
+
+Block: Navegar NPS
+	Request Name: Process "responseTicketMonitor" using "POST" "Unsubscribe"
+	Method: POST
+	URL: {{config.ApiUrl}}/v1/Subscription/Unsubscribe
+	Headers:
+		X-Blip-User: {{tunnel.identity}}
+		X-Blip-Bot: {{config.botIdentity}}
+	Body:
+{
+    "firstName": "John",
+    "lastName": "Doe"
+}
+
+Bot Name: PF Consulta Protocolo
+
+Block: [CP.2.0.1] [HTTP] Api Consulta Status Protocolo
+	Request Name: HTTP GET "bodyConsultaProtocolo" (Consultar Protocolo)
+	Method: GET
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/protocolos/{{numeroProtocolo}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+	Request Name: HTTP GET "bodyConsultaOcorrenciaLista" (Consultar Ocorrencias Unico)
+	Method: GET
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/ocorrencias?idProtocolo={{numeroProtocolo}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: [CP.1.1.0] [HTTP] Consulta Ocorrencias
+	Request Name: HTTP GET "bodyConsultaProtocoloLista" (Consultar Protocolo Lista)
+	Method: GET
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/ocorrencias?documentoCliente={{contact.extras.cpf}}&{{intervaloDeDatas}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: [CP.2.2.6][MSG][HTTP]Protocolo fora do Prazo
+	Request Name: HTTP POST "bodyComentarioOcorrencia"
+	Method: POST
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/protocolos/{{ocorrenciaEncontrada@idProtocolo}}/ocorrencias/{{ocorrenciaEncontrada@id}}/historicos
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{idSessao}}
+	Body:
+{{requestComentarioOcorrencia}}
+
+Block: [CP.2.7.0] [HTTP] Consulta Ocorrencias (60 Dias)
+	Request Name: HTTP GET "bodyConsultaProtocoloLista" (Consultar Protocolo Lista)
+	Method: GET
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/ocorrencias?documentoCliente={{contact.extras.cpf}}&{{intervaloDeDatas}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: [CP.2.8.8.1][MSG][HTTP]Protocolo fora do Prazo
+	Request Name: HTTP POST "bodyComentarioOcorrencia"
+	Method: POST
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/protocolos/{{ocorrenciaEncontrada@idProtocolo}}/ocorrencias/{{ocorrenciaEncontrada@id}}/historicos
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{idSessao}}
+	Body:
+{{requestComentarioOcorrencia}}
+
+Bot Name: PF Institucional
+
+Block: [7] Agradecimento
+	Request Name: Nome Atendente
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{config.token}}
+	Body:
+{
+  "id": "{{newGuidId}}",
+  "to": "postmaster@blip.ai",
+  "method": "get",
+  "uri": "lime://{{config.blip}}/accounts/{{emailEncode}}"
+}
+
+Block: [3] Consulta CNPJ Recursos
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - CONSULTA CARTERIZACAO
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{cpf}}&codigoSegmento={{config.codigoSegmento}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+	Request Name: GET dados cliente
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-juridica/v1/contas?agencia={{carterizacao@agencia}}&conta={{numeroConta}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+Block: [4] Api horario atendimento
+	Request Name: TOKEN API HORÁRIO
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: API HORÁRIO
+	Method: GET
+	URL: {{config.urlCHT}}/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team={{filaHorarioAtendimento}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: Identifica celular do cliente
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - CONSULTA CARTERIZACAO
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contact.extras.cpf}}&codigoSegmento={{config.codigoSegmento}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+	Request Name: GET DADOS CLIENTE
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-juridica/v1/contas?agencia={{carterizacao@agencia}}&conta={{numeroConta}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+Block: Verifica carterização Inicio
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - CONSULTA LISTA CONTAS
+	Method: GET
+	URL: {{config.urlSafra}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/contas?baseDocumento={{baseCpf}}&tipoPessoa=PF
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: horario atendimento AG2 (0007)
+	Request Name: TOKEN API HORÁRIO
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: API HORÁRIO
+	Method: GET
+	URL: {{config.urlCHT}}/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team={{filaHorarioAtendimento}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Bot-ID: routerwhatsappdigital
+	Body:
+undefined
+
+Block: Verifica Fila estado agentes
+	Request Name: CHECK AGENTS AVAILABILITY
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{config.ag2Token}}
+	Body:
+{
+  "id": "{{random.guid}}",
+  "to": "postmaster@desk.msging.net",
+  "method": "get",
+  "uri": "/attendants?$take=10000"
+}
+            
+
+	Request Name: STATUS ATENDENTE ONLINE
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{config.ag2Token}}
+	Body:
+{
+  "id": "{{$guid}}",
+  "to": "postmaster@desk.msging.net",
+  "method": "get",
+  "uri": "/teams/agents-online"
+}
+
+	Request Name: CONSULTA AGENCIA LÓGICA
+	Method: GET
+	URL: {{config.urlSafra}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/dados-cadastrais?agencia={{numeroAgencia}}&conta={{numeroConta}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		routerwhatsappdigital: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Agendamento
+	Request Name: New Campaign
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{scheduleConfig@apiKey}}
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@activecampaign.msging.net",
+    "method": "set",
+    "uri": "/campaigns",
+    "type": "application/vnd.iris.activecampaign.campaign+json",
+    "resource": {
+        "name": "{{scheduleConfig@nomeCampanha}}-{{calendar.unixTime}}",
+        "campaignType": "Individual",
+        "masterState": "{{scheduleConfig@botId}}@msging.net",
+        "flowId": "{{scheduleConfig@flowId}}",
+        "stateId": "{{scheduleConfig@stateId}}",
+        "scheduled": "{{scheduleConfig@agendamento}}",
+        "notificationEmail": "{{scheduleConfig@email}}",
+        "notificationEmailLanguage": "pt-BR"
+    },
+    "metadata": {
+        "blip_portal.email": "{{scheduleConfig@email}}",
+        "server.shouldStore": "true"
+    }
+}
+
+	Request Name: New Audience
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{scheduleConfig@apiKey}}
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@activecampaign.msging.net",
+    "method": "set",
+    "uri": "/audiences/{{campaignId}}",
+    "type": "application/vnd.iris.activecampaign.audience+json",
+    "resource": {
+        "recipient": "{{scheduleConfig@telefone}}",
+        "recipientType": "phoneNumber",
+        "channelType": "whatsApp",
+        "messageParams": "{{scheduleConfig@vars}}"
+    },
+    "metadata": {
+        "blip_portal.email": "{{scheduleConfig@email}}",
+        "server.shouldStore": "true"
+    }
+}
+
+	Request Name: Schedule Message
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{scheduleConfig@apiKey}}
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@activecampaign.msging.net",
+    "method": "set",
+    "uri": "/messages/{{campaignId}}",
+    "type": "application/vnd.iris.activecampaign.message+json",
+    "resource": {
+        "messageTemplate": "{{scheduleConfig@template}}",
+        "messageTemplateLanguage": "pt_BR",
+        "messageParams": "{{scheduleConfig@varsList}}",
+        "channelType": "whatsApp"
+    },
+    "metadata": {
+        "blip_portal.email": "{{scheduleConfig@email}}",
+        "server.shouldStore": "true"
+    }
+}
+
+	Request Name: Dispatch Message
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{scheduleConfig@apiKey}}
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@activecampaign.msging.net",
+    "method": "set",
+    "uri": "/dispatch",
+    "type": "application/vnd.iris.activecampaign.campaign+json",
+    "resource": {
+        "id": "{{campaignId}}"
+    },
+    "metadata": {
+        "blip_portal.email": "{{scheduleConfig@email}}",
+        "server.shouldStore": "true"
+    }
+}
+
+Block: Cliente AG2
+	Request Name: GET DADOS CLIENTE
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-juridica/v1/clientes?tipoPessoa=F&cpfCnpj={{baseCpf}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Cliente Digital
+	Request Name: GET DADOS CLIENTE
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-juridica/v1/clientes?tipoPessoa=F&cpfCnpj={{baseCpf}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Cliente One
+	Request Name: GET DADOS CLIENTE
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-juridica/v1/clientes?tipoPessoa=F&cpfCnpj={{baseCpf}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Verifica carterização
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - CONSULTA LISTA CONTAS
+	Method: GET
+	URL: {{config.urlSafra}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/contas?baseDocumento={{baseCpf}}&tipoPessoa=PF
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Consulta Documento pelo Celular
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - CONSULTA TELEFONE
+	Method: GET
+	URL: https://api.safra.com.br/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/dados-cadastrais?tipoPessoa=F&ddd={{ddd}}&numeroCelular={{telefoneSemDDD}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Set Contact Extras
+	Request Name: Requisição HTTP - Set
+	Method: POST
+	URL: https://safra.http.msging.net/commands
+	Headers:
+		Content-Type: application/json
+		Authorization: Key c2FmcmFwcm9kZ2VyZGlncGY6cDBJVGdoZklOYmRndEUyc1RCZTQ=
+	Body:
+{
+   "id":"{{$guid}}",
+   "method":"set",
+   "uri":"/contacts",
+   "type":"application/vnd.lime.contact+json",
+   "resource":{
+      "identity":"{{tunnel.identity}}",
+      "name":"{{dados@nomeCliente}}",
+      "email":"{{email}}",
+      "city":"{{cidade}}",
+      "phoneNumber":"{{phoneNumber}}",
+      "extras":{
+         "cliente":"{{dados@nomeCliente}}",
+         "cpf":"{{cpf}}",
+         "conta":"{{numeroConta}}",
+         "agencia":"{{numeroAgencia}}",
+         "nome gerente":"{{nomeGerente}}",
+         "gerente":"{{selectTeam}}",
+         "team":"{{selectTeam}}",
+         "prospect nome":"{{prospectNome}}"
+      }
+   }
+}
+
+	Request Name: Requisição HTTP
+	Method: POST
+	URL: https://safra.http.msging.net/commands
+	Headers:
+		Authorization: Key cm91dGVyd2hhdHNhcHBkaWdpdGFsOloxblJra21TRko5eEh3RnZXVjZt
+		Content-Type: application/json
+	Body:
+{
+   "id":"{{$guid}}",
+   "method":"set",
+   "uri":"/contacts",
+   "type":"application/vnd.lime.contact+json",
+   "resource":{
+      "identity":"{{contact.identity}}",
+      "name":"{{dados@nomeCliente}}",
+      "email":"{{email}}",
+      "city":"{{cidade}}",
+      "phoneNumber":"{{phoneNumber}}",
+      "extras":{
+         "cliente":"{{dados@nomeCliente}}",
+         "cpf":"{{cpf}}",
+         "conta":"{{numeroConta}}",
+         "agencia":"{{numeroAgencia}}",
+         "nome gerente":"{{nomeGerente}}",
+         "gerente":"{{selectTeam}}",
+         "team":"{{selectTeam}}",
+         "prospect nome":"{{prospectNome}}"
+      }
+   }
+}
+
+Block: [5] Regra pré transbordo
+	Request Name: CHECK AGENTS Digital AVAILABILITY
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{config.digitalToken}}
+	Body:
+{
+  "id": "{{random.guid}}",
+  "to": "postmaster@desk.msging.net",
+  "method": "get",
+  "uri": "/attendants?$take=10000"
+}
+
+	Request Name: CHECK AGENTS SafraOne AVAILABILITY
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{config.safraOneToken}}
+	Body:
+{
+  "id": "{{random.guid}}",
+  "to": "postmaster@desk.msging.net",
+  "method": "get",
+  "uri": "/attendants?$take=10000"
+}
+            
+
+Block: Robô Advisor
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - ROBÔ ADVISOR
+	Method: GET
+	URL: https://api.safra.com.br/operacoes-execucoes/gerenciamento-investimentos/analises-carteiras-investimentos/assistente-virtual/v1/recomendacoes-robo/{{contact.extras.additionalProp2}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: routerwhatsappdigital
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+Block: Consulta Segmento
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: CONSULTA Segmento
+	Method: GET
+	URL: {{config.urlSafra}}/chat-assistente/gerentes/v1/gerentes?agencia={{numeroAgencia}}&conta={{numeroConta}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+	Request Name: HTTP - CONSULTA SEG AG2
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contact.extras.cpf}}&codigoSegmento={{config.segmentoAG2}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+	Request Name: HTTP - CONSULTA SEG DIGITAL
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contact.extras.cpf}}&codigoSegmento={{config.codigoSegmento}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+	Request Name: HTTP - CONSULTA SEG ONE
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contact.extras.cpf}}&codigoSegmento={{config.codigoSegmentoOne}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+	Request Name: GET DADOS CLIENTE para 07100
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-juridica/v1/clientes?tipoPessoa=F&cpfCnpj={{baseCpf}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Remarketing Fim Fluxo
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - REMARKETING
+	Method: GET
+	URL: https://api.safra.com.br/vendas-servicos/vendas/prospeccoes-clientes/assistente-virtual/v1/prospectos?telefone={{cpfRemaketing}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: safraprodgerdigpf
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: Verifica - Ação Remarketing
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - REMARKETING
+	Method: GET
+	URL: https://api.safra.com.br/vendas-servicos/vendas/prospeccoes-clientes/assistente-virtual/v1/prospectos?telefone={{phoneNumber}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: safraprodgerdigpf
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Bot Name: PFCascata
+
+Block: Verifica SmallTalks
+	Request Name: Process "bodySmallTlaks" using "GET"
+	Method: GET
+	URL: https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3
+	Headers:
+	Body:
+undefined
+
+Block: Gera novo token
+	Request Name: Process "bodyToken" using "POST"
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+Bot Name: PFException
+
+Bot Name: PFExtrato
+
+Block: [E.4.1.0][HTTP] Consulta extrato
+	Request Name: Process "bodyToken" using "POST"
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: Process "extratoResponse" using "GET"
+	Method: GET
+	URL: {{config.baseURL}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/extratos?{{urlParams}}
+	Headers:
+		Safra-Correlation-ID: 1
+		Authorization: Bearer {{bodyToken@access_token}}
+	Body:
+undefined
+
+Block: [E.5.1.0][MSG] Ajudo com algo mais?
+	Request Name: Process "bodySmallTlaks" using "GET"
+	Method: GET
+	URL: https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3
+	Headers:
+	Body:
+undefined
+
+Block: [E.0.0.0][HTTP] Autenticação
+	Request Name: Process "bodyToken" using "POST"
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: Process "authResponse" using "GET"
+	Method: POST
+	URL: {{config.baseURL}}/vendas-servicos/multicanal/autorizacoes-transacoes/assistente-virtual/v1/transacoes
+	Headers:
+		Safra-Aplicacao: CHT
+		Authorization: Bearer {{bodyToken@access_token}}
+		Safra-Correlation-ID: {{random.guid}}
+		Content-Type: application/json
+	Body:
+{{bodyAuth}}
+
+Block: [E.0.0.1][INPUT] Aguarda atualização de telefone
+	Request Name: Process "bodyToken" using "POST"
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: Process "authResponse" using "GET"
+	Method: POST
+	URL: {{config.baseURL}}/vendas-servicos/multicanal/autorizacoes-transacoes/assistente-virtual/v1/transacoes
+	Headers:
+		Safra-Aplicacao: CHT
+		Authorization: Bearer {{bodyToken@access_token}}
+		Safra-Correlation-ID: {{random.guid}}
+		Content-Type: application/json
+	Body:
+{{bodyAuth}}
+
+Bot Name: Seguros
+
+Bot Name: SPD Autenticacao
+
+Block: [A.0.0.0] Verifica tipo de autenticação
+	Request Name: Process "bodyMFA" using "POST"
+	Method: POST
+	URL: {{config.urlCHT}}/vendas-servicos/multicanal/autorizacoes-transacoes/assistente-virtual/v1/transacoes
+	Headers:
+		Safra-Aplicacao: CHT
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+{{requestBodyMFA}}
+
+Block: [A.1.2.0] Valida respostas do KBA
+	Request Name: Process "bodyKbaValidar" using "POST"
+	Method: POST
+	URL: {{config.urlCHT}}/vendas-servicos/multicanal/autorizacoes-transacoes/assistente-virtual/v1/kba/validar
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Aplicacao: CHT
+	Body:
+{{requestBodyValidacaoKBA}}
+
+Block: [A.3.0.0] Autenticação via BigId
+	Request Name: Process "bodyTokenBigID" using "POST"
+	Method: POST
+	URL: https://accesstoken.bigdatacorp.com.br/Generate
+	Headers:
+	Body:
+{
+    "login": "SAFRABIGIDAPI_BANKING",
+    "password": "zvasdp3t",
+    "expires": 8750
+}
+
+	Request Name: Process "bodyQuestion" using "POST"
+	Method: POST
+	URL: https://bigid.bigdatacorp.com.br/Questions
+	Headers:
+		Authorization: Bearer {{bodyTokenBigID@token}}
+	Body:
+{
+    "Group": "WHATS_PJ",
+    "Parameters": [
+        "CPF={{contact.extras.cpf}}"
+    ]
+}
+
+Block: [A.3.3.0] Valida respostas BigID
+	Request Name: Process "bigIdValidationBody"
+	Method: POST
+	URL: https://app.bigdatacorp.com.br/bigid/kba/respostas
+	Headers:
+		Authorization: Bearer {{bodyTokenBigID@token}}
+	Body:
+{{validationBody}}
+
+Bot Name: SPD Cascata
+
+Block: Verifica SmallTalks
+	Request Name: Process "bodySmallTlaks" using "GET"
+	Method: GET
+	URL: https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3
+	Headers:
+	Body:
+undefined
+
+Block: Gera novo token
+	Request Name: Process "bodyToken" using "POST"
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+Bot Name: SPD Exception
+
+Bot Name: SPD Finalizacao
+
+Bot Name: SPD Intencoes
+
+Bot Name: SPD Main
+
+Block: [M.1.0.0][MSG][HTTP] Boas vindas
+	Request Name: Process "bodyToken" using "POST"
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+Block: [M.3.0.0][MSG][HTTP] Verifica contas
+	Request Name: Process "bodyContas" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/usuarios/{{contact.extras.cpf}}/shortnames?expand=contas
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: [M.4.0.0][MSG][HTTP] Obtem EC
+	Request Name: Process "bodyDadosConta" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/contas-pessoa-juridica/v1/contas?agencia={{contaSelecionada@agencia}}&conta={{contaSelecionada@conta}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Bot-ID: {{application.identifier}}
+	Body:
+undefined
+
+	Request Name: Process "bodyUsuarios" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/shortnames/{{contaSelecionada@shortname}}/usuarios
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: {{application.identifier}}
+	Body:
+undefined
+
+	Request Name: Process "bodyEC" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/safra-pay/v1/estabelecimentos?cpfCnpj={{contaSelecionada@doc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Bot-ID: {{application.identifier}}
+	Body:
+undefined
+
+Block: [M.4.0.1][HTTP] Obtem Carterização
+	Request Name: Process "bodyAccountManager" using "GET" AG/CONTA
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/gerentes/v1/gerentes?agencia={{contaSelecionada@agencia}}&conta={{contaSelecionada@conta}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Bot-ID: {{config.serviceName}}
+	Body:
+undefined
+
+	Request Name: Process "bodyAccountManager" using "GET" Segmento 20
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contaSelecionada@doc}}&codigoSegmento=0020
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+	Request Name: Process "bodyAccountManager" using "GET" Segmento 17
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contaSelecionada@doc}}&codigoSegmento=0017
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+	Request Name: Process "bodyAccountManager" using "GET" PHONE
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/gerentes/v1/carteiras?dddCelular={{telephone@ddd}}&numeroCelular={{telephone@telephone}}&tipoPessoa=J
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+Block: [M.4.0.2][HTTP] Obtem CpfAppKey
+	Request Name: Process "bodyAppKey" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/vendas-servicos/clientes/autorizacoes-acessos-clientes/assistente-virtual/v1/chaves?documento={{contact.extras.cpf}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Aplicacao: SPD
+	Body:
+undefined
+
+Block: [M.3.1.2][HTTP] Obtem Permissionamento
+	Request Name: Process "bodyPermissoes" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/usuarios/{{contaSelecionada@usuario}}/shortnames/{{contaSelecionada@shortname}}/permissoes
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Aplicacao: IPJ
+	Body:
+undefined
+
+Block: [M.2.0.3][HTTP] Verifica PF
+	Request Name: Process "estabelecimentoPfResponse" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/safra-pay/v1/estabelecimentos?cpfCnpj={{contact.extras.cpf}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: [M.5.5.0][HTTP] Verifica carta serasa
+	Request Name: Process "cartaSerasaResponse" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/serasa/documentos?tipoPessoa={{contaSelecionada@tipoPessoaCode}}&baseDocumento={{contaSelecionada@baseDocumento}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Aplicacao: IPJ
+		Safra-Correlation-ID: {{idSessao}}
+	Body:
+undefined
+
+Block: [Redirect] to WhatsApp PJ (Caca_POS)
+	Request Name: Process "possuiMovimentacaoResponse" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/movimentacoes/verificar?codigoEC={{contaSelecionada@ec}}&qtdDiasApuracao=40
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: {{application.identifier}}
+	Body:
+undefined
+
+Bot Name: SPD Maquina Safrapay
+
+Block: [MS.2.1.3] [HTTP] API Simular Vendas
+	Request Name: HTTP POST "bodySimulacao"
+	Method: POST
+	URL: {{config.urlCHT}}/safrapay/vendas-servicos/vendas/planejamentos-vendas/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}/vendas/simular
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: {{application.identifier}}
+	Body:
+{
+  "valorVenda": "{{salesValue}}",
+  "tipoSimulacao": "{{salesOrder}}",
+  "modalidade": "{{salesType}}",
+  "tipoPagamento": "{{salesPaymentType}}"
+}
+
+Block: [MS.7.3.0][HTTP] API Protocolo
+	Request Name: HTTP POST "bodyProtocoloBpm" (Cria Protocolo no Front)
+	Method: POST
+	URL: {{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+{{payloadProtocolo}}
+
+	Request Name: HTTP POST "bodyOcorrencia" (Cria nova ocorrencia)
+	Method: POST
+	URL: {{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{idProtocoloBpm}}/ocorrencias
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+{{payloadOcorrencia}}
+
+	Request Name: HTTP GET "bodyConsultaProtocolo" (Consultar Protocolo)
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{idProtocoloBpm}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+	Body:
+undefined
+
+Block: [Redirect] to WhatsApp PJ (Caca_POS)
+	Request Name: Process "possuiMovimentacaoResponse" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/movimentacoes/verificar?codigoEC={{contaSelecionada@ec}}&qtdDiasApuracao=40
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: {{application.identifier}}
+	Body:
+undefined
+
+Bot Name: SPD Navegacao App EMP
+
+Bot Name: SPD Ordem de Servico
+
+Block: [OS.2.0.0] Consultar Ordens de Serviço
+	Request Name: Process "bodyOrdernsDeServicos" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/vendas-servicos/vendas/tracking-credenciadoras/v1/ordens-servicos?documento={{contaSelecionada@doc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+Block: [OS.2.4.0] Consulta OS pelo número
+	Request Name: Process "bodyOrdernsDeServicos" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/vendas-servicos/vendas/tracking-credenciadoras/v1/ordens-servicos/{{userInput}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+Bot Name: SPD Solucoes
+
+Block: [S.2.0.1] [HTTP] Api Consulta Status Protocolo
+	Request Name: HTTP GET "bodyConsultaProtocolo" (Consultar Protocolo)
+	Method: GET
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/protocolos/{{numeroProtocolo}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+	Request Name: HTTP GET "bodyConsultaOcorrenciaLista" (Consultar Ocorrencias Unico)
+	Method: GET
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/ocorrencias?idProtocolo={{numeroProtocolo}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: [S.2.1.0] [HTTP] Consulta Ocorrencias
+	Request Name: HTTP GET "bodyConsultaProtocoloLista" (Consultar Protocolo Lista)
+	Method: GET
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/ocorrencias?documentoCliente={{contaSelecionada@doc}}&{{intervaloDeDatas}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: [S.2.2.6][MSG][HTTP]Protocolo fora do Prazo
+	Request Name: HTTP POST "bodyComentarioOcorrencia"
+	Method: POST
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/protocolos/{{ocorrenciaEncontrada@idProtocolo}}/ocorrencias/{{ocorrenciaEncontrada@id}}/historicos
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{idSessao}}
+	Body:
+{{requestComentarioOcorrencia}}
+
+Block: [S.2.7.0] [HTTP] Consulta Ocorrencias (60 Dias)
+	Request Name: HTTP GET "bodyConsultaProtocoloLista" (Consultar Protocolo Lista)
+	Method: GET
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/ocorrencias?documentoCliente={{contaSelecionada@doc}}&{{intervaloDeDatas}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: [S.2.8.8.1][MSG][HTTP]Protocolo fora do Prazo
+	Request Name: HTTP POST "bodyComentarioOcorrencia"
+	Method: POST
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/protocolos/{{ocorrenciaEncontrada@idProtocolo}}/ocorrencias/{{ocorrenciaEncontrada@id}}/historicos
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{idSessao}}
+	Body:
+{{requestComentarioOcorrencia}}
+
+Bot Name: SPD Taxas e Condicoes
+
+Block: [TC.3.0.0][HTTP] API Taxas de Antecipação
+	Request Name: HTTP GET "taxaBody"
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/antecipacoes-recebiveis/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}?view=taxas-antecipacao
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+	Request Name: HTTP GET "taxaVendasBody"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: [TC.4.5.0][HTTP][SET] Alugada
+	Request Name: HTTP GET "bodyAlugueis" (alugueis)
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/alugueis?tipoFiltro=EC&valorFiltro={{selectedEc@codigoEc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+	Request Name: HTTP GET "bodyApolice" (apolices)
+	Method: GET
+	URL: {{config.urlCHT}}/vendas-servicos/vendas/seguros/assistente-virtual/v1/clientes/{{contaSelecionada@doc}}/apolices?codigoProduto=7105
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+	Request Name: HTTP GET "bodyFaturamentoAnual" (Faturamento Anual)
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/faturamentos?codigoEstabelecimentoComercial={{selectedEc@codigoEc}}&view=Anual
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+	Request Name: HTTP GET "bodyFaturamentoMensal" (Faturamento Mensal)
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/faturamentos?codigoEstabelecimentoComercial={{selectedEc@codigoEc}}&view=Mensal
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+Block: [TC.2.0.0][HTTP] API Taxas de Venda
+	Request Name: HTTP GET "taxaVendasBody"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: [TC.2.2.0][HTTP] API Taxas de Antecipação
+	Request Name: HTTP GET "taxaBody" (taxa)
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/antecipacoes-recebiveis/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}?view=taxas-antecipacao
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+	Request Name: HTTP GET "taxaVendasBody"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: [TC.5.0.0][HTTP] API Taxas Pix na SafraPay
+	Request Name: HTTP GET "taxaBody"
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/antecipacoes-recebiveis/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}?view=taxas-antecipacao
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+	Request Name: HTTP GET "taxaVendasBody"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: [TC.7.4.0][HTTP] API Protocolo
+	Request Name: HTTP POST "bodyProtocoloBpm" (Cria Protocolo no Front)
+	Method: POST
+	URL: {{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+{{payloadProtocolo}}
+
+	Request Name: HTTP POST "bodyOcorrencia" (Cria nova ocorrencia)
+	Method: POST
+	URL: {{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{idProtocoloBpm}}/ocorrencias
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+{{payloadOcorrencia}}
+
+Block: [TC.6.0.0][HTTP] API Domicilio bancario
+	Request Name: HTTP GET "bodyDomicilio"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/safra-pay/v1/domicilios?idEstabelecimento={{selectedEc@codigoEc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+	Request Name: HTTP GET "bodyGeraldomicilio"
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/vendas-servicos/vendas/prospeccoes-clientes/assistente-virtual/v1/domicilios-bancarios
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+Block: [TC.4.0.0][HTTP] API Consultar Máquinas [Duplicate]
+	Request Name: HTTP GET "consultMaquina" (Terminais)
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/terminais?codigoEstabelecimentoComercial={{selectedEc@codigoEc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+Bot Name: WhatsappPJ
+
+Block: Cliente digitou sair em qualquer ponto da jornada
+	Request Name: UNSUBSCRIBE - INATIVIDADE
+	Method: POST
+	URL: {{config.urlTake}}/v1/Subscription/Unsubscribe
+	Headers:
+		X-Blip-User: {{contact.identity}}
+		X-Blip-Bot: {{config.botIdentity}}
+	Body:
+{
+    "firstName": "John",
+    "lastName": "Doe"
+}
+
+	Request Name: HTTP - OBTEM TICKET
+	Method: POST
+	URL: https://safra.http.msging.net/commands
+	Headers:
+		Authorization: {{config.apiKey}}
+		Content-Type: application/json
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@desk.msging.net",
+    "method": "get",
+    "uri": "/tickets?$filter=customerIdentity%20eq%20'{{encodedIdentity}}'%20and%20(status%20eq%20'Open'%20or%20status%20eq%20'Waiting')&$take=3"
+}
+
+	Request Name: HTTP - FECHAMENTO DO TICKET
+	Method: POST
+	URL: https://safra.http.msging.net/commands
+	Headers:
+		Authorization: {{config.apiKey}}
+		Content-Type: application/json
+	Body:
+{
+  "id": "{{random.guid}}",
+  "to": "postmaster@desk.msging.net",
+  "method": "set",
+  "uri": "/tickets/change-status",
+  "type": "application/vnd.iris.ticket+json",
+  "resource": {
+  	"id": "{{ticket}}",
+  	"status": "ClosedAttendant",
+    "tags": ["Abandonado"]
+  }
+}
+
+Block: Verifica Horario de Atendimento
+	Request Name: TOKEN API HORÁRIO
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: API - HORARIO
+	Method: GET
+	URL: {{config.urlCHT}}/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team={{fila}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: Finalização de Atendimento
+	Request Name: HTTP - UNSUBSCRIBE INATIVIDADE
+	Method: POST
+	URL: {{config.urlTake}}/v1/Subscription/Unsubscribe
+	Headers:
+		X-Blip-User: {{tunnel.identity}}
+		X-Blip-Bot: {{config.botIdentity}}
+	Body:
+{
+    "firstName": "John",
+    "lastName": "Doe"
+}
+
+	Request Name: http - pegar ticket
+	Method: POST
+	URL: https://safra.http.msging.net/commands
+	Headers:
+		Authorization: {{config.apiKey}}
+		Content-Type: application/json
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@desk.msging.net",
+    "method": "get",
+    "uri": "/tickets?$filter=customerIdentity%20eq%20'{{encodedIdentity}}'%20and%20(status%20eq%20'Open'%20or%20status%20eq%20'ClosedAttendant')&$take=3"
+}
+
+	Request Name: HTTP - GET TOKEN
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP SOLICITA FILA PERFIL HIBRIDO
+	Method: GET
+	URL: {{config.gateway}}/chat-assistente/atendimentos-hibridos/v1/perfils/{{setaEquipe}}
+	Headers:
+		Authorization: Bearer {{tokenFront}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+Block: Protocolo
+	Request Name: http - Token Protocolo
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: http - Cria Protocolo no Front
+	Method: POST
+	URL: {{config.urlCHT}}protocolos/v1/protocolos
+	Headers:
+		Authorization: Bearer {{tokenProtocoloBpm}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+{{payloadProtocolo}}
+
+	Request Name: cria nova ocorrencia
+	Method: POST
+	URL: {{config.urlCHT}}protocolos/v1/protocolos/{{idProtocoloBpm}}/ocorrencias
+	Headers:
+		Authorization: Bearer {{tokenProtocoloBpm}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+{{payloadOcorrencia}}
+
+Block: Pré Transbordo Contingência
+	Request Name: HTTP - SUBSCRIBE INATIVIDADE
+	Method: POST
+	URL: {{config.urlTake}}/v1/Subscription/Subscribe
+	Headers:
+		X-Blip-User: {{tunnel.identity}}
+		X-Blip-Bot: {{config.botIdentity}}
+		X-Desk-Team: {{compactaEquipe}}
+	Body:
+{
+    "firstName": "John",
+    "lastName": "Doe"
+}
+
+	Request Name: CHECK AGENTS AVAILABILITY
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{config.botKey}}
+	Body:
+{
+  "id": "{{random.guid}}",
+  "to": "postmaster@desk.msging.net",
+  "method": "get",
+  "uri": "/attendants?$take=10000"
+}
+            
+
+	Request Name: Requisição HTTP
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Authorization: {{config.botKey}}
+		Content-Type: application/json
+	Body:
+{
+    "id": "{{random.guid}}",
+    "method": "get",
+    "uri": "/resources/{{contact.extras.ec}}"
+}
+
+Block: Perfil Hibrido
+	Request Name: HTTP - GET TOKEN
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP SOLICITA FILA PERFIL HIBRIDO
+	Method: GET
+	URL: {{config.gateway}}/chat-assistente/atendimentos-hibridos/v1/perfils/{{setaEquipe}}
+	Headers:
+		Authorization: Bearer {{tokenFront}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+	Request Name: HTTP - CRIA BILHETE FRONT UNICO
+	Method: POST
+	URL: {{config.gateway}}/chat-assistente/atendimentos-hibridos/v1/bilhetes
+	Headers:
+		Authorization: Bearer {{tokenFront}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+{{payloadBilhetes}}
+
+Block: Finalização de Atendimento 2
+	Request Name: Busca Nome Atendente
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{config.apiKey}}
+	Body:
+{
+    "id": "{{newGuidId}}",
+    "to": "postmaster@blip.ai",
+    "method": "get",
+    "uri": "lime://{{config.blip}}/accounts/{{encodedAgentEmail}}"
+}
+
+            
+
+Block: Consulta Status Protocolo
+	Request Name: cria token
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: consulta protocolo
+	Method: GET
+	URL: {{config.urlCHT}}/protocolos/v1/protocolos/{{numeroProtocolo}}
+	Headers:
+		Authorization: Bearer {{tokenProtocoloBpm}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+Block: Cancelamento de OS
+	Request Name: Gerar token
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: Cancelar OS
+	Method: POST
+	URL: {{config.urlCHT}}vendas-servicos/vendas/tracking-credenciadoras/v1/ordens-servicos/{{contact.extras.numeroPedido}}/cancelar
+	Headers:
+		Authorization: Bearer {{tokenCHT}}
+		Safra-Correlation-ID: {{random.guid}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Aplicacao: BLIP
+	Body:
+{
+    "motivo": "81",
+    "descricao": "CANCELAMENTO HYPO"
+}
+
+Block: Bom dia Safrapay
+	Request Name: Gera Token
+	Method: POST
+	URL: {{urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+	Body:
+{{encodingUrl}}
+
+	Request Name: Gerar AppKey
+	Method: GET
+	URL: {{config.urlCHTNova}}/vendas-servicos/clientes/autorizacoes-acessos-clientes/assistente-virtual/v1/chaves?documento={{cpfAppKey}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Aplicacao: SPD
+	Body:
+undefined
+
+Block: Cliente abandonou atendimento
+	Request Name: UNSUBSCRIBE - INATIVIDADE
+	Method: POST
+	URL: {{config.urlTake}}/v1/Subscription/Unsubscribe
+	Headers:
+		X-Blip-User: {{tunnel.identity}}
+		X-Blip-Bot: {{config.botIdentity}}
+	Body:
+{
+    "firstName": "John",
+    "lastName": "Doe"
+}
+
+	Request Name: HTTP - OBTEM TICKET
+	Method: POST
+	URL: https://safra.http.msging.net/commands
+	Headers:
+		Authorization: {{config.apiKey}}
+		Content-Type: application/json
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@desk.msging.net",
+    "method": "get",
+    "uri": "/tickets?$filter=customerIdentity%20eq%20'{{encodedIdentity}}'%20and%20(status%20eq%20'Open'%20or%20status%20eq%20'Waiting')&$take=3"
+}
+
+	Request Name: HTTP - FECHAMENTO DO TICKET
+	Method: POST
+	URL: https://safra.http.msging.net/commands
+	Headers:
+		Authorization: {{config.apiKey}}
+		Content-Type: application/json
+	Body:
+{
+  "id": "{{random.guid}}",
+  "to": "postmaster@desk.msging.net",
+  "method": "set",
+  "uri": "/tickets/change-status",
+  "type": "application/vnd.iris.ticket+json",
+  "resource": {
+  	"id": "{{ticket}}",
+  	"status": "ClosedAttendant",
+    "tags": ["Abandonado"]
+  }
+}
+

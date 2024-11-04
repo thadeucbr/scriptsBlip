@@ -1,0 +1,1269 @@
+{
+  "info": {
+    "name": "PF Institucional",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "[7] Agradecimento",
+      "item": [
+        {
+          "name": "Nome Atendente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{config.token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"{{newGuidId}}\",\n  \"to\": \"postmaster@blip.ai\",\n  \"method\": \"get\",\n  \"uri\": \"lime://{{config.blip}}/accounts/{{emailEncode}}\"\n}"
+            },
+            "url": "{{config.commands}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[3] Consulta CNPJ Recursos",
+      "item": [
+        {
+          "name": "HTTP - TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "https://sts-api.safra.com.br/api/oauth/token"
+          }
+        },
+        {
+          "name": "HTTP - CONSULTA CARTERIZACAO",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "safraprodgerdigpf"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{cpf}}&codigoSegmento={{config.codigoSegmento}}"
+          }
+        },
+        {
+          "name": "GET dados cliente",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/contas-pessoa-juridica/v1/contas?agencia={{carterizacao@agencia}}&conta={{numeroConta}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[4] Api horario atendimento",
+      "item": [
+        {
+          "name": "TOKEN API HORÁRIO",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "https://sts-api.safra.com.br/api/oauth/token"
+          }
+        },
+        {
+          "name": "API HORÁRIO",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team={{filaHorarioAtendimento}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Identifica celular do cliente",
+      "item": [
+        {
+          "name": "HTTP - TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "https://sts-api.safra.com.br/api/oauth/token"
+          }
+        },
+        {
+          "name": "HTTP - CONSULTA CARTERIZACAO",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contact.extras.cpf}}&codigoSegmento={{config.codigoSegmento}}"
+          }
+        },
+        {
+          "name": "GET DADOS CLIENTE",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/contas-pessoa-juridica/v1/contas?agencia={{carterizacao@agencia}}&conta={{numeroConta}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Verifica carterização Inicio",
+      "item": [
+        {
+          "name": "HTTP - TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "https://sts-api.safra.com.br/api/oauth/token"
+          }
+        },
+        {
+          "name": "HTTP - CONSULTA LISTA CONTAS",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "safraprodgerdigpf"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlSafra}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/contas?baseDocumento={{baseCpf}}&tipoPessoa=PF"
+          }
+        }
+      ]
+    },
+    {
+      "name": "horario atendimento AG2 (0007)",
+      "item": [
+        {
+          "name": "TOKEN API HORÁRIO",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "https://sts-api.safra.com.br/api/oauth/token"
+          }
+        },
+        {
+          "name": "API HORÁRIO",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "routerwhatsappdigital"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team={{filaHorarioAtendimento}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Verifica Fila estado agentes",
+      "item": [
+        {
+          "name": "CHECK AGENTS AVAILABILITY",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{config.ag2Token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"{{random.guid}}\",\n  \"to\": \"postmaster@desk.msging.net\",\n  \"method\": \"get\",\n  \"uri\": \"/attendants?$take=10000\"\n}\n            "
+            },
+            "url": "{{config.commands}}"
+          }
+        },
+        {
+          "name": "STATUS ATENDENTE ONLINE",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{config.ag2Token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"{{$guid}}\",\n  \"to\": \"postmaster@desk.msging.net\",\n  \"method\": \"get\",\n  \"uri\": \"/teams/agents-online\"\n}"
+            },
+            "url": "{{config.commands}}"
+          }
+        },
+        {
+          "name": "CONSULTA AGENCIA LÓGICA",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "routerwhatsappdigital",
+                "value": "safraprodgerdigpf"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlSafra}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/dados-cadastrais?agencia={{numeroAgencia}}&conta={{numeroConta}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Agendamento",
+      "item": [
+        {
+          "name": "New Campaign",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{scheduleConfig@apiKey}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"{{random.guid}}\",\n    \"to\": \"postmaster@activecampaign.msging.net\",\n    \"method\": \"set\",\n    \"uri\": \"/campaigns\",\n    \"type\": \"application/vnd.iris.activecampaign.campaign+json\",\n    \"resource\": {\n        \"name\": \"{{scheduleConfig@nomeCampanha}}-{{calendar.unixTime}}\",\n        \"campaignType\": \"Individual\",\n        \"masterState\": \"{{scheduleConfig@botId}}@msging.net\",\n        \"flowId\": \"{{scheduleConfig@flowId}}\",\n        \"stateId\": \"{{scheduleConfig@stateId}}\",\n        \"scheduled\": \"{{scheduleConfig@agendamento}}\",\n        \"notificationEmail\": \"{{scheduleConfig@email}}\",\n        \"notificationEmailLanguage\": \"pt-BR\"\n    },\n    \"metadata\": {\n        \"blip_portal.email\": \"{{scheduleConfig@email}}\",\n        \"server.shouldStore\": \"true\"\n    }\n}"
+            },
+            "url": "{{config.commands}}"
+          }
+        },
+        {
+          "name": "New Audience",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{scheduleConfig@apiKey}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"{{random.guid}}\",\n    \"to\": \"postmaster@activecampaign.msging.net\",\n    \"method\": \"set\",\n    \"uri\": \"/audiences/{{campaignId}}\",\n    \"type\": \"application/vnd.iris.activecampaign.audience+json\",\n    \"resource\": {\n        \"recipient\": \"{{scheduleConfig@telefone}}\",\n        \"recipientType\": \"phoneNumber\",\n        \"channelType\": \"whatsApp\",\n        \"messageParams\": \"{{scheduleConfig@vars}}\"\n    },\n    \"metadata\": {\n        \"blip_portal.email\": \"{{scheduleConfig@email}}\",\n        \"server.shouldStore\": \"true\"\n    }\n}"
+            },
+            "url": "{{config.commands}}"
+          }
+        },
+        {
+          "name": "Schedule Message",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{scheduleConfig@apiKey}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"{{random.guid}}\",\n    \"to\": \"postmaster@activecampaign.msging.net\",\n    \"method\": \"set\",\n    \"uri\": \"/messages/{{campaignId}}\",\n    \"type\": \"application/vnd.iris.activecampaign.message+json\",\n    \"resource\": {\n        \"messageTemplate\": \"{{scheduleConfig@template}}\",\n        \"messageTemplateLanguage\": \"pt_BR\",\n        \"messageParams\": \"{{scheduleConfig@varsList}}\",\n        \"channelType\": \"whatsApp\"\n    },\n    \"metadata\": {\n        \"blip_portal.email\": \"{{scheduleConfig@email}}\",\n        \"server.shouldStore\": \"true\"\n    }\n}"
+            },
+            "url": "{{config.commands}}"
+          }
+        },
+        {
+          "name": "Dispatch Message",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{scheduleConfig@apiKey}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"{{random.guid}}\",\n    \"to\": \"postmaster@activecampaign.msging.net\",\n    \"method\": \"set\",\n    \"uri\": \"/dispatch\",\n    \"type\": \"application/vnd.iris.activecampaign.campaign+json\",\n    \"resource\": {\n        \"id\": \"{{campaignId}}\"\n    },\n    \"metadata\": {\n        \"blip_portal.email\": \"{{scheduleConfig@email}}\",\n        \"server.shouldStore\": \"true\"\n    }\n}"
+            },
+            "url": "{{config.commands}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cliente AG2",
+      "item": [
+        {
+          "name": "GET DADOS CLIENTE",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "safraprodgerdigpf"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/contas-pessoa-juridica/v1/clientes?tipoPessoa=F&cpfCnpj={{baseCpf}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cliente Digital",
+      "item": [
+        {
+          "name": "GET DADOS CLIENTE",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "safraprodgerdigpf"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/contas-pessoa-juridica/v1/clientes?tipoPessoa=F&cpfCnpj={{baseCpf}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cliente One",
+      "item": [
+        {
+          "name": "GET DADOS CLIENTE",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "safraprodgerdigpf"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/contas-pessoa-juridica/v1/clientes?tipoPessoa=F&cpfCnpj={{baseCpf}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Verifica carterização",
+      "item": [
+        {
+          "name": "HTTP - TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "https://sts-api.safra.com.br/api/oauth/token"
+          }
+        },
+        {
+          "name": "HTTP - CONSULTA LISTA CONTAS",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "safraprodgerdigpf"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlSafra}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/contas?baseDocumento={{baseCpf}}&tipoPessoa=PF"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Consulta Documento pelo Celular",
+      "item": [
+        {
+          "name": "HTTP - TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "https://sts-api.safra.com.br/api/oauth/token"
+          }
+        },
+        {
+          "name": "HTTP - CONSULTA TELEFONE",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "safraprodgerdigpf"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://api.safra.com.br/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/dados-cadastrais?tipoPessoa=F&ddd={{ddd}}&numeroCelular={{telefoneSemDDD}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Set Contact Extras",
+      "item": [
+        {
+          "name": "Requisição HTTP - Set",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Key c2FmcmFwcm9kZ2VyZGlncGY6cDBJVGdoZklOYmRndEUyc1RCZTQ="
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n   \"id\":\"{{$guid}}\",\n   \"method\":\"set\",\n   \"uri\":\"/contacts\",\n   \"type\":\"application/vnd.lime.contact+json\",\n   \"resource\":{\n      \"identity\":\"{{tunnel.identity}}\",\n      \"name\":\"{{dados@nomeCliente}}\",\n      \"email\":\"{{email}}\",\n      \"city\":\"{{cidade}}\",\n      \"phoneNumber\":\"{{phoneNumber}}\",\n      \"extras\":{\n         \"cliente\":\"{{dados@nomeCliente}}\",\n         \"cpf\":\"{{cpf}}\",\n         \"conta\":\"{{numeroConta}}\",\n         \"agencia\":\"{{numeroAgencia}}\",\n         \"nome gerente\":\"{{nomeGerente}}\",\n         \"gerente\":\"{{selectTeam}}\",\n         \"team\":\"{{selectTeam}}\",\n         \"prospect nome\":\"{{prospectNome}}\"\n      }\n   }\n}"
+            },
+            "url": "https://safra.http.msging.net/commands"
+          }
+        },
+        {
+          "name": "Requisição HTTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Key cm91dGVyd2hhdHNhcHBkaWdpdGFsOloxblJra21TRko5eEh3RnZXVjZt"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n   \"id\":\"{{$guid}}\",\n   \"method\":\"set\",\n   \"uri\":\"/contacts\",\n   \"type\":\"application/vnd.lime.contact+json\",\n   \"resource\":{\n      \"identity\":\"{{contact.identity}}\",\n      \"name\":\"{{dados@nomeCliente}}\",\n      \"email\":\"{{email}}\",\n      \"city\":\"{{cidade}}\",\n      \"phoneNumber\":\"{{phoneNumber}}\",\n      \"extras\":{\n         \"cliente\":\"{{dados@nomeCliente}}\",\n         \"cpf\":\"{{cpf}}\",\n         \"conta\":\"{{numeroConta}}\",\n         \"agencia\":\"{{numeroAgencia}}\",\n         \"nome gerente\":\"{{nomeGerente}}\",\n         \"gerente\":\"{{selectTeam}}\",\n         \"team\":\"{{selectTeam}}\",\n         \"prospect nome\":\"{{prospectNome}}\"\n      }\n   }\n}"
+            },
+            "url": "https://safra.http.msging.net/commands"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[5] Regra pré transbordo",
+      "item": [
+        {
+          "name": "CHECK AGENTS Digital AVAILABILITY",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{config.digitalToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"{{random.guid}}\",\n  \"to\": \"postmaster@desk.msging.net\",\n  \"method\": \"get\",\n  \"uri\": \"/attendants?$take=10000\"\n}"
+            },
+            "url": "{{config.commands}}"
+          }
+        },
+        {
+          "name": "CHECK AGENTS SafraOne AVAILABILITY",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{config.safraOneToken}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"{{random.guid}}\",\n  \"to\": \"postmaster@desk.msging.net\",\n  \"method\": \"get\",\n  \"uri\": \"/attendants?$take=10000\"\n}\n            "
+            },
+            "url": "{{config.commands}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Robô Advisor",
+      "item": [
+        {
+          "name": "HTTP - TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "https://sts-api.safra.com.br/api/oauth/token"
+          }
+        },
+        {
+          "name": "HTTP - ROBÔ ADVISOR",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "routerwhatsappdigital"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://api.safra.com.br/operacoes-execucoes/gerenciamento-investimentos/analises-carteiras-investimentos/assistente-virtual/v1/recomendacoes-robo/{{contact.extras.additionalProp2}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Consulta Segmento",
+      "item": [
+        {
+          "name": "HTTP - TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "https://sts-api.safra.com.br/api/oauth/token"
+          }
+        },
+        {
+          "name": "CONSULTA Segmento",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "safraprodgerdigpf"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlSafra}}/chat-assistente/gerentes/v1/gerentes?agencia={{numeroAgencia}}&conta={{numeroConta}}"
+          }
+        },
+        {
+          "name": "HTTP - CONSULTA SEG AG2",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "safraprodgerdigpf"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contact.extras.cpf}}&codigoSegmento={{config.segmentoAG2}}"
+          }
+        },
+        {
+          "name": "HTTP - CONSULTA SEG DIGITAL",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "safraprodgerdigpf"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contact.extras.cpf}}&codigoSegmento={{config.codigoSegmento}}"
+          }
+        },
+        {
+          "name": "HTTP - CONSULTA SEG ONE",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "safraprodgerdigpf"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contact.extras.cpf}}&codigoSegmento={{config.codigoSegmentoOne}}"
+          }
+        },
+        {
+          "name": "GET DADOS CLIENTE para 07100",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "safraprodgerdigpf"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/contas-pessoa-juridica/v1/clientes?tipoPessoa=F&cpfCnpj={{baseCpf}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Remarketing Fim Fluxo",
+      "item": [
+        {
+          "name": "HTTP - TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "https://sts-api.safra.com.br/api/oauth/token"
+          }
+        },
+        {
+          "name": "HTTP - REMARKETING",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "safraprodgerdigpf"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://api.safra.com.br/vendas-servicos/vendas/prospeccoes-clientes/assistente-virtual/v1/prospectos?telefone={{cpfRemaketing}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Verifica - Ação Remarketing",
+      "item": [
+        {
+          "name": "HTTP - TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "https://sts-api.safra.com.br/api/oauth/token"
+          }
+        },
+        {
+          "name": "HTTP - REMARKETING",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "safraprodgerdigpf"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://api.safra.com.br/vendas-servicos/vendas/prospeccoes-clientes/assistente-virtual/v1/prospectos?telefone={{phoneNumber}}"
+          }
+        }
+      ]
+    }
+  ]
+}

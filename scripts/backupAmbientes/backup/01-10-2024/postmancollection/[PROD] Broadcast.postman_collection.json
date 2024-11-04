@@ -1,0 +1,283 @@
+{
+  "info": {
+    "name": "Broadcast",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "[BC.4.0.0] Atendimento humano",
+      "item": [
+        {
+          "name": "Process \"bodyToken\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "Process \"bodyAccountManager\" using \"GET\" PHONE",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/gerentes/v1/carteiras?dddCelular={{telephone@ddd}}&numeroCelular={{telephone@telephone}}&tipoPessoa=J"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[BC.4.2.0] Verifica carterização por CNPJ",
+      "item": [
+        {
+          "name": "Process \"bodyAccountManager\" using \"GET\" - 20",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{userInput}}&codigoSegmento=0020"
+          }
+        },
+        {
+          "name": "Process \"bodyAccountManager\" using \"GET\" - 17",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{userInput}}&codigoSegmento=0017"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[BC.0.0.0][HTTP] Reseta State ID",
+      "item": [
+        {
+          "name": "DELETE \"statusDeleteBody\"",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Organization",
+                "value": "safra"
+              },
+              {
+                "key": "ContactIdentity",
+                "value": "{{contact.identity}}"
+              },
+              {
+                "key": "BotAuthorization",
+                "value": "{{config.routerKey}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://flowassistant.cs.blip.ai/api-states"
+          }
+        },
+        {
+          "name": "DELETE \"statusDeleteBodyBroad\" Router Broadcast",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Organization",
+                "value": "safra"
+              },
+              {
+                "key": "ContactIdentity",
+                "value": "{{contact.identity}}"
+              },
+              {
+                "key": "BotAuthorization",
+                "value": "{{config.routerKeyBroadcast}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://flowassistant.cs.blip.ai/api-states"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[BC.9.0.2][HTTP] Api Consulta Status Protocolo",
+      "item": [
+        {
+          "name": "HTTP GET \"bodyConsultaProtocolo\" (Consultar Protocolo)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{idSessao}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/protocolos/{{numeroProtocolo}}"
+          }
+        },
+        {
+          "name": "HTTP GET \"bodyConsultaOcorrenciaLista\" (Consultar Ocorrencias Unico)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{idSessao}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/ocorrencias?idProtocolo={{numeroProtocolo}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[BC.9.0.1][MSG][HTTP] Criar Token",
+      "item": [
+        {
+          "name": "Process \"bodyToken\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+Bot Name: Broadcast
+
+Block: [BC.4.0.0] Atendimento humano
+	Request Name: Process "bodyToken" using "POST"
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: Process "bodyAccountManager" using "GET" PHONE
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/gerentes/v1/carteiras?dddCelular={{telephone@ddd}}&numeroCelular={{telephone@telephone}}&tipoPessoa=J
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+Block: [BC.4.2.0] Verifica carterização por CNPJ
+	Request Name: Process "bodyAccountManager" using "GET" - 20
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{userInput}}&codigoSegmento=0020
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+	Request Name: Process "bodyAccountManager" using "GET" - 17
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{userInput}}&codigoSegmento=0017
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+Block: [BC.0.0.0][HTTP] Reseta State ID
+	Request Name: DELETE "statusDeleteBody"
+	Method: DELETE
+	URL: https://flowassistant.cs.blip.ai/api-states
+	Headers:
+		Organization: safra
+		ContactIdentity: {{contact.identity}}
+		BotAuthorization: {{config.routerKey}}
+	Body:
+undefined
+
+	Request Name: DELETE "statusDeleteBodyBroad" Router Broadcast
+	Method: DELETE
+	URL: https://flowassistant.cs.blip.ai/api-states
+	Headers:
+		Organization: safra
+		ContactIdentity: {{contact.identity}}
+		BotAuthorization: {{config.routerKeyBroadcast}}
+	Body:
+undefined
+
+Block: [BC.9.0.2][HTTP] Api Consulta Status Protocolo
+	Request Name: HTTP GET "bodyConsultaProtocolo" (Consultar Protocolo)
+	Method: GET
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/protocolos/{{numeroProtocolo}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+	Request Name: HTTP GET "bodyConsultaOcorrenciaLista" (Consultar Ocorrencias Unico)
+	Method: GET
+	URL: {{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/ocorrencias?idProtocolo={{numeroProtocolo}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Correlation-ID: {{idSessao}}
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: [BC.9.0.1][MSG][HTTP] Criar Token
+	Request Name: Process "bodyToken" using "POST"
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+

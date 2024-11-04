@@ -1,0 +1,482 @@
+{
+  "info": {
+    "name": "SPD Taxas e Condicoes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "[TC.3.0.0][HTTP] API Taxas de Antecipação",
+      "item": [
+        {
+          "name": "HTTP GET \"taxaBody\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/antecipacoes-recebiveis/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}?view=taxas-antecipacao"
+          }
+        },
+        {
+          "name": "HTTP GET \"taxaVendasBody\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[TC.4.5.0][HTTP][SET] Alugada",
+      "item": [
+        {
+          "name": "HTTP GET \"bodyAlugueis\" (alugueis)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/alugueis?tipoFiltro=EC&valorFiltro={{selectedEc@codigoEc}}"
+          }
+        },
+        {
+          "name": "HTTP GET \"bodyApolice\" (apolices)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/vendas-servicos/vendas/seguros/assistente-virtual/v1/clientes/{{contaSelecionada@doc}}/apolices?codigoProduto=7105"
+          }
+        },
+        {
+          "name": "HTTP GET \"bodyFaturamentoAnual\" (Faturamento Anual)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/faturamentos?codigoEstabelecimentoComercial={{selectedEc@codigoEc}}&view=Anual"
+          }
+        },
+        {
+          "name": "HTTP GET \"bodyFaturamentoMensal\" (Faturamento Mensal)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/faturamentos?codigoEstabelecimentoComercial={{selectedEc@codigoEc}}&view=Mensal"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[TC.2.0.0][HTTP] API Taxas de Venda",
+      "item": [
+        {
+          "name": "HTTP GET \"taxaVendasBody\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[TC.2.2.0][HTTP] API Taxas de Antecipação",
+      "item": [
+        {
+          "name": "HTTP GET \"taxaBody\" (taxa)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/antecipacoes-recebiveis/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}?view=taxas-antecipacao"
+          }
+        },
+        {
+          "name": "HTTP GET \"taxaVendasBody\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[TC.5.0.0][HTTP] API Taxas Pix na SafraPay",
+      "item": [
+        {
+          "name": "HTTP GET \"taxaBody\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/safrapay/operacoes-execucoes/servicos-consumidores/antecipacoes-recebiveis/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}?view=taxas-antecipacao"
+          }
+        },
+        {
+          "name": "HTTP GET \"taxaVendasBody\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/safra-pay/v1/taxas?idEstabelecimento={{selectedEc@codigoEc}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[TC.7.4.0][HTTP] API Protocolo",
+      "item": [
+        {
+          "name": "HTTP POST \"bodyProtocoloBpm\" (Cria Protocolo no Front)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{payloadProtocolo}}"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos"
+          }
+        },
+        {
+          "name": "HTTP POST \"bodyOcorrencia\" (Cria nova ocorrencia)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{payloadOcorrencia}}"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{idProtocoloBpm}}/ocorrencias"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[TC.6.0.0][HTTP] API Domicilio bancario",
+      "item": [
+        {
+          "name": "HTTP GET \"bodyDomicilio\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/safra-pay/v1/domicilios?idEstabelecimento={{selectedEc@codigoEc}}"
+          }
+        },
+        {
+          "name": "HTTP GET \"bodyGeraldomicilio\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/safrapay/vendas-servicos/vendas/prospeccoes-clientes/assistente-virtual/v1/domicilios-bancarios"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[TC.4.0.0][HTTP] API Consultar Máquinas [Duplicate]",
+      "item": [
+        {
+          "name": "HTTP GET \"consultMaquina\" (Terminais)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/terminais?codigoEstabelecimentoComercial={{selectedEc@codigoEc}}"
+          }
+        }
+      ]
+    }
+  ]
+}

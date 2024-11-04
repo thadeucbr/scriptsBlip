@@ -1,0 +1,359 @@
+Bot Name: WhatsappPJ
+
+Block: Cliente digitou sair em qualquer ponto da jornada
+	Request Name: UNSUBSCRIBE - INATIVIDADE
+	Method: POST
+	URL: {{config.urlTake}}/v1/Subscription/Unsubscribe
+	Headers:
+		X-Blip-User: {{contact.identity}}
+		X-Blip-Bot: {{config.botIdentity}}
+	Body:
+{
+    "firstName": "John",
+    "lastName": "Doe"
+}
+
+	Request Name: HTTP - OBTEM TICKET
+	Method: POST
+	URL: https://safra.http.msging.net/commands
+	Headers:
+		Authorization: {{config.apiKey}}
+		Content-Type: application/json
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@desk.msging.net",
+    "method": "get",
+    "uri": "/tickets?$filter=customerIdentity%20eq%20'{{encodedIdentity}}'%20and%20(status%20eq%20'Open'%20or%20status%20eq%20'Waiting')&$take=3"
+}
+
+	Request Name: HTTP - FECHAMENTO DO TICKET
+	Method: POST
+	URL: https://safra.http.msging.net/commands
+	Headers:
+		Authorization: {{config.apiKey}}
+		Content-Type: application/json
+	Body:
+{
+  "id": "{{random.guid}}",
+  "to": "postmaster@desk.msging.net",
+  "method": "set",
+  "uri": "/tickets/change-status",
+  "type": "application/vnd.iris.ticket+json",
+  "resource": {
+  	"id": "{{ticket}}",
+  	"status": "ClosedAttendant",
+    "tags": ["Abandonado"]
+  }
+}
+
+Block: Verifica Horario de Atendimento
+	Request Name: TOKEN API HORÁRIO
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: API - HORARIO
+	Method: GET
+	URL: {{config.urlCHT}}/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team={{fila}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: Finalização de Atendimento
+	Request Name: HTTP - UNSUBSCRIBE INATIVIDADE
+	Method: POST
+	URL: {{config.urlTake}}/v1/Subscription/Unsubscribe
+	Headers:
+		X-Blip-User: {{tunnel.identity}}
+		X-Blip-Bot: {{config.botIdentity}}
+	Body:
+{
+    "firstName": "John",
+    "lastName": "Doe"
+}
+
+	Request Name: http - pegar ticket
+	Method: POST
+	URL: https://safra.http.msging.net/commands
+	Headers:
+		Authorization: {{config.apiKey}}
+		Content-Type: application/json
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@desk.msging.net",
+    "method": "get",
+    "uri": "/tickets?$filter=customerIdentity%20eq%20'{{encodedIdentity}}'%20and%20(status%20eq%20'Open'%20or%20status%20eq%20'ClosedAttendant')&$take=3"
+}
+
+	Request Name: HTTP - GET TOKEN
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP SOLICITA FILA PERFIL HIBRIDO
+	Method: GET
+	URL: {{config.gateway}}/chat-assistente/atendimentos-hibridos/v1/perfils/{{setaEquipe}}
+	Headers:
+		Authorization: Bearer {{tokenFront}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+Block: Protocolo
+	Request Name: http - Token Protocolo
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: http - Cria Protocolo no Front
+	Method: POST
+	URL: {{config.urlCHT}}protocolos/v1/protocolos
+	Headers:
+		Authorization: Bearer {{tokenProtocoloBpm}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+{{payloadProtocolo}}
+
+	Request Name: cria nova ocorrencia
+	Method: POST
+	URL: {{config.urlCHT}}protocolos/v1/protocolos/{{idProtocoloBpm}}/ocorrencias
+	Headers:
+		Authorization: Bearer {{tokenProtocoloBpm}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+{{payloadOcorrencia}}
+
+Block: Pré Transbordo Contingência
+	Request Name: HTTP - SUBSCRIBE INATIVIDADE
+	Method: POST
+	URL: {{config.urlTake}}/v1/Subscription/Subscribe
+	Headers:
+		X-Blip-User: {{tunnel.identity}}
+		X-Blip-Bot: {{config.botIdentity}}
+		X-Desk-Team: {{compactaEquipe}}
+	Body:
+{
+    "firstName": "John",
+    "lastName": "Doe"
+}
+
+	Request Name: CHECK AGENTS AVAILABILITY
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{config.botKey}}
+	Body:
+{
+  "id": "{{random.guid}}",
+  "to": "postmaster@desk.msging.net",
+  "method": "get",
+  "uri": "/attendants?$take=10000"
+}
+            
+
+	Request Name: Requisição HTTP
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Authorization: {{config.botKey}}
+		Content-Type: application/json
+	Body:
+{
+    "id": "{{random.guid}}",
+    "method": "get",
+    "uri": "/resources/{{contact.extras.ec}}"
+}
+
+Block: Perfil Hibrido
+	Request Name: HTTP - GET TOKEN
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP SOLICITA FILA PERFIL HIBRIDO
+	Method: GET
+	URL: {{config.gateway}}/chat-assistente/atendimentos-hibridos/v1/perfils/{{setaEquipe}}
+	Headers:
+		Authorization: Bearer {{tokenFront}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+	Request Name: HTTP - CRIA BILHETE FRONT UNICO
+	Method: POST
+	URL: {{config.gateway}}/chat-assistente/atendimentos-hibridos/v1/bilhetes
+	Headers:
+		Authorization: Bearer {{tokenFront}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+{{payloadBilhetes}}
+
+Block: Finalização de Atendimento 2
+	Request Name: Busca Nome Atendente
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{config.apiKey}}
+	Body:
+{
+    "id": "{{newGuidId}}",
+    "to": "postmaster@blip.ai",
+    "method": "get",
+    "uri": "lime://{{config.blip}}/accounts/{{encodedAgentEmail}}"
+}
+
+            
+
+Block: Consulta Status Protocolo
+	Request Name: cria token
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: consulta protocolo
+	Method: GET
+	URL: {{config.urlCHT}}/protocolos/v1/protocolos/{{numeroProtocolo}}
+	Headers:
+		Authorization: Bearer {{tokenProtocoloBpm}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+Block: Cancelamento de OS
+	Request Name: Gerar token
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: Cancelar OS
+	Method: POST
+	URL: {{config.urlCHT}}vendas-servicos/vendas/tracking-credenciadoras/v1/ordens-servicos/{{contact.extras.numeroPedido}}/cancelar
+	Headers:
+		Authorization: Bearer {{tokenCHT}}
+		Safra-Correlation-ID: {{random.guid}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Aplicacao: BLIP
+	Body:
+{
+    "motivo": "81",
+    "descricao": "CANCELAMENTO HYPO"
+}
+
+Block: Bom dia Safrapay
+	Request Name: Gera Token
+	Method: POST
+	URL: {{urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+	Body:
+{{encodingUrl}}
+
+	Request Name: Gerar AppKey
+	Method: GET
+	URL: {{config.urlCHTNova}}/vendas-servicos/clientes/autorizacoes-acessos-clientes/assistente-virtual/v1/chaves?documento={{cpfAppKey}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Aplicacao: SPD
+	Body:
+undefined
+
+Block: Cliente abandonou atendimento
+	Request Name: UNSUBSCRIBE - INATIVIDADE
+	Method: POST
+	URL: {{config.urlTake}}/v1/Subscription/Unsubscribe
+	Headers:
+		X-Blip-User: {{tunnel.identity}}
+		X-Blip-Bot: {{config.botIdentity}}
+	Body:
+{
+    "firstName": "John",
+    "lastName": "Doe"
+}
+
+	Request Name: HTTP - OBTEM TICKET
+	Method: POST
+	URL: https://safra.http.msging.net/commands
+	Headers:
+		Authorization: {{config.apiKey}}
+		Content-Type: application/json
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@desk.msging.net",
+    "method": "get",
+    "uri": "/tickets?$filter=customerIdentity%20eq%20'{{encodedIdentity}}'%20and%20(status%20eq%20'Open'%20or%20status%20eq%20'Waiting')&$take=3"
+}
+
+	Request Name: HTTP - FECHAMENTO DO TICKET
+	Method: POST
+	URL: https://safra.http.msging.net/commands
+	Headers:
+		Authorization: {{config.apiKey}}
+		Content-Type: application/json
+	Body:
+{
+  "id": "{{random.guid}}",
+  "to": "postmaster@desk.msging.net",
+  "method": "set",
+  "uri": "/tickets/change-status",
+  "type": "application/vnd.iris.ticket+json",
+  "resource": {
+  	"id": "{{ticket}}",
+  	"status": "ClosedAttendant",
+    "tags": ["Abandonado"]
+  }
+}
+
