@@ -1,0 +1,746 @@
+{
+  "info": {
+    "name": "WhatsappPJ",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Cliente digitou sair em qualquer ponto da jornada",
+      "item": [
+        {
+          "name": "UNSUBSCRIBE - INATIVIDADE",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Blip-User",
+                "value": "{{contact.identity}}"
+              },
+              {
+                "key": "X-Blip-Bot",
+                "value": "{{config.botIdentity}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n}"
+            },
+            "url": "{{config.urlTake}}/v1/Subscription/Unsubscribe"
+          }
+        },
+        {
+          "name": "HTTP - OBTEM TICKET",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{config.apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"{{random.guid}}\",\n    \"to\": \"postmaster@desk.msging.net\",\n    \"method\": \"get\",\n    \"uri\": \"/tickets?$filter=customerIdentity%20eq%20'{{encodedIdentity}}'%20and%20(status%20eq%20'Open'%20or%20status%20eq%20'Waiting')&$take=3\"\n}"
+            },
+            "url": "https://safra.http.msging.net/commands"
+          }
+        },
+        {
+          "name": "HTTP - FECHAMENTO DO TICKET",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{config.apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"{{random.guid}}\",\n  \"to\": \"postmaster@desk.msging.net\",\n  \"method\": \"set\",\n  \"uri\": \"/tickets/change-status\",\n  \"type\": \"application/vnd.iris.ticket+json\",\n  \"resource\": {\n  \t\"id\": \"{{ticket}}\",\n  \t\"status\": \"ClosedAttendant\",\n    \"tags\": [\"Abandonado\"]\n  }\n}"
+            },
+            "url": "https://safra.http.msging.net/commands"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Verifica Horario de Atendimento",
+      "item": [
+        {
+          "name": "TOKEN API HORÁRIO",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "API - HORARIO",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team={{fila}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Finalização de Atendimento",
+      "item": [
+        {
+          "name": "HTTP - UNSUBSCRIBE INATIVIDADE",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Blip-User",
+                "value": "{{tunnel.identity}}"
+              },
+              {
+                "key": "X-Blip-Bot",
+                "value": "{{config.botIdentity}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n}"
+            },
+            "url": "{{config.urlTake}}/v1/Subscription/Unsubscribe"
+          }
+        },
+        {
+          "name": "http - pegar ticket",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{config.apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"{{random.guid}}\",\n    \"to\": \"postmaster@desk.msging.net\",\n    \"method\": \"get\",\n    \"uri\": \"/tickets?$filter=customerIdentity%20eq%20'{{encodedIdentity}}'%20and%20(status%20eq%20'Open'%20or%20status%20eq%20'ClosedAttendant')&$take=3\"\n}"
+            },
+            "url": "https://safra.http.msging.net/commands"
+          }
+        },
+        {
+          "name": "HTTP - GET TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "HTTP SOLICITA FILA PERFIL HIBRIDO",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tokenFront}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.gateway}}/chat-assistente/atendimentos-hibridos/v1/perfils/{{setaEquipe}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Protocolo",
+      "item": [
+        {
+          "name": "http - Token Protocolo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "http - Cria Protocolo no Front",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tokenProtocoloBpm}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{payloadProtocolo}}"
+            },
+            "url": "{{config.urlCHT}}protocolos/v1/protocolos"
+          }
+        },
+        {
+          "name": "cria nova ocorrencia",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tokenProtocoloBpm}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{payloadOcorrencia}}"
+            },
+            "url": "{{config.urlCHT}}protocolos/v1/protocolos/{{idProtocoloBpm}}/ocorrencias"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pré Transbordo Contingência",
+      "item": [
+        {
+          "name": "HTTP - SUBSCRIBE INATIVIDADE",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Blip-User",
+                "value": "{{tunnel.identity}}"
+              },
+              {
+                "key": "X-Blip-Bot",
+                "value": "{{config.botIdentity}}"
+              },
+              {
+                "key": "X-Desk-Team",
+                "value": "{{compactaEquipe}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n}"
+            },
+            "url": "{{config.urlTake}}/v1/Subscription/Subscribe"
+          }
+        },
+        {
+          "name": "CHECK AGENTS AVAILABILITY",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{config.botKey}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"{{random.guid}}\",\n  \"to\": \"postmaster@desk.msging.net\",\n  \"method\": \"get\",\n  \"uri\": \"/attendants?$take=10000\"\n}\n            "
+            },
+            "url": "{{config.commands}}"
+          }
+        },
+        {
+          "name": "Requisição HTTP",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{config.botKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"{{random.guid}}\",\n    \"method\": \"get\",\n    \"uri\": \"/resources/{{contact.extras.ec}}\"\n}"
+            },
+            "url": "{{config.commands}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Perfil Hibrido",
+      "item": [
+        {
+          "name": "HTTP - GET TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "HTTP SOLICITA FILA PERFIL HIBRIDO",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tokenFront}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.gateway}}/chat-assistente/atendimentos-hibridos/v1/perfils/{{setaEquipe}}"
+          }
+        },
+        {
+          "name": "HTTP - CRIA BILHETE FRONT UNICO",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tokenFront}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{payloadBilhetes}}"
+            },
+            "url": "{{config.gateway}}/chat-assistente/atendimentos-hibridos/v1/bilhetes"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Finalização de Atendimento 2",
+      "item": [
+        {
+          "name": "Busca Nome Atendente",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "{{config.apiKey}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"{{newGuidId}}\",\n    \"to\": \"postmaster@blip.ai\",\n    \"method\": \"get\",\n    \"uri\": \"lime://{{config.blip}}/accounts/{{encodedAgentEmail}}\"\n}\n\n            "
+            },
+            "url": "{{config.commands}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Consulta Status Protocolo",
+      "item": [
+        {
+          "name": "cria token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "consulta protocolo",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tokenProtocoloBpm}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/protocolos/v1/protocolos/{{numeroProtocolo}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cancelamento de OS",
+      "item": [
+        {
+          "name": "Gerar token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "Cancelar OS",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tokenCHT}}"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "BLIP"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"motivo\": \"81\",\n    \"descricao\": \"CANCELAMENTO HYPO\"\n}"
+            },
+            "url": "{{config.urlCHT}}vendas-servicos/vendas/tracking-credenciadoras/v1/ordens-servicos/{{contact.extras.numeroPedido}}/cancelar"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Bom dia Safrapay",
+      "item": [
+        {
+          "name": "Gera Token",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "Gerar AppKey",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "SPD"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHTNova}}/vendas-servicos/clientes/autorizacoes-acessos-clientes/assistente-virtual/v1/chaves?documento={{cpfAppKey}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cliente abandonou atendimento",
+      "item": [
+        {
+          "name": "UNSUBSCRIBE - INATIVIDADE",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Blip-User",
+                "value": "{{tunnel.identity}}"
+              },
+              {
+                "key": "X-Blip-Bot",
+                "value": "{{config.botIdentity}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n}"
+            },
+            "url": "{{config.urlTake}}/v1/Subscription/Unsubscribe"
+          }
+        },
+        {
+          "name": "HTTP - OBTEM TICKET",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{config.apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"{{random.guid}}\",\n    \"to\": \"postmaster@desk.msging.net\",\n    \"method\": \"get\",\n    \"uri\": \"/tickets?$filter=customerIdentity%20eq%20'{{encodedIdentity}}'%20and%20(status%20eq%20'Open'%20or%20status%20eq%20'Waiting')&$take=3\"\n}"
+            },
+            "url": "https://safra.http.msging.net/commands"
+          }
+        },
+        {
+          "name": "HTTP - FECHAMENTO DO TICKET",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{config.apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"{{random.guid}}\",\n  \"to\": \"postmaster@desk.msging.net\",\n  \"method\": \"set\",\n  \"uri\": \"/tickets/change-status\",\n  \"type\": \"application/vnd.iris.ticket+json\",\n  \"resource\": {\n  \t\"id\": \"{{ticket}}\",\n  \t\"status\": \"ClosedAttendant\",\n    \"tags\": [\"Abandonado\"]\n  }\n}"
+            },
+            "url": "https://safra.http.msging.net/commands"
+          }
+        }
+      ]
+    }
+  ]
+}

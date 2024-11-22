@@ -1,0 +1,140 @@
+{
+  "info": {
+    "name": "SPD Autenticacao",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "[A.0.0.0] Verifica tipo de autenticação",
+      "item": [
+        {
+          "name": "Process \"bodyMFA\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{requestBodyMFA}}"
+            },
+            "url": "{{config.urlCHT}}/vendas-servicos/multicanal/autorizacoes-transacoes/assistente-virtual/v1/transacoes"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[A.1.2.0] Valida respostas do KBA",
+      "item": [
+        {
+          "name": "Process \"bodyKbaValidar\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{requestBodyValidacaoKBA}}"
+            },
+            "url": "{{config.urlCHT}}/vendas-servicos/multicanal/autorizacoes-transacoes/assistente-virtual/v1/kba/validar"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[A.3.0.0] Autenticação via BigId",
+      "item": [
+        {
+          "name": "Process \"bodyTokenBigID\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"login\": \"SAFRABIGIDAPI_BANKING\",\n    \"password\": \"zvasdp3t\",\n    \"expires\": 8750\n}"
+            },
+            "url": "https://accesstoken.bigdatacorp.com.br/Generate"
+          }
+        },
+        {
+          "name": "Process \"bodyQuestion\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyTokenBigID@token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"Group\": \"WHATS_PJ\",\n    \"Parameters\": [\n        \"CPF={{contact.extras.cpf}}\"\n    ]\n}"
+            },
+            "url": "https://bigid.bigdatacorp.com.br/Questions"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[A.3.3.0] Valida respostas BigID",
+      "item": [
+        {
+          "name": "Process \"bigIdValidationBody\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyTokenBigID@token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{validationBody}}"
+            },
+            "url": "https://app.bigdatacorp.com.br/bigid/kba/respostas"
+          }
+        }
+      ]
+    }
+  ]
+}

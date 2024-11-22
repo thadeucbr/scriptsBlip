@@ -1,0 +1,1852 @@
+{
+  "info": {
+    "name": "PF FacilitaAI Carteirizacao",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Início",
+      "item": [
+        {
+          "name": "Process \"intentResponse\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{config.commandsKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{intentBody}}"
+            },
+            "url": "{{config.commandsUrl}}"
+          }
+        },
+        {
+          "name": "Process \"bodySmallTlaks\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Exceções",
+      "item": [
+        {
+          "name": "Process \"intentResponse\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{config.commandsKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{intentBody}}"
+            },
+            "url": "{{config.commandsUrl}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[API] TOKEN",
+      "item": [
+        {
+          "name": "TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodedBody}}"
+            },
+            "url": "{{envSettings@tokenURL}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[API] IDENTIFICAÇÃO DE TELEFONE",
+      "item": [
+        {
+          "name": "IDENTIFICAÇÃO DE TELEFONE",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{safraBotId}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{url}}{{query}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[API] IDENTIFICACAO DADOS CLIENTE",
+      "item": [
+        {
+          "name": "IDENTIFICACAO DADOS CLIENTE",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{safraBotId}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{url}}{{query}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[API] LISTA QUANTIDADE DE CONTAS",
+      "item": [
+        {
+          "name": "LISTA QUANTIDADE DE CONTAS",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{safraBotId}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{url}}{{query}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[S.1.0.0] possui cartao?",
+      "item": [
+        {
+          "name": "HTTP - TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "https://sts-api.safra.com.br/api/oauth/token"
+          }
+        },
+        {
+          "name": "dados cartao",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "3f55dd2d-2b35-43a1-b019-a37d3ec938ca"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://api.safra.com.br/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/clientes/{{dadosCliente@documento}}/cartoes?agencia={{agency}}&codigoCliente={{dadosCliente@codCliente}}&conta={{account}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[S.2.0.0] senha",
+      "item": [
+        {
+          "name": "responseSenha",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "amc-aplicacao",
+                "value": "IBJ"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"documento\": \"{{dadosCliente@documento}}\",\n  \"numeroCartao\": \"{{finalCartao}}\"\n}"
+            },
+            "url": "https://api.safra.com.br/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/senhas/reemitir"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Em que posso ajudar?",
+      "item": [
+        {
+          "name": "Process \"intentResponse\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{config.commandsKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{intentBody}}"
+            },
+            "url": "{{config.commandsUrl}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[HTTP] Autenticação OSA",
+      "item": [
+        {
+          "name": "Process \"bodyToken\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "Process \"authResponse\" using \"GET\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{bodyAuth}}"
+            },
+            "url": "{{config.baseURL}}/vendas-servicos/multicanal/autorizacoes-transacoes/assistente-virtual/v1/transacoes"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Te ajudo em algo mais",
+      "item": [
+        {
+          "name": "Process \"bodySmallTlaks\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[E.2.0.0][MSG][INPUT] Pergunta periodo",
+      "item": [
+        {
+          "name": "Process \"bodySmallTlaks\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[E.4.0.0][HTTP] Chamada API extrato",
+      "item": [
+        {
+          "name": "HTTP - responseEnvioExtrato",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{bodyExtrato}}"
+            },
+            "url": "{{config.baseURL}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/extratos/notificar"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[Exceção][Extrato] Periodo superior a 2 anos",
+      "item": [
+        {
+          "name": "Process \"bodySmallTlaks\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[PI.3.0.0][HTTP] Cockpit Envio Email",
+      "item": [
+        {
+          "name": "HTTP - responseEnvioPosicaoInvestimento",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{bodyPosicaoInvestimento}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/gerenciamento-investimentos/posicao-investimentos/assistente-virtual/v1/posicoes-investimentos/relatorios/enviar"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[FC.1.0.0] possui cartao?",
+      "item": [
+        {
+          "name": "HTTP - TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "dados cartao \"bodyDadosCartao\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "3f55dd2d-2b35-43a1-b019-a37d3ec938ca"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/clientes/{{document}}/cartoes?agencia={{agency}}&codigoCliente={{dadosCliente@codCliente}}&conta={{account}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[FC.2.0.0] possui fatura?",
+      "item": [
+        {
+          "name": "HTTP - TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "GET Fatura \"responseFatura\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "skillautenticacao"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/clientes/{{document}}/cartoes/{{finalCartao}}/faturas?view=RESUMOS"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[FC.2.0.3][HTTP] envia pdf",
+      "item": [
+        {
+          "name": "POST send PDF \"responsePDF\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "5d6a5c8a-e5a5-486d-835a-6dd13ac241bd"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "skillautenticacao"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"tipoPessoa\": \"F\",\n  \"documento\": \"{{document}}\",\n  \"numeroCartao\": \"{{finalCartao}}\",\n  \"dataVencimento\": \"{{dataVencimento}}\",\n  \"agencia\": \"{{agency}}\",\n  \"conta\": \"{{account}}\"\n}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/faturas/enviar"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[PI.1.0.0][MSG] Inicio Posicao Investimento",
+      "item": [
+        {
+          "name": "Process \"bodySmallTlaks\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[PI.1.0.0][INPUT] Inicio Posicao Investimento",
+      "item": [
+        {
+          "name": "Process \"bodySmallTlaks\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[TC.1.0.0] Inicio Status Entrega Cartão",
+      "item": [
+        {
+          "name": "Process \"bodySmallTlaks\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[TC.2.0.0] possui cartao?",
+      "item": [
+        {
+          "name": "HTTP - TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "dados cartao \"bodyDadosCartao\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "3f55dd2d-2b35-43a1-b019-a37d3ec938ca"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/clientes/{{document}}/cartoes?agencia={{agency}}&codigoCliente={{dadosCliente@codCliente}}&conta={{account}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[TC.3.0.0] Valida Status do Cartao",
+      "item": [
+        {
+          "name": "HTTP - TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "dados rastreio cartao \"bodyRastreioCartao\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/clientes/{{document}}/cartoes/{{finalCartao}}?view=RASTREIO"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[AV.1.0.0] Inicio Aviso Viagem",
+      "item": [
+        {
+          "name": "Process \"bodySmallTlaks\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[AV.2.0.0] possui cartao?",
+      "item": [
+        {
+          "name": "HTTP - TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "dados cartao \"bodyDadosCartao\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "3f55dd2d-2b35-43a1-b019-a37d3ec938ca"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/clientes/{{document}}/cartoes?agencia={{agency}}&codigoCliente={{dadosCliente@codCliente}}&conta={{account}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[AV.3.0.0][HTTP]Possui Aviso Viagem?",
+      "item": [
+        {
+          "name": "avisoViagem  \"body1\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/clientes/{{document}}/cartoes/{{finalCartao}}/avisos-viagens"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[AV.5.0.0][HTTP] Excluir aviso viagem",
+      "item": [
+        {
+          "name": "excluir aviso Viagem  \"bodyExcluirViagem\"",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nomeContinente\": \"{{dadosViagem@nomeContinente}}\",\n    \"documento\": \"{{document}}\",\n    \"dataInclusao\": \"{{dadosViagem@dataInclusao}}\",\n    \"acao\": \"cancelar\"\n}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/avisos-viagens/{{dadosViagem@idAvisoViagem}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[AV.6.0.0][HTTP] Excluir aviso viagem antigo",
+      "item": [
+        {
+          "name": "excluir aviso Viagem  \"bodyExcluirViagem\"",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"nomeContinente\": \"{{dadosViagem@nomeContinente}}\",\n    \"documento\": \"{{document}}\",\n    \"dataInclusao\": \"{{dadosViagem@dataInclusao}}\",\n    \"acao\": \"cancelar\"\n}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/avisos-viagens/{{dadosViagem@idAvisoViagem}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[AV.6.1.0][HTTP] Cadastrar nova viagem",
+      "item": [
+        {
+          "name": "criar aviso Viagem  \"bodyCriarViagem\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"numeroCartao\": \"{{finalCartao}}\",\n    \"nomeContinente\": \"{{novaViagem@continente}}\",\n    \"dataInicio\": \"{{novaViagem@dataInicio}}\",\n    \"dataFim\":  \"{{novaViagem@dataFim}}\",\n    \"documento\": \"{{document}}\",\n    \"nomePortador\": \"{{customerName}}\"\n}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/avisos-viagens"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[EC.2.0.0][MSG][INPUT] Pergunta periodo",
+      "item": [
+        {
+          "name": "Process \"bodySmallTlaks\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[EV.4.0.0][HTTP] Chamada API Get Comprovante",
+      "item": [
+        {
+          "name": "HTTP - responseEnvioCompranteTRF",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{bodyComprovanteTRF}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/consultar"
+          }
+        },
+        {
+          "name": "HTTP - responseEnvioCompranteDOC",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{bodyComprovanteDOC}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/consultar"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[EV.5.0.0][HTTTP] Enviar Comprovante Email Cockpit",
+      "item": [
+        {
+          "name": "HTTP - responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{bodyEnviarComprovante}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[MSG] Superior a 180 dias",
+      "item": [
+        {
+          "name": "Process \"bodySmallTlaks\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[EV.4.9.0][HTTTP] E. Todos Comprovants (Paliativo)",
+      "item": [
+        {
+          "name": "HTTP - 1responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@1}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 2responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@2}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 3responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@3}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 4responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@4}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 5responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@5}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 6responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@6}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 7responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@7}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 8responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@1}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 9responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@9}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 10responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@10}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 11responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@11}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 12responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@12}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 13responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@13}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 14responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@14}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 15responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@15}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 16responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@16}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 17responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@17}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 18responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@18}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 19responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@19}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 20responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@20}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 21responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@21}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 22responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@22}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 23responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@23}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 24responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@24}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 25responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@25}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 26responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@26}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 27responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@27}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 28responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@28}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 29responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@29}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        },
+        {
+          "name": "HTTP - 30responseEnvioComprante",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{todosComprovantes@30}}"
+            },
+            "url": "{{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar"
+          }
+        }
+      ]
+    }
+  ]
+}

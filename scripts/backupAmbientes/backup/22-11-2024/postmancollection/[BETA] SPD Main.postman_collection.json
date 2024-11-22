@@ -1,0 +1,545 @@
+{
+  "info": {
+    "name": "SPD Main",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "[M.1.0.0][MSG][HTTP] Boas vindas",
+      "item": [
+        {
+          "name": "Process \"bodyToken\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[M.3.0.0][MSG][HTTP] Verifica contas",
+      "item": [
+        {
+          "name": "Process \"bodyContas\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/usuarios/{{contact.extras.cpf}}/shortnames?expand=contas"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[M.4.0.0][MSG][HTTP] Obtem EC",
+      "item": [
+        {
+          "name": "Process \"bodyDadosConta\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/contas-pessoa-juridica/v1/contas?agencia={{contaSelecionada@agencia}}&conta={{contaSelecionada@conta}}"
+          }
+        },
+        {
+          "name": "Process \"bodyUsuarios\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/shortnames/{{contaSelecionada@shortname}}/usuarios"
+          }
+        },
+        {
+          "name": "Process \"bodyEC\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/safra-pay/v1/estabelecimentos?cpfCnpj={{contaSelecionada@doc}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[M.5.0.0][INPUT] Menu Principal",
+      "item": [
+        {
+          "name": "Process \"bodyPoliticaPrivacidade\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{idSessao}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigoCliente\": {{codigoCliente}},\n  \"codigoMarca\": \"230\",\n  \"complementoMarca\": \"A\"\n}"
+            },
+            "url": "{{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/marcas"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[M.4.0.1][HTTP] Obtem Carterização",
+      "item": [
+        {
+          "name": "Process \"bodyAccountManager\" using \"GET\" AG/CONTA",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{idSessao}}"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{config.serviceName}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/gerentes/v1/gerentes?agencia={{contaSelecionada@agencia}}&conta={{contaSelecionada@conta}}"
+          }
+        },
+        {
+          "name": "Process \"bodyAccountManager\" using \"GET\" Segmento 20",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contaSelecionada@doc}}&codigoSegmento=0020"
+          }
+        },
+        {
+          "name": "Process \"bodyAccountManager\" using \"GET\" Segmento 17",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contaSelecionada@doc}}&codigoSegmento=0017"
+          }
+        },
+        {
+          "name": "Process \"bodyAccountManager\" using \"GET\" PHONE",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/gerentes/v1/carteiras?dddCelular={{telephone@ddd}}&numeroCelular={{telephone@telephone}}&tipoPessoa=J"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[M.4.0.2][HTTP] Obtem CpfAppKey",
+      "item": [
+        {
+          "name": "Process \"bodyAppKey\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "SPD"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/vendas-servicos/clientes/autorizacoes-acessos-clientes/assistente-virtual/v1/chaves?documento={{contact.extras.cpf}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[M.3.1.2][HTTP] Obtem Permissionamento",
+      "item": [
+        {
+          "name": "Process \"bodyPermissoes\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "IPJ"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/usuarios/{{contaSelecionada@usuario}}/shortnames/{{contaSelecionada@shortname}}/permissoes"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[M.2.0.3][HTTP] Verifica PF",
+      "item": [
+        {
+          "name": "Process \"estabelecimentoPfResponse\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/safra-pay/v1/estabelecimentos?cpfCnpj={{contact.extras.cpf}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[M.5.5.0][HTTP] Verifica carta serasa",
+      "item": [
+        {
+          "name": "Process \"cartaSerasaResponse\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "IPJ"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{idSessao}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/serasa/documentos?tipoPessoa={{contaSelecionada@tipoPessoaCode}}&baseDocumento={{contaSelecionada@baseDocumento}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[Redirect] to WhatsApp PJ (Caca_POS)",
+      "item": [
+        {
+          "name": "Process \"possuiMovimentacaoResponse\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/movimentacoes/verificar?codigoEC={{contaSelecionada@ec}}&qtdDiasApuracao=40"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[M.3.2.0][HTTP] Verifica politica de privacidade",
+      "item": [
+        {
+          "name": "Process \"bodyPoliticaPrivacidade\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{idSessao}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/contas-pessoa-juridica/v1/marcas?codigoCliente={{codigoCliente}}"
+          }
+        }
+      ]
+    }
+  ]
+}

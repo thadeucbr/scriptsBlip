@@ -1,0 +1,26 @@
+Bot Name: SPD Ordem de Servico
+
+Block: [OS.2.0.0] Consultar Ordens de Serviço
+	Request Name: Process "bodyOrdernsDeServicos" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/vendas-servicos/vendas/tracking-credenciadoras/v1/ordens-servicos?documento={{contaSelecionada@doc}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+Block: [OS.2.4.0] Consulta OS pelo número
+	Request Name: Process "bodyOrdernsDeServicos" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/vendas-servicos/vendas/tracking-credenciadoras/v1/ordens-servicos/{{userInput}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+

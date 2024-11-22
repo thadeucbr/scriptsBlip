@@ -1,0 +1,724 @@
+Bot Name: PF Institucional
+
+Block: [7] Agradecimento
+	Request Name: Nome Atendente
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{config.token}}
+	Body:
+{
+  "id": "{{newGuidId}}",
+  "to": "postmaster@blip.ai",
+  "method": "get",
+  "uri": "lime://{{config.blip}}/accounts/{{emailEncode}}"
+}
+
+Block: [3] Consulta CNPJ Recursos
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: {{config.gateway}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - CONSULTA CARTERIZACAO
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{cpf}}&codigoSegmento={{config.codigoSegmento}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+	Request Name: GET dados cliente
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-juridica/v1/contas?agencia={{carterizacao@agencia}}&conta={{numeroConta}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+Block: [4] Api horario atendimento
+	Request Name: TOKEN API HORÁRIO
+	Method: POST
+	URL: {{config.gateway}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: API HORÁRIO
+	Method: GET
+	URL: {{config.urlCHT}}/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team={{filaHorarioAtendimento}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+	Body:
+undefined
+
+Block: Identifica celular do cliente
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: {{config.gateway}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - CONSULTA CARTERIZACAO
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contact.extras.cpf}}&codigoSegmento={{config.codigoSegmento}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+	Request Name: GET DADOS CLIENTE
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-juridica/v1/contas?agencia={{carterizacao@agencia}}&conta={{numeroConta}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+	Body:
+undefined
+
+Block: Verifica carterização Inicio
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: {{config.gateway}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - CONSULTA LISTA CONTAS
+	Method: GET
+	URL: {{config.urlSafra}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/contas?baseDocumento={{baseCpf}}&tipoPessoa=PF
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: horario atendimento AG2 (0007)
+	Request Name: TOKEN API HORÁRIO
+	Method: POST
+	URL: {{config.gateway}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: API HORÁRIO
+	Method: GET
+	URL: {{config.urlCHT}}/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team={{filaHorarioAtendimento}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Bot-ID: routerwhatsappdigital
+	Body:
+undefined
+
+Block: Verifica Fila estado agentes
+	Request Name: CHECK AGENTS AVAILABILITY
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{config.ag2Token}}
+	Body:
+{
+  "id": "{{random.guid}}",
+  "to": "postmaster@desk.msging.net",
+  "method": "get",
+  "uri": "/attendants?$take=10000"
+}
+            
+
+	Request Name: STATUS ATENDENTE ONLINE
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{config.ag2Token}}
+	Body:
+{
+  "id": "{{$guid}}",
+  "to": "postmaster@desk.msging.net",
+  "method": "get",
+  "uri": "/teams/agents-online"
+}
+
+	Request Name: CONSULTA AGENCIA LÓGICA
+	Method: GET
+	URL: {{config.urlSafra}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/dados-cadastrais?agencia={{numeroAgencia}}&conta={{numeroConta}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		routerwhatsappdigital: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Agendamento
+	Request Name: New Campaign
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{scheduleConfig@apiKey}}
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@activecampaign.msging.net",
+    "method": "set",
+    "uri": "/campaigns",
+    "type": "application/vnd.iris.activecampaign.campaign+json",
+    "resource": {
+        "name": "{{scheduleConfig@nomeCampanha}}-{{calendar.unixTime}}",
+        "campaignType": "Individual",
+        "masterState": "{{scheduleConfig@botId}}@msging.net",
+        "flowId": "{{scheduleConfig@flowId}}",
+        "stateId": "{{scheduleConfig@stateId}}",
+        "scheduled": "{{scheduleConfig@agendamento}}",
+        "notificationEmail": "{{scheduleConfig@email}}",
+        "notificationEmailLanguage": "pt-BR"
+    },
+    "metadata": {
+        "blip_portal.email": "{{scheduleConfig@email}}",
+        "server.shouldStore": "true"
+    }
+}
+
+	Request Name: New Audience
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{scheduleConfig@apiKey}}
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@activecampaign.msging.net",
+    "method": "set",
+    "uri": "/audiences/{{campaignId}}",
+    "type": "application/vnd.iris.activecampaign.audience+json",
+    "resource": {
+        "recipient": "{{scheduleConfig@telefone}}",
+        "recipientType": "phoneNumber",
+        "channelType": "whatsApp",
+        "messageParams": "{{scheduleConfig@vars}}"
+    },
+    "metadata": {
+        "blip_portal.email": "{{scheduleConfig@email}}",
+        "server.shouldStore": "true"
+    }
+}
+
+	Request Name: Schedule Message
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{scheduleConfig@apiKey}}
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@activecampaign.msging.net",
+    "method": "set",
+    "uri": "/messages/{{campaignId}}",
+    "type": "application/vnd.iris.activecampaign.message+json",
+    "resource": {
+        "messageTemplate": "{{scheduleConfig@template}}",
+        "messageTemplateLanguage": "pt_BR",
+        "messageParams": "{{scheduleConfig@varsList}}",
+        "channelType": "whatsApp"
+    },
+    "metadata": {
+        "blip_portal.email": "{{scheduleConfig@email}}",
+        "server.shouldStore": "true"
+    }
+}
+
+	Request Name: Dispatch Message
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{scheduleConfig@apiKey}}
+	Body:
+{
+    "id": "{{random.guid}}",
+    "to": "postmaster@activecampaign.msging.net",
+    "method": "set",
+    "uri": "/dispatch",
+    "type": "application/vnd.iris.activecampaign.campaign+json",
+    "resource": {
+        "id": "{{campaignId}}"
+    },
+    "metadata": {
+        "blip_portal.email": "{{scheduleConfig@email}}",
+        "server.shouldStore": "true"
+    }
+}
+
+Block: Cliente AG2
+	Request Name: GET DADOS CLIENTE
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-juridica/v1/clientes?tipoPessoa=F&cpfCnpj={{baseCpf}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Cliente Digital
+	Request Name: GET DADOS CLIENTE
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-juridica/v1/clientes?tipoPessoa=F&cpfCnpj={{baseCpf}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Cliente One
+	Request Name: GET DADOS CLIENTE
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-juridica/v1/clientes?tipoPessoa=F&cpfCnpj={{baseCpf}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Verifica carterização
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: {{config.gateway}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - CONSULTA LISTA CONTAS
+	Method: GET
+	URL: {{config.urlSafra}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/contas?baseDocumento={{baseCpf}}&tipoPessoa=PF
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Consulta Documento pelo Celular
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: {{config.gateway}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - CONSULTA TELEFONE
+	Method: GET
+	URL: {{config.urlSafra}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/dados-cadastrais?tipoPessoa=F&ddd={{ddd}}&numeroCelular={{telefoneSemDDD}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Set Contact Extras
+	Request Name: Requisição HTTP - Set
+	Method: POST
+	URL: https://safra.http.msging.net/commands
+	Headers:
+		Content-Type: application/json
+		Authorization: Key c2FmcmFwcm9kZ2VyZGlncGY6cDBJVGdoZklOYmRndEUyc1RCZTQ=
+	Body:
+{
+   "id":"{{$guid}}",
+   "method":"set",
+   "uri":"/contacts",
+   "type":"application/vnd.lime.contact+json",
+   "resource":{
+      "identity":"{{tunnel.identity}}",
+      "name":"{{dados@nomeCliente}}",
+      "email":"{{email}}",
+      "city":"{{cidade}}",
+      "phoneNumber":"{{phoneNumber}}",
+      "extras":{
+         "cliente":"{{dados@nomeCliente}}",
+         "cpf":"{{cpf}}",
+         "conta":"{{numeroConta}}",
+         "agencia":"{{numeroAgencia}}",
+         "nome gerente":"{{nomeGerente}}",
+         "gerente":"{{selectTeam}}",
+         "team":"{{selectTeam}}",
+         "prospect nome":"{{prospectNome}}"
+      }
+   }
+}
+
+	Request Name: Requisição HTTP
+	Method: POST
+	URL: https://safra.http.msging.net/commands
+	Headers:
+		Authorization: Key cm91dGVyd2hhdHNhcHBkaWdpdGFsOloxblJra21TRko5eEh3RnZXVjZt
+		Content-Type: application/json
+	Body:
+{
+   "id":"{{$guid}}",
+   "method":"set",
+   "uri":"/contacts",
+   "type":"application/vnd.lime.contact+json",
+   "resource":{
+      "identity":"{{contact.identity}}",
+      "name":"{{dados@nomeCliente}}",
+      "email":"{{email}}",
+      "city":"{{cidade}}",
+      "phoneNumber":"{{phoneNumber}}",
+      "extras":{
+         "cliente":"{{dados@nomeCliente}}",
+         "cpf":"{{cpf}}",
+         "conta":"{{numeroConta}}",
+         "agencia":"{{numeroAgencia}}",
+         "nome gerente":"{{nomeGerente}}",
+         "gerente":"{{selectTeam}}",
+         "team":"{{selectTeam}}",
+         "prospect nome":"{{prospectNome}}"
+      }
+   }
+}
+
+Block: [5] Regra pré transbordo
+	Request Name: CHECK AGENTS Digital AVAILABILITY "resultDigital"
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{config.digitalToken}}
+	Body:
+{
+  "id": "{{random.guid}}",
+  "to": "postmaster@desk.msging.net",
+  "method": "get",
+  "uri": "/attendants?$take=10000"
+}
+
+	Request Name: CHECK AGENTS SafraOne AVAILABILITY "resultSafraOne"
+	Method: POST
+	URL: {{config.commands}}
+	Headers:
+		Content-Type: application/json
+		Authorization: {{config.safraOneToken}}
+	Body:
+{
+  "id": "{{random.guid}}",
+  "to": "postmaster@desk.msging.net",
+  "method": "get",
+  "uri": "/attendants?$take=10000"
+}
+            
+
+	Request Name: CONSULTA AGENCIA LÓGICA "bodyAgenciaLogica"
+	Method: GET
+	URL: {{config.urlSafra}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/dados-cadastrais?agencia={{numeroAgencia}}&conta={{numeroConta}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		routerwhatsappdigital: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Robô Advisor
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: {{config.gateway}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - ROBÔ ADVISOR
+	Method: GET
+	URL: https://api.safra.com.br/operacoes-execucoes/gerenciamento-investimentos/analises-carteiras-investimentos/assistente-virtual/v1/recomendacoes-robo/{{contact.extras.additionalProp2}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: routerwhatsappdigital
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+undefined
+
+Block: Consulta Segmento
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: {{config.gateway}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: CONSULTA "bodyConsultaSegmento"
+	Method: GET
+	URL: {{config.urlSafra}}/chat-assistente/gerentes/v1/gerentes?agencia={{numeroAgencia}}&conta={{numeroConta}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+	Request Name: HTTP - CONSULTA SEG AG2
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contact.extras.cpf}}&codigoSegmento={{config.segmentoAG2}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+	Request Name: HTTP - CONSULTA SEG DIGITAL
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contact.extras.cpf}}&codigoSegmento={{config.codigoSegmento}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+	Request Name: HTTP - CONSULTA SEG ONE
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-fisica/v1/gerentes?cpfCnpj={{contact.extras.cpf}}&codigoSegmento={{config.codigoSegmentoOne}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: Remarketing Fim Fluxo
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: {{config.gateway}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - REMARKETING
+	Method: GET
+	URL: {{config.urlSafra}}/vendas-servicos/vendas/prospeccoes-clientes/assistente-virtual/v1/prospectos?telefone={{cpfRemaketing}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: safraprodgerdigpf
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: Verifica - Ação Remarketing
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: {{config.gateway}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: HTTP - REMARKETING
+	Method: GET
+	URL: {{config.urlSafra}}/vendas-servicos/vendas/prospeccoes-clientes/assistente-virtual/v1/prospectos?telefone={{phoneNumber}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: safraprodgerdigpf
+		Safra-Aplicacao: CHT
+	Body:
+undefined
+
+Block: [PF.3.0.1][INPUT] Menu Assuntos
+	Request Name: Process "bodyPoliticaPrivacidade" using "POST"
+	Method: POST
+	URL: {{config.urlSafra}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/marcas
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+{
+  "tipoPessoa": "F",
+  "baseDocumento": "{{baseCpfCnpj}}",
+  "codigoMarca": "230",
+  "complementoMarca": "A"
+}
+
+Block: [Redirect] To Intencao Identificacada
+	Request Name: Process "bodyPoliticaPrivacidade" using "POST"
+	Method: POST
+	URL: {{config.urlSafra}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/marcas
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Bot-ID: {{application.identifier}}
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+{
+  "tipoPessoa": "F",
+  "baseDocumento": "{{baseCpfCnpj}}",
+  "codigoMarca": "230",
+  "complementoMarca": "A"
+}
+
+Block: Outros Segmentos
+	Request Name: GET DADOS CLIENTE
+	Method: GET
+	URL: {{config.urlCHT}}/contas-pessoa-juridica/v1/clientes?tipoPessoa=F&cpfCnpj={{baseCpf}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: safraprodgerdigpf
+	Body:
+undefined
+
+Block: [PF.0.0.0][HTTP] Verifica politica de privacidade
+	Request Name: Process "bodyPoliticaPrivacidade" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}contas-pessoa-juridica/v1/marcas?codigoCliente={{codigoCliente}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+	Body:
+undefined
+
+Block: [C.0.0.1] [HTTP] Autenticação OSA
+	Request Name: Process "bodyToken" using "POST"
+	Method: POST
+	URL: {{config.gateway}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: Process "authResponse" using "GET"
+	Method: POST
+	URL: {{config.urlSafra}}/vendas-servicos/multicanal/autorizacoes-transacoes/assistente-virtual/v1/transacoes
+	Headers:
+		Safra-Aplicacao: CHT
+		Authorization: Bearer {{bodyToken@access_token}}
+		Safra-Correlation-ID: {{random.guid}}
+		Content-Type: application/json
+	Body:
+{{bodyAuth}}
+
+Block: [C.1.0.1][HTTP] Possui cartao?
+	Request Name: Process "bodyDadosCartao" using "GET"
+	Method: GET
+	URL: {{config.urlSafra}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/clientes/{{cpfLimpo}}/cartoes?agencia={{numeroAgencia}}&codigoCliente={{codigoCliente}}&conta={{numeroConta}}
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: 3f55dd2d-2b35-43a1-b019-a37d3ec938ca
+		Authorization: Bearer {{token}}
+	Body:
+undefined
+
+Block: [C.1.3.0][HTTP] Envia senha por email
+	Request Name: Process "responseSenha" using "POST"
+	Method: POST
+	URL: {{config.urlSafra}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/senhas/reemitir
+	Headers:
+		amc-aplicacao: IBJ
+		Content-Type: application/json
+		Authorization: Bearer {{token}}
+	Body:
+{
+  "documento": "{{cpfLimpo}}",
+  "numeroCartao": "{{finalCartao}}"
+}
+

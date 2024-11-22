@@ -1,0 +1,29 @@
+Bot Name: GerenteEmp1
+
+Block: Início
+	Request Name: Process "responseTicketMonitor" using "POST" "Subscribe"
+	Method: POST
+	URL: {{config.ApiUrl}}/v1/Subscription/Subscribe
+	Headers:
+		X-Blip-User: {{tunnel.identity}}
+		X-Blip-Bot: {{config.botIdentity}}
+		X-Desk-Team: Default
+	Body:
+{
+    "firstName": "John",
+    "lastName": "Doe"
+}
+
+Block: Navegar NPS
+	Request Name: Process "responseTicketMonitor" using "POST" "Unsubscribe"
+	Method: POST
+	URL: {{config.ApiUrl}}/v1/Subscription/Unsubscribe
+	Headers:
+		X-Blip-User: {{tunnel.identity}}
+		X-Blip-Bot: {{config.botIdentity}}
+	Body:
+{
+    "firstName": "John",
+    "lastName": "Doe"
+}
+

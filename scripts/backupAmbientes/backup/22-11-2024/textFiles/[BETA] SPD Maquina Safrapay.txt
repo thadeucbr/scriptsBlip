@@ -1,0 +1,68 @@
+Bot Name: SPD Maquina Safrapay
+
+Block: [MS.2.1.3] [HTTP] API Simular Vendas
+	Request Name: HTTP POST "bodySimulacao"
+	Method: POST
+	URL: {{config.urlCHT}}/safrapay/vendas-servicos/vendas/planejamentos-vendas/assistente-virtual/v1/estabelecimentos/{{selectedEc@codigoEc}}/vendas/simular
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: {{application.identifier}}
+	Body:
+{
+  "valorVenda": "{{salesValue}}",
+  "tipoSimulacao": "{{salesOrder}}",
+  "modalidade": "{{salesType}}",
+  "tipoPagamento": "{{salesPaymentType}}"
+}
+
+Block: [MS.7.3.0][HTTP] API Protocolo
+	Request Name: HTTP POST "bodyProtocoloBpm" (Cria Protocolo no Front)
+	Method: POST
+	URL: {{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+{{payloadProtocolo}}
+
+	Request Name: HTTP POST "bodyOcorrencia" (Cria nova ocorrencia)
+	Method: POST
+	URL: {{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{idProtocoloBpm}}/ocorrencias
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Correlation-ID: {{random.guid}}
+	Body:
+{{payloadOcorrencia}}
+
+	Request Name: HTTP GET "bodyConsultaProtocolo" (Consultar Protocolo)
+	Method: GET
+	URL: {{config.urlCHT}}/chat-assistente/protocolos/v1/protocolos/{{idProtocoloBpm}}
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		Content-Type: application/json
+		User-Agent: Fiddler
+		Safra-Bot-ID: {{application.identifier}}
+	Body:
+undefined
+
+Block: [Redirect] to WhatsApp PJ (Caca_POS)
+	Request Name: Process "possuiMovimentacaoResponse" using "GET"
+	Method: GET
+	URL: {{config.urlCHT}}/safrapay/dados-referencias/gerenciamento-produtos/catalogo-produtos/assistente-virtual/v1/movimentacoes/verificar?codigoEC={{contaSelecionada@ec}}&qtdDiasApuracao=40
+	Headers:
+		Authorization: Bearer {{bodyToken@access_token}}
+		User-Agent: Fiddler
+		Content-Type: application/json
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Bot-ID: {{application.identifier}}
+	Body:
+undefined
+

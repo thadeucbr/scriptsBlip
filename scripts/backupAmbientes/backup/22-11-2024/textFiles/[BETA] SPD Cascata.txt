@@ -1,0 +1,22 @@
+Bot Name: SPD Cascata
+
+Block: Verifica SmallTalks
+	Request Name: Process "bodySmallTlaks" using "GET"
+	Method: GET
+	URL: https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3
+	Headers:
+	Body:
+undefined
+
+Block: Gera novo token
+	Request Name: Process "bodyToken" using "POST"
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+

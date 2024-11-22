@@ -1,0 +1,291 @@
+{
+  "info": {
+    "name": "AtendimentoHumano",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "[AH.2.2.0] Api horario atendimento",
+      "item": [
+        {
+          "name": "Requisição HTTP horario",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/chat-assistente/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team=default"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Pré Transbordo Contingência",
+      "item": [
+        {
+          "name": "HTTP - SUBSCRIBE INATIVIDADE",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Blip-User",
+                "value": "{{tunnel.identity}}"
+              },
+              {
+                "key": "X-Blip-Bot",
+                "value": "{{config.botIdentity}}"
+              },
+              {
+                "key": "X-Desk-Team",
+                "value": "{{compactaEquipe}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"John\",\n    \"lastName\": \"Doe\"\n}"
+            },
+            "url": "{{config.urlTake}}/v1/Subscription/Subscribe"
+          }
+        },
+        {
+          "name": "Verifica Resource",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{config.apiKey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"id\": \"{{random.guid}}\",\n    \"method\": \"get\",\n    \"uri\": \"/resources/{{contact.extras.ec}}\"\n}"
+            },
+            "url": "{{config.commands}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Perfil Hibrido",
+      "item": [
+        {
+          "name": "HTTP - GET TOKEN",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "HTTP SOLICITA FILA PERFIL HIBRIDO",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tokenFront}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.gateway}}/chat-assistente/atendimentos-hibridos/v1/perfils/{{setaEquipe}}"
+          }
+        },
+        {
+          "name": "HTTP - CRIA BILHETE FRONT UNICO",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{tokenFront}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{payloadBilhetes}}"
+            },
+            "url": "{{config.gateway}}/chat-assistente/atendimentos-hibridos/v1/bilhetes"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[DESATIVADO] Verifica Horario de Atendimento",
+      "item": [
+        {
+          "name": "TOKEN API HORÁRIO",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "API - HORARIO",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/horarios-atendimentos/v1/horarios-atendimentos?idFila={{config.botIdentity}}&team={{fila}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[AH.2.1.0] Api contato gerentes",
+      "item": [
+        {
+          "name": "Process \"bodyToken\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "Process  \"bodyContatoGerente\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/vendas-servicos/clientes/dados-referencia-clientes/assistente-virtual/v1/gerentes?agencia={{contaSelecionada@agencia}}&conta={{contaSelecionada@conta}}"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "info": {
+    "name": "SPD Solucoes",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "[S.2.0.1] [HTTP] Api Consulta Status Protocolo",
+      "item": [
+        {
+          "name": "HTTP GET \"bodyConsultaProtocolo\" (Consultar Protocolo)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{idSessao}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/protocolos/{{numeroProtocolo}}"
+          }
+        },
+        {
+          "name": "HTTP GET \"bodyConsultaOcorrenciaLista\" (Consultar Ocorrencias Unico)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{idSessao}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/ocorrencias?idProtocolo={{numeroProtocolo}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[S.2.1.0] [HTTP] Consulta Ocorrencias",
+      "item": [
+        {
+          "name": "HTTP GET \"bodyConsultaProtocoloLista\" (Consultar Protocolo Lista)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{idSessao}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/ocorrencias?documentoCliente={{contaSelecionada@doc}}&{{intervaloDeDatas}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[S.2.2.6][MSG][HTTP]Protocolo fora do Prazo",
+      "item": [
+        {
+          "name": "HTTP POST \"bodyComentarioOcorrencia\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{idSessao}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{requestComentarioOcorrencia}}"
+            },
+            "url": "{{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/protocolos/{{ocorrenciaEncontrada@idProtocolo}}/ocorrencias/{{ocorrenciaEncontrada@id}}/historicos"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[S.2.7.0] [HTTP] Consulta Ocorrencias (60 Dias)",
+      "item": [
+        {
+          "name": "HTTP GET \"bodyConsultaProtocoloLista\" (Consultar Protocolo Lista)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{idSessao}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/ocorrencias?documentoCliente={{contaSelecionada@doc}}&{{intervaloDeDatas}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[S.2.8.8.1][MSG][HTTP]Protocolo fora do Prazo",
+      "item": [
+        {
+          "name": "HTTP POST \"bodyComentarioOcorrencia\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              },
+              {
+                "key": "Safra-Bot-ID",
+                "value": "{{application.identifier}}"
+              },
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{idSessao}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{requestComentarioOcorrencia}}"
+            },
+            "url": "{{config.urlCHT}}/operacoes-execucoes/servicos-operacionais/protocolos/assistente-virtual/v1/protocolos/{{ocorrenciaEncontrada@idProtocolo}}/ocorrencias/{{ocorrenciaEncontrada@id}}/historicos"
+          }
+        }
+      ]
+    }
+  ]
+}

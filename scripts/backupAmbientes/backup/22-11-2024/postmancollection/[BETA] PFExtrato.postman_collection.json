@@ -1,0 +1,204 @@
+{
+  "info": {
+    "name": "PFExtrato",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "[E.4.1.0][HTTP] Consulta extrato",
+      "item": [
+        {
+          "name": "Process \"bodyToken\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "Process \"extratoResponse\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "1"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "{{config.baseURL}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/extratos?{{urlParams}}"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[E.5.1.0][MSG] Ajudo com algo mais?",
+      "item": [
+        {
+          "name": "Process \"bodySmallTlaks\" using \"GET\"",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw"
+            },
+            "url": "https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[E.0.0.0][HTTP] Autenticação",
+      "item": [
+        {
+          "name": "Process \"bodyToken\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "Process \"authResponse\" using \"GET\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{bodyAuth}}"
+            },
+            "url": "{{config.baseURL}}/vendas-servicos/multicanal/autorizacoes-transacoes/assistente-virtual/v1/transacoes"
+          }
+        }
+      ]
+    },
+    {
+      "name": "[E.0.0.1][INPUT] Aguarda atualização de telefone",
+      "item": [
+        {
+          "name": "Process \"bodyToken\" using \"POST\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Connection",
+                "value": "keep-alive"
+              },
+              {
+                "key": "User-Agent",
+                "value": "Fiddler"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{encodingUrl}}"
+            },
+            "url": "{{config.urlToken}}/api/oauth/token"
+          }
+        },
+        {
+          "name": "Process \"authResponse\" using \"GET\"",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Safra-Aplicacao",
+                "value": "CHT"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{bodyToken@access_token}}"
+              },
+              {
+                "key": "Safra-Correlation-ID",
+                "value": "{{random.guid}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{{bodyAuth}}"
+            },
+            "url": "{{config.baseURL}}/vendas-servicos/multicanal/autorizacoes-transacoes/assistente-virtual/v1/transacoes"
+          }
+        }
+      ]
+    }
+  ]
+}

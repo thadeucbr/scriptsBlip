@@ -1,0 +1,759 @@
+Bot Name: PF FacilitaAI Carteirizacao
+
+Block: Início
+	Request Name: Process "intentResponse" using "POST"
+	Method: POST
+	URL: {{config.commandsUrl}}
+	Headers:
+		Authorization: {{config.commandsKey}}
+		Content-Type: application/json
+	Body:
+{{intentBody}}
+
+	Request Name: Process "bodySmallTlaks" using "GET"
+	Method: GET
+	URL: https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3
+	Headers:
+	Body:
+undefined
+
+Block: Exceções
+	Request Name: Process "intentResponse" using "POST"
+	Method: POST
+	URL: {{config.commandsUrl}}
+	Headers:
+		Authorization: {{config.commandsKey}}
+		Content-Type: application/json
+	Body:
+{{intentBody}}
+
+Block: [API] TOKEN
+	Request Name: TOKEN
+	Method: POST
+	URL: {{envSettings@tokenURL}}
+	Headers:
+		User-Agent: Fiddler
+		Content-Type: application/x-www-form-urlencoded
+	Body:
+{{encodedBody}}
+
+Block: [API] IDENTIFICAÇÃO DE TELEFONE
+	Request Name: IDENTIFICAÇÃO DE TELEFONE
+	Method: GET
+	URL: {{url}}{{query}}
+	Headers:
+		Authorization: Bearer {{token}}
+		Safra-Bot-ID: {{safraBotId}}
+	Body:
+undefined
+
+Block: [API] IDENTIFICACAO DADOS CLIENTE
+	Request Name: IDENTIFICACAO DADOS CLIENTE
+	Method: GET
+	URL: {{url}}{{query}}
+	Headers:
+		Safra-Bot-ID: {{safraBotId}}
+		User-Agent: Fiddler
+		Authorization: Bearer {{token}}
+	Body:
+undefined
+
+Block: [API] LISTA QUANTIDADE DE CONTAS
+	Request Name: LISTA QUANTIDADE DE CONTAS
+	Method: GET
+	URL: {{url}}{{query}}
+	Headers:
+		Safra-Bot-ID: {{safraBotId}}
+		User-Agent: Fiddler
+		Authorization: Bearer {{token}}
+	Body:
+undefined
+
+Block: [S.1.0.0] possui cartao?
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: https://sts-api.safra.com.br/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: dados cartao
+	Method: GET
+	URL: https://api.safra.com.br/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/clientes/{{dadosCliente@documento}}/cartoes?agencia={{agency}}&codigoCliente={{dadosCliente@codCliente}}&conta={{account}}
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: 3f55dd2d-2b35-43a1-b019-a37d3ec938ca
+		Authorization: Bearer {{token}}
+	Body:
+undefined
+
+Block: [S.2.0.0] senha
+	Request Name: responseSenha
+	Method: POST
+	URL: https://api.safra.com.br/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/senhas/reemitir
+	Headers:
+		amc-aplicacao: IBJ
+		Content-Type: application/json
+		Authorization: Bearer {{token}}
+	Body:
+{
+  "documento": "{{dadosCliente@documento}}",
+  "numeroCartao": "{{finalCartao}}"
+}
+
+Block: Em que posso ajudar?
+	Request Name: Process "intentResponse" using "POST"
+	Method: POST
+	URL: {{config.commandsUrl}}
+	Headers:
+		Authorization: {{config.commandsKey}}
+		Content-Type: application/json
+	Body:
+{{intentBody}}
+
+Block: [HTTP] Autenticação OSA
+	Request Name: Process "bodyToken" using "POST"
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: Process "authResponse" using "GET"
+	Method: POST
+	URL: {{config.baseURL}}/vendas-servicos/multicanal/autorizacoes-transacoes/assistente-virtual/v1/transacoes
+	Headers:
+		Safra-Aplicacao: CHT
+		Authorization: Bearer {{bodyToken@access_token}}
+		Safra-Correlation-ID: {{random.guid}}
+		Content-Type: application/json
+	Body:
+{{bodyAuth}}
+
+Block: Te ajudo em algo mais
+	Request Name: Process "bodySmallTlaks" using "GET"
+	Method: GET
+	URL: https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3
+	Headers:
+	Body:
+undefined
+
+Block: [E.2.0.0][MSG][INPUT] Pergunta periodo
+	Request Name: Process "bodySmallTlaks" using "GET"
+	Method: GET
+	URL: https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3
+	Headers:
+	Body:
+undefined
+
+Block: [E.4.0.0][HTTP] Chamada API extrato
+	Request Name: HTTP - responseEnvioExtrato
+	Method: POST
+	URL: {{config.baseURL}}/vendas-servicos/clientes/dados-contas-clientes/assistente-virtual/v1/extratos/notificar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{bodyExtrato}}
+
+Block: [Exceção][Extrato] Periodo superior a 2 anos
+	Request Name: Process "bodySmallTlaks" using "GET"
+	Method: GET
+	URL: https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3
+	Headers:
+	Body:
+undefined
+
+Block: [PI.3.0.0][HTTP] Cockpit Envio Email
+	Request Name: HTTP - responseEnvioPosicaoInvestimento
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/gerenciamento-investimentos/posicao-investimentos/assistente-virtual/v1/posicoes-investimentos/relatorios/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{bodyPosicaoInvestimento}}
+
+Block: [FC.1.0.0] possui cartao?
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: dados cartao "bodyDadosCartao"
+	Method: GET
+	URL: {{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/clientes/{{document}}/cartoes?agencia={{agency}}&codigoCliente={{dadosCliente@codCliente}}&conta={{account}}
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: 3f55dd2d-2b35-43a1-b019-a37d3ec938ca
+		Authorization: Bearer {{token}}
+	Body:
+undefined
+
+Block: [FC.2.0.0] possui fatura?
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: GET Fatura "responseFatura"
+	Method: GET
+	URL: {{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/clientes/{{document}}/cartoes/{{finalCartao}}/faturas?view=RESUMOS
+	Headers:
+		Safra-Correlation-ID: {{random.guid}}
+		Safra-Aplicacao: CHT
+		Authorization: Bearer {{token}}
+		Safra-Bot-ID: skillautenticacao
+	Body:
+undefined
+
+Block: [FC.2.0.3][HTTP] envia pdf
+	Request Name: POST send PDF "responsePDF"
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/faturas/enviar
+	Headers:
+		Safra-Correlation-ID: 5d6a5c8a-e5a5-486d-835a-6dd13ac241bd
+		Safra-Aplicacao: CHT
+		Safra-Bot-ID: skillautenticacao
+		Content-Type: application/json
+		Authorization: Bearer {{token}}
+	Body:
+{
+  "tipoPessoa": "F",
+  "documento": "{{document}}",
+  "numeroCartao": "{{finalCartao}}",
+  "dataVencimento": "{{dataVencimento}}",
+  "agencia": "{{agency}}",
+  "conta": "{{account}}"
+}
+
+Block: [PI.1.0.0][MSG] Inicio Posicao Investimento
+	Request Name: Process "bodySmallTlaks" using "GET"
+	Method: GET
+	URL: https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3
+	Headers:
+	Body:
+undefined
+
+Block: [PI.1.0.0][INPUT] Inicio Posicao Investimento
+	Request Name: Process "bodySmallTlaks" using "GET"
+	Method: GET
+	URL: https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3
+	Headers:
+	Body:
+undefined
+
+Block: [TC.1.0.0] Inicio Status Entrega Cartão
+	Request Name: Process "bodySmallTlaks" using "GET"
+	Method: GET
+	URL: https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3
+	Headers:
+	Body:
+undefined
+
+Block: [TC.2.0.0] possui cartao?
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: dados cartao "bodyDadosCartao"
+	Method: GET
+	URL: {{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/clientes/{{document}}/cartoes?agencia={{agency}}&codigoCliente={{dadosCliente@codCliente}}&conta={{account}}
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: 3f55dd2d-2b35-43a1-b019-a37d3ec938ca
+		Authorization: Bearer {{token}}
+	Body:
+undefined
+
+Block: [TC.3.0.0] Valida Status do Cartao
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: dados rastreio cartao "bodyRastreioCartao"
+	Method: GET
+	URL: {{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/clientes/{{document}}/cartoes/{{finalCartao}}?view=RASTREIO
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+undefined
+
+Block: [AV.1.0.0] Inicio Aviso Viagem
+	Request Name: Process "bodySmallTlaks" using "GET"
+	Method: GET
+	URL: https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3
+	Headers:
+	Body:
+undefined
+
+Block: [AV.2.0.0] possui cartao?
+	Request Name: HTTP - TOKEN
+	Method: POST
+	URL: {{config.urlToken}}/api/oauth/token
+	Headers:
+		Content-Type: application/x-www-form-urlencoded
+		accept: */*
+		Connection: keep-alive
+		User-Agent: Fiddler
+	Body:
+{{encodingUrl}}
+
+	Request Name: dados cartao "bodyDadosCartao"
+	Method: GET
+	URL: {{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/clientes/{{document}}/cartoes?agencia={{agency}}&codigoCliente={{dadosCliente@codCliente}}&conta={{account}}
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: 3f55dd2d-2b35-43a1-b019-a37d3ec938ca
+		Authorization: Bearer {{token}}
+	Body:
+undefined
+
+Block: [AV.3.0.0][HTTP]Possui Aviso Viagem?
+	Request Name: avisoViagem  "body1"
+	Method: GET
+	URL: {{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/clientes/{{document}}/cartoes/{{finalCartao}}/avisos-viagens
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+undefined
+
+Block: [AV.5.0.0][HTTP] Excluir aviso viagem
+	Request Name: excluir aviso Viagem  "bodyExcluirViagem"
+	Method: PATCH
+	URL: {{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/avisos-viagens/{{dadosViagem@idAvisoViagem}}
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{
+    "nomeContinente": "{{dadosViagem@nomeContinente}}",
+    "documento": "{{document}}",
+    "dataInclusao": "{{dadosViagem@dataInclusao}}",
+    "acao": "cancelar"
+}
+
+Block: [AV.6.0.0][HTTP] Excluir aviso viagem antigo
+	Request Name: excluir aviso Viagem  "bodyExcluirViagem"
+	Method: PATCH
+	URL: {{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/avisos-viagens/{{dadosViagem@idAvisoViagem}}
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{
+    "nomeContinente": "{{dadosViagem@nomeContinente}}",
+    "documento": "{{document}}",
+    "dataInclusao": "{{dadosViagem@dataInclusao}}",
+    "acao": "cancelar"
+}
+
+Block: [AV.6.1.0][HTTP] Cadastrar nova viagem
+	Request Name: criar aviso Viagem  "bodyCriarViagem"
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/cartoes/dados-cartoes-creditos-clientes/assistente-virtual/v1/avisos-viagens
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{
+    "numeroCartao": "{{finalCartao}}",
+    "nomeContinente": "{{novaViagem@continente}}",
+    "dataInicio": "{{novaViagem@dataInicio}}",
+    "dataFim":  "{{novaViagem@dataFim}}",
+    "documento": "{{document}}",
+    "nomePortador": "{{customerName}}"
+}
+
+Block: [EC.2.0.0][MSG][INPUT] Pergunta periodo
+	Request Name: Process "bodySmallTlaks" using "GET"
+	Method: GET
+	URL: https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3
+	Headers:
+	Body:
+undefined
+
+Block: [EV.4.0.0][HTTP] Chamada API Get Comprovante
+	Request Name: HTTP - responseEnvioCompranteTRF
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/consultar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{bodyComprovanteTRF}}
+
+	Request Name: HTTP - responseEnvioCompranteDOC
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/consultar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{bodyComprovanteDOC}}
+
+Block: [EV.5.0.0][HTTTP] Enviar Comprovante Email Cockpit
+	Request Name: HTTP - responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{bodyEnviarComprovante}}
+
+Block: [MSG] Superior a 180 dias
+	Request Name: Process "bodySmallTlaks" using "GET"
+	Method: GET
+	URL: https://smalltalksapi.cs.blip.ai/api/v3/analysis?text={{input.content}}&checkDate=false&infoLevel=3
+	Headers:
+	Body:
+undefined
+
+Block: [EV.4.9.0][HTTTP] E. Todos Comprovants (Paliativo)
+	Request Name: HTTP - 1responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@1}}
+
+	Request Name: HTTP - 2responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@2}}
+
+	Request Name: HTTP - 3responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@3}}
+
+	Request Name: HTTP - 4responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@4}}
+
+	Request Name: HTTP - 5responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@5}}
+
+	Request Name: HTTP - 6responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@6}}
+
+	Request Name: HTTP - 7responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@7}}
+
+	Request Name: HTTP - 8responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@1}}
+
+	Request Name: HTTP - 9responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@9}}
+
+	Request Name: HTTP - 10responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@10}}
+
+	Request Name: HTTP - 11responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@11}}
+
+	Request Name: HTTP - 12responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@12}}
+
+	Request Name: HTTP - 13responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@13}}
+
+	Request Name: HTTP - 14responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@14}}
+
+	Request Name: HTTP - 15responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@15}}
+
+	Request Name: HTTP - 16responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@16}}
+
+	Request Name: HTTP - 17responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@17}}
+
+	Request Name: HTTP - 18responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@18}}
+
+	Request Name: HTTP - 19responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@19}}
+
+	Request Name: HTTP - 20responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@20}}
+
+	Request Name: HTTP - 21responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@21}}
+
+	Request Name: HTTP - 22responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@22}}
+
+	Request Name: HTTP - 23responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@23}}
+
+	Request Name: HTTP - 24responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@24}}
+
+	Request Name: HTTP - 25responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@25}}
+
+	Request Name: HTTP - 26responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@26}}
+
+	Request Name: HTTP - 27responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@27}}
+
+	Request Name: HTTP - 28responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@28}}
+
+	Request Name: HTTP - 29responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@29}}
+
+	Request Name: HTTP - 30responseEnvioComprante
+	Method: POST
+	URL: {{config.baseURL}}/operacoes-execucoes/pagamentos/comprovantes/assistente-virtual/v1/comprovantes/enviar
+	Headers:
+		Safra-Aplicacao: CHT
+		Safra-Correlation-ID: {{random.guid}}
+		Authorization: Bearer {{token}}
+	Body:
+{{todosComprovantes@30}}
+
