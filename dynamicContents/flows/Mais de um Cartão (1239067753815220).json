@@ -1,0 +1,126 @@
+{
+    "version": "5.0",
+    "screens": [
+        {
+            "id": "INCLUIR_MAIS_DE_UM_CARTAO",
+            "layout": {
+                "type": "SingleColumnLayout",
+                "children": [
+                    {
+                        "type": "Form",
+                        "name": "form",
+                        "children": [
+                            {
+                                "type": "Dropdown",
+                                "label": "💳 Cartão",
+                                "data-source": "${data.dataSourceCartao}",
+                                "required": true,
+                                "name": "cartao"
+                            },
+                            {
+                                "type": "DatePicker",
+                                "label": "🗓️ Início da viagem",
+                                "min-date": "${data.dataInicioMinDate}",
+                                "required": true,
+                                "name": "dataInicio"
+                            },
+                            {
+                                "type": "DatePicker",
+                                "label": "🗓️ Fim da viagem",
+                                "min-date": "${data.dataFimMinDate}",
+                                "required": true,
+                                "name": "dataFim"
+                            },
+                            {
+                                "type": "Dropdown",
+                                "label": "🌍 Continente",
+                                "data-source": [
+                                    {
+                                        "id": "Africa",
+                                        "title": "África"
+                                    },
+                                    {
+                                        "id": "AmericaCentral",
+                                        "title": "América Central"
+                                    },
+                                    {
+                                        "id": "AmericaNorte",
+                                        "title": "América do Norte"
+                                    },
+                                    {
+                                        "id": "AmericaSul",
+                                        "title": "América do Sul"
+                                    },
+                                    {
+                                        "id": "Asia",
+                                        "title": "Ásia"
+                                    },
+                                    {
+                                        "id": "Europa",
+                                        "title": "Europa"
+                                    },
+                                    {
+                                        "id": "Oceania",
+                                        "title": "Oceania"
+                                    }
+                                ],
+                                "required": true,
+                                "name": "continente"
+                            },
+                            {
+                                "type": "Footer",
+                                "label": "Incluir aviso viagem",
+                                "on-click-action": {
+                                    "name": "complete",
+                                    "payload": {
+                                        "cartao": "${form.cartao}",
+                                        "dataInicio": "${form.dataInicio}",
+                                        "dataFim": "${form.dataFim}",
+                                        "continente": "${form.continente}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            "title": "Informações do aviso viagem",
+            "terminal": true,
+            "success": true,
+            "data": {
+                "dataSourceCartao": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            },
+                            "title": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    "__example__": [
+                        {
+                            "id": "9011",
+                            "title": "Final 9011: Visa Platinum"
+                        },
+                        {
+                            "id": "8016",
+                            "title": "Final 8016: Visa Infinite"
+                        }
+                    ]
+                },
+                "dataInicioMinDate": {
+                    "type": "string",
+                    "__example__": "2024-10-21"
+                },
+                "dataFimMinDate": {
+                    "type": "string",
+                    "__example__": "2024-10-21"
+                }
+            }
+        }
+    ]
+}

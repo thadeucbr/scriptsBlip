@@ -1,0 +1,1566 @@
+{
+	"info": {
+		"_postman_id": "8824bbf1-55a7-49dc-88c5-40e3a9a0ca91",
+		"name": "WhatsApp Flows - Blip",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27581128",
+		"_collection_link": "https://team-cht.postman.co/workspace/Servi%C3%A7os-CHT-(apl-api-back-cht)~e5187ba8-b04f-4a06-b666-760566f3aee6/collection/27581128-8824bbf1-55a7-49dc-88c5-40e3a9a0ca91?action=share&source=collection_link&creator=27581128"
+	},
+	"item": [
+		{
+			"name": "1. Create a Flow",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{botKey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"set\",\r\n    \"type\": \"application/json\",\r\n    \"uri\":\"/whatsapp-flows\",\r\n    \"resource\": {\r\n        \"name\":\"<NOME DO FLOW\",\r\n        \"categories\": [\"OTHER\"]\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "https://safra.http.msging.net/commands",
+					"protocol": "https",
+					"host": [
+						"safra",
+						"http",
+						"msging",
+						"net"
+					],
+					"path": [
+						"commands"
+					]
+				},
+				"description": "Cria um flow."
+			},
+			"response": [
+				{
+					"name": "200 OK - Exemplo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AuthorizationBotFlow}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"set\",\r\n    \"type\": \"application/json\",\r\n    \"uri\":\"/whatsapp-flows\",\r\n    \"resource\": {\r\n        \"name\":\"Flow teste para o Bot roteadortestewhatsapp\",\r\n        \"categories\": [\"OTHER\"]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://safra.http.msging.net/commands",
+							"protocol": "https",
+							"host": [
+								"safra",
+								"http",
+								"msging",
+								"net"
+							],
+							"path": [
+								"commands"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 20 Dec 2023 21:49:52 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Correlation-Id",
+							"value": "bd069f88-bbdb-4d59-acad-0cf68fdc9c8f"
+						},
+						{
+							"key": "Http-Session-Id",
+							"value": "v8we1uBih1alHdtJPXDSkQyratStgNO/gWz/hKA0C9o="
+						},
+						{
+							"key": "Lime-Session-Id",
+							"value": "5304219d-6441-4a62-a675-b6a9394f1b23"
+						},
+						{
+							"key": "Lime-Remote-Node",
+							"value": "postmaster@msging.net/#msging-server-kb4sz"
+						},
+						{
+							"key": "Lime-Local-Node",
+							"value": "roteadortestewhatsapp@msging.net/!msging-server-kb4sz-hulqb4je"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "838b18eb3f205218-UDI"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"application/json\",\n    \"resource\": {\n        \"id\": \"389900223570241\"\n    },\n    \"method\": \"set\",\n    \"status\": \"success\",\n    \"id\": \"526d78a2-1c5e-4b15-ada1-988a8b831dbd\",\n    \"from\": \"postmaster@wa.gw.msging.net/#msging-gateway-whatsapp-fbqzv\",\n    \"to\": \"roteadortestewhatsapp@msging.net/!msging-server-kb4sz-hulqb4je\",\n    \"metadata\": {\n        \"traceparent\": \"00-74cabe9634467f257a7271252336c278-308186da6a3e9c01-01\",\n        \"#command.uri\": \"lime://roteadortestewhatsapp@msging.net/whatsapp-flows\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "2. List all Flows",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{botKey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"get\",\r\n    \"uri\": \"/whatsapp-flows/\"\r\n}"
+				},
+				"url": {
+					"raw": "https://safra.http.msging.net/commands",
+					"protocol": "https",
+					"host": [
+						"safra",
+						"http",
+						"msging",
+						"net"
+					],
+					"path": [
+						"commands"
+					]
+				},
+				"description": "Lista todos os Flows do waba."
+			},
+			"response": [
+				{
+					"name": "200 OK - Exemplo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AuthorizationBotFlow}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"get\",\r\n    \"uri\": \"/whatsapp-flows/\"\r\n}"
+						},
+						"url": {
+							"raw": "https://safra.http.msging.net/commands",
+							"protocol": "https",
+							"host": [
+								"safra",
+								"http",
+								"msging",
+								"net"
+							],
+							"path": [
+								"commands"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 20 Dec 2023 21:51:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Correlation-Id",
+							"value": "07929a46-a9ad-45be-b13b-7d80ed910823"
+						},
+						{
+							"key": "Http-Session-Id",
+							"value": "v8we1uBih1alHdtJPXDSkQyratStgNO/gWz/hKA0C9o="
+						},
+						{
+							"key": "Lime-Session-Id",
+							"value": "5304219d-6441-4a62-a675-b6a9394f1b23"
+						},
+						{
+							"key": "Lime-Remote-Node",
+							"value": "postmaster@msging.net/#msging-server-kb4sz"
+						},
+						{
+							"key": "Lime-Local-Node",
+							"value": "roteadortestewhatsapp@msging.net/!msging-server-kb4sz-hulqb4je"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "838b1c0f4f01941c-UDI"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"application/json\",\n    \"resource\": {\n        \"data\": [\n            {\n                \"name\": \"[Teste] Menu Básico para o bot safradevleads\",\n                \"status\": \"DRAFT\",\n                \"id\": \"1183458165944755\",\n                \"categories\": [\n                    \"OTHER\"\n                ],\n                \"validation_errors\": []\n            },\n            {\n                \"name\": \"teste\",\n                \"status\": \"DRAFT\",\n                \"id\": \"659261769713357\",\n                \"categories\": [\n                    \"SIGN_IN\"\n                ],\n                \"validation_errors\": []\n            },\n            {\n                \"name\": \"login_teste\",\n                \"status\": \"DRAFT\",\n                \"id\": \"1186888462267910\",\n                \"categories\": [\n                    \"SIGN_IN\"\n                ],\n                \"validation_errors\": []\n            }\n        ]\n    },\n    \"method\": \"get\",\n    \"status\": \"success\",\n    \"id\": \"0da44834-3498-4c34-a727-680d2fa3520e\",\n    \"from\": \"postmaster@wa.gw.msging.net/#msging-gateway-whatsapp-fbqzv\",\n    \"to\": \"roteadortestewhatsapp@msging.net/!msging-server-kb4sz-hulqb4je\",\n    \"metadata\": {\n        \"traceparent\": \"00-74cabe9634467f257a7271252336c278-e5b9800c2950d079-01\",\n        \"#command.uri\": \"lime://roteadortestewhatsapp@msging.net/whatsapp-flows\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "3. List a Flow",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{botKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"get\",\r\n    \"uri\": \"/whatsapp-flows/{{whatsAppFlowId}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://safra.http.msging.net/commands",
+					"protocol": "https",
+					"host": [
+						"safra",
+						"http",
+						"msging",
+						"net"
+					],
+					"path": [
+						"commands"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK - Exemplo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AuthorizationBotFlow}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"get\",\r\n    \"uri\": \"/whatsapp-flows/{{whatsappFlowId}}\"\r\n}"
+						},
+						"url": {
+							"raw": "https://safra.http.msging.net/commands",
+							"protocol": "https",
+							"host": [
+								"safra",
+								"http",
+								"msging",
+								"net"
+							],
+							"path": [
+								"commands"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 20 Dec 2023 21:52:47 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Correlation-Id",
+							"value": "e8581e88-b6e3-48dc-b3f5-0548b09c132b"
+						},
+						{
+							"key": "Http-Session-Id",
+							"value": "v8we1uBih1alHdtJPXDSkQyratStgNO/gWz/hKA0C9o="
+						},
+						{
+							"key": "Lime-Session-Id",
+							"value": "5304219d-6441-4a62-a675-b6a9394f1b23"
+						},
+						{
+							"key": "Lime-Remote-Node",
+							"value": "postmaster@msging.net/#msging-server-kb4sz"
+						},
+						{
+							"key": "Lime-Local-Node",
+							"value": "roteadortestewhatsapp@msging.net/!msging-server-kb4sz-hulqb4je"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "838b1d47bc4a941a-UDI"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"application/json\",\n    \"resource\": {\n        \"id\": \"1183458165944755\",\n        \"name\": \"[Teste] Menu Básico para o bot safradevleads\",\n        \"status\": \"DRAFT\",\n        \"categories\": [\n            \"OTHER\"\n        ],\n        \"validation_errors\": [],\n        \"json_version\": \"3.0\",\n        \"preview\": {\n            \"preview_url\": \"https://business.facebook.com/wa/manage/flows/1183458165944755/preview/?token=29d26e05-3f78-4ab8-887f-859f80430a5b\",\n            \"expires_at\": \"2024-01-19T21:52:47.000Z\"\n        },\n        \"whatsapp_business_account\": {\n            \"id\": \"104654725911088\",\n            \"name\": \"Safra BI\",\n            \"currency\": \"USD\",\n            \"timezone_id\": \"25\",\n            \"message_template_namespace\": \"73d3115b_af32_4e7d_8335_0dbf54705abd\"\n        },\n        \"application\": {\n            \"id\": \"2084841385041607\",\n            \"name\": \"Take CAPI\",\n            \"link\": \"https://sustentacao-channels.blip.ai/\"\n        }\n    },\n    \"method\": \"get\",\n    \"status\": \"success\",\n    \"id\": \"a48b0be6-4461-443d-ad86-24406f59225d\",\n    \"from\": \"postmaster@wa.gw.msging.net/#msging-gateway-whatsapp-fbqzv\",\n    \"to\": \"roteadortestewhatsapp@msging.net/!msging-server-kb4sz-hulqb4je\",\n    \"metadata\": {\n        \"traceparent\": \"00-74cabe9634467f257a7271252336c278-ede030eaaea1be00-01\",\n        \"#command.uri\": \"lime://roteadortestewhatsapp@msging.net/whatsapp-flows/1183458165944755\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "4. Update a Flow",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{botKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"set\",\r\n    \"uri\": \"/whatsapp-flows/{{whatsAppFlowId}}\",\r\n    \"type\": \"application/json\",\r\n    \"resource\": {\r\n        \"name\":\"<NOME DO FLOW>\",\r\n        \"categories\": [\"OTHER\"]\r\n    }\r\n}"
+				},
+				"url": {
+					"raw": "https://safra.http.msging.net/commands",
+					"protocol": "https",
+					"host": [
+						"safra",
+						"http",
+						"msging",
+						"net"
+					],
+					"path": [
+						"commands"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK - Exemplo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AuthorizationBotFlow}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"set\",\r\n    \"uri\": \"/whatsapp-flows/{{whatsappFlowId}}\",\r\n    \"type\": \"application/json\",\r\n    \"resource\": {\r\n        \"name\":\"[Teste] Menu Básico para o bot safradevleads\",\r\n        \"categories\": [\"OTHER\"]\r\n    }\r\n}"
+						},
+						"url": {
+							"raw": "https://safra.http.msging.net/commands",
+							"protocol": "https",
+							"host": [
+								"safra",
+								"http",
+								"msging",
+								"net"
+							],
+							"path": [
+								"commands"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 20 Dec 2023 21:54:17 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Correlation-Id",
+							"value": "2e5dcd50-ad60-4f1b-aeda-89479c69fd9b"
+						},
+						{
+							"key": "Http-Session-Id",
+							"value": "v8we1uBih1alHdtJPXDSkQyratStgNO/gWz/hKA0C9o="
+						},
+						{
+							"key": "Lime-Session-Id",
+							"value": "5304219d-6441-4a62-a675-b6a9394f1b23"
+						},
+						{
+							"key": "Lime-Remote-Node",
+							"value": "postmaster@msging.net/#msging-server-kb4sz"
+						},
+						{
+							"key": "Lime-Local-Node",
+							"value": "roteadortestewhatsapp@msging.net/!msging-server-kb4sz-hulqb4je"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "838b1f7bbe095218-UDI"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"application/json\",\n    \"resource\": {\n        \"success\": true\n    },\n    \"method\": \"set\",\n    \"status\": \"success\",\n    \"id\": \"e06d8915-3991-4fb0-a99e-14d62ac53433\",\n    \"from\": \"postmaster@wa.gw.msging.net/#msging-gateway-whatsapp-fbqzv\",\n    \"to\": \"roteadortestewhatsapp@msging.net/!msging-server-kb4sz-hulqb4je\",\n    \"metadata\": {\n        \"traceparent\": \"00-74cabe9634467f257a7271252336c278-807eb4efd4840444-01\",\n        \"#command.uri\": \"lime://roteadortestewhatsapp@msging.net/whatsapp-flows/1183458165944755\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "5. Upload Flow JSON",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{botKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Transfer-Encoding",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"set\",\r\n    \"uri\": \"/whatsapp-flows/flow-json/{{whatsAppFlowId}}\",\r\n    \"type\": \"application/json\",\r\n    \"resource\": {} // Aqui vai o Flow JSON\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://safra.http.msging.net/commands",
+					"protocol": "https",
+					"host": [
+						"safra",
+						"http",
+						"msging",
+						"net"
+					],
+					"path": [
+						"commands"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK - Exemplo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AuthorizationBotFlow}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Transfer-Encoding",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"set\",\r\n    \"uri\": \"/whatsapp-flows/flow-json/{{whatsappFlowId}}\",\r\n    \"type\": \"application/json\",\r\n    \"resource\":\r\n\t{\r\n        \"version\": \"2.1\",\r\n        \"screens\": [\r\n            {\r\n                \"id\": \"BOAS_VINDAS\",\r\n                \"layout\": {\r\n                    \"type\": \"SingleColumnLayout\",\r\n                    \"children\": [\r\n                        {\r\n                            \"type\": \"TextHeading\",\r\n                            \"text\": \"Este é um Header principal (TextHeading)\"\r\n                        },\r\n                        {\r\n                            \"type\": \"TextSubheading\",\r\n                            \"text\": \"Este é um SubHeader (TextSubheading)\"\r\n                        },\r\n                        {\r\n                            \"type\": \"TextBody\",\r\n                            \"text\": \"Este é um corpo com texto (TextBody)\"\r\n                        },\r\n                        {\r\n                            \"type\": \"Footer\",\r\n                            \"label\": \"Seguir jornada\",\r\n                            \"on-click-action\": {\r\n                                \"name\": \"complete\",\r\n                                \"payload\": {}\r\n                            }\r\n                        }\r\n                    ]\r\n                },\r\n                \"title\": \"Welcome\",\r\n                \"terminal\": true,\r\n                \"data\": {}\r\n            }\r\n        ]\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://safra.http.msging.net/commands",
+							"protocol": "https",
+							"host": [
+								"safra",
+								"http",
+								"msging",
+								"net"
+							],
+							"path": [
+								"commands"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 20 Dec 2023 22:02:24 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Correlation-Id",
+							"value": "ab23b303-ee2f-4796-8f19-c2e1029b23f7"
+						},
+						{
+							"key": "Http-Session-Id",
+							"value": "v8we1uBih1alHdtJPXDSkQyratStgNO/gWz/hKA0C9o="
+						},
+						{
+							"key": "Lime-Session-Id",
+							"value": "5304219d-6441-4a62-a675-b6a9394f1b23"
+						},
+						{
+							"key": "Lime-Remote-Node",
+							"value": "postmaster@msging.net/#msging-server-kb4sz"
+						},
+						{
+							"key": "Lime-Local-Node",
+							"value": "roteadortestewhatsapp@msging.net/!msging-server-kb4sz-hulqb4je"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "838b2b3cf9d99410-UDI"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"application/json\",\n    \"resource\": {\n        \"headers\": [\n            {\n                \"key\": \"Content-Type\",\n                \"value\": [\n                    \"application/json; charset=utf-8\"\n                ]\n            },\n            {\n                \"key\": \"Expires\",\n                \"value\": [\n                    \"Sat, 01 Jan 2000 00:00:00 GMT\"\n                ]\n            },\n            {\n                \"key\": \"Content-Length\",\n                \"value\": [\n                    \"39\"\n                ]\n            }\n        ]\n    },\n    \"method\": \"set\",\n    \"status\": \"success\",\n    \"id\": \"c0d48685-46f7-4922-81a2-6d8c8f52fd16\",\n    \"from\": \"postmaster@wa.gw.msging.net/#msging-gateway-whatsapp-fbqzv\",\n    \"to\": \"roteadortestewhatsapp@msging.net/!msging-server-kb4sz-hulqb4je\",\n    \"metadata\": {\n        \"traceparent\": \"00-74cabe9634467f257a7271252336c278-1ee44e8393e4768e-01\",\n        \"#command.uri\": \"lime://roteadortestewhatsapp@msging.net/whatsapp-flows/flow-json/1183458165944755\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "6. Upload Public Key",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{botKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Transfer-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"set\",\r\n    \"uri\": \"/whatsapp-flows/public-key/upload\",\r\n    \"type\": \"application/json\",\r\n    \"resource\": {\r\n\t  \"business_public_key\": \"{{publicKey}}\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://safra.http.msging.net/commands",
+					"protocol": "https",
+					"host": [
+						"safra",
+						"http",
+						"msging",
+						"net"
+					],
+					"path": [
+						"commands"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7. Publish",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{botKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Transfer-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"get\",\r\n    \"uri\": \"/whatsapp-flows/publish/{{whatsAppFlowId}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://safra.http.msging.net/commands",
+					"protocol": "https",
+					"host": [
+						"safra",
+						"http",
+						"msging",
+						"net"
+					],
+					"path": [
+						"commands"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK - Exemplo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AuthorizationBotFlow}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Transfer-Encoding",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"get\",\r\n    \"uri\": \"/whatsapp-flows/publish/{{whatsappFlowId}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://safra.http.msging.net/commands",
+							"protocol": "https",
+							"host": [
+								"safra",
+								"http",
+								"msging",
+								"net"
+							],
+							"path": [
+								"commands"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 20 Dec 2023 22:31:49 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Correlation-Id",
+							"value": "a6f995cd-d003-4b47-8857-69b028420a1f"
+						},
+						{
+							"key": "Http-Session-Id",
+							"value": "v8we1uBih1alHdtJPXDSkQyratStgNO/gWz/hKA0C9o="
+						},
+						{
+							"key": "Lime-Session-Id",
+							"value": "32161cad-0d0e-417d-bc3a-291d148e2032"
+						},
+						{
+							"key": "Lime-Remote-Node",
+							"value": "postmaster@msging.net/#msging-server-gr2jp"
+						},
+						{
+							"key": "Lime-Local-Node",
+							"value": "roteadortestewhatsapp@msging.net/!msging-server-gr2jp-hulqb4je"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "__cf_bm=Mu1dLRrvUi1dBPI9bDyUchpv8SUx1FeO73PWH.u5W30-1703111509-1-ATGSutiNviitAAIjemNjgXVcTcMilSdCYSwNWyuhTQ0W9VmZlGYiqNXcbHyuMa4GwOynag0UQQKtTGEcNpKPSCc=; path=/; expires=Wed, 20-Dec-23 23:01:49 GMT; domain=.msging.net; HttpOnly; Secure; SameSite=None"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "838b566df80d941d-UDI"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"application/json\",\n    \"resource\": {\n        \"success\": true\n    },\n    \"method\": \"get\",\n    \"status\": \"success\",\n    \"id\": \"3852ff45-76ce-49b9-b0e6-821d33c639d3\",\n    \"from\": \"postmaster@wa.gw.msging.net/#msging-gateway-whatsapp-tf5bk\",\n    \"to\": \"roteadortestewhatsapp@msging.net/!msging-server-gr2jp-hulqb4je\",\n    \"metadata\": {\n        \"traceparent\": \"00-7d7e37704d33af5a02ef935cea1cdf6d-240d9958f8b03fbc-01\",\n        \"#command.uri\": \"lime://roteadortestewhatsapp@msging.net/whatsapp-flows/publish/1183458165944755\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "8. Assets",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{botKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"get\",\r\n    \"uri\": \"/whatsapp-flows/assets/{{whatsAppFlowId}}\"\r\n}"
+				},
+				"url": {
+					"raw": "https://safra.http.msging.net/commands",
+					"protocol": "https",
+					"host": [
+						"safra",
+						"http",
+						"msging",
+						"net"
+					],
+					"path": [
+						"commands"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 - OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AuthorizationBotFlow}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"get\",\r\n    \"uri\": \"/whatsapp-flows/assets/{{whatsappFlowId}}\"\r\n}"
+						},
+						"url": {
+							"raw": "https://safra.http.msging.net/commands",
+							"protocol": "https",
+							"host": [
+								"safra",
+								"http",
+								"msging",
+								"net"
+							],
+							"path": [
+								"commands"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 20 Dec 2023 22:35:58 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Correlation-Id",
+							"value": "f58d56af-0b16-46e1-87b8-94f7f9558f6d"
+						},
+						{
+							"key": "Http-Session-Id",
+							"value": "v8we1uBih1alHdtJPXDSkQyratStgNO/gWz/hKA0C9o="
+						},
+						{
+							"key": "Lime-Session-Id",
+							"value": "eefb014c-4704-4c80-a103-abc7e5247993"
+						},
+						{
+							"key": "Lime-Remote-Node",
+							"value": "postmaster@msging.net/#msging-server-z4wpq"
+						},
+						{
+							"key": "Lime-Local-Node",
+							"value": "roteadortestewhatsapp@msging.net/!msging-server-z4wpq-hulqb4je"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "838b5c87abce9417-UDI"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"application/json\",\n    \"resource\": {\n        \"data\": [\n            {\n                \"name\": \"flow.json\",\n                \"asset_type\": \"FLOW_JSON\",\n                \"download_url\": \"https://mmg.whatsapp.net/m1/v/t24/An99S-IAlWGDfACRf-pwymB4wSc0qWVxgkU8IIBQaj9H7CT8_FXf3RS3m5PFkD2HAPB2IWu_8QbzWHZ83NRrYY7xwMnXfjsTjAYLqP6XEHSe3v4gXhuv6eUFhKIFX75H5w?ccb=10-5&oh=01_AdSsCYbo_ZonMSYlHOtd-UfS5D0yNFAYx4ircaHUrrXwAQ&oe=65AAC6E2&_nc_sid=471a72\"\n            }\n        ]\n    },\n    \"method\": \"get\",\n    \"status\": \"success\",\n    \"id\": \"80535927-61cb-421e-80ea-c15ff9c31150\",\n    \"from\": \"postmaster@wa.gw.msging.net/#msging-gateway-whatsapp-tpxsj\",\n    \"to\": \"roteadortestewhatsapp@msging.net/!msging-server-z4wpq-hulqb4je\",\n    \"metadata\": {\n        \"traceparent\": \"00-9289005264e639773567d1de4f6baf0f-b5506da8a623602d-01\",\n        \"#command.uri\": \"lime://roteadortestewhatsapp@msging.net/whatsapp-flows/assets/1183458165944755\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "9. Deprecate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{botKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Transfer-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"get\",\r\n    \"uri\": \"/whatsapp-flows/deprecate/{{whatsAppFlowId}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://safra.http.msging.net/commands",
+					"protocol": "https",
+					"host": [
+						"safra",
+						"http",
+						"msging",
+						"net"
+					],
+					"path": [
+						"commands"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "200 OK - Exemplo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AuthorizationBotFlow}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Transfer-Encoding",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"get\",\r\n    \"uri\": \"/whatsapp-flows/deprecate/{{whatsappFlowId}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://safra.http.msging.net/commands",
+							"protocol": "https",
+							"host": [
+								"safra",
+								"http",
+								"msging",
+								"net"
+							],
+							"path": [
+								"commands"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 20 Dec 2023 22:35:13 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Correlation-Id",
+							"value": "cf9165f3-13df-4325-8bdb-d7b5e71f02c0"
+						},
+						{
+							"key": "Http-Session-Id",
+							"value": "v8we1uBih1alHdtJPXDSkQyratStgNO/gWz/hKA0C9o="
+						},
+						{
+							"key": "Lime-Session-Id",
+							"value": "5304219d-6441-4a62-a675-b6a9394f1b23"
+						},
+						{
+							"key": "Lime-Remote-Node",
+							"value": "postmaster@msging.net/#msging-server-kb4sz"
+						},
+						{
+							"key": "Lime-Local-Node",
+							"value": "roteadortestewhatsapp@msging.net/!msging-server-kb4sz-hulqb4je"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "838b5b6cc91f5219-UDI"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"application/json\",\n    \"resource\": {\n        \"success\": true\n    },\n    \"method\": \"get\",\n    \"status\": \"success\",\n    \"id\": \"1195e139-4ce1-42d0-9f43-88ad7299d052\",\n    \"from\": \"postmaster@wa.gw.msging.net/#msging-gateway-whatsapp-fbqzv\",\n    \"to\": \"roteadortestewhatsapp@msging.net/!msging-server-kb4sz-hulqb4je\",\n    \"metadata\": {\n        \"traceparent\": \"00-74cabe9634467f257a7271252336c278-7c4a3c84f020eb00-01\",\n        \"#command.uri\": \"lime://roteadortestewhatsapp@msging.net/whatsapp-flows/deprecate/1183458165944755\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "10. Delete",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{botKey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Transfer-Encoding",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"delete\",\r\n    \"uri\": \"/whatsapp-flows/{{whatsAppFlowId}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://safra.http.msging.net/commands",
+					"protocol": "https",
+					"host": [
+						"safra",
+						"http",
+						"msging",
+						"net"
+					],
+					"path": [
+						"commands"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Tentativa Deletar Flow Publicado",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AuthorizationBotFlow}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Transfer-Encoding",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"{{$guid}}\",\r\n    \"to\": \"postmaster@wa.gw.msging.net\",\r\n    \"method\": \"delete\",\r\n    \"uri\": \"/whatsapp-flows/{{whatsappFlowId}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://safra.http.msging.net/commands",
+							"protocol": "https",
+							"host": [
+								"safra",
+								"http",
+								"msging",
+								"net"
+							],
+							"path": [
+								"commands"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 20 Dec 2023 22:36:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "*"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains; preload"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1"
+						},
+						{
+							"key": "Correlation-Id",
+							"value": "609e5108-f70d-430c-bced-47ecffef7c89"
+						},
+						{
+							"key": "Http-Session-Id",
+							"value": "v8we1uBih1alHdtJPXDSkQyratStgNO/gWz/hKA0C9o="
+						},
+						{
+							"key": "Lime-Session-Id",
+							"value": "25284c5c-9ee9-40d8-b55a-946962226800"
+						},
+						{
+							"key": "Lime-Remote-Node",
+							"value": "postmaster@msging.net/#msging-server-4vwpm"
+						},
+						{
+							"key": "Lime-Local-Node",
+							"value": "roteadortestewhatsapp@msging.net/!msging-server-4vwpm-hulqb4je"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "838b5d13c9c79416-UDI"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"method\": \"delete\",\n    \"status\": \"failure\",\n    \"reason\": {\n        \"code\": 81,\n        \"description\": \"After a flow has been published, it cannot be deleted. Please deprecate instead (139004 - 4016026)\"\n    },\n    \"id\": \"fd94b85a-ad78-4410-bbcc-cbd8aede2c21\",\n    \"from\": \"postmaster@wa.gw.msging.net/#msging-gateway-whatsapp-99m98\",\n    \"to\": \"roteadortestewhatsapp@msging.net/!msging-server-4vwpm-hulqb4je\",\n    \"metadata\": {\n        \"traceparent\": \"00-3378c48873b00a5e28d7ca2efca0e779-1247835fc21e4d03-01\",\n        \"#command.uri\": \"lime://roteadortestewhatsapp@msging.net/whatsapp-flows/1183458165944755\"\n    }\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "publicKey",
+			"value": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAv/hzOYTC1/p0go8NaMJc\naaBQn3eqY4arzyO60AbD8/38Iftz2YU0BOeFEmoKTahJPO1/V/FAg0u709y2tkpl\nz3Dq6a74MV8X4oK+d2HDzBzgTJSdjNO9qRZY7cGcCtnc+sVFOpNSpBLDeVk8DpQB\n0Zw87nBTGha9wizH05yVIUKalIo6oOLwAMZhpGuxUgMc5kf0O7tlb84f3PdkqG/x\n4VJCYdRO5IWdmwoNALCB1nOD7SGqO/l1W0jEZSlGP1mVow+GTgijO5MS8wsyrrn1\nE0jMV1iHTamsg8sjGRHN5nTUFdkXKxxPNUcno9eyY37Qlnh82hEbc2Lv6zFmrAZL\nPQIDAQAB\n-----END PUBLIC KEY-----",
+			"type": "string"
+		},
+		{
+			"key": "botKey",
+			"value": "Key cm90ZWFkb3J0ZXN0ZXdoYXRzYXBwOjB1a1hZQXhYVzhzckR6cEtwREhD",
+			"type": "string"
+		},
+		{
+			"key": "whatsAppFlowId",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
