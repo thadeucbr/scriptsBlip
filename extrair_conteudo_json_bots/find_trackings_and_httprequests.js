@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const csvWriter = require('csv-writer').createObjectCsvWriter;
 
-const dirPath = '../scripts/backupAmbientes/backup/24-09-2024/beta/';
+const dirPath = '../scriptsBlip/scripts/backupAmbientes/backup/30-12-2024/local/';
 const files = fs.readdirSync(dirPath).filter(file => file.endsWith('.json'));
 
 const records = [];
