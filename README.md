@@ -8,6 +8,7 @@ This repository aims to standardize the development of the SafraPay WhatsApp cha
   - [Description](#description)
   - [Folder Structure](#folder-structure)
   - [Usage](#usage)
+  - [GPT/json-analyzer](#gptjson-analyzer)
 
 ## Description
 The purpose of this repository is to provide a standardized approach to developing the WhatsApp chatbot for SafraPay. It includes ready-to-use scripts and functions for creating chatbot components such as lists and buttons, as well as validation functions for testing and making modifications.
@@ -25,5 +26,25 @@ The repository is organized into the following folders:
 
 - `validações`: Includes JavaScript files with validation functions for testing or making modifications.
 
+- `GPT/json-analyzer`: Contains scripts and files for analyzing large JSON files using OpenAI GPT.
+  - `analises`: Directory containing analysis results.
+  - `app.js`: Main script for running the JSON analysis.
+  - `package.json`: Project configuration file.
+
 ## Usage
 To use this repository, simply clone or download the code and access the relevant folders for the scripts, functions, or templates you need.
+
+## GPT/json-analyzer
+The `GPT/json-analyzer` folder is designed to analyze large JSON files using OpenAI GPT.
+
+### Purpose
+The purpose of the `GPT/json-analyzer` folder is to provide tools for detailed analysis of large JSON files, leveraging the capabilities of OpenAI GPT.
+
+### Main Files
+- `app.js`: The main script for running the JSON analysis.
+- `package.json`: Contains the project configuration and dependencies.
+- `analises`: Directory where the analysis results are stored.
+
+### Usage
+1. **Configure the `.env` file**: Ensure you have a `.env` file in the `GPT/json-analyzer` folder with the necessary API keys.
+2. **Run the `app.js` script**: Execute the `app.js` script to start the analysis process.
