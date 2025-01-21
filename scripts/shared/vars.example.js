@@ -1,42 +1,38 @@
-const local = [
-  {
+const local = {
+  PF: [
+    {
       key: 'Key ...',
       env: 'local',
       bot: '[LOCAL] ...',
       name: '...'
-  }
-]
+    }
+  ]
+};
 
-const dev = [
-  {
+const beta = {
+  PF: [
+    {
       key: 'Key ...',
-      env: 'dev',
-      bot: '[DEV] ...',
+      env: 'beta',
+      bot: '[BETA] ...',
       name: '...'
-  }
-];
+    }
+  ]
+};
 
-const beta = [
-  {
-    key: 'Key ...',
-    env: 'beta',
-    bot: '[BETA] ...',
-    name: '...'
-  }
-]
-
-const prod = [
-  {
+const prod = {
+  PF: [
+    {
       key: 'Key ...',
       env: 'prod',
       bot: '[PROD] ...',
       name: '...'
-  }
-]
+    }
+  ]
+};
 
 export default {
   local,
-  dev,
   beta,
   prod
-}
+};

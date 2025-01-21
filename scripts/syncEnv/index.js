@@ -5,12 +5,14 @@ import getBotJsonAndUpdateFlow from './src/getBotJsonAndUpdateFlow.js';
 import updateEnv from './src/updateEnv.js';
 
 function getProjects(env) {
-  const projects = new Set(vars[env].map(({ project }) => project));
-  return [...projects];
+  return Object.keys(vars[env]);
 }
 
 function getBotNamesByProject(env, project) {
-  return vars[env].filter(({ project: botProject }) => botProject === project).map(({ name }) => name);
+  if (vars[env][project]) {
+    return vars[env][project].map(({ name }) => name);
+  }
+  return [];
 }
 
 async function main() {
@@ -19,13 +21,13 @@ async function main() {
       type: 'list',
       name: 'origin',
       message: 'Selecione a origem:',
-      choices: ['local', 'dev', 'beta', 'prod'],
+      choices: ['local', 'beta', 'prod'],
     },
     {
       type: 'list',
       name: 'destination',
       message: 'Selecione o destino:',
-      choices: ['local', 'dev', 'beta', 'prod'],
+      choices: ['local', 'beta', 'prod'],
     },
   ]);
 
@@ -41,7 +43,7 @@ async function main() {
   ]);
 
   const botNames = getBotNamesByProject(origin, project);
-
+  
   const { bot } = await inquirer.prompt([
     {
       type: 'list',
@@ -52,8 +54,8 @@ async function main() {
   ]);
 
   if (bot !== 'Todos') {
-    const keyOrigin = vars[origin].find(({ name }) => name === bot);
-    const keyDestination = vars[destination].find(({ name }) => name === bot);
+    const keyOrigin = vars[origin][project].find(({ name }) => name === bot);
+    const keyDestination = vars[destination][project].find(({ name }) => name === bot);
     if (keyOrigin && keyDestination) {
       decodeName(keyOrigin.key, keyDestination.key);
       getBotJsonAndUpdateFlow(keyOrigin.key, keyDestination.key);
@@ -61,8 +63,8 @@ async function main() {
       console.log('Bot não encontrado.');
     }
   } else {
-    updateEnv(origin, destination);
-  }
+    updateEnv(origin, destination, project);
+  }  
 }
 
 main();
