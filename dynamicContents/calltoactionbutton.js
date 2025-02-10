@@ -4,13 +4,13 @@ const dynamicContent = {
   "interactive": {
     "type": "cta_url",
     "body": {
-      "text": "texto do corpo do conteúdo interativo"
+      "text": ""
     },
     "action": {
       "name": "cta_url",
       "parameters": {
-        "display_text": "texto do botão de ação",
-        "url": "https://novotestevalida-vglka.blip.ai/"
+        "display_text": "",
+        "url": ""
       }
     }
   }
