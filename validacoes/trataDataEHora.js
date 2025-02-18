@@ -1,12 +1,17 @@
-function verificaSePassaramXHoras(hora) {
-    const horaAtual = new Date();
-    const horaEvento = new Date(hora);
+function verificaSePassaramXHoras(horarioEvento, horarioAtual) {//horarioEvento e horarioAtual devem ser strings no formato provindo de {{calendar.datetime}}
+    try {
+        const horaAtual = new Date(horarioAtual);
+        const horaEvento = new Date(horarioEvento);
 
-    horaEvento.setHours(horaEvento.getHours() + 24);
+        horaEvento.setHours(horaEvento.getHours() + 24);
 
-    if (horaAtual < horaEvento) {
-        console.log('Não fazem 24 horas');
-    } else {
-        console.log('Mais de 24 horas');
+        if (horaAtual < horaEvento) {
+            return 'Não fazem 24 horas';
+        } else {
+            return 'Mais de 24 horas';
+        }
+    }
+    catch (e) {
+        return e.message;
     }
 }
